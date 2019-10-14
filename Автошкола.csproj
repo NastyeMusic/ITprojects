@@ -46,6 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autoschool %282%29.cs">
+      <DependentUpon>Autoschool %282%29.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Autoschool %282%29.Designer.cs">
+      <DependentUpon>Autoschool %282%29.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Autoschool.cs">
       <DependentUpon>Autoschool.xsd</DependentUpon>
     </Compile>
@@ -71,6 +79,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Autoschool %282%29.xsc">
+      <DependentUpon>Autoschool %282%29.xsd</DependentUpon>
+    </None>
+    <None Include="Autoschool %282%29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Autoschool %282%29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Autoschool %282%29.xss">
+      <DependentUpon>Autoschool %282%29.xsd</DependentUpon>
+    </None>
     <None Include="Autoschool.xsc">
       <DependentUpon>Autoschool.xsd</DependentUpon>
     </None>
