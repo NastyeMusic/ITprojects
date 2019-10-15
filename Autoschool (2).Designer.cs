@@ -76,8 +76,6 @@ namespace Автошкола {
         
         private global::System.Data.DataRelation relationAuditoriums_TheoryLessons;
         
-        private global::System.Data.DataRelation relationTheoryTeachers_TheoryLessons;
-        
         private global::System.Data.DataRelation relationGroups_TheoryLessons;
         
         private global::System.Data.DataRelation relationCarriers_CarriesRepairs;
@@ -97,6 +95,10 @@ namespace Автошкола {
         private global::System.Data.DataRelation relationWorkStatuses_Instructors;
         
         private global::System.Data.DataRelation relationWorkStatuses_TheoryTeachers;
+        
+        private global::System.Data.DataRelation relationTheoryTeachers_Groups;
+        
+        private global::System.Data.DataRelation relationCategories_Groups;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -627,7 +629,6 @@ namespace Автошкола {
             this.relationCarriers_CarriersUses = this.Relations["Carriers_CarriersUses"];
             this.relationGroups_Students = this.Relations["Groups_Students"];
             this.relationAuditoriums_TheoryLessons = this.Relations["Auditoriums_TheoryLessons"];
-            this.relationTheoryTeachers_TheoryLessons = this.Relations["TheoryTeachers_TheoryLessons"];
             this.relationGroups_TheoryLessons = this.Relations["Groups_TheoryLessons"];
             this.relationCarriers_CarriesRepairs = this.Relations["Carriers_CarriesRepairs"];
             this.relationServiceMasters_CarriesRepairs = this.Relations["ServiceMasters_CarriesRepairs"];
@@ -638,6 +639,8 @@ namespace Автошкола {
             this.relationWorkStatuses_ServiceMasters = this.Relations["WorkStatuses_ServiceMasters"];
             this.relationWorkStatuses_Instructors = this.Relations["WorkStatuses_Instructors"];
             this.relationWorkStatuses_TheoryTeachers = this.Relations["WorkStatuses_TheoryTeachers"];
+            this.relationTheoryTeachers_Groups = this.Relations["TheoryTeachers_Groups"];
+            this.relationCategories_Groups = this.Relations["Categories_Groups"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -718,10 +721,6 @@ namespace Автошкола {
                         this.tableAuditoriums.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTheoryLessons.AuditoriumColumn}, false);
             this.Relations.Add(this.relationAuditoriums_TheoryLessons);
-            this.relationTheoryTeachers_TheoryLessons = new global::System.Data.DataRelation("TheoryTeachers_TheoryLessons", new global::System.Data.DataColumn[] {
-                        this.tableTheoryTeachers.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTheoryLessons.TeacherColumn}, false);
-            this.Relations.Add(this.relationTheoryTeachers_TheoryLessons);
             this.relationGroups_TheoryLessons = new global::System.Data.DataRelation("Groups_TheoryLessons", new global::System.Data.DataColumn[] {
                         this.tableGroups.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTheoryLessons.GroupColumn}, false);
@@ -762,6 +761,14 @@ namespace Автошкола {
                         this.tableWorkStatuses.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTheoryTeachers.WorkStatusColumn}, false);
             this.Relations.Add(this.relationWorkStatuses_TheoryTeachers);
+            this.relationTheoryTeachers_Groups = new global::System.Data.DataRelation("TheoryTeachers_Groups", new global::System.Data.DataColumn[] {
+                        this.tableTheoryTeachers.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGroups.TeacherColumn}, false);
+            this.Relations.Add(this.relationTheoryTeachers_Groups);
+            this.relationCategories_Groups = new global::System.Data.DataRelation("Categories_Groups", new global::System.Data.DataColumn[] {
+                        this.tableCategories.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGroups.CategoryColumn}, false);
+            this.Relations.Add(this.relationCategories_Groups);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1253,6 +1260,8 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnStateNumber;
             
+            private global::System.Data.DataColumn columnColor;
+            
             private global::System.Data.DataColumn columnTransmission;
             
             private global::System.Data.DataColumn columnCategory;
@@ -1326,6 +1335,14 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ColorColumn {
+                get {
+                    return this.columnColor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn TransmissionColumn {
                 get {
                     return this.columnTransmission;
@@ -1385,24 +1402,25 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CarriersRow AddCarriersRow(string Brand, string Model, string StateNumber, TransmissionsRow parentTransmissionsRowByTransmissions_Carriers, CategoriesRow parentCategoriesRowByCategories_Carriers, CarriesStatusesRow parentCarriesStatusesRowByCarriesStatuses_Carriers) {
+            public CarriersRow AddCarriersRow(string Brand, string Model, string StateNumber, string Color, TransmissionsRow parentTransmissionsRowByTransmissions_Carriers, CategoriesRow parentCategoriesRowByCategories_Carriers, CarriesStatusesRow parentCarriesStatusesRowByCarriesStatuses_Carriers) {
                 CarriersRow rowCarriersRow = ((CarriersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Brand,
                         Model,
                         StateNumber,
+                        Color,
                         null,
                         null,
                         null};
                 if ((parentTransmissionsRowByTransmissions_Carriers != null)) {
-                    columnValuesArray[4] = parentTransmissionsRowByTransmissions_Carriers[0];
+                    columnValuesArray[5] = parentTransmissionsRowByTransmissions_Carriers[0];
                 }
                 if ((parentCategoriesRowByCategories_Carriers != null)) {
-                    columnValuesArray[5] = parentCategoriesRowByCategories_Carriers[0];
+                    columnValuesArray[6] = parentCategoriesRowByCategories_Carriers[0];
                 }
                 if ((parentCarriesStatusesRowByCarriesStatuses_Carriers != null)) {
-                    columnValuesArray[6] = parentCarriesStatusesRowByCarriesStatuses_Carriers[0];
+                    columnValuesArray[7] = parentCarriesStatusesRowByCarriesStatuses_Carriers[0];
                 }
                 rowCarriersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCarriersRow);
@@ -1430,6 +1448,7 @@ namespace Автошкола {
                 this.columnBrand = base.Columns["Brand"];
                 this.columnModel = base.Columns["Model"];
                 this.columnStateNumber = base.Columns["StateNumber"];
+                this.columnColor = base.Columns["Color"];
                 this.columnTransmission = base.Columns["Transmission"];
                 this.columnCategory = base.Columns["Category"];
                 this.columnStatus = base.Columns["Status"];
@@ -1446,6 +1465,8 @@ namespace Автошкола {
                 base.Columns.Add(this.columnModel);
                 this.columnStateNumber = new global::System.Data.DataColumn("StateNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStateNumber);
+                this.columnColor = new global::System.Data.DataColumn("Color", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColor);
                 this.columnTransmission = new global::System.Data.DataColumn("Transmission", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransmission);
                 this.columnCategory = new global::System.Data.DataColumn("Category", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1463,6 +1484,7 @@ namespace Автошкола {
                 this.columnID.AutoIncrement = true;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columnColor.Caption = "Model";
                 this.columnTransmission.Unique = true;
                 this.columnCategory.Unique = true;
                 this.columnStatus.Unique = true;
@@ -2843,6 +2865,10 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnEndLearning;
             
+            private global::System.Data.DataColumn columnCategory;
+            
+            private global::System.Data.DataColumn columnTeacher;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GroupsDataTable() {
@@ -2910,6 +2936,22 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CategoryColumn {
+                get {
+                    return this.columnCategory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TeacherColumn {
+                get {
+                    return this.columnTeacher;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2945,13 +2987,21 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GroupsRow AddGroupsRow(string Name, string StartLearning, string EndLearning) {
+            public GroupsRow AddGroupsRow(string Name, string StartLearning, string EndLearning, CategoriesRow parentCategoriesRowByCategories_Groups, TheoryTeachersRow parentTheoryTeachersRowByTheoryTeachers_Groups) {
                 GroupsRow rowGroupsRow = ((GroupsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Name,
                         StartLearning,
-                        EndLearning};
+                        EndLearning,
+                        null,
+                        null};
+                if ((parentCategoriesRowByCategories_Groups != null)) {
+                    columnValuesArray[4] = parentCategoriesRowByCategories_Groups[0];
+                }
+                if ((parentTheoryTeachersRowByTheoryTeachers_Groups != null)) {
+                    columnValuesArray[5] = parentTheoryTeachersRowByTheoryTeachers_Groups[0];
+                }
                 rowGroupsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGroupsRow);
                 return rowGroupsRow;
@@ -2978,6 +3028,8 @@ namespace Автошкола {
                 this.columnName = base.Columns["Name"];
                 this.columnStartLearning = base.Columns["StartLearning"];
                 this.columnEndLearning = base.Columns["EndLearning"];
+                this.columnCategory = base.Columns["Category"];
+                this.columnTeacher = base.Columns["Teacher"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2991,11 +3043,21 @@ namespace Автошкола {
                 base.Columns.Add(this.columnStartLearning);
                 this.columnEndLearning = new global::System.Data.DataColumn("EndLearning", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEndLearning);
+                this.columnCategory = new global::System.Data.DataColumn("Category", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCategory);
+                this.columnTeacher = new global::System.Data.DataColumn("Teacher", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTeacher);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, false));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint41", new global::System.Data.DataColumn[] {
+                                this.columnTeacher}, false));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnCategory}, false));
                 this.columnID.AutoIncrement = true;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columnCategory.Unique = true;
+                this.columnTeacher.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3139,8 +3201,6 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnPhoneNumber;
             
-            private global::System.Data.DataColumn columnCategory;
-            
             private global::System.Data.DataColumn columnRetraining;
             
             private global::System.Data.DataColumn columnGroup;
@@ -3224,14 +3284,6 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CategoryColumn {
-                get {
-                    return this.columnCategory;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn RetrainingColumn {
                 get {
                     return this.columnRetraining;
@@ -3299,7 +3351,7 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StudentsRow AddStudentsRow(string Surname, string FirstName, string PatronymicName, string PhoneNumber, string Category, bool Retraining, GroupsRow parentGroupsRowByGroups_Students, CarriersUsesRow parentCarriersUsesRowByCarriersUses_Students, string Photo) {
+            public StudentsRow AddStudentsRow(string Surname, string FirstName, string PatronymicName, string PhoneNumber, bool Retraining, GroupsRow parentGroupsRowByGroups_Students, CarriersUsesRow parentCarriersUsesRowByCarriersUses_Students, string Photo) {
                 StudentsRow rowStudentsRow = ((StudentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3307,16 +3359,15 @@ namespace Автошкола {
                         FirstName,
                         PatronymicName,
                         PhoneNumber,
-                        Category,
                         Retraining,
                         null,
                         null,
                         Photo};
                 if ((parentGroupsRowByGroups_Students != null)) {
-                    columnValuesArray[7] = parentGroupsRowByGroups_Students[0];
+                    columnValuesArray[6] = parentGroupsRowByGroups_Students[0];
                 }
                 if ((parentCarriersUsesRowByCarriersUses_Students != null)) {
-                    columnValuesArray[8] = parentCarriersUsesRowByCarriersUses_Students[0];
+                    columnValuesArray[7] = parentCarriersUsesRowByCarriersUses_Students[0];
                 }
                 rowStudentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStudentsRow);
@@ -3345,7 +3396,6 @@ namespace Автошкола {
                 this.columnFirstName = base.Columns["FirstName"];
                 this.columnPatronymicName = base.Columns["PatronymicName"];
                 this.columnPhoneNumber = base.Columns["PhoneNumber"];
-                this.columnCategory = base.Columns["Category"];
                 this.columnRetraining = base.Columns["Retraining"];
                 this.columnGroup = base.Columns["Group"];
                 this.columnCarrierUse = base.Columns["CarrierUse"];
@@ -3365,8 +3415,6 @@ namespace Автошкола {
                 base.Columns.Add(this.columnPatronymicName);
                 this.columnPhoneNumber = new global::System.Data.DataColumn("PhoneNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhoneNumber);
-                this.columnCategory = new global::System.Data.DataColumn("Category", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCategory);
                 this.columnRetraining = new global::System.Data.DataColumn("Retraining", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRetraining);
                 this.columnGroup = new global::System.Data.DataColumn("Group", typeof(int), null, global::System.Data.MappingType.Element);
@@ -3816,8 +3864,6 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnGroup;
             
-            private global::System.Data.DataColumn columnTeacher;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TheoryLessonsDataTable() {
@@ -3893,14 +3939,6 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TeacherColumn {
-                get {
-                    return this.columnTeacher;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3936,13 +3974,12 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TheoryLessonsRow AddTheoryLessonsRow(System.DateTime Date, System.DateTime Time, AuditoriumsRow parentAuditoriumsRowByAuditoriums_TheoryLessons, GroupsRow parentGroupsRowByGroups_TheoryLessons, TheoryTeachersRow parentTheoryTeachersRowByTheoryTeachers_TheoryLessons) {
+            public TheoryLessonsRow AddTheoryLessonsRow(System.DateTime Date, System.DateTime Time, AuditoriumsRow parentAuditoriumsRowByAuditoriums_TheoryLessons, GroupsRow parentGroupsRowByGroups_TheoryLessons) {
                 TheoryLessonsRow rowTheoryLessonsRow = ((TheoryLessonsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Date,
                         Time,
-                        null,
                         null,
                         null};
                 if ((parentAuditoriumsRowByAuditoriums_TheoryLessons != null)) {
@@ -3950,9 +3987,6 @@ namespace Автошкола {
                 }
                 if ((parentGroupsRowByGroups_TheoryLessons != null)) {
                     columnValuesArray[4] = parentGroupsRowByGroups_TheoryLessons[0];
-                }
-                if ((parentTheoryTeachersRowByTheoryTeachers_TheoryLessons != null)) {
-                    columnValuesArray[5] = parentTheoryTeachersRowByTheoryTeachers_TheoryLessons[0];
                 }
                 rowTheoryLessonsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTheoryLessonsRow);
@@ -3981,7 +4015,6 @@ namespace Автошкола {
                 this.columnTime = base.Columns["Time"];
                 this.columnAuditorium = base.Columns["Auditorium"];
                 this.columnGroup = base.Columns["Group"];
-                this.columnTeacher = base.Columns["Teacher"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3997,23 +4030,18 @@ namespace Автошкола {
                 base.Columns.Add(this.columnAuditorium);
                 this.columnGroup = new global::System.Data.DataColumn("Group", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGroup);
-                this.columnTeacher = new global::System.Data.DataColumn("Teacher", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTeacher);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnAuditorium}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint3", new global::System.Data.DataColumn[] {
                                 this.columnGroup}, false));
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint4", new global::System.Data.DataColumn[] {
-                                this.columnTeacher}, false));
                 this.columnID.AutoIncrement = true;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
                 this.columnTime.Caption = "DateTime";
                 this.columnAuditorium.Unique = true;
                 this.columnGroup.Unique = true;
-                this.columnTeacher.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6289,6 +6317,17 @@ namespace Автошкола {
                     return ((InstructorsCategoriesRow[])(base.GetChildRows(this.Table.ChildRelations["Categories_InstructorsCategories"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GroupsRow[] GetGroupsRows() {
+                if ((this.Table.ChildRelations["Categories_Groups"] == null)) {
+                    return new GroupsRow[0];
+                }
+                else {
+                    return ((GroupsRow[])(base.GetChildRows(this.Table.ChildRelations["Categories_Groups"])));
+                }
+            }
         }
         
         /// <summary>
@@ -6361,6 +6400,22 @@ namespace Автошкола {
                 }
                 set {
                     this[this.tableCarriers.StateNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Color {
+                get {
+                    try {
+                        return ((string)(this[this.tableCarriers.ColorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Color\' в таблице \'Carriers\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCarriers.ColorColumn] = value;
                 }
             }
             
@@ -6479,6 +6534,18 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetStateNumberNull() {
                 this[this.tableCarriers.StateNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsColorNull() {
+                return this.IsNull(this.tableCarriers.ColorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetColorNull() {
+                this[this.tableCarriers.ColorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7088,12 +7155,12 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TheoryLessonsRow[] GetTheoryLessonsRows() {
-                if ((this.Table.ChildRelations["TheoryTeachers_TheoryLessons"] == null)) {
-                    return new TheoryLessonsRow[0];
+            public GroupsRow[] GetGroupsRows() {
+                if ((this.Table.ChildRelations["TheoryTeachers_Groups"] == null)) {
+                    return new GroupsRow[0];
                 }
                 else {
-                    return ((TheoryLessonsRow[])(base.GetChildRows(this.Table.ChildRelations["TheoryTeachers_TheoryLessons"])));
+                    return ((GroupsRow[])(base.GetChildRows(this.Table.ChildRelations["TheoryTeachers_Groups"])));
                 }
             }
         }
@@ -7238,6 +7305,60 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Category {
+                get {
+                    try {
+                        return ((int)(this[this.tableGroups.CategoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Category\' в таблице \'Groups\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGroups.CategoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Teacher {
+                get {
+                    try {
+                        return ((int)(this[this.tableGroups.TeacherColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Teacher\' в таблице \'Groups\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGroups.TeacherColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TheoryTeachersRow TheoryTeachersRow {
+                get {
+                    return ((TheoryTeachersRow)(this.GetParentRow(this.Table.ParentRelations["TheoryTeachers_Groups"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["TheoryTeachers_Groups"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesRow CategoriesRow {
+                get {
+                    return ((CategoriesRow)(this.GetParentRow(this.Table.ParentRelations["Categories_Groups"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Categories_Groups"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableGroups.NameColumn);
             }
@@ -7270,6 +7391,30 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEndLearningNull() {
                 this[this.tableGroups.EndLearningColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCategoryNull() {
+                return this.IsNull(this.tableGroups.CategoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCategoryNull() {
+                this[this.tableGroups.CategoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTeacherNull() {
+                return this.IsNull(this.tableGroups.TeacherColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTeacherNull() {
+                this[this.tableGroups.TeacherColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7381,22 +7526,6 @@ namespace Автошкола {
                 }
                 set {
                     this[this.tableStudents.PhoneNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Category {
-                get {
-                    try {
-                        return ((string)(this[this.tableStudents.CategoryColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Category\' в таблице \'Students\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStudents.CategoryColumn] = value;
                 }
             }
             
@@ -7532,18 +7661,6 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPhoneNumberNull() {
                 this[this.tableStudents.PhoneNumberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCategoryNull() {
-                return this.IsNull(this.tableStudents.CategoryColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCategoryNull() {
-                this[this.tableStudents.CategoryColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7819,39 +7936,12 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Teacher {
-                get {
-                    try {
-                        return ((int)(this[this.tableTheoryLessons.TeacherColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Teacher\' в таблице \'TheoryLessons\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTheoryLessons.TeacherColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AuditoriumsRow AuditoriumsRow {
                 get {
                     return ((AuditoriumsRow)(this.GetParentRow(this.Table.ParentRelations["Auditoriums_TheoryLessons"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Auditoriums_TheoryLessons"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TheoryTeachersRow TheoryTeachersRow {
-                get {
-                    return ((TheoryTeachersRow)(this.GetParentRow(this.Table.ParentRelations["TheoryTeachers_TheoryLessons"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["TheoryTeachers_TheoryLessons"]);
                 }
             }
             
@@ -7912,18 +8002,6 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetGroupNull() {
                 this[this.tableTheoryLessons.GroupColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTeacherNull() {
-                return this.IsNull(this.tableTheoryLessons.TeacherColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTeacherNull() {
-                this[this.tableTheoryLessons.TeacherColumn] = global::System.Convert.DBNull;
             }
         }
         
