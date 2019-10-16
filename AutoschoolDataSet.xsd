@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="Autoschool" targetNamespace="http://tempuri.org/Autoschool.xsd" xmlns:mstns="http://tempuri.org/Autoschool.xsd" xmlns="http://tempuri.org/Autoschool.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="AutoschoolDataSet" targetNamespace="http://tempuri.org/AutoschoolDataSet.xsd" xmlns:mstns="http://tempuri.org/AutoschoolDataSet.xsd" xmlns="http://tempuri.org/AutoschoolDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -9,7 +9,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="Autoschool" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Autoschool" msprop:Generator_UserDSName="Autoschool">
+  <xs:element name="AutoschoolDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AutoschoolDataSet" msprop:Generator_UserDSName="AutoschoolDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Categories" msprop:Generator_TableClassName="CategoriesDataTable" msprop:Generator_TableVarName="tableCategories" msprop:Generator_RowChangedName="CategoriesRowChanged" msprop:Generator_TablePropName="Categories" msprop:Generator_RowDeletingName="CategoriesRowDeleting" msprop:Generator_RowChangingName="CategoriesRowChanging" msprop:Generator_RowEvHandlerName="CategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriesRowDeleted" msprop:Generator_RowClassName="CategoriesRow" msprop:Generator_UserTableName="Categories" msprop:Generator_RowEvArgName="CategoriesRowChangeEvent">
@@ -100,14 +100,14 @@
               <xs:element name="Retraining" msprop:Generator_ColumnVarNameInTable="columnRetraining" msprop:Generator_ColumnPropNameInRow="Retraining" msprop:Generator_ColumnPropNameInTable="RetrainingColumn" msprop:Generator_UserColumnName="Retraining" type="xs:boolean" minOccurs="0" />
               <xs:element name="Group" msprop:Generator_ColumnVarNameInTable="columnGroup" msprop:Generator_ColumnPropNameInRow="Group" msprop:Generator_ColumnPropNameInTable="GroupColumn" msprop:Generator_UserColumnName="Group" type="xs:int" minOccurs="0" />
               <xs:element name="CarrierUse" msprop:Generator_ColumnVarNameInTable="columnCarrierUse" msprop:Generator_ColumnPropNameInRow="CarrierUse" msprop:Generator_ColumnPropNameInTable="CarrierUseColumn" msprop:Generator_UserColumnName="CarrierUse" type="xs:int" minOccurs="0" />
-              <xs:element name="Photo" msprop:Generator_ColumnVarNameInTable="columnPhoto" msprop:Generator_ColumnPropNameInRow="Photo" msprop:Generator_ColumnPropNameInTable="PhotoColumn" msprop:Generator_UserColumnName="Photo" type="xs:string" minOccurs="0" />
+              <xs:element name="Photo" msprop:Generator_ColumnVarNameInTable="columnPhoto" msprop:Generator_ColumnPropNameInRow="Photo" msprop:Generator_ColumnPropNameInTable="PhotoColumn" msprop:Generator_UserColumnName="Photo" type="xs:anyType" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="InstructorsCategories" msprop:Generator_TableClassName="InstructorsCategoriesDataTable" msprop:Generator_TableVarName="tableInstructorsCategories" msprop:Generator_RowChangedName="InstructorsCategoriesRowChanged" msprop:Generator_TablePropName="InstructorsCategories" msprop:Generator_RowDeletingName="InstructorsCategoriesRowDeleting" msprop:Generator_RowChangingName="InstructorsCategoriesRowChanging" msprop:Generator_RowEvHandlerName="InstructorsCategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="InstructorsCategoriesRowDeleted" msprop:Generator_RowClassName="InstructorsCategoriesRow" msprop:Generator_UserTableName="InstructorsCategories" msprop:Generator_RowEvArgName="InstructorsCategoriesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" />
               <xs:element name="Inctructor" msprop:Generator_ColumnVarNameInTable="columnInctructor" msprop:Generator_ColumnPropNameInRow="Inctructor" msprop:Generator_ColumnPropNameInTable="InctructorColumn" msprop:Generator_UserColumnName="Inctructor" type="xs:int" minOccurs="0" />
               <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" type="xs:int" minOccurs="0" />
             </xs:sequence>
@@ -124,7 +124,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CarriesStatuses" msprop:Generator_TableClassName="CarriesStatusesDataTable" msprop:Generator_TableVarName="tableCarriesStatuses" msprop:Generator_RowChangedName="CarriesStatusesRowChanged" msprop:Generator_TablePropName="CarriesStatuses" msprop:Generator_RowDeletingName="CarriesStatusesRowDeleting" msprop:Generator_RowChangingName="CarriesStatusesRowChanging" msprop:Generator_RowEvHandlerName="CarriesStatusesRowChangeEventHandler" msprop:Generator_RowDeletedName="CarriesStatusesRowDeleted" msprop:Generator_RowClassName="CarriesStatusesRow" msprop:Generator_UserTableName="CarriesStatuses" msprop:Generator_RowEvArgName="CarriesStatusesRowChangeEvent">
+        <xs:element name="CarriersStatuses" msprop:Generator_TableClassName="CarriersStatusesDataTable" msprop:Generator_TableVarName="tableCarriersStatuses" msprop:Generator_RowChangedName="CarriersStatusesRowChanged" msprop:Generator_TablePropName="CarriersStatuses" msprop:Generator_RowDeletingName="CarriersStatusesRowDeleting" msprop:Generator_RowChangingName="CarriersStatusesRowChanging" msprop:Generator_RowEvHandlerName="CarriersStatusesRowChangeEventHandler" msprop:Generator_RowDeletedName="CarriersStatusesRowDeleted" msprop:Generator_RowClassName="CarriersStatusesRow" msprop:Generator_UserTableName="CarriersStatuses" msprop:Generator_RowEvArgName="CarriersStatusesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -161,7 +161,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CarriesRepairs" msprop:Generator_TableClassName="CarriesRepairsDataTable" msprop:Generator_TableVarName="tableCarriesRepairs" msprop:Generator_RowChangedName="CarriesRepairsRowChanged" msprop:Generator_TablePropName="CarriesRepairs" msprop:Generator_RowDeletingName="CarriesRepairsRowDeleting" msprop:Generator_RowChangingName="CarriesRepairsRowChanging" msprop:Generator_RowEvHandlerName="CarriesRepairsRowChangeEventHandler" msprop:Generator_RowDeletedName="CarriesRepairsRowDeleted" msprop:Generator_RowClassName="CarriesRepairsRow" msprop:Generator_UserTableName="CarriesRepairs" msprop:Generator_RowEvArgName="CarriesRepairsRowChangeEvent">
+        <xs:element name="CarriersRepairs" msprop:Generator_TableClassName="CarriersRepairsDataTable" msprop:Generator_TableVarName="tableCarriersRepairs" msprop:Generator_RowChangedName="CarriersRepairsRowChanged" msprop:Generator_TablePropName="CarriersRepairs" msprop:Generator_RowDeletingName="CarriersRepairsRowDeleting" msprop:Generator_RowChangingName="CarriersRepairsRowChanging" msprop:Generator_RowEvHandlerName="CarriersRepairsRowChangeEventHandler" msprop:Generator_RowDeletedName="CarriersRepairsRowDeleted" msprop:Generator_RowClassName="CarriersRepairsRow" msprop:Generator_UserTableName="CarriersRepairs" msprop:Generator_RowEvArgName="CarriersRepairsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -194,158 +194,162 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1">
+    <xs:unique name="PK_Categories" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Categories" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="Carriers_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:Carriers" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="Constraint2">
-      <xs:selector xpath=".//mstns:Carriers" />
-      <xs:field xpath="mstns:Category" />
-    </xs:unique>
-    <xs:unique name="Constraint3">
-      <xs:selector xpath=".//mstns:Carriers" />
-      <xs:field xpath="mstns:Status" />
-    </xs:unique>
-    <xs:unique name="Constraint4">
+    <xs:unique name="FK_CarriersTransmissions">
       <xs:selector xpath=".//mstns:Carriers" />
       <xs:field xpath="mstns:Transmission" />
     </xs:unique>
-    <xs:unique name="Instructors_Constraint1" msdata:ConstraintName="Constraint1">
+    <xs:unique name="FK_CarriersCategories">
+      <xs:selector xpath=".//mstns:Carriers" />
+      <xs:field xpath="mstns:Category" />
+    </xs:unique>
+    <xs:unique name="FK_CarriersStatuses">
+      <xs:selector xpath=".//mstns:Carriers" />
+      <xs:field xpath="mstns:Status" />
+    </xs:unique>
+    <xs:unique name="PK_Carriers" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Carriers" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="FK_InstructorsWorkStatuses">
+      <xs:selector xpath=".//mstns:Instructors" />
+      <xs:field xpath="mstns:WorkStatus" />
+    </xs:unique>
+    <xs:unique name="PK_Instructors" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Instructors" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="Instructors_Constraint2" msdata:ConstraintName="Constraint2">
-      <xs:selector xpath=".//mstns:Instructors" />
-      <xs:field xpath="mstns:WorkStatus" />
-    </xs:unique>
-    <xs:unique name="ServiceMasters_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:ServiceMasters" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="ServiceMasters_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="FK_ServiceMastersWorkStatuses">
       <xs:selector xpath=".//mstns:ServiceMasters" />
       <xs:field xpath="mstns:WorkStatus" />
     </xs:unique>
-    <xs:unique name="TheoryTeachers_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:TheoryTeachers" />
+    <xs:unique name="PK_ServiceMasters" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ServiceMasters" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="TheoryTeachers_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="FK_TheoryTeachersWorkStatuses">
       <xs:selector xpath=".//mstns:TheoryTeachers" />
       <xs:field xpath="mstns:WorkStatus" />
     </xs:unique>
-    <xs:unique name="Auditoriums_Constraint1" msdata:ConstraintName="Constraint1">
+    <xs:unique name="PK_TheoryTeachers" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TheoryTeachers" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="PK_Auditoriums" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Auditoriums" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="Groups_Constraint1" msdata:ConstraintName="Constraint1">
+    <xs:unique name="FK_GroupsCategories">
       <xs:selector xpath=".//mstns:Groups" />
-      <xs:field xpath="mstns:ID" />
+      <xs:field xpath="mstns:Category" />
     </xs:unique>
-    <xs:unique name="Constraint41">
+    <xs:unique name="FK_GroupsTheoryTeachers">
       <xs:selector xpath=".//mstns:Groups" />
       <xs:field xpath="mstns:Teacher" />
     </xs:unique>
-    <xs:unique name="Groups_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="PK_Groups" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Groups" />
-      <xs:field xpath="mstns:Category" />
-    </xs:unique>
-    <xs:unique name="Students_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:Students" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="Students_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="FK_StudentsGroups">
       <xs:selector xpath=".//mstns:Students" />
       <xs:field xpath="mstns:Group" />
     </xs:unique>
-    <xs:unique name="Students_Constraint3" msdata:ConstraintName="Constraint3">
+    <xs:unique name="FK_StudentsCarriersUses">
       <xs:selector xpath=".//mstns:Students" />
       <xs:field xpath="mstns:CarrierUse" />
     </xs:unique>
-    <xs:unique name="InstructorsCategories_Constraint1" msdata:ConstraintName="Constraint1">
+    <xs:unique name="PK_Students" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Students" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="FK_InstructorsCategoriesInstructors">
       <xs:selector xpath=".//mstns:InstructorsCategories" />
       <xs:field xpath="mstns:Inctructor" />
     </xs:unique>
-    <xs:unique name="InstructorsCategories_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="FK_InstructorsCategoriesCategories">
       <xs:selector xpath=".//mstns:InstructorsCategories" />
       <xs:field xpath="mstns:Category" />
     </xs:unique>
-    <xs:unique name="TheoryLessons_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:TheoryLessons" />
+    <xs:unique name="PK_InstructorsCategories" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:InstructorsCategories" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="TheoryLessons_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="FK_TheoryLessonsAuditoriums">
       <xs:selector xpath=".//mstns:TheoryLessons" />
       <xs:field xpath="mstns:Auditorium" />
     </xs:unique>
-    <xs:unique name="TheoryLessons_Constraint3" msdata:ConstraintName="Constraint3">
+    <xs:unique name="FK_TheoryLessonsGroups">
       <xs:selector xpath=".//mstns:TheoryLessons" />
       <xs:field xpath="mstns:Group" />
     </xs:unique>
-    <xs:unique name="CarriesStatuses_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:CarriesStatuses" />
+    <xs:unique name="PK_TheoryLessons" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TheoryLessons" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="Transmissions_Constraint1" msdata:ConstraintName="Constraint1">
+    <xs:unique name="PK_CarriesStatuses" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CarriersStatuses" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="PK_Transmissions" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Transmissions" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="PracticeLessons_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:PracticeLessons" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="PracticeLessons_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="FK_PracticeLessonsStudents">
       <xs:selector xpath=".//mstns:PracticeLessons" />
       <xs:field xpath="mstns:Student" />
     </xs:unique>
-    <xs:unique name="CarriersUses_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:CarriersUses" />
+    <xs:unique name="PK_PracticeLessons" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PracticeLessons" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="CarriersUses_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="FK_CarriersUsesCarriers">
+      <xs:selector xpath=".//mstns:CarriersUses" />
+      <xs:field xpath="mstns:Carrier" />
+    </xs:unique>
+    <xs:unique name="FK_CarriersUsesInstructors">
       <xs:selector xpath=".//mstns:CarriersUses" />
       <xs:field xpath="mstns:Instructor" />
     </xs:unique>
-    <xs:unique name="CarriersUses_Constraint3" msdata:ConstraintName="Constraint3">
+    <xs:unique name="PK_CarriersUses" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:CarriersUses" />
-      <xs:field xpath="mstns:Carrier" />
+      <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="CarriesRepairs_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:CarriesRepairs" />
+    <xs:unique name="FK_CarriersRepairsServiceMasters">
+      <xs:selector xpath=".//mstns:CarriersRepairs" />
       <xs:field xpath="mstns:Master" />
     </xs:unique>
-    <xs:unique name="CarriesRepairs_Constraint2" msdata:ConstraintName="Constraint2">
-      <xs:selector xpath=".//mstns:CarriesRepairs" />
+    <xs:unique name="FK_CarriersRepairsCarriers">
+      <xs:selector xpath=".//mstns:CarriersRepairs" />
       <xs:field xpath="mstns:Carrier" />
     </xs:unique>
-    <xs:unique name="CarriesRepairs_Constraint3" msdata:ConstraintName="Constraint3">
-      <xs:selector xpath=".//mstns:CarriesRepairs" />
+    <xs:unique name="PK_CarriersRepairs" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CarriersRepairs" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="ReplacementsCarriers_Constraint1" msdata:ConstraintName="Constraint1">
-      <xs:selector xpath=".//mstns:ReplacementsCarriers" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="ReplacementsCarriers_Constraint2" msdata:ConstraintName="Constraint2">
+    <xs:unique name="FK_ReplacementsCarriersCarriersUses">
       <xs:selector xpath=".//mstns:ReplacementsCarriers" />
       <xs:field xpath="mstns:CarrierUse" />
     </xs:unique>
-    <xs:unique name="ReplacementsCarriers_Constraint3" msdata:ConstraintName="Constraint3">
+    <xs:unique name="FK_ReplacementsCarriersCarriers">
       <xs:selector xpath=".//mstns:ReplacementsCarriers" />
       <xs:field xpath="mstns:CarrierReplacement" />
     </xs:unique>
-    <xs:unique name="WorkStatuses_Constraint1" msdata:ConstraintName="Constraint1">
+    <xs:unique name="PK_ReplacementsCarriers" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ReplacementsCarriers" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="PK_WorkStatuses" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:WorkStatuses" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="CarriesStatuses_Carriers" msdata:parent="CarriesStatuses" msdata:child="Carriers" msdata:parentkey="ID" msdata:childkey="Status" msprop:Generator_UserChildTable="Carriers" msprop:Generator_ChildPropName="GetCarriersRows" msprop:Generator_UserRelationName="CarriesStatuses_Carriers" msprop:Generator_ParentPropName="CarriesStatusesRow" msprop:Generator_RelationVarName="relationCarriesStatuses_Carriers" msprop:Generator_UserParentTable="CarriesStatuses" />
+      <msdata:Relationship name="CarriesStatuses_Carriers" msdata:parent="CarriersStatuses" msdata:child="Carriers" msdata:parentkey="ID" msdata:childkey="Status" msprop:Generator_UserChildTable="Carriers" msprop:Generator_ChildPropName="GetCarriersRows" msprop:Generator_UserRelationName="CarriesStatuses_Carriers" msprop:Generator_ParentPropName="CarriersStatusesRow" msprop:Generator_RelationVarName="relationCarriesStatuses_Carriers" msprop:Generator_UserParentTable="CarriersStatuses" />
       <msdata:Relationship name="Categories_Carriers" msdata:parent="Categories" msdata:child="Carriers" msdata:parentkey="ID" msdata:childkey="Category" msprop:Generator_UserChildTable="Carriers" msprop:Generator_ChildPropName="GetCarriersRows" msprop:Generator_UserRelationName="Categories_Carriers" msprop:Generator_RelationVarName="relationCategories_Carriers" msprop:Generator_UserParentTable="Categories" msprop:Generator_ParentPropName="CategoriesRow" />
       <msdata:Relationship name="Transmissions_Carriers" msdata:parent="Transmissions" msdata:child="Carriers" msdata:parentkey="ID" msdata:childkey="Transmission" msprop:Generator_UserChildTable="Carriers" msprop:Generator_ChildPropName="GetCarriersRows" msprop:Generator_UserRelationName="Transmissions_Carriers" msprop:Generator_ParentPropName="TransmissionsRow" msprop:Generator_RelationVarName="relationTransmissions_Carriers" msprop:Generator_UserParentTable="Transmissions" />
       <msdata:Relationship name="Categories_InstructorsCategories" msdata:parent="Categories" msdata:child="InstructorsCategories" msdata:parentkey="ID" msdata:childkey="Category" msprop:Generator_UserChildTable="InstructorsCategories" msprop:Generator_ChildPropName="GetInstructorsCategoriesRows" msprop:Generator_UserRelationName="Categories_InstructorsCategories" msprop:Generator_RelationVarName="relationCategories_InstructorsCategories" msprop:Generator_UserParentTable="Categories" msprop:Generator_ParentPropName="CategoriesRow" />
@@ -355,8 +359,8 @@
       <msdata:Relationship name="Groups_Students" msdata:parent="Groups" msdata:child="Students" msdata:parentkey="ID" msdata:childkey="Group" msprop:Generator_UserChildTable="Students" msprop:Generator_ChildPropName="GetStudentsRows" msprop:Generator_UserRelationName="Groups_Students" msprop:Generator_RelationVarName="relationGroups_Students" msprop:Generator_UserParentTable="Groups" msprop:Generator_ParentPropName="GroupsRow" />
       <msdata:Relationship name="Auditoriums_TheoryLessons" msdata:parent="Auditoriums" msdata:child="TheoryLessons" msdata:parentkey="ID" msdata:childkey="Auditorium" msprop:Generator_UserChildTable="TheoryLessons" msprop:Generator_ChildPropName="GetTheoryLessonsRows" msprop:Generator_UserRelationName="Auditoriums_TheoryLessons" msprop:Generator_RelationVarName="relationAuditoriums_TheoryLessons" msprop:Generator_UserParentTable="Auditoriums" msprop:Generator_ParentPropName="AuditoriumsRow" />
       <msdata:Relationship name="Groups_TheoryLessons" msdata:parent="Groups" msdata:child="TheoryLessons" msdata:parentkey="ID" msdata:childkey="Group" msprop:Generator_UserChildTable="TheoryLessons" msprop:Generator_ChildPropName="GetTheoryLessonsRows" msprop:Generator_UserRelationName="Groups_TheoryLessons" msprop:Generator_RelationVarName="relationGroups_TheoryLessons" msprop:Generator_UserParentTable="Groups" msprop:Generator_ParentPropName="GroupsRow" />
-      <msdata:Relationship name="Carriers_CarriesRepairs" msdata:parent="Carriers" msdata:child="CarriesRepairs" msdata:parentkey="ID" msdata:childkey="Carrier" msprop:Generator_UserChildTable="CarriesRepairs" msprop:Generator_ChildPropName="GetCarriesRepairsRows" msprop:Generator_UserRelationName="Carriers_CarriesRepairs" msprop:Generator_RelationVarName="relationCarriers_CarriesRepairs" msprop:Generator_UserParentTable="Carriers" msprop:Generator_ParentPropName="CarriersRow" />
-      <msdata:Relationship name="ServiceMasters_CarriesRepairs" msdata:parent="ServiceMasters" msdata:child="CarriesRepairs" msdata:parentkey="ID" msdata:childkey="Master" msprop:Generator_UserChildTable="CarriesRepairs" msprop:Generator_ChildPropName="GetCarriesRepairsRows" msprop:Generator_UserRelationName="ServiceMasters_CarriesRepairs" msprop:Generator_RelationVarName="relationServiceMasters_CarriesRepairs" msprop:Generator_UserParentTable="ServiceMasters" msprop:Generator_ParentPropName="ServiceMastersRow" />
+      <msdata:Relationship name="Carriers_CarriesRepairs" msdata:parent="Carriers" msdata:child="CarriersRepairs" msdata:parentkey="ID" msdata:childkey="Carrier" msprop:Generator_UserChildTable="CarriersRepairs" msprop:Generator_ChildPropName="GetCarriersRepairsRows" msprop:Generator_UserRelationName="Carriers_CarriesRepairs" msprop:Generator_RelationVarName="relationCarriers_CarriesRepairs" msprop:Generator_UserParentTable="Carriers" msprop:Generator_ParentPropName="CarriersRow" />
+      <msdata:Relationship name="ServiceMasters_CarriesRepairs" msdata:parent="ServiceMasters" msdata:child="CarriersRepairs" msdata:parentkey="ID" msdata:childkey="Master" msprop:Generator_UserChildTable="CarriersRepairs" msprop:Generator_ChildPropName="GetCarriersRepairsRows" msprop:Generator_UserRelationName="ServiceMasters_CarriesRepairs" msprop:Generator_RelationVarName="relationServiceMasters_CarriesRepairs" msprop:Generator_UserParentTable="ServiceMasters" msprop:Generator_ParentPropName="ServiceMastersRow" />
       <msdata:Relationship name="CarriersUses_Students" msdata:parent="CarriersUses" msdata:child="Students" msdata:parentkey="ID" msdata:childkey="CarrierUse" msprop:Generator_UserChildTable="Students" msprop:Generator_ChildPropName="GetStudentsRows" msprop:Generator_UserRelationName="CarriersUses_Students" msprop:Generator_ParentPropName="CarriersUsesRow" msprop:Generator_RelationVarName="relationCarriersUses_Students" msprop:Generator_UserParentTable="CarriersUses" />
       <msdata:Relationship name="CarriersUses_ReplacementCarrier" msdata:parent="CarriersUses" msdata:child="ReplacementsCarriers" msdata:parentkey="ID" msdata:childkey="CarrierUse" msprop:Generator_UserChildTable="ReplacementsCarriers" msprop:Generator_ChildPropName="GetReplacementsCarriersRows" msprop:Generator_UserRelationName="CarriersUses_ReplacementCarrier" msprop:Generator_RelationVarName="relationCarriersUses_ReplacementCarrier" msprop:Generator_UserParentTable="CarriersUses" msprop:Generator_ParentPropName="CarriersUsesRow" />
       <msdata:Relationship name="Carriers_ReplacementCarrier" msdata:parent="Carriers" msdata:child="ReplacementsCarriers" msdata:parentkey="ID" msdata:childkey="CarrierReplacement" msprop:Generator_UserChildTable="ReplacementsCarriers" msprop:Generator_ChildPropName="GetReplacementsCarriersRows" msprop:Generator_UserRelationName="Carriers_ReplacementCarrier" msprop:Generator_RelationVarName="relationCarriers_ReplacementCarrier" msprop:Generator_UserParentTable="Carriers" msprop:Generator_ParentPropName="CarriersRow" />
@@ -364,8 +368,8 @@
       <msdata:Relationship name="WorkStatuses_ServiceMasters" msdata:parent="WorkStatuses" msdata:child="ServiceMasters" msdata:parentkey="ID" msdata:childkey="WorkStatus" msprop:Generator_UserChildTable="ServiceMasters" msprop:Generator_ChildPropName="GetServiceMastersRows" msprop:Generator_UserRelationName="WorkStatuses_ServiceMasters" msprop:Generator_ParentPropName="WorkStatusesRow" msprop:Generator_RelationVarName="relationWorkStatuses_ServiceMasters" msprop:Generator_UserParentTable="WorkStatuses" />
       <msdata:Relationship name="WorkStatuses_Instructors" msdata:parent="WorkStatuses" msdata:child="Instructors" msdata:parentkey="ID" msdata:childkey="WorkStatus" msprop:Generator_UserChildTable="Instructors" msprop:Generator_ChildPropName="GetInstructorsRows" msprop:Generator_UserRelationName="WorkStatuses_Instructors" msprop:Generator_ParentPropName="WorkStatusesRow" msprop:Generator_RelationVarName="relationWorkStatuses_Instructors" msprop:Generator_UserParentTable="WorkStatuses" />
       <msdata:Relationship name="WorkStatuses_TheoryTeachers" msdata:parent="WorkStatuses" msdata:child="TheoryTeachers" msdata:parentkey="ID" msdata:childkey="WorkStatus" msprop:Generator_UserChildTable="TheoryTeachers" msprop:Generator_ChildPropName="GetTheoryTeachersRows" msprop:Generator_UserRelationName="WorkStatuses_TheoryTeachers" msprop:Generator_ParentPropName="WorkStatusesRow" msprop:Generator_RelationVarName="relationWorkStatuses_TheoryTeachers" msprop:Generator_UserParentTable="WorkStatuses" />
-      <msdata:Relationship name="TheoryTeachers_Groups" msdata:parent="TheoryTeachers" msdata:child="Groups" msdata:parentkey="ID" msdata:childkey="Teacher" msprop:Generator_UserChildTable="Groups" msprop:Generator_ChildPropName="GetGroupsRows" msprop:Generator_UserRelationName="TheoryTeachers_Groups" msprop:Generator_ParentPropName="TheoryTeachersRow" msprop:Generator_RelationVarName="relationTheoryTeachers_Groups" msprop:Generator_UserParentTable="TheoryTeachers" />
-      <msdata:Relationship name="Categories_Groups" msdata:parent="Categories" msdata:child="Groups" msdata:parentkey="ID" msdata:childkey="Category" msprop:Generator_UserChildTable="Groups" msprop:Generator_ChildPropName="GetGroupsRows" msprop:Generator_UserRelationName="Categories_Groups" msprop:Generator_ParentPropName="CategoriesRow" msprop:Generator_RelationVarName="relationCategories_Groups" msprop:Generator_UserParentTable="Categories" />
+      <msdata:Relationship name="TheoryTeachers_Groups" msdata:parent="TheoryTeachers" msdata:child="Groups" msdata:parentkey="ID" msdata:childkey="Teacher" msprop:Generator_UserChildTable="Groups" msprop:Generator_ChildPropName="GetGroupsRows" msprop:Generator_UserRelationName="TheoryTeachers_Groups" msprop:Generator_RelationVarName="relationTheoryTeachers_Groups" msprop:Generator_UserParentTable="TheoryTeachers" msprop:Generator_ParentPropName="TheoryTeachersRow" />
+      <msdata:Relationship name="Categories_Groups" msdata:parent="Categories" msdata:child="Groups" msdata:parentkey="ID" msdata:childkey="Category" msprop:Generator_UserChildTable="Groups" msprop:Generator_ChildPropName="GetGroupsRows" msprop:Generator_UserRelationName="Categories_Groups" msprop:Generator_RelationVarName="relationCategories_Groups" msprop:Generator_UserParentTable="Categories" msprop:Generator_ParentPropName="CategoriesRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -48,14 +48,28 @@
   <ItemGroup>
     <Compile Include="AbstractConnection.cs" />
     <Compile Include="AbstractTransaction.cs" />
-    <Compile Include="AutoschoolDataSet.cs">
-      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="AuditoriumsDA.cs" />
     <Compile Include="AutoschoolDataSet.Designer.cs">
-      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AutoschoolDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AutoschoolDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLogic.cs" />
+    <Compile Include="CarriersDA.cs" />
+    <Compile Include="CarriersRepairsDA.cs" />
+    <Compile Include="CarriersStatusesDA.cs" />
+    <Compile Include="CarriersUsesDA.cs" />
+    <Compile Include="CategoriesDA.cs" />
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -63,9 +77,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GroupsDA.cs" />
+    <Compile Include="InstructorsCategoriesDA.cs" />
+    <Compile Include="InstructorsDA.cs" />
+    <Compile Include="PracticeLessonsDA.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentDA.cs" />
+    <Compile Include="ReplacementsCarriersDA.cs" />
+    <Compile Include="ServiceMastersDA.cs" />
+    <Compile Include="StudentsDA.cs" />
+    <Compile Include="TheoryLessonsDA.cs" />
+    <Compile Include="TheoryTeachersDA.cs" />
+    <Compile Include="TransmissionsDA.cs" />
+    <Compile Include="WorkStatusesDA.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,9 +106,9 @@
       <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
     </None>
     <None Include="AutoschoolDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AutoschoolDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AutoschoolDataSet2.Designer.cs</LastGenOutput>
     </None>
     <None Include="AutoschoolDataSet.xss">
       <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
