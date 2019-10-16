@@ -46,22 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autoschool %282%29.cs">
-      <DependentUpon>Autoschool %282%29.xsd</DependentUpon>
+    <Compile Include="AbstractConnection.cs" />
+    <Compile Include="AbstractTransaction.cs" />
+    <Compile Include="AutoschoolDataSet.cs">
+      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Autoschool %282%29.Designer.cs">
-      <DependentUpon>Autoschool %282%29.xsd</DependentUpon>
+    <Compile Include="AutoschoolDataSet.Designer.cs">
+      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Autoschool.cs">
-      <DependentUpon>Autoschool.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Autoschool.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Autoschool.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="ConnectionFactory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +65,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentDA.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,27 +78,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Autoschool %282%29.xsc">
-      <DependentUpon>Autoschool %282%29.xsd</DependentUpon>
+    <None Include="AutoschoolDataSet.xsc">
+      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Autoschool %282%29.xsd">
+    <None Include="AutoschoolDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Autoschool %282%29.Designer.cs</LastGenOutput>
+      <LastGenOutput>AutoschoolDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Autoschool %282%29.xss">
-      <DependentUpon>Autoschool %282%29.xsd</DependentUpon>
-    </None>
-    <None Include="Autoschool.xsc">
-      <DependentUpon>Autoschool.xsd</DependentUpon>
-    </None>
-    <None Include="Autoschool.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Autoschool.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Autoschool.xss">
-      <DependentUpon>Autoschool.xsd</DependentUpon>
+    <None Include="AutoschoolDataSet.xss">
+      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
