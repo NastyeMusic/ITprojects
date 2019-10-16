@@ -171,11 +171,927 @@ namespace Автошкола
         // методы к классу ReplacementsCarriers
         public AutoschoolDataSet ReadReplacementsCarriers()
         {
-
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.Read(ds, abstrCon, abstrTr);
+                replacementsCarriersDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
         }
-        public AutoschoolDataSet WriteReplacementsCarriers()
+        public AutoschoolDataSet WriteReplacementsCarriers(AutoschoolDataSet ds)
         {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Save(ds, abstrCon, abstrTr);
+                transmissionsDA.Save(ds, abstrCon, abstrTr);
+                carriersDA.Save(ds, abstrCon, abstrTr);
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                instructorsDA.Save(ds, abstrCon, abstrTr);
+                carriersUsesDA.Save(ds, abstrCon, abstrTr);
+                replacementsCarriersDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
+        // методы к классу CarriersRepairs
+        public AutoschoolDataSet ReadCarriersRepairs()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                serviceMastersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                carriersRepairsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteCarriersRepairs(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                serviceMastersDA.Save(ds, abstrCon, abstrTr);
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Save(ds, abstrCon, abstrTr);
+                transmissionsDA.Save(ds, abstrCon, abstrTr);
+                carriersDA.Save(ds, abstrCon, abstrTr);
+                carriersRepairsDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу ServiceMasters
+        public AutoschoolDataSet ReadServiceMasters()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                serviceMastersDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteServiceMasters(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                serviceMastersDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу Instructors
+        public AutoschoolDataSet ReadInstructors()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteInstructors(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                instructorsDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу Transmissions
+        public AutoschoolDataSet ReadTransmissions()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteTransmissions(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                transmissionsDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу Carriers
+        public AutoschoolDataSet ReadCarriers()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteCarriers(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                transmissionsDA.Save(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Save(ds, abstrCon, abstrTr);
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                carriersDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу CarriersStatuses
+        public AutoschoolDataSet ReadCarriersStatuses()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteCarriersStatuses(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                carriersStatusesDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу CarriersUses
+        public AutoschoolDataSet ReadCarriersUses()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteCarriersUses(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                transmissionsDA.Save(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Save(ds, abstrCon, abstrTr);
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                carriersDA.Save(ds, abstrCon, abstrTr);
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                instructorsDA.Save(ds, abstrCon, abstrTr);
+                carriersUsesDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу InstructorsCategories
+        public AutoschoolDataSet ReadInstructorsCategories()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                instructorsCategoriesDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteInstructorsCategories(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                instructorsDA.Save(ds, abstrCon, abstrTr);
+                instructorsCategoriesDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу Categories
+        public AutoschoolDataSet ReadCategories()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteCategories(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу Students
+        public AutoschoolDataSet ReadStudents()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.Read(ds, abstrCon, abstrTr);
+                studentsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteStudents(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Save(ds, abstrCon, abstrTr);
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                groupsDA.Save(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Save(ds, abstrCon, abstrTr);
+                transmissionsDA.Save(ds, abstrCon, abstrTr);
+                carriersDA.Save(ds, abstrCon, abstrTr);
+                instructorsDA.Save(ds, abstrCon, abstrTr);
+                carriersUsesDA.Save(ds, abstrCon, abstrTr);
+                studentsDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу Groups
+        public AutoschoolDataSet ReadGroups()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteGroups(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Save(ds, abstrCon, abstrTr);
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                groupsDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу Auditoriums
+        public AutoschoolDataSet ReadAuditoriums()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                auditoriumsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteAuditoriums(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                auditoriumsDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу WorkStatuses
+        public AutoschoolDataSet ReadWorkStatuses()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteWorkStatuses(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу PracticeLessons
+        public AutoschoolDataSet ReadPracticeLessons()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.Read(ds, abstrCon, abstrTr);
+                studentsDA.Read(ds, abstrCon, abstrTr);
+                practiceLessonsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WritePracticeLessons(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Save(ds, abstrCon, abstrTr);
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                groupsDA.Save(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Save(ds, abstrCon, abstrTr);
+                transmissionsDA.Save(ds, abstrCon, abstrTr);
+                carriersDA.Save(ds, abstrCon, abstrTr);
+                instructorsDA.Save(ds, abstrCon, abstrTr);
+                carriersUsesDA.Save(ds, abstrCon, abstrTr);
+                studentsDA.Save(ds, abstrCon, abstrTr);
+                practiceLessonsDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу TheoryTeachers
+        public AutoschoolDataSet ReadTheoryTeachers()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);                
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteTheoryTeachers(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Save(ds, abstrCon, abstrTr);                
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        // методы к классу TheoryLessons
+        public AutoschoolDataSet ReadTheoryLessons()
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                auditoriumsDA.Read(ds, abstrCon, abstrTr);
+                theoryLessonsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet WriteTheoryLessons(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Save(ds, abstrCon, abstrTr);
+                categoriesDA.Save(ds, abstrCon, abstrTr);
+                groupsDA.Save(ds, abstrCon, abstrTr);
+                auditoriumsDA.Save(ds, abstrCon, abstrTr);
+                theoryLessonsDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
         }
     }
 }

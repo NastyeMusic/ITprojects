@@ -54,16 +54,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AutoschoolDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AutoschoolDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="CarriersDA.cs" />
     <Compile Include="CarriersRepairsDA.cs" />

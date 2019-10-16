@@ -7,9 +7,9 @@ using System.Data.SqlClient;
 
 namespace Автошкола
 {
-    class ConnectionFactory
+    static class ConnectionFactory
     {
-        public AbstractConnection getConnection()
+        static public AbstractConnection getConnection()
         {
             String connString = @"Data Source=DESKTOP-RPN2KIG\SQLEXPRESS;Initial Catalog=Autoschool;Integrated Security=True;Pooling=False";
             AbstractConnection conn = new AbstractConnection(new SqlConnection(connString));
