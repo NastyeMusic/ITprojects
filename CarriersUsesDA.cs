@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Автошкола
 {
-    class CarriersUsesDA
+    public class CarriersUsesDA
     {
         private SqlDataAdapter dataAdapter;
 
@@ -43,6 +43,14 @@ namespace Автошкола
         {
             dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM CarriersUses", conn.getConnection(), tr.getTransaction());
+            dataAdapter.Fill(dataSet, "CarriersUses");
+        }
+
+        public void ReadByID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int ID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM CarriersUses WHERE ID = @ID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@ID", ID);
             dataAdapter.Fill(dataSet, "CarriersUses");
         }
     }

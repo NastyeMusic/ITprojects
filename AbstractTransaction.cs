@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Автошкола
 {
-    class AbstractTransaction
+    public class AbstractTransaction
     {
         private SqlTransaction tr;
         public AbstractTransaction(SqlTransaction tran)

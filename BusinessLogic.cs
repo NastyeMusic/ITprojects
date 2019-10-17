@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Автошкола
 {
-    class BusinessLogic
+    public class BusinessLogic
     {
         private ReplacementsCarriersDA replacementsCarriersDA;
         private CarriersRepairsDA carriersRepairsDA;
@@ -389,6 +389,31 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadInstructorByID(int ID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.ReadByID(ds, abstrCon, abstrTr, ID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу Transmissions
         public AutoschoolDataSet ReadTransmissions()
@@ -586,6 +611,36 @@ namespace Автошкола
                 workStatusesDA.Save(ds, abstrCon, abstrTr);
                 instructorsDA.Save(ds, abstrCon, abstrTr);
                 carriersUsesDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet ReadCarriersUsesByID(int ID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.ReadByID(ds, abstrCon, abstrTr, ID);
                 abstrTr.Commit();
             }
             catch (Exception e)

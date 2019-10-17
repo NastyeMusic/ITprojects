@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Автошкола
 {
-    class CarriersDA
+    public class CarriersDA
     {
         private SqlDataAdapter dataAdapter;
 

@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Автошкола
 {
-    class AbstractConnection
+    public class AbstractConnection
     {
         private SqlConnection conn;
 
