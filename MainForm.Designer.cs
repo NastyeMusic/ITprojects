@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Группы");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Группы");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.путьКБДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +75,7 @@
             this.InstructorColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.CarrierColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PhotoColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.UpdateGroups_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Students_dGV)).BeginInit();
             this.SuspendLayout();
@@ -343,12 +344,13 @@
             this.Groups_treeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Groups_treeView.Location = new System.Drawing.Point(12, 61);
             this.Groups_treeView.Name = "Groups_treeView";
-            treeNode1.Name = "Groups";
-            treeNode1.Text = "Группы";
+            treeNode2.Name = "Groups";
+            treeNode2.Text = "Группы";
             this.Groups_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.Groups_treeView.Size = new System.Drawing.Size(231, 559);
             this.Groups_treeView.TabIndex = 3;
+            this.Groups_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Groups_treeView_AfterSelect);
             // 
             // Students_dGV
             // 
@@ -368,8 +370,8 @@
             this.Students_dGV.Name = "Students_dGV";
             this.Students_dGV.ReadOnly = true;
             this.Students_dGV.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Students_dGV.RowTemplate.Height = 24;
             this.Students_dGV.Size = new System.Drawing.Size(926, 559);
             this.Students_dGV.TabIndex = 4;
@@ -431,11 +433,23 @@
             this.PhotoColumn.Name = "PhotoColumn";
             this.PhotoColumn.ReadOnly = true;
             // 
+            // UpdateGroups_Button
+            // 
+            this.UpdateGroups_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpdateGroups_Button.Location = new System.Drawing.Point(12, 31);
+            this.UpdateGroups_Button.Name = "UpdateGroups_Button";
+            this.UpdateGroups_Button.Size = new System.Drawing.Size(182, 27);
+            this.UpdateGroups_Button.TabIndex = 5;
+            this.UpdateGroups_Button.Text = "Обновить список групп";
+            this.UpdateGroups_Button.UseVisualStyleBackColor = true;
+            this.UpdateGroups_Button.Click += new System.EventHandler(this.UpdateGroups_Button_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1187, 632);
+            this.Controls.Add(this.UpdateGroups_Button);
             this.Controls.Add(this.Students_dGV);
             this.Controls.Add(this.Groups_treeView);
             this.Controls.Add(this.SearchStudent_textBox);
@@ -500,6 +514,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn InstructorColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn CarrierColumn;
         private System.Windows.Forms.DataGridViewImageColumn PhotoColumn;
+        private System.Windows.Forms.Button UpdateGroups_Button;
     }
 }
 

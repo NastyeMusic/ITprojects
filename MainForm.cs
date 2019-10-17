@@ -20,9 +20,9 @@ namespace Автошкола
         public BusinessLogic BusinessLogic = new BusinessLogic(); 
         AutoschoolDataSet dataSet;
 
-        void ReloadStudents()
+        void ReloadStudents(string Name)
         {
-            dataSet = BusinessLogic.ReadStudents();
+            dataSet = BusinessLogic.ReadStudentsOfGroup(Name);
             Students_dGV.DataSource = dataSet;
             Students_dGV.DataMember = "Students";
 
@@ -72,21 +72,36 @@ namespace Автошкола
                     {
                         Find = true;
                         // добавляем в уже существующую ветку
-
+                        Groups_treeView.Nodes[j].Nodes.Add(Groups_dGV[1, i].ToString());
+                        break;
                     }
                 }
                 if (!Find)
                 {
                     // создаем новую ветку, и добавляем в нее
-
+                    TreeNode TempNode = Groups_treeView.Nodes.Add(year.ToString());
+                    TempNode.Nodes.Add(Groups_dGV[1, i].ToString());
                 }
             }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ReloadStudents();
-            
+            ReloadGroups();            
+        }
+
+        private void Groups_treeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (Groups_treeView.SelectedNode.Level == 2)
+            {
+                string Name = Groups_treeView.SelectedNode.Text;
+                ReloadStudents(Name);
+            }
+        }
+
+        private void UpdateGroups_Button_Click(object sender, EventArgs e)
+        {
+            ReloadGroups();
         }
     }
 }

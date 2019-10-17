@@ -822,6 +822,54 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadStudentsOfGroup(string Name)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();                
+
+                AutoschoolDataSet ds2 = new AutoschoolDataSet();
+                groupsDA.ReadGroupByName(ds2, abstrCon, abstrTr, Name);
+                if (ds2.Groups.Rows.Count > 0)
+                {
+                    int ID = Convert.ToInt32(ds2.Groups.Rows[0][0].ToString());
+
+                    ds.EnforceConstraints = false;
+                    workStatusesDA.Read(ds, abstrCon, abstrTr);
+                    theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                    categoriesDA.Read(ds, abstrCon, abstrTr);
+                    groupsDA.Read(ds, abstrCon, abstrTr);
+                    carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                    transmissionsDA.Read(ds, abstrCon, abstrTr);
+                    carriersDA.Read(ds, abstrCon, abstrTr);
+                    instructorsDA.Read(ds, abstrCon, abstrTr);
+                    carriersUsesDA.Read(ds, abstrCon, abstrTr);
+
+                    studentsDA.ReadStudentsOfGroup(ds, abstrCon, abstrTr, ID);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+
+                studentsDA.Read(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу Groups
         public AutoschoolDataSet ReadGroups()

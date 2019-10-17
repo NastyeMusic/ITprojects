@@ -53,5 +53,13 @@ namespace Автошкола
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Groups", conn.getConnection(), tr.getTransaction());
             dataAdapter.Fill(dataSet, "Groups");
         }
+
+        public void ReadGroupByName(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, string Name)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Groups WHERE Name = @Name", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Name", Name);
+            dataAdapter.Fill(dataSet, "Groups");
+        }
     }
 }
