@@ -17,7 +17,7 @@ namespace Автошкола
             dataAdapter = new SqlDataAdapter();
 
             // на обновление
-            dataAdapter.UpdateCommand = new SqlCommand("UPDATE ReplacementsCarries SET ID = @ID, CarrierUse = @CarrierUse, " +
+            dataAdapter.UpdateCommand = new SqlCommand("UPDATE ReplacementsCarriers SET ID = @ID, CarrierUse = @CarrierUse, " +
                 "CarrierReplacement = @CarrierReplacement, DateBeginReplacement = @DateBeginReplacement, " +
                 "DateEndReplacement = @DateEndReplacement " +
                 "WHERE ID = @OldID", conn.getConnection(), tr.getTransaction());
@@ -29,7 +29,7 @@ namespace Автошкола
             dataAdapter.UpdateCommand.Parameters.Add("@OldID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
             // на вставку 
-            dataAdapter.InsertCommand = new SqlCommand("INSERT INTO ReplacementsCarries (ID, Carrier, Master, Work, " +
+            dataAdapter.InsertCommand = new SqlCommand("INSERT INTO ReplacementsCarriers (ID, Carrier, Master, Work, " +
                 "BeginDate, EndDate)  VALUES (@ID, @Carrier, @Master, @Work, @BeginDate, @EndDate)",
                 conn.getConnection(), tr.getTransaction());
             dataAdapter.InsertCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID");
@@ -39,7 +39,7 @@ namespace Автошкола
             dataAdapter.InsertCommand.Parameters.Add("@DateEndReplacement", System.Data.SqlDbType.Date, 255, "DateEndReplacement");
 
             // на удаление
-            dataAdapter.DeleteCommand = new SqlCommand("DELETE ReplacementsCarries WHERE ID = @ID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.DeleteCommand = new SqlCommand("DELETE ReplacementsCarriers WHERE ID = @ID", conn.getConnection(), tr.getTransaction());
             dataAdapter.DeleteCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
             dataAdapter.Update(dataSet, "ReplacementsCarries");
@@ -49,7 +49,7 @@ namespace Автошкола
         public void Read(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr)
         {
             dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM ReplacementsCarries", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM ReplacementsCarriers", conn.getConnection(), tr.getTransaction());
             dataAdapter.Fill(dataSet, "ReplacementsCarries");
         }
     }

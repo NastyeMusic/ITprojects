@@ -1,0 +1,190 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Автошкола
+{
+    public partial class GroupsForm : Form
+    {
+        public GroupsForm()
+        {
+            InitializeComponent();
+        }
+
+        public BusinessLogic BusinessLogic = new BusinessLogic();
+        AutoschoolDataSet dataSet;
+        string LastSearchingText = "";
+        int LastFoundRow = -1;
+
+        void ReloadGroups()
+        {
+            dataSet = BusinessLogic.ReadGroups();
+            Groups_dataGridView.DataSource = dataSet;
+            Groups_dataGridView.DataMember = "Groups";
+
+            Groups_dataGridView.Columns["ID"].Visible = false;
+            Groups_dataGridView.Columns["Name"].Visible = false;
+            Groups_dataGridView.Columns["StartLearning"].Visible = false;
+            Groups_dataGridView.Columns["EndLearning"].Visible = false;
+            Groups_dataGridView.Columns["Category"].Visible = false;
+            Groups_dataGridView.Columns["Teacher"].Visible = false;
+
+            IDColumn.DataPropertyName = "ID";
+            NameColumn.DataPropertyName = "Name";
+            StartLearningColumn.DataPropertyName = "StartLearning";
+            EndLearningColumn.DataPropertyName = "EndLearning";
+            CategoryColumn.DataPropertyName = "CategoryName";
+            TeacherColumn.DataPropertyName = "TeacherFIO";
+        }
+
+        private void GroupsForm_Load(object sender, EventArgs e)
+        {
+            ReloadGroups();
+            Edit_button.Enabled = false;
+            Delete_button.Enabled = false;
+        }
+
+        private void Search_button_Click(object sender, EventArgs e)
+        {
+            bool Find = false;
+            string CurrentSearchingText = SearchGroup_textBox.Text.Trim();
+            int BeginRow = 0;
+            if (LastSearchingText == CurrentSearchingText)
+            {
+                if (Direction_checkBox.Checked)
+                    BeginRow = LastFoundRow + 1;
+                else
+                    BeginRow = LastFoundRow - 1;
+            }
+            else
+                LastSearchingText = CurrentSearchingText;
+            Search:
+            if (Direction_checkBox.Checked)
+            {
+                for (int i = BeginRow; i < Groups_dataGridView.RowCount; i++)
+                {
+                    if (Groups_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
+                    {
+                        Groups_dataGridView.CurrentCell = Groups_dataGridView[1, i];
+                        LastFoundRow = i;
+                        return;
+                    }
+                }
+                if (!Find)
+                {
+                    DialogResult result = MessageBox.Show("Поиск достиг последней строки таблицы. Продолжить поиск с начала таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        BeginRow = 0;
+                        goto Search;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = BeginRow; i >= 0; i--)
+                {
+                    if (Groups_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
+                    {
+                        Groups_dataGridView.CurrentCell = Groups_dataGridView[1, i];
+                        LastFoundRow = i;
+                        return;
+                    }
+                }
+                if (!Find)
+                {
+                    DialogResult result = MessageBox.Show("Поиск достиг первой строки таблицы. Продолжить поиск с конца таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        BeginRow = Groups_dataGridView.RowCount - 1;
+                        goto Search;
+                    }
+                }                
+            }            
+        }
+
+        private void SearchGroup_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char)e.KeyChar == (Char)Keys.Enter)
+            {
+                Search_button_Click(sender, e);
+            }
+            if ((char)e.KeyChar == (Char)Keys.Back)
+            {
+                LastSearchingText = "";
+            }
+        }
+
+        private void Groups_dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Groups_dataGridView.SelectedRows.Count == 1)
+            {
+                Edit_button.Enabled = true;
+                Delete_button.Enabled = true;
+            }
+            else
+            {
+                Edit_button.Enabled = false;
+                Delete_button.Enabled = false;
+            }
+        }
+
+        private void Add_button_Click(object sender, EventArgs e)
+        {
+            AddEditGroup AddGroup = new AddEditGroup(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, null);
+            AddGroup.Text = "Добавление группы";
+            this.Enabled = false;
+            AddGroup.ShowDialog();            
+            if (AddGroup.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WriteGroups(dataSet);
+                ReloadGroups();
+            }
+            this.Enabled = true;
+        }
+
+        private void Edit_button_Click(object sender, EventArgs e)
+        {
+            AddEditGroup EditGroup = new AddEditGroup(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value));
+            EditGroup.Text = "Редактирование группы";
+            this.Enabled = false;
+            EditGroup.ShowDialog();
+            if (EditGroup.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WriteGroups(dataSet);
+                ReloadGroups();
+            }
+            this.Enabled = true;
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            if (Groups_dataGridView.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value).Delete();
+                    dataSet = BusinessLogic.WriteGroups(dataSet);
+                    ReloadGroups();
+                }
+                catch
+                {
+                    MessageBox.Show("Не удалось удалить выбранную строку.\nСкорее всего, на данную строку имеются ссылки из других таблиц", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ReloadGroups();
+                }
+            }
+        }
+    }
+}

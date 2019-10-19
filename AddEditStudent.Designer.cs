@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.Group_comboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,9 +62,9 @@
             this.Cancel_button = new System.Windows.Forms.Button();
             this.PhoneNumber_maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.SelectPicture_openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.Photo_pictureBox = new System.Windows.Forms.PictureBox();
-            this.ReloadGroups_button = new System.Windows.Forms.Button();
             this.ReloadInstructors_button = new System.Windows.Forms.Button();
+            this.ReloadGroups_button = new System.Windows.Forms.Button();
+            this.Photo_pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersUses_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Photo_pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +93,7 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Location = new System.Drawing.Point(12, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1061, 2);
+            this.label2.Size = new System.Drawing.Size(982, 2);
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
             // 
@@ -189,7 +189,7 @@
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label8.Location = new System.Drawing.Point(12, 165);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(1061, 2);
+            this.label8.Size = new System.Drawing.Size(982, 2);
             this.label8.TabIndex = 13;
             this.label8.Text = "label8";
             // 
@@ -228,7 +228,7 @@
             this.Instructor_comboBox.FormattingEnabled = true;
             this.Instructor_comboBox.Location = new System.Drawing.Point(369, 177);
             this.Instructor_comboBox.Name = "Instructor_comboBox";
-            this.Instructor_comboBox.Size = new System.Drawing.Size(669, 26);
+            this.Instructor_comboBox.Size = new System.Drawing.Size(574, 26);
             this.Instructor_comboBox.TabIndex = 18;
             this.Instructor_comboBox.SelectedIndexChanged += new System.EventHandler(this.Instructor_comboBox_SelectedIndexChanged);
             // 
@@ -236,15 +236,15 @@
             // 
             this.CarriersUses_dataGridView.AllowUserToAddRows = false;
             this.CarriersUses_dataGridView.AllowUserToDeleteRows = false;
-            this.CarriersUses_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarriersUses_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.CarriersUses_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarriersUses_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CarriersUses_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CarriersUses_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InstructorColumn,
@@ -252,21 +252,21 @@
             this.InstructorID,
             this.CarrierID,
             this.CarrierUseID});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CarriersUses_dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CarriersUses_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.CarriersUses_dataGridView.Location = new System.Drawing.Point(274, 209);
             this.CarriersUses_dataGridView.MultiSelect = false;
             this.CarriersUses_dataGridView.Name = "CarriersUses_dataGridView";
             this.CarriersUses_dataGridView.ReadOnly = true;
             this.CarriersUses_dataGridView.RowTemplate.Height = 24;
             this.CarriersUses_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.CarriersUses_dataGridView.Size = new System.Drawing.Size(799, 215);
+            this.CarriersUses_dataGridView.Size = new System.Drawing.Size(720, 215);
             this.CarriersUses_dataGridView.TabIndex = 19;
             this.CarriersUses_dataGridView.SelectionChanged += new System.EventHandler(this.CarriersUses_dataGridView_SelectionChanged);
             // 
@@ -353,7 +353,7 @@
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label13.Location = new System.Drawing.Point(12, 489);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(1061, 2);
+            this.label13.Size = new System.Drawing.Size(982, 2);
             this.label13.TabIndex = 25;
             this.label13.Text = "label13";
             // 
@@ -361,7 +361,7 @@
             // 
             this.Save_button.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Save_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Save_button.Location = new System.Drawing.Point(764, 494);
+            this.Save_button.Location = new System.Drawing.Point(685, 495);
             this.Save_button.Name = "Save_button";
             this.Save_button.Size = new System.Drawing.Size(142, 35);
             this.Save_button.TabIndex = 26;
@@ -372,7 +372,7 @@
             // 
             this.Cancel_button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Cancel_button.Location = new System.Drawing.Point(931, 494);
+            this.Cancel_button.Location = new System.Drawing.Point(852, 495);
             this.Cancel_button.Name = "Cancel_button";
             this.Cancel_button.Size = new System.Drawing.Size(142, 35);
             this.Cancel_button.TabIndex = 27;
@@ -385,9 +385,31 @@
             this.PhoneNumber_maskedTextBox.Location = new System.Drawing.Point(703, 65);
             this.PhoneNumber_maskedTextBox.Mask = "+7 (999) 999-9999";
             this.PhoneNumber_maskedTextBox.Name = "PhoneNumber_maskedTextBox";
-            this.PhoneNumber_maskedTextBox.Size = new System.Drawing.Size(370, 24);
+            this.PhoneNumber_maskedTextBox.Size = new System.Drawing.Size(291, 24);
             this.PhoneNumber_maskedTextBox.TabIndex = 28;
             this.PhoneNumber_maskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumber_maskedTextBox_KeyPress);
+            // 
+            // ReloadInstructors_button
+            // 
+            this.ReloadInstructors_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadInstructors_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadInstructors_button.Location = new System.Drawing.Point(949, 172);
+            this.ReloadInstructors_button.Name = "ReloadInstructors_button";
+            this.ReloadInstructors_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadInstructors_button.TabIndex = 30;
+            this.ReloadInstructors_button.UseVisualStyleBackColor = true;
+            this.ReloadInstructors_button.Click += new System.EventHandler(this.ReloadInstructors_button_Click);
+            // 
+            // ReloadGroups_button
+            // 
+            this.ReloadGroups_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadGroups_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadGroups_button.Location = new System.Drawing.Point(325, 7);
+            this.ReloadGroups_button.Name = "ReloadGroups_button";
+            this.ReloadGroups_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadGroups_button.TabIndex = 29;
+            this.ReloadGroups_button.UseVisualStyleBackColor = true;
+            this.ReloadGroups_button.Click += new System.EventHandler(this.ReloadGroups_button_Click);
             // 
             // Photo_pictureBox
             // 
@@ -397,35 +419,13 @@
             this.Photo_pictureBox.TabIndex = 15;
             this.Photo_pictureBox.TabStop = false;
             // 
-            // ReloadGroups_button
-            // 
-            this.ReloadGroups_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadGroups_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadGroups_button.Location = new System.Drawing.Point(326, 12);
-            this.ReloadGroups_button.Name = "ReloadGroups_button";
-            this.ReloadGroups_button.Size = new System.Drawing.Size(29, 26);
-            this.ReloadGroups_button.TabIndex = 29;
-            this.ReloadGroups_button.UseVisualStyleBackColor = true;
-            this.ReloadGroups_button.Click += new System.EventHandler(this.ReloadGroups_button_Click);
-            // 
-            // ReloadInstructors_button
-            // 
-            this.ReloadInstructors_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadInstructors_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadInstructors_button.Location = new System.Drawing.Point(1044, 177);
-            this.ReloadInstructors_button.Name = "ReloadInstructors_button";
-            this.ReloadInstructors_button.Size = new System.Drawing.Size(29, 26);
-            this.ReloadInstructors_button.TabIndex = 30;
-            this.ReloadInstructors_button.UseVisualStyleBackColor = true;
-            this.ReloadInstructors_button.Click += new System.EventHandler(this.ReloadInstructors_button_Click);
-            // 
             // AddEditStudent
             // 
             this.AcceptButton = this.Save_button;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.Cancel_button;
-            this.ClientSize = new System.Drawing.Size(1085, 542);
+            this.ClientSize = new System.Drawing.Size(1006, 542);
             this.ControlBox = false;
             this.Controls.Add(this.ReloadInstructors_button);
             this.Controls.Add(this.ReloadGroups_button);
@@ -458,8 +458,11 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1024, 589);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1024, 589);
             this.Name = "AddEditStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditStudent";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEditStudent_FormClosing);
             this.Load += new System.EventHandler(this.AddEditStudent_Load);

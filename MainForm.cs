@@ -19,6 +19,9 @@ namespace Автошкола
 
         public BusinessLogic BusinessLogic = new BusinessLogic(); 
         AutoschoolDataSet dataSet;
+        string GroupName = null;
+        string LastSearchingText = "";
+        int LastFoundRow = -1;
 
         void ReloadStudents(string NameOfGroup)
         {
@@ -98,7 +101,7 @@ namespace Автошкола
         {
             if (Groups_treeView.SelectedNode.Level == 2)
             {
-                string GroupName = Groups_treeView.SelectedNode.Text;
+                GroupName = Groups_treeView.SelectedNode.Text;
                 ReloadStudents(GroupName);
             }
         }
@@ -113,7 +116,6 @@ namespace Автошкола
             AutoschoolDataSet dataSetForAllStudent;
             dataSetForAllStudent = BusinessLogic.ReadStudents();
             AddEditStudent AddStudent;
-            string GroupName = Groups_treeView.SelectedNode.Text;
             if (GroupName != "")
                 AddStudent = new AddEditStudent(GroupName, dataSetForAllStudent.Students, dataSetForAllStudent.Groups, 
                     dataSetForAllStudent.Instructors, null);
@@ -122,12 +124,29 @@ namespace Автошкола
                     dataSetForAllStudent.Instructors, null);
 
             AddStudent.Text = "Добавление курсанта";
+
+            редактироватьЗаписьОКурсантеToolStripMenuItem.Enabled = false;
+            удалитьКурсантаToolStripMenuItem.Enabled = false;
+            добавитьНовогоКурсантаToolStripMenuItem.Enabled = false;
+
             AddStudent.ShowDialog();
             if (AddStudent.DialogResult == DialogResult.OK)
             {
                 dataSet = BusinessLogic.WriteStudents(dataSet);
                 if (GroupName != "")
                     ReloadStudents(GroupName);
+            }
+
+            добавитьНовогоКурсантаToolStripMenuItem.Enabled = true;
+            if (Students_dGV.SelectedRows.Count == 1)
+            {
+                редактироватьЗаписьОКурсантеToolStripMenuItem.Enabled = true;
+                удалитьКурсантаToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                редактироватьЗаписьОКурсантеToolStripMenuItem.Enabled = false;
+                удалитьКурсантаToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -141,7 +160,6 @@ namespace Автошкола
             AutoschoolDataSet dataSetForAllStudent;
             dataSetForAllStudent = BusinessLogic.ReadStudents();
             AddEditStudent EditStudent;
-            string GroupName = Groups_treeView.SelectedNode.Text;
             if (GroupName != "")
                 EditStudent = new AddEditStudent(GroupName, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
                     dataSetForAllStudent.Instructors, dataSet.Students.Rows.Find(Students_dGV.SelectedRows[0].Cells["ID"].Value));
@@ -161,12 +179,11 @@ namespace Автошкола
 
         private void удалитьКурсантаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Students_dGV.SelectedRows.Count <= 0)
+            if (Students_dGV.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string GroupName = Groups_treeView.SelectedNode.Text;
             DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
@@ -197,6 +214,77 @@ namespace Автошкола
             {
                 редактироватьЗаписьОКурсантеToolStripMenuItem.Enabled = false;
                 удалитьКурсантаToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void Search_button_Click(object sender, EventArgs e)
+        {
+            bool Find = false;
+            string CurrentSearchingText = SearchStudent_textBox.Text.Trim();
+            int BeginRow = 0;
+            if (LastSearchingText == CurrentSearchingText)
+            {
+                if (Direction_checkBox.Checked)
+                    BeginRow = LastFoundRow + 1;
+                else
+                    BeginRow = LastFoundRow - 1;
+            }
+            else
+                LastSearchingText = CurrentSearchingText;
+            Search:
+            if (Direction_checkBox.Checked)
+            {
+                for (int i = BeginRow; i < Students_dGV.RowCount; i++)
+                {
+                    if (Students_dGV[1, i].Value.ToString().Contains(CurrentSearchingText))
+                    {
+                        Students_dGV.CurrentCell = Students_dGV[1, i];
+                        LastFoundRow = i;
+                        return;
+                    }
+                }
+                if (!Find)
+                {
+                    DialogResult result = MessageBox.Show("Поиск достиг последней строки таблицы. Продолжить поиск с начала таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        BeginRow = 0;
+                        goto Search;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = BeginRow; i >= 0; i--)
+                {
+                    if (Students_dGV[1, i].Value.ToString().Contains(CurrentSearchingText))
+                    {
+                        Students_dGV.CurrentCell = Students_dGV[1, i];
+                        LastFoundRow = i;
+                        return;
+                    }
+                }
+                if (!Find)
+                {
+                    DialogResult result = MessageBox.Show("Поиск достиг первой строки таблицы. Продолжить поиск с конца таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        BeginRow = Students_dGV.RowCount - 1;
+                        goto Search;
+                    }
+                }
+            }
+        }
+
+        private void SearchStudent_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char)e.KeyChar == (Char)Keys.Enter)
+            {
+                Search_button_Click(sender, e);
+            }
+            if ((char)e.KeyChar == (Char)Keys.Back)
+            {
+                LastSearchingText = "";
             }
         }
     }

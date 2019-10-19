@@ -75,9 +75,11 @@
             this.RetrainingColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.GroupColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.CarrierUseColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InstructorColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.CarrierColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.InstructorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarrierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhotoColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
+            this.Search_button = new System.Windows.Forms.Button();
             this.UpdateGroups_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Students_dGV)).BeginInit();
@@ -331,7 +333,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(293, 34);
+            this.label1.Location = new System.Drawing.Point(266, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 18);
             this.label1.TabIndex = 1;
@@ -339,22 +341,27 @@
             // 
             // SearchStudent_textBox
             // 
+            this.SearchStudent_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchStudent_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchStudent_textBox.Location = new System.Drawing.Point(417, 31);
+            this.SearchStudent_textBox.Location = new System.Drawing.Point(386, 40);
             this.SearchStudent_textBox.Name = "SearchStudent_textBox";
-            this.SearchStudent_textBox.Size = new System.Drawing.Size(758, 24);
+            this.SearchStudent_textBox.Size = new System.Drawing.Size(577, 24);
             this.SearchStudent_textBox.TabIndex = 2;
+            this.SearchStudent_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchStudent_textBox_KeyPress);
             // 
             // Groups_treeView
             // 
+            this.Groups_treeView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Groups_treeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Groups_treeView.Location = new System.Drawing.Point(12, 61);
+            this.Groups_treeView.Location = new System.Drawing.Point(12, 73);
             this.Groups_treeView.Name = "Groups_treeView";
             treeNode1.Name = "Groups";
             treeNode1.Text = "Группы";
             this.Groups_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
-            this.Groups_treeView.Size = new System.Drawing.Size(231, 559);
+            this.Groups_treeView.Size = new System.Drawing.Size(231, 547);
             this.Groups_treeView.TabIndex = 3;
             this.Groups_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Groups_treeView_AfterSelect);
             // 
@@ -362,6 +369,10 @@
             // 
             this.Students_dGV.AllowUserToAddRows = false;
             this.Students_dGV.AllowUserToDeleteRows = false;
+            this.Students_dGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Students_dGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -389,7 +400,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Students_dGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Students_dGV.Location = new System.Drawing.Point(249, 61);
+            this.Students_dGV.Location = new System.Drawing.Point(249, 73);
+            this.Students_dGV.MultiSelect = false;
             this.Students_dGV.Name = "Students_dGV";
             this.Students_dGV.ReadOnly = true;
             this.Students_dGV.RowHeadersVisible = false;
@@ -397,7 +409,7 @@
             this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Students_dGV.RowTemplate.Height = 24;
             this.Students_dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Students_dGV.Size = new System.Drawing.Size(926, 559);
+            this.Students_dGV.Size = new System.Drawing.Size(926, 547);
             this.Students_dGV.TabIndex = 4;
             this.Students_dGV.SelectionChanged += new System.EventHandler(this.Students_dGV_SelectionChanged);
             // 
@@ -407,18 +419,21 @@
             this.IDColumn.Name = "IDColumn";
             this.IDColumn.ReadOnly = true;
             this.IDColumn.Visible = false;
+            this.IDColumn.Width = 42;
             // 
             // FIOColumn
             // 
             this.FIOColumn.HeaderText = "ФИО";
             this.FIOColumn.Name = "FIOColumn";
             this.FIOColumn.ReadOnly = true;
+            this.FIOColumn.Width = 73;
             // 
             // PhoneNumberColumn
             // 
             this.PhoneNumberColumn.HeaderText = "Номер телефона";
             this.PhoneNumberColumn.Name = "PhoneNumberColumn";
             this.PhoneNumberColumn.ReadOnly = true;
+            this.PhoneNumberColumn.Width = 145;
             // 
             // RetrainingColumn
             // 
@@ -427,6 +442,7 @@
             this.RetrainingColumn.ReadOnly = true;
             this.RetrainingColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.RetrainingColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.RetrainingColumn.Width = 153;
             // 
             // GroupColumn
             // 
@@ -435,6 +451,7 @@
             this.GroupColumn.ReadOnly = true;
             this.GroupColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.GroupColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.GroupColumn.Width = 85;
             // 
             // CarrierUseColumn
             // 
@@ -442,6 +459,7 @@
             this.CarrierUseColumn.Name = "CarrierUseColumn";
             this.CarrierUseColumn.ReadOnly = true;
             this.CarrierUseColumn.Visible = false;
+            this.CarrierUseColumn.Width = 109;
             // 
             // InstructorColumn
             // 
@@ -449,7 +467,7 @@
             this.InstructorColumn.Name = "InstructorColumn";
             this.InstructorColumn.ReadOnly = true;
             this.InstructorColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.InstructorColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.InstructorColumn.Width = 118;
             // 
             // CarrierColumn
             // 
@@ -457,13 +475,37 @@
             this.CarrierColumn.Name = "CarrierColumn";
             this.CarrierColumn.ReadOnly = true;
             this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarrierColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CarrierColumn.Width = 57;
             // 
             // PhotoColumn
             // 
             this.PhotoColumn.HeaderText = "Фото";
             this.PhotoColumn.Name = "PhotoColumn";
             this.PhotoColumn.ReadOnly = true;
+            this.PhotoColumn.Width = 52;
+            // 
+            // Direction_checkBox
+            // 
+            this.Direction_checkBox.AutoSize = true;
+            this.Direction_checkBox.Checked = true;
+            this.Direction_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Direction_checkBox.Location = new System.Drawing.Point(1073, 43);
+            this.Direction_checkBox.Name = "Direction_checkBox";
+            this.Direction_checkBox.Size = new System.Drawing.Size(102, 21);
+            this.Direction_checkBox.TabIndex = 9;
+            this.Direction_checkBox.Text = "поиск вниз";
+            this.Direction_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // Search_button
+            // 
+            this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Search_button.Location = new System.Drawing.Point(969, 40);
+            this.Search_button.Name = "Search_button";
+            this.Search_button.Size = new System.Drawing.Size(98, 25);
+            this.Search_button.TabIndex = 8;
+            this.Search_button.Text = "Найти";
+            this.Search_button.UseVisualStyleBackColor = true;
+            this.Search_button.Click += new System.EventHandler(this.Search_button_Click);
             // 
             // UpdateGroups_Button
             // 
@@ -471,7 +513,7 @@
             this.UpdateGroups_Button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
             this.UpdateGroups_Button.Location = new System.Drawing.Point(12, 31);
             this.UpdateGroups_Button.Name = "UpdateGroups_Button";
-            this.UpdateGroups_Button.Size = new System.Drawing.Size(231, 27);
+            this.UpdateGroups_Button.Size = new System.Drawing.Size(231, 36);
             this.UpdateGroups_Button.TabIndex = 5;
             this.UpdateGroups_Button.Text = "Обновить список групп";
             this.UpdateGroups_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -481,9 +523,11 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1187, 632);
+            this.Controls.Add(this.Direction_checkBox);
+            this.Controls.Add(this.Search_button);
             this.Controls.Add(this.UpdateGroups_Button);
             this.Controls.Add(this.Students_dGV);
             this.Controls.Add(this.Groups_treeView);
@@ -491,7 +535,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1024, 679);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное окно";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -542,14 +588,16 @@
         private System.Windows.Forms.TreeView Groups_treeView;
         private System.Windows.Forms.DataGridView Students_dGV;
         private System.Windows.Forms.Button UpdateGroups_Button;
+        private System.Windows.Forms.CheckBox Direction_checkBox;
+        private System.Windows.Forms.Button Search_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FIOColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumberColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RetrainingColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn GroupColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarrierUseColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn InstructorColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn CarrierColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InstructorColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CarrierColumn;
         private System.Windows.Forms.DataGridViewImageColumn PhotoColumn;
     }
 }

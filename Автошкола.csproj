@@ -48,13 +48,43 @@
   <ItemGroup>
     <Compile Include="AbstractConnection.cs" />
     <Compile Include="AbstractTransaction.cs" />
+    <Compile Include="AddEditAuditoriumsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditAuditoriumsForm.Designer.cs">
+      <DependentUpon>AddEditAuditoriumsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditGroup.Designer.cs">
+      <DependentUpon>AddEditGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddEditStudent.Designer.cs">
       <DependentUpon>AddEditStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditWorkerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditWorkerForm.Designer.cs">
+      <DependentUpon>AddEditWorkerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditWorkStatusesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditWorkStatusesForm.Designer.cs">
+      <DependentUpon>AddEditWorkStatusesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuditoriumsDA.cs" />
+    <Compile Include="AuditoriumsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuditoriumsForm.Designer.cs">
+      <DependentUpon>AuditoriumsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AutoschoolDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,6 +97,12 @@
     <Compile Include="CarriersUsesDA.cs" />
     <Compile Include="CategoriesDA.cs" />
     <Compile Include="ConnectionFactory.cs" />
+    <Compile Include="GroupsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupsForm.Designer.cs">
+      <DependentUpon>GroupsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,9 +121,39 @@
     <Compile Include="TheoryLessonsDA.cs" />
     <Compile Include="TheoryTeachersDA.cs" />
     <Compile Include="TransmissionsDA.cs" />
+    <Compile Include="WorkersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkersForm.Designer.cs">
+      <DependentUpon>WorkersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkStatusesDA.cs" />
+    <Compile Include="WorkStatusesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkStatusesForm.Designer.cs">
+      <DependentUpon>WorkStatusesForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddEditAuditoriumsForm.resx">
+      <DependentUpon>AddEditAuditoriumsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditGroup.resx">
+      <DependentUpon>AddEditGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditStudent.resx">
       <DependentUpon>AddEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditWorkerForm.resx">
+      <DependentUpon>AddEditWorkerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditWorkStatusesForm.resx">
+      <DependentUpon>AddEditWorkStatusesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditoriumsForm.resx">
+      <DependentUpon>AuditoriumsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupsForm.resx">
+      <DependentUpon>GroupsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -102,6 +168,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WorkersForm.resx">
+      <DependentUpon>WorkersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkStatusesForm.resx">
+      <DependentUpon>WorkStatusesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="AutoschoolDataSet.xsc">
       <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
     </None>

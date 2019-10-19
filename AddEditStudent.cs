@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Автошкола
 {
@@ -26,7 +27,7 @@ namespace Автошкола
 
         string NameOfGroup;
         public BusinessLogic BusinessLogic = new BusinessLogic();
-        AutoschoolDataSet dataSetForCarriers, dataSetForCarriersUses, dataSetForGroups, dataSetForInstructors;
+        AutoschoolDataSet dataSetForCarriers, dataSetForCarriersUses;
         AutoschoolDataSet.GroupsDataTable groupsDataTable;
         AutoschoolDataSet.InstructorsDataTable instructorsDataTable;
         AutoschoolDataSet.CarriersDataTable carriersDataTable;
@@ -36,6 +37,7 @@ namespace Автошкола
         int SelectedInstructorID = -1;
         int SelectedCarrierID = -1;
         int SelectedCarrierUseID = -1;
+        MemoryStream memoryStream = new MemoryStream(); //Поток в который запишем изображение
 
         private void AddEditStudent_Load(object sender, EventArgs e)
         {
@@ -102,6 +104,11 @@ namespace Автошкола
                 // на правильность ввода и вывода информации об ошибках
                 try
                 {
+                    if (Group_comboBox.SelectedIndex == -1)
+                    {
+                        Group_comboBox.Focus();
+                        throw new Exception("Не выбрана группа курсанта");
+                    }
                     if (Surname_textBox.Text == "")
                     {
                         Surname_textBox.Focus();
@@ -110,23 +117,18 @@ namespace Автошкола
                     if (FirstName_textBox.Text == "")
                     {
                         FirstName_textBox.Focus();
-                        throw new Exception("Не указана фамилия студента");
+                        throw new Exception("Не указано имя студента");
                     }
                     if (PatronymicName_textBox.Text == "")
                     {
                         PatronymicName_textBox.Focus();
-                        throw new Exception("Не указана фамилия студента");
+                        throw new Exception("Не указано отчество студента");
                     }
                     if (PhoneNumber_maskedTextBox.Text == "")
                     {
                         PhoneNumber_maskedTextBox.Focus();
-                        throw new Exception("Не указана фамилия студента");
-                    }
-                    if (Group_comboBox.SelectedIndex == -1)
-                    {
-                        Group_comboBox.Focus();
-                        throw new Exception("Не выбрана группа курсанта");
-                    }
+                        throw new Exception("Не указан номер телефона студента");
+                    }                    
                     if (SelectedCarrierUseID == -1)
                     {
                         throw new Exception("Не выбрана связка инструктора с транспортным средством. \nСначала выберите инструктора из списка, а затем выберите одну из его ТС в таблице ниже. ");
@@ -138,27 +140,27 @@ namespace Автошкола
                     e.Cancel = true;
                     return;
                 }
-            }
-            // редактирование
-            if (dataRow != null)
-            {
-                dataRow["Surname"] = Surname_textBox.Text;
-                dataRow["FirstName"] = FirstName_textBox.Text;
-                dataRow["PatronymicName"] = PatronymicName_textBox.Text;
-                dataRow["PhoneNumber"] = PhoneNumber_maskedTextBox.Text;
-                dataRow["Retraining"] = Retraining_checkBox.Checked;
-                dataRow["Group"] = Group_comboBox.SelectedValue;
-                dataRow["CarrierUse"] = SelectedCarrierUseID;
-                dataRow["Photo"] = Photo_pictureBox.Image;
-            }
-            else //добавление
-            {
-                dataSetForCarriersUses = BusinessLogic.ReadCarriersUsesByID(SelectedCarrierUseID);
-                carriersUsesDataTable = dataSetForCarriersUses.CarriersUses;
-                studentsDataTable.AddStudentsRow(Surname_textBox.Text, FirstName_textBox.Text,
-                    PatronymicName_textBox.Text, PhoneNumber_maskedTextBox.Text, Retraining_checkBox.Checked,
-                    groupsDataTable[Group_comboBox.SelectedIndex], carriersUsesDataTable[0], Photo_pictureBox.Image);
-            }
+                // редактирование
+                if (dataRow != null)
+                {
+                    dataRow["Surname"] = Surname_textBox.Text;
+                    dataRow["FirstName"] = FirstName_textBox.Text;
+                    dataRow["PatronymicName"] = PatronymicName_textBox.Text;
+                    dataRow["PhoneNumber"] = PhoneNumber_maskedTextBox.Text;
+                    dataRow["Retraining"] = Retraining_checkBox.Checked;
+                    dataRow["Group"] = Group_comboBox.SelectedValue;
+                    dataRow["CarrierUse"] = SelectedCarrierUseID;
+                    dataRow["Photo"] = Photo_pictureBox.Image;
+                }
+                else //добавление
+                {
+                    dataSetForCarriersUses = BusinessLogic.ReadCarriersUsesByID(SelectedCarrierUseID);
+                    carriersUsesDataTable = dataSetForCarriersUses.CarriersUses;
+                    studentsDataTable.AddStudentsRow(Surname_textBox.Text, FirstName_textBox.Text,
+                        PatronymicName_textBox.Text, PhoneNumber_maskedTextBox.Text, Retraining_checkBox.Checked,
+                        groupsDataTable[Group_comboBox.SelectedIndex], carriersUsesDataTable[0], memoryStream.ToArray());
+                }
+            }            
         }
 
         void ControlEnterTextOneWord(ref KeyPressEventArgs e)
@@ -207,7 +209,8 @@ namespace Автошкола
                 try
                 {
                     Image image = Image.FromFile(SelectPicture_openFileDialog.FileName.ToString());
-                    Photo_pictureBox.Image = image;
+                    Photo_pictureBox.Image = image; 
+                    image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Bmp); //Сохраняем изображение в поток.
                 }
                 catch
                 {
