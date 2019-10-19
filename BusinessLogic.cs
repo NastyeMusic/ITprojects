@@ -624,6 +624,66 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadCarriersUsesByInstructorID(int ID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.ReadByInstructorID(ds, abstrCon, abstrTr, ID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet ReadCarriersUsesByInstructorCarrierID(int InstructorID, int CarrierID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.ReadByInstructorCarrierID(ds, abstrCon, abstrTr, InstructorID, CarrierID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
         public AutoschoolDataSet ReadCarriersUsesByID(int ID)
         {
             AutoschoolDataSet ds = new AutoschoolDataSet();

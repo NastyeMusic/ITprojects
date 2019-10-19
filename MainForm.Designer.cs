@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Группы");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Группы");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.путьКБДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,6 +74,7 @@
             this.PhoneNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RetrainingColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.GroupColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.CarrierUseColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstructorColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.CarrierColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PhotoColumn = new System.Windows.Forms.DataGridViewImageColumn();
@@ -109,13 +112,13 @@
             // путьКБДToolStripMenuItem
             // 
             this.путьКБДToolStripMenuItem.Name = "путьКБДToolStripMenuItem";
-            this.путьКБДToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.путьКБДToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.путьКБДToolStripMenuItem.Text = "Путь к БД";
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.выходToolStripMenuItem.Text = "Выход";
             // 
             // курсантыToolStripMenuItem
@@ -135,18 +138,21 @@
             this.добавитьНовогоКурсантаToolStripMenuItem.Name = "добавитьНовогоКурсантаToolStripMenuItem";
             this.добавитьНовогоКурсантаToolStripMenuItem.Size = new System.Drawing.Size(316, 26);
             this.добавитьНовогоКурсантаToolStripMenuItem.Text = "Добавить нового курсанта";
+            this.добавитьНовогоКурсантаToolStripMenuItem.Click += new System.EventHandler(this.добавитьНовогоКурсантаToolStripMenuItem_Click);
             // 
             // редактироватьЗаписьОКурсантеToolStripMenuItem
             // 
             this.редактироватьЗаписьОКурсантеToolStripMenuItem.Name = "редактироватьЗаписьОКурсантеToolStripMenuItem";
             this.редактироватьЗаписьОКурсантеToolStripMenuItem.Size = new System.Drawing.Size(316, 26);
             this.редактироватьЗаписьОКурсантеToolStripMenuItem.Text = "Редактировать запись о курсанте";
+            this.редактироватьЗаписьОКурсантеToolStripMenuItem.Click += new System.EventHandler(this.редактироватьЗаписьОКурсантеToolStripMenuItem_Click);
             // 
             // удалитьКурсантаToolStripMenuItem
             // 
             this.удалитьКурсантаToolStripMenuItem.Name = "удалитьКурсантаToolStripMenuItem";
             this.удалитьКурсантаToolStripMenuItem.Size = new System.Drawing.Size(316, 26);
             this.удалитьКурсантаToolStripMenuItem.Text = "Удалить курсанта";
+            this.удалитьКурсантаToolStripMenuItem.Click += new System.EventHandler(this.удалитьКурсантаToolStripMenuItem_Click);
             // 
             // учебныеГруппыToolStripMenuItem
             // 
@@ -318,7 +324,7 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // label1
@@ -344,10 +350,10 @@
             this.Groups_treeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Groups_treeView.Location = new System.Drawing.Point(12, 61);
             this.Groups_treeView.Name = "Groups_treeView";
-            treeNode2.Name = "Groups";
-            treeNode2.Text = "Группы";
+            treeNode1.Name = "Groups";
+            treeNode1.Text = "Группы";
             this.Groups_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.Groups_treeView.Size = new System.Drawing.Size(231, 559);
             this.Groups_treeView.TabIndex = 3;
             this.Groups_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Groups_treeView_AfterSelect);
@@ -356,6 +362,14 @@
             // 
             this.Students_dGV.AllowUserToAddRows = false;
             this.Students_dGV.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Students_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Students_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Students_dGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -363,18 +377,29 @@
             this.PhoneNumberColumn,
             this.RetrainingColumn,
             this.GroupColumn,
+            this.CarrierUseColumn,
             this.InstructorColumn,
             this.CarrierColumn,
             this.PhotoColumn});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Students_dGV.DefaultCellStyle = dataGridViewCellStyle2;
             this.Students_dGV.Location = new System.Drawing.Point(249, 61);
             this.Students_dGV.Name = "Students_dGV";
             this.Students_dGV.ReadOnly = true;
             this.Students_dGV.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Students_dGV.RowTemplate.Height = 24;
+            this.Students_dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Students_dGV.Size = new System.Drawing.Size(926, 559);
             this.Students_dGV.TabIndex = 4;
+            this.Students_dGV.SelectionChanged += new System.EventHandler(this.Students_dGV_SelectionChanged);
             // 
             // IDColumn
             // 
@@ -411,6 +436,13 @@
             this.GroupColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.GroupColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // CarrierUseColumn
+            // 
+            this.CarrierUseColumn.HeaderText = "CarrierUse";
+            this.CarrierUseColumn.Name = "CarrierUseColumn";
+            this.CarrierUseColumn.ReadOnly = true;
+            this.CarrierUseColumn.Visible = false;
+            // 
             // InstructorColumn
             // 
             this.InstructorColumn.HeaderText = "Инструктор";
@@ -436,11 +468,14 @@
             // UpdateGroups_Button
             // 
             this.UpdateGroups_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpdateGroups_Button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
             this.UpdateGroups_Button.Location = new System.Drawing.Point(12, 31);
             this.UpdateGroups_Button.Name = "UpdateGroups_Button";
-            this.UpdateGroups_Button.Size = new System.Drawing.Size(182, 27);
+            this.UpdateGroups_Button.Size = new System.Drawing.Size(231, 27);
             this.UpdateGroups_Button.TabIndex = 5;
             this.UpdateGroups_Button.Text = "Обновить список групп";
+            this.UpdateGroups_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.UpdateGroups_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.UpdateGroups_Button.UseVisualStyleBackColor = true;
             this.UpdateGroups_Button.Click += new System.EventHandler(this.UpdateGroups_Button_Click);
             // 
@@ -506,15 +541,16 @@
         private System.Windows.Forms.TextBox SearchStudent_textBox;
         private System.Windows.Forms.TreeView Groups_treeView;
         private System.Windows.Forms.DataGridView Students_dGV;
+        private System.Windows.Forms.Button UpdateGroups_Button;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FIOColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumberColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RetrainingColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn GroupColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CarrierUseColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn InstructorColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn CarrierColumn;
         private System.Windows.Forms.DataGridViewImageColumn PhotoColumn;
-        private System.Windows.Forms.Button UpdateGroups_Button;
     }
 }
 

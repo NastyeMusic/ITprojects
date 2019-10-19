@@ -20,9 +20,9 @@ namespace Автошкола
         public BusinessLogic BusinessLogic = new BusinessLogic(); 
         AutoschoolDataSet dataSet;
 
-        void ReloadStudents(string Name)
+        void ReloadStudents(string NameOfGroup)
         {
-            dataSet = BusinessLogic.ReadStudentsOfGroup(Name);
+            dataSet = BusinessLogic.ReadStudentsOfGroup(NameOfGroup);
             Students_dGV.DataSource = dataSet;
             Students_dGV.DataMember = "Students";
 
@@ -46,9 +46,11 @@ namespace Автошкола
             GroupColumn.ValueMember = "ID";
             GroupColumn.DataPropertyName = "Group";
 
+            CarrierUseColumn.DataPropertyName = "CarrierUse";
+
             InstructorColumn.DataPropertyName = "InstructorName";
             CarrierColumn.DataPropertyName = "CarrierName";
-
+            
             PhotoColumn.DataPropertyName = "Photo";
         }
 
@@ -87,21 +89,115 @@ namespace Автошкола
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ReloadGroups();            
+            ReloadGroups();
+            редактироватьЗаписьОКурсантеToolStripMenuItem.Enabled = false;
+            удалитьКурсантаToolStripMenuItem.Enabled = false;
         }
 
         private void Groups_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (Groups_treeView.SelectedNode.Level == 2)
             {
-                string Name = Groups_treeView.SelectedNode.Text;
-                ReloadStudents(Name);
+                string GroupName = Groups_treeView.SelectedNode.Text;
+                ReloadStudents(GroupName);
             }
         }
 
         private void UpdateGroups_Button_Click(object sender, EventArgs e)
         {
             ReloadGroups();
+        }
+
+        private void добавитьНовогоКурсантаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AutoschoolDataSet dataSetForAllStudent;
+            dataSetForAllStudent = BusinessLogic.ReadStudents();
+            AddEditStudent AddStudent;
+            string GroupName = Groups_treeView.SelectedNode.Text;
+            if (GroupName != "")
+                AddStudent = new AddEditStudent(GroupName, dataSetForAllStudent.Students, dataSetForAllStudent.Groups, 
+                    dataSetForAllStudent.Instructors, null);
+            else
+                AddStudent = new AddEditStudent(null, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
+                    dataSetForAllStudent.Instructors, null);
+
+            AddStudent.Text = "Добавление курсанта";
+            AddStudent.ShowDialog();
+            if (AddStudent.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WriteStudents(dataSet);
+                if (GroupName != "")
+                    ReloadStudents(GroupName);
+            }
+        }
+
+        private void редактироватьЗаписьОКурсантеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Students_dGV.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Не выбрана строка для редактирования", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            AutoschoolDataSet dataSetForAllStudent;
+            dataSetForAllStudent = BusinessLogic.ReadStudents();
+            AddEditStudent EditStudent;
+            string GroupName = Groups_treeView.SelectedNode.Text;
+            if (GroupName != "")
+                EditStudent = new AddEditStudent(GroupName, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
+                    dataSetForAllStudent.Instructors, dataSet.Students.Rows.Find(Students_dGV.SelectedRows[0].Cells["ID"].Value));
+            else
+                EditStudent = new AddEditStudent(null, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
+                    dataSetForAllStudent.Instructors, dataSet.Students.Rows.Find(Students_dGV.SelectedRows[0].Cells["ID"].Value));
+
+            EditStudent.Text = "Редактирование курсанта";
+            EditStudent.ShowDialog();
+            if (EditStudent.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WriteStudents(dataSet);
+                if (GroupName != "")
+                    ReloadStudents(GroupName);
+            }
+        }
+
+        private void удалитьКурсантаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Students_dGV.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string GroupName = Groups_treeView.SelectedNode.Text;
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    dataSet.Students.Rows.Find(Students_dGV.SelectedRows[0].Cells["ID"].Value).Delete();
+                    dataSet = BusinessLogic.WriteStudents(dataSet);
+                    if (GroupName != "")
+                        ReloadStudents(GroupName);
+                }
+                catch
+                {                    
+                    MessageBox.Show("Не удалось удалить выбранную строку.\nСкорее всего, на данную строку имеются ссылки из других таблиц", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (GroupName != "")
+                        ReloadStudents(GroupName);
+                }
+            }
+        }
+
+        private void Students_dGV_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Students_dGV.SelectedRows.Count == 1)
+            {
+                редактироватьЗаписьОКурсантеToolStripMenuItem.Enabled = true;
+                удалитьКурсантаToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                редактироватьЗаписьОКурсантеToolStripMenuItem.Enabled = false;
+                удалитьКурсантаToolStripMenuItem.Enabled = false;
+            }
         }
     }
 }

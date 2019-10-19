@@ -11,7 +11,7 @@ namespace Автошкола
     {
         static public AbstractConnection getConnection()
         {
-            String connString = @"Data Source=DESKTOP-RPN2KIG\SQLEXPRESS;Initial Catalog=Autoschool;Integrated Security=True;Pooling=False";
+            String connString = @"Data Source=DESKTOP-RPN2KIG\SQLEXPRESS;Initial Catalog=AutoschoolDataBase;Integrated Security=True;Pooling=False";
             AbstractConnection conn = new AbstractConnection(new SqlConnection(connString));
             return conn;
         }

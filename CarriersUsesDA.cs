@@ -53,5 +53,20 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@ID", ID);
             dataAdapter.Fill(dataSet, "CarriersUses");
         }
+        public void ReadByInstructorID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int ID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM CarriersUses WHERE Instructor = @Instructor", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Instructor", ID);
+            dataAdapter.Fill(dataSet, "CarriersUses");
+        }
+        public void ReadByInstructorCarrierID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int InstructorID, int CarrierID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM CarriersUses WHERE Instructor = @Instructor, Carrier = @Carrier", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Instructor", InstructorID);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Carrier", CarrierID);
+            dataAdapter.Fill(dataSet, "CarriersUses");
+        }
     }
 }
