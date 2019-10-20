@@ -69,10 +69,11 @@
             // WorkStatusName_textBox
             // 
             this.WorkStatusName_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.WorkStatusName_textBox.Location = new System.Drawing.Point(255, 12);
+            this.WorkStatusName_textBox.Location = new System.Drawing.Point(270, 12);
             this.WorkStatusName_textBox.Name = "WorkStatusName_textBox";
-            this.WorkStatusName_textBox.Size = new System.Drawing.Size(739, 24);
+            this.WorkStatusName_textBox.Size = new System.Drawing.Size(724, 24);
             this.WorkStatusName_textBox.TabIndex = 36;
+            this.WorkStatusName_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WorkStatusName_textBox_KeyPress);
             // 
             // label1
             // 
@@ -90,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.Cancel_button;
-            this.ClientSize = new System.Drawing.Size(1006, 102);
+            this.ClientSize = new System.Drawing.Size(1006, 98);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.Save_button);
@@ -99,9 +100,9 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1024, 149);
+            this.MaximumSize = new System.Drawing.Size(1024, 145);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1024, 149);
+            this.MinimumSize = new System.Drawing.Size(1024, 145);
             this.Name = "AddEditWorkStatusesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditWorkStatusesForm";

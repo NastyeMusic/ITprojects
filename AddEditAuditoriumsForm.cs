@@ -41,7 +41,7 @@ namespace Автошкола
             {
                 try
                 {
-                    if (AuditoriumName_textBox.Text == "")
+                    if (AuditoriumName_textBox.Text.Trim() == "")
                     {
                         throw new Exception("Не указано наименование аудитории");
                     }

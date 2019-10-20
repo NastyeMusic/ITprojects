@@ -40,6 +40,7 @@ namespace Автошкола
             ReloadAuditoriums();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
+            Auditoriums_dataGridView_SelectionChanged(sender, e);
         }
 
         private void Search_button_Click(object sender, EventArgs e)
@@ -177,6 +178,13 @@ namespace Автошкола
                     ReloadAuditoriums();
                 }
             }
+        }
+
+        private void AuditoriumsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
+            MainForm.Perem(MainForm.FormsNames[2], false);
         }
     }
 }

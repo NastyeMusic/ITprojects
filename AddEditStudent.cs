@@ -37,7 +37,9 @@ namespace Автошкола
         int SelectedInstructorID = -1;
         int SelectedCarrierID = -1;
         int SelectedCarrierUseID = -1;
-        MemoryStream memoryStream = new MemoryStream(); //Поток в который запишем изображение
+        MemoryStream memoryStream = new MemoryStream(); // Поток в который запишем изображение
+
+        bool FormLoad = false;
 
         private void AddEditStudent_Load(object sender, EventArgs e)
         {
@@ -93,6 +95,7 @@ namespace Автошкола
                 InstructorChanged();
                 Photo_pictureBox.Image = null;
             }
+            FormLoad = true;
         }
 
         private void AddEditStudent_FormClosing(object sender, FormClosingEventArgs e)
@@ -150,7 +153,7 @@ namespace Автошкола
                     dataRow["Retraining"] = Retraining_checkBox.Checked;
                     dataRow["Group"] = Group_comboBox.SelectedValue;
                     dataRow["CarrierUse"] = SelectedCarrierUseID;
-                    dataRow["Photo"] = Photo_pictureBox.Image;
+                    dataRow["Photo"] = memoryStream.ToArray();
                 }
                 else //добавление
                 {
@@ -247,8 +250,8 @@ namespace Автошкола
             if (Instructor_comboBox.SelectedIndex != -1)
             {
                 ChoosenInstructor_label.Text = Instructor_comboBox.DisplayMember.ToString();
-                SelectedInstructorID = Convert.ToInt32(Instructor_comboBox.ValueMember);
-                dataSetForCarriers = BusinessLogic.ReadCarriersUsesByInstructorID(Convert.ToInt32(Instructor_comboBox.ValueMember));
+                SelectedInstructorID = Convert.ToInt32(Instructor_comboBox.SelectedValue);
+                dataSetForCarriers = BusinessLogic.ReadCarriersUsesByInstructorID(Convert.ToInt32(Instructor_comboBox.SelectedValue));
                 carriersDataTable = dataSetForCarriers.Carriers;
                 for (int i = 0; i < carriersDataTable.Rows.Count; i++)
                 {

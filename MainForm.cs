@@ -15,6 +15,28 @@ namespace Автошкола
         public MainForm()
         {
             InitializeComponent();
+
+            FormsNames[0] = "Setting";
+            FormsNames[1] = "GroupsForm";
+            FormsNames[2] = "AuditoriumsForm";
+            FormsNames[3] = "WorkersForm";
+            FormsNames[4] = "TheoryTeachersForm";
+            FormsNames[5] = "ServiceMastersForm";
+            FormsNames[6] = "CarriersForm";
+            FormsNames[7] = "CategoriesForm";
+            FormsNames[8] = "TransmissionsForm";
+            FormsNames[9] = "CarriersStatusesForm";
+            FormsNames[10] = "CarriersRepairsForm";
+            FormsNames[11] = "JournalUsesForm";
+            FormsNames[12] = "CurrentStatusesForm";
+            FormsNames[13] = "StudentsScheduleForm";
+            FormsNames[14] = "GroupsScheduleForm";
+            FormsNames[15] = "InstructorsScheduleForm";
+            FormsNames[16] = "TheoryTeacherScheduleForm";
+            FormsNames[17] = "InstructorsCategoriesForm";
+            FormsNames[18] = "CarriersUsesForm";
+            FormsNames[19] = "ReplacementCarriers";
+            FormsNames[20] = "AboutProgramForm";
         }
 
         public BusinessLogic BusinessLogic = new BusinessLogic(); 
@@ -22,6 +44,99 @@ namespace Автошкола
         string GroupName = null;
         string LastSearchingText = "";
         int LastFoundRow = -1;
+
+        GroupsForm GroupsForm = new GroupsForm();
+        static bool GroupsFormOpened = false;
+
+        AuditoriumsForm AuditoriumsForm = new AuditoriumsForm();
+        static bool AuditoriumsFormOpened = false;
+
+        WorkersForm WorkersForm = new WorkersForm();
+        static bool WorkersFormOpened = false;
+
+        CarriersForm CarriersForm = new CarriersForm();
+        static bool CarriersFormOpened = false;
+
+        CategoriesForm CategoriesForm = new CategoriesForm();
+        static bool CategoriesFormOpened = false;
+
+        TransmissionsForm TransmissionsForm = new TransmissionsForm();
+        static bool TransmissionsFormOpened = false;
+
+        CarriersStatusesForm CarriersStatusesForm = new CarriersStatusesForm();
+        static bool CarriersStatusesFormOpened = false;
+
+        static public string[] FormsNames = new string[21];
+
+        public static void Perem(string s, bool b)
+        {
+            switch (s)
+            {
+                /*case "Setting":
+                    GroupsFormOpened = b;
+                    break;*/
+                case "GroupsForm":
+                    GroupsFormOpened = b;
+                    break;
+                case "AuditoriumsForm":
+                    AuditoriumsFormOpened = b;
+                    break;
+                case "WorkersForm":
+                    WorkersFormOpened = b;
+                    break;
+                /*case "TheoryTeachersForm":
+                    TheoryTeachersFormOpened = b;
+                    break;*/
+                /*case "ServiceMastersForm":
+                    ServiceMastersFormOpened = b;
+                    break;*/
+                case "CarriersForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "CategoriesForm":
+                    CategoriesFormOpened = b;
+                    break;
+                case "TransmissionsForm":
+                    TransmissionsFormOpened = b;
+                    break;
+                case "CarriersStatusesForm":
+                    CarriersStatusesFormOpened = b;
+                    break;
+                /*case "CarriersRepairsForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "JournalUsesForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "CurrentStatusesForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "StudentsScheduleForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "GroupsScheduleForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "InstructorsScheduleForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "TheoryTeacherScheduleForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "InstructorsCategoriesForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "CarriersUsesForm":
+                    CarriersFormOpened = b;
+                    break;
+                case "ReplacementCarriers":
+                    CarriersFormOpened = b;
+                    break;
+                case "AboutProgramForm":
+                    CarriersFormOpened = b;
+                    break;*/
+            }
+        }
 
         void ReloadStudents(string NameOfGroup)
         {
@@ -53,8 +168,6 @@ namespace Автошкола
 
             InstructorColumn.DataPropertyName = "InstructorName";
             CarrierColumn.DataPropertyName = "CarrierName";
-            
-            PhotoColumn.DataPropertyName = "Photo";
         }
 
         void ReloadGroups()
@@ -285,6 +398,97 @@ namespace Автошкола
             if ((char)e.KeyChar == (Char)Keys.Back)
             {
                 LastSearchingText = "";
+            }
+        }
+
+        private void учебныеГруппыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!GroupsFormOpened)
+            {
+                GroupsForm.Show();
+                GroupsFormOpened = true;
+            }
+            else
+            {
+                GroupsForm.Activate();
+            }
+        }
+
+        private void учебныеАудиторииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!AuditoriumsFormOpened)
+            {
+                AuditoriumsForm.Show();
+                AuditoriumsFormOpened = true;
+            }
+            else
+            {
+                AuditoriumsForm.Activate();
+            }
+        }
+
+        private void работаССотрудникамиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!WorkersFormOpened)
+            {
+                WorkersForm.Show();
+                WorkersFormOpened = true;
+            }
+            else
+            {
+                WorkersForm.Activate();
+            }
+        }
+
+        private void учебныеТСToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CarriersFormOpened)
+            {
+                CarriersForm.Show();
+                CarriersFormOpened = true;
+            }
+            else
+            {
+                CarriersForm.Activate();
+            }
+        }
+
+        private void категорииТСToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CategoriesFormOpened)
+            {
+                CategoriesForm.Show();
+                CategoriesFormOpened = true;
+            }
+            else
+            {
+                CategoriesForm.Activate();
+            }
+        }
+
+        private void трансмиссииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!TransmissionsFormOpened)
+            {
+                TransmissionsForm.Show();
+                TransmissionsFormOpened = true;
+            }
+            else
+            {
+                TransmissionsForm.Activate();
+            }
+        }
+
+        private void статусыТСToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CarriersStatusesFormOpened)
+            {
+                CarriersStatusesForm.Show();
+                CarriersStatusesFormOpened = true;
+            }
+            else
+            {
+                CarriersStatusesForm.Activate();
             }
         }
     }

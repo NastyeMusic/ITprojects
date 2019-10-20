@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Группы");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Группы");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.путьКБДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +69,8 @@
             this.SearchStudent_textBox = new System.Windows.Forms.TextBox();
             this.Groups_treeView = new System.Windows.Forms.TreeView();
             this.Students_dGV = new System.Windows.Forms.DataGridView();
+            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
+            this.Search_button = new System.Windows.Forms.Button();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FIOColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,9 +79,6 @@
             this.CarrierUseColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstructorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CarrierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhotoColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
-            this.Search_button = new System.Windows.Forms.Button();
             this.UpdateGroups_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Students_dGV)).BeginInit();
@@ -161,12 +160,14 @@
             this.учебныеГруппыToolStripMenuItem.Name = "учебныеГруппыToolStripMenuItem";
             this.учебныеГруппыToolStripMenuItem.Size = new System.Drawing.Size(316, 26);
             this.учебныеГруппыToolStripMenuItem.Text = "Учебные группы";
+            this.учебныеГруппыToolStripMenuItem.Click += new System.EventHandler(this.учебныеГруппыToolStripMenuItem_Click);
             // 
             // учебныеАудиторииToolStripMenuItem
             // 
             this.учебныеАудиторииToolStripMenuItem.Name = "учебныеАудиторииToolStripMenuItem";
             this.учебныеАудиторииToolStripMenuItem.Size = new System.Drawing.Size(316, 26);
             this.учебныеАудиторииToolStripMenuItem.Text = "Учебные аудитории";
+            this.учебныеАудиторииToolStripMenuItem.Click += new System.EventHandler(this.учебныеАудиторииToolStripMenuItem_Click);
             // 
             // персоналToolStripMenuItem
             // 
@@ -183,6 +184,7 @@
             this.работаССотрудникамиToolStripMenuItem.Name = "работаССотрудникамиToolStripMenuItem";
             this.работаССотрудникамиToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
             this.работаССотрудникамиToolStripMenuItem.Text = "Работа с сотрудниками";
+            this.работаССотрудникамиToolStripMenuItem.Click += new System.EventHandler(this.работаССотрудникамиToolStripMenuItem_Click);
             // 
             // преподавателиТеорииToolStripMenuItem
             // 
@@ -215,24 +217,28 @@
             this.учебныеТСToolStripMenuItem.Name = "учебныеТСToolStripMenuItem";
             this.учебныеТСToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.учебныеТСToolStripMenuItem.Text = "Учебные ТС";
+            this.учебныеТСToolStripMenuItem.Click += new System.EventHandler(this.учебныеТСToolStripMenuItem_Click);
             // 
             // категорииТСToolStripMenuItem
             // 
             this.категорииТСToolStripMenuItem.Name = "категорииТСToolStripMenuItem";
             this.категорииТСToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.категорииТСToolStripMenuItem.Text = "Категории ТС";
+            this.категорииТСToolStripMenuItem.Click += new System.EventHandler(this.категорииТСToolStripMenuItem_Click);
             // 
             // трансмиссииToolStripMenuItem
             // 
             this.трансмиссииToolStripMenuItem.Name = "трансмиссииToolStripMenuItem";
             this.трансмиссииToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.трансмиссииToolStripMenuItem.Text = "Трансмиссии";
+            this.трансмиссииToolStripMenuItem.Click += new System.EventHandler(this.трансмиссииToolStripMenuItem_Click);
             // 
             // статусыТСToolStripMenuItem
             // 
             this.статусыТСToolStripMenuItem.Name = "статусыТСToolStripMenuItem";
             this.статусыТСToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.статусыТСToolStripMenuItem.Text = "Статусы ТС";
+            this.статусыТСToolStripMenuItem.Click += new System.EventHandler(this.статусыТСToolStripMenuItem_Click);
             // 
             // ремонтыТСToolStripMenuItem
             // 
@@ -357,10 +363,10 @@
             this.Groups_treeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Groups_treeView.Location = new System.Drawing.Point(12, 73);
             this.Groups_treeView.Name = "Groups_treeView";
-            treeNode1.Name = "Groups";
-            treeNode1.Text = "Группы";
+            treeNode2.Name = "Groups";
+            treeNode2.Text = "Группы";
             this.Groups_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.Groups_treeView.Size = new System.Drawing.Size(231, 547);
             this.Groups_treeView.TabIndex = 3;
             this.Groups_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Groups_treeView_AfterSelect);
@@ -373,14 +379,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Students_dGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Students_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Students_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Students_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Students_dGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -390,28 +396,52 @@
             this.GroupColumn,
             this.CarrierUseColumn,
             this.InstructorColumn,
-            this.CarrierColumn,
-            this.PhotoColumn});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Students_dGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.CarrierColumn});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Students_dGV.DefaultCellStyle = dataGridViewCellStyle5;
             this.Students_dGV.Location = new System.Drawing.Point(249, 73);
             this.Students_dGV.MultiSelect = false;
             this.Students_dGV.Name = "Students_dGV";
             this.Students_dGV.ReadOnly = true;
             this.Students_dGV.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.Students_dGV.RowTemplate.Height = 24;
             this.Students_dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Students_dGV.Size = new System.Drawing.Size(926, 547);
             this.Students_dGV.TabIndex = 4;
             this.Students_dGV.SelectionChanged += new System.EventHandler(this.Students_dGV_SelectionChanged);
+            // 
+            // Direction_checkBox
+            // 
+            this.Direction_checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Direction_checkBox.AutoSize = true;
+            this.Direction_checkBox.Checked = true;
+            this.Direction_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Direction_checkBox.Location = new System.Drawing.Point(1073, 43);
+            this.Direction_checkBox.Name = "Direction_checkBox";
+            this.Direction_checkBox.Size = new System.Drawing.Size(102, 21);
+            this.Direction_checkBox.TabIndex = 9;
+            this.Direction_checkBox.Text = "поиск вниз";
+            this.Direction_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // Search_button
+            // 
+            this.Search_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Search_button.Location = new System.Drawing.Point(969, 40);
+            this.Search_button.Name = "Search_button";
+            this.Search_button.Size = new System.Drawing.Size(98, 27);
+            this.Search_button.TabIndex = 8;
+            this.Search_button.Text = "Найти";
+            this.Search_button.UseVisualStyleBackColor = true;
+            this.Search_button.Click += new System.EventHandler(this.Search_button_Click);
             // 
             // IDColumn
             // 
@@ -476,36 +506,6 @@
             this.CarrierColumn.ReadOnly = true;
             this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CarrierColumn.Width = 57;
-            // 
-            // PhotoColumn
-            // 
-            this.PhotoColumn.HeaderText = "Фото";
-            this.PhotoColumn.Name = "PhotoColumn";
-            this.PhotoColumn.ReadOnly = true;
-            this.PhotoColumn.Width = 52;
-            // 
-            // Direction_checkBox
-            // 
-            this.Direction_checkBox.AutoSize = true;
-            this.Direction_checkBox.Checked = true;
-            this.Direction_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Direction_checkBox.Location = new System.Drawing.Point(1073, 43);
-            this.Direction_checkBox.Name = "Direction_checkBox";
-            this.Direction_checkBox.Size = new System.Drawing.Size(102, 21);
-            this.Direction_checkBox.TabIndex = 9;
-            this.Direction_checkBox.Text = "поиск вниз";
-            this.Direction_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // Search_button
-            // 
-            this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Search_button.Location = new System.Drawing.Point(969, 40);
-            this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(98, 25);
-            this.Search_button.TabIndex = 8;
-            this.Search_button.Text = "Найти";
-            this.Search_button.UseVisualStyleBackColor = true;
-            this.Search_button.Click += new System.EventHandler(this.Search_button_Click);
             // 
             // UpdateGroups_Button
             // 
@@ -598,7 +598,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CarrierUseColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarrierColumn;
-        private System.Windows.Forms.DataGridViewImageColumn PhotoColumn;
     }
 }
 

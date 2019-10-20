@@ -60,7 +60,7 @@ namespace Автошкола
             {
                 try
                 {
-                    if (GroupName_textBox.Text == "")
+                    if (GroupName_textBox.Text.Trim() == "")
                     {
                         GroupName_textBox.Focus();
                         throw new Exception("Не указано имя группы");

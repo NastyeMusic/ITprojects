@@ -53,5 +53,12 @@ namespace Автошкола
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM TheoryTeachers", conn.getConnection(), tr.getTransaction());
             dataAdapter.Fill(dataSet, "TheoryTeachers");
         }
+        public void ReadByID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int ID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM TheoryTeachers WHERE ID = @ID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@ID", ID);
+            dataAdapter.Fill(dataSet, "TheoryTeachers");
+        }
     }
 }

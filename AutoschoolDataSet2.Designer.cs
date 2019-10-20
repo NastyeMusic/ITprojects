@@ -939,8 +939,11 @@ namespace Автошкола {
         private void InitExpressions() {
             this.Carriers.FinalNameColumn.Expression = "Brand + \' \' + Model + \' \' + StateNumber";
             this.Instructors.FIOColumn.Expression = "Surname + \' \' + FirstName + \' \' + PatronymicName";
+            this.Instructors.WorkStatusNameColumn.Expression = "Parent(WorkStatuses_Instructors).Name";
             this.ServiceMasters.FIOColumn.Expression = "Surname + \' \' + FirstName + \' \' + PatronymicName";
+            this.ServiceMasters.WorkStatusNameColumn.Expression = "Parent(WorkStatuses_ServiceMasters).Name";
             this.TheoryTeachers.FIOColumn.Expression = "Surname + \' \' + FirstName + \' \' + PatronymicName";
+            this.TheoryTeachers.WorkStatusNameColumn.Expression = "Parent(WorkStatuses_TheoryTeachers).Name";
             this.Groups.TeacherFIOColumn.Expression = "Parent(TheoryTeachers_Groups).FIO";
             this.Groups.CategoryNameColumn.Expression = "Parent(Categories_Groups).Name";
             this.CarriersUses.InstructorNameColumn.Expression = "Parent(Instructors_CarriersUses).FIO";
@@ -1729,6 +1732,8 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnFIO;
             
+            private global::System.Data.DataColumn columnWorkStatusName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InstructorsDataTable() : 
@@ -1829,6 +1834,14 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkStatusNameColumn {
+                get {
+                    return this.columnWorkStatusName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1864,7 +1877,7 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InstructorsRow AddInstructorsRow(string Surname, string FirstName, string PatronymicName, byte[] Photo, WorkStatusesRow parentWorkStatusesRowByWorkStatuses_Instructors, string FIO) {
+            public InstructorsRow AddInstructorsRow(string Surname, string FirstName, string PatronymicName, byte[] Photo, WorkStatusesRow parentWorkStatusesRowByWorkStatuses_Instructors, string FIO, string WorkStatusName) {
                 InstructorsRow rowInstructorsRow = ((InstructorsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1873,7 +1886,8 @@ namespace Автошкола {
                         PatronymicName,
                         Photo,
                         null,
-                        FIO};
+                        FIO,
+                        WorkStatusName};
                 if ((parentWorkStatusesRowByWorkStatuses_Instructors != null)) {
                     columnValuesArray[5] = parentWorkStatusesRowByWorkStatuses_Instructors[0];
                 }
@@ -1892,6 +1906,7 @@ namespace Автошкола {
                         FirstName,
                         PatronymicName,
                         Photo,
+                        null,
                         null,
                         null};
                 if ((parentWorkStatusesRowByWorkStatuses_Instructors != null)) {
@@ -1933,6 +1948,7 @@ namespace Автошкола {
                 this.columnPhoto = base.Columns["Photo"];
                 this.columnWorkStatus = base.Columns["WorkStatus"];
                 this.columnFIO = base.Columns["FIO"];
+                this.columnWorkStatusName = base.Columns["WorkStatusName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1952,6 +1968,8 @@ namespace Автошкола {
                 base.Columns.Add(this.columnWorkStatus);
                 this.columnFIO = new global::System.Data.DataColumn("FIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFIO);
+                this.columnWorkStatusName = new global::System.Data.DataColumn("WorkStatusName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkStatusName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_InstructorsWorkStatuses", new global::System.Data.DataColumn[] {
                                 this.columnWorkStatus}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_Instructors", new global::System.Data.DataColumn[] {
@@ -1961,6 +1979,7 @@ namespace Автошкола {
                 this.columnID.Unique = true;
                 this.columnWorkStatus.Unique = true;
                 this.columnFIO.ReadOnly = true;
+                this.columnWorkStatusName.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1985,6 +2004,7 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitExpressions() {
                 this.FIOColumn.Expression = "Surname + \' \' + FirstName + \' \' + PatronymicName";
+                this.WorkStatusNameColumn.Expression = "Parent(WorkStatuses_Instructors).Name";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2112,6 +2132,8 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnFIO;
             
+            private global::System.Data.DataColumn columnWorkStatusName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ServiceMastersDataTable() : 
@@ -2204,6 +2226,14 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkStatusNameColumn {
+                get {
+                    return this.columnWorkStatusName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2239,7 +2269,7 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ServiceMastersRow AddServiceMastersRow(string Surname, string FirstName, string PatronymicName, WorkStatusesRow parentWorkStatusesRowByWorkStatuses_ServiceMasters, string FIO) {
+            public ServiceMastersRow AddServiceMastersRow(string Surname, string FirstName, string PatronymicName, WorkStatusesRow parentWorkStatusesRowByWorkStatuses_ServiceMasters, string FIO, string WorkStatusName) {
                 ServiceMastersRow rowServiceMastersRow = ((ServiceMastersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2247,7 +2277,8 @@ namespace Автошкола {
                         FirstName,
                         PatronymicName,
                         null,
-                        FIO};
+                        FIO,
+                        WorkStatusName};
                 if ((parentWorkStatusesRowByWorkStatuses_ServiceMasters != null)) {
                     columnValuesArray[4] = parentWorkStatusesRowByWorkStatuses_ServiceMasters[0];
                 }
@@ -2265,6 +2296,7 @@ namespace Автошкола {
                         Surname,
                         FirstName,
                         PatronymicName,
+                        null,
                         null,
                         null};
                 if ((parentWorkStatusesRowByWorkStatuses_ServiceMasters != null)) {
@@ -2305,6 +2337,7 @@ namespace Автошкола {
                 this.columnPatronymicName = base.Columns["PatronymicName"];
                 this.columnWorkStatus = base.Columns["WorkStatus"];
                 this.columnFIO = base.Columns["FIO"];
+                this.columnWorkStatusName = base.Columns["WorkStatusName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2322,6 +2355,8 @@ namespace Автошкола {
                 base.Columns.Add(this.columnWorkStatus);
                 this.columnFIO = new global::System.Data.DataColumn("FIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFIO);
+                this.columnWorkStatusName = new global::System.Data.DataColumn("WorkStatusName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkStatusName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_ServiceMastersWorkStatuses", new global::System.Data.DataColumn[] {
                                 this.columnWorkStatus}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_ServiceMasters", new global::System.Data.DataColumn[] {
@@ -2331,6 +2366,7 @@ namespace Автошкола {
                 this.columnID.Unique = true;
                 this.columnWorkStatus.Unique = true;
                 this.columnFIO.ReadOnly = true;
+                this.columnWorkStatusName.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2355,6 +2391,7 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitExpressions() {
                 this.FIOColumn.Expression = "Surname + \' \' + FirstName + \' \' + PatronymicName";
+                this.WorkStatusNameColumn.Expression = "Parent(WorkStatuses_ServiceMasters).Name";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2484,6 +2521,8 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnFIO;
             
+            private global::System.Data.DataColumn columnWorkStatusName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TheoryTeachersDataTable() : 
@@ -2584,6 +2623,14 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkStatusNameColumn {
+                get {
+                    return this.columnWorkStatusName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2619,7 +2666,7 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TheoryTeachersRow AddTheoryTeachersRow(string Surname, string FirstName, string PatronymicName, byte[] Photo, WorkStatusesRow parentWorkStatusesRowByWorkStatuses_TheoryTeachers, string FIO) {
+            public TheoryTeachersRow AddTheoryTeachersRow(string Surname, string FirstName, string PatronymicName, byte[] Photo, WorkStatusesRow parentWorkStatusesRowByWorkStatuses_TheoryTeachers, string FIO, string WorkStatusName) {
                 TheoryTeachersRow rowTheoryTeachersRow = ((TheoryTeachersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2628,7 +2675,8 @@ namespace Автошкола {
                         PatronymicName,
                         Photo,
                         null,
-                        FIO};
+                        FIO,
+                        WorkStatusName};
                 if ((parentWorkStatusesRowByWorkStatuses_TheoryTeachers != null)) {
                     columnValuesArray[5] = parentWorkStatusesRowByWorkStatuses_TheoryTeachers[0];
                 }
@@ -2647,6 +2695,7 @@ namespace Автошкола {
                         FirstName,
                         PatronymicName,
                         Photo,
+                        null,
                         null,
                         null};
                 if ((parentWorkStatusesRowByWorkStatuses_TheoryTeachers != null)) {
@@ -2688,6 +2737,7 @@ namespace Автошкола {
                 this.columnPhoto = base.Columns["Photo"];
                 this.columnWorkStatus = base.Columns["WorkStatus"];
                 this.columnFIO = base.Columns["FIO"];
+                this.columnWorkStatusName = base.Columns["WorkStatusName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2707,6 +2757,8 @@ namespace Автошкола {
                 base.Columns.Add(this.columnWorkStatus);
                 this.columnFIO = new global::System.Data.DataColumn("FIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFIO);
+                this.columnWorkStatusName = new global::System.Data.DataColumn("WorkStatusName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkStatusName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_TheoryTeachersWorkStatuses", new global::System.Data.DataColumn[] {
                                 this.columnWorkStatus}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_TheoryTeachers", new global::System.Data.DataColumn[] {
@@ -2716,6 +2768,7 @@ namespace Автошкола {
                 this.columnID.Unique = true;
                 this.columnWorkStatus.Unique = true;
                 this.columnFIO.ReadOnly = true;
+                this.columnWorkStatusName.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2740,6 +2793,7 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitExpressions() {
                 this.FIOColumn.Expression = "Surname + \' \' + FirstName + \' \' + PatronymicName";
+                this.WorkStatusNameColumn.Expression = "Parent(WorkStatuses_TheoryTeachers).Name";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7348,6 +7402,22 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkStatusName {
+                get {
+                    try {
+                        return ((string)(this[this.tableInstructors.WorkStatusNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'WorkStatusName\' в таблице \'Instructors\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInstructors.WorkStatusNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public WorkStatusesRow WorkStatusesRow {
                 get {
                     return ((WorkStatusesRow)(this.GetParentRow(this.Table.ParentRelations["WorkStatuses_Instructors"])));
@@ -7427,6 +7497,18 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFIONull() {
                 this[this.tableInstructors.FIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkStatusNameNull() {
+                return this.IsNull(this.tableInstructors.WorkStatusNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkStatusNameNull() {
+                this[this.tableInstructors.WorkStatusNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7559,6 +7641,22 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkStatusName {
+                get {
+                    try {
+                        return ((string)(this[this.tableServiceMasters.WorkStatusNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'WorkStatusName\' в таблице \'ServiceMasters\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableServiceMasters.WorkStatusNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public WorkStatusesRow WorkStatusesRow {
                 get {
                     return ((WorkStatusesRow)(this.GetParentRow(this.Table.ParentRelations["WorkStatuses_ServiceMasters"])));
@@ -7626,6 +7724,18 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFIONull() {
                 this[this.tableServiceMasters.FIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkStatusNameNull() {
+                return this.IsNull(this.tableServiceMasters.WorkStatusNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkStatusNameNull() {
+                this[this.tableServiceMasters.WorkStatusNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7763,6 +7873,22 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkStatusName {
+                get {
+                    try {
+                        return ((string)(this[this.tableTheoryTeachers.WorkStatusNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'WorkStatusName\' в таблице \'TheoryTeachers\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTheoryTeachers.WorkStatusNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public WorkStatusesRow WorkStatusesRow {
                 get {
                     return ((WorkStatusesRow)(this.GetParentRow(this.Table.ParentRelations["WorkStatuses_TheoryTeachers"])));
@@ -7842,6 +7968,18 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFIONull() {
                 this[this.tableTheoryTeachers.FIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkStatusNameNull() {
+                return this.IsNull(this.tableTheoryTeachers.WorkStatusNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkStatusNameNull() {
+                this[this.tableTheoryTeachers.WorkStatusNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

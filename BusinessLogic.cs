@@ -339,6 +339,31 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadServiceMasterByID(int ID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                serviceMastersDA.ReadByID(ds, abstrCon, abstrTr, ID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу Instructors
         public AutoschoolDataSet ReadInstructors()
@@ -1185,6 +1210,31 @@ namespace Автошкола
                 abstrTr = abstrCon.BeginTransaction();
                 workStatusesDA.Save(ds, abstrCon, abstrTr);
                 theoryTeachersDA.Save(ds, abstrCon, abstrTr);                
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet ReadTheoryTeacherByID(int ID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.ReadByID(ds, abstrCon, abstrTr, ID);
                 abstrTr.Commit();
             }
             catch (Exception e)

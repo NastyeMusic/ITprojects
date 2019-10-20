@@ -38,6 +38,7 @@ namespace Автошкола
             ReloadWorkStatuses();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
+            WorkStatuses_dataGridView_SelectionChanged(sender, e);
         }
 
         private void WorkStatuses_dataGridView_SelectionChanged(object sender, EventArgs e)
@@ -104,6 +105,13 @@ namespace Автошкола
                     ReloadWorkStatuses();
                 }
             }
+        }
+
+        private void WorkStatusesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
+            WorkersForm.WorkStatusesFormOpened = false;
         }
     }
 }

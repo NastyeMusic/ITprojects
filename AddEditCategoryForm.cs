@@ -10,40 +10,40 @@ using System.Windows.Forms;
 
 namespace Автошкола
 {
-    public partial class AddEditWorkStatusesForm : Form
+    public partial class AddEditCategoryForm : Form
     {
-        public AddEditWorkStatusesForm(AutoschoolDataSet.WorkStatusesDataTable workStatusesDataTable, DataRow row)
+        public AddEditCategoryForm(AutoschoolDataSet.CategoriesDataTable categoriesDataTable, DataRow row)
         {
             InitializeComponent();
-            this.workStatusesDataTable = workStatusesDataTable;
+            this.categoriesDataTable = categoriesDataTable;
             dataRow = row;
         }
 
         BusinessLogic BusinessLogic = new BusinessLogic();
-        AutoschoolDataSet.WorkStatusesDataTable workStatusesDataTable;
+        AutoschoolDataSet.CategoriesDataTable categoriesDataTable;
         DataRow dataRow;
 
-        private void AddEditWorkStatusesForm_Load(object sender, EventArgs e)
+        private void AddEditCategoryForm_Load(object sender, EventArgs e)
         {
             if (dataRow != null)
             {
-                WorkStatusName_textBox.Text = dataRow["Name"].ToString();
+                CategoryName_textBox.Text = dataRow["Name"].ToString();
             }
             else
             {
-                WorkStatusName_textBox.Text = "";
+                CategoryName_textBox.Text = "";
             }
         }
 
-        private void AddEditWorkStatusesForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void AddEditCategoryForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
             {
                 try
                 {
-                    if (WorkStatusName_textBox.Text.Trim() == "")
+                    if (CategoryName_textBox.Text.Trim() == "")
                     {
-                        throw new Exception("Не указано наименование аудитории");
+                        throw new Exception("Не указано наименование категории");
                     }
                 }
                 catch (Exception exp)
@@ -54,20 +54,21 @@ namespace Автошкола
                 }
                 if (dataRow != null)
                 {
-                    dataRow["Name"] = WorkStatusName_textBox.Text;
+                    dataRow["Name"] = CategoryName_textBox.Text;
                 }
                 else
                 {
-                    workStatusesDataTable.AddWorkStatusesRow(WorkStatusName_textBox.Text);
+                    categoriesDataTable.AddCategoriesRow(CategoryName_textBox.Text);
                 }
             }
         }
 
-        private void WorkStatusName_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void CategoryName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((char)e.KeyChar == (Char)Keys.Back) return;
             if ((char)e.KeyChar == (Char)Keys.Space) return;
-            if (char.IsLetter(e.KeyChar)) return;
+            if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+            if (char.IsLetterOrDigit(e.KeyChar)) return;
             e.Handled = true;
         }
     }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Автошкола
 {
-    public partial class GroupsForm : Form
+    public partial class TransmissionsForm : Form
     {
-        public GroupsForm()
+        public TransmissionsForm()
         {
             InitializeComponent();
         }
@@ -22,38 +22,45 @@ namespace Автошкола
         string LastSearchingText = "";
         int LastFoundRow = -1;
 
-        void ReloadGroups()
+        void ReloadTransmissions()
         {
-            dataSet = BusinessLogic.ReadGroups();
-            Groups_dataGridView.DataSource = dataSet;
-            Groups_dataGridView.DataMember = "Groups";
+            dataSet = BusinessLogic.ReadTransmissions();
+            Transmissions_dataGridView.DataSource = dataSet;
+            Transmissions_dataGridView.DataMember = "Transmissions";
 
-            Groups_dataGridView.Columns["ID"].Visible = false;
-            Groups_dataGridView.Columns["Name"].Visible = false;
-            Groups_dataGridView.Columns["StartLearning"].Visible = false;
-            Groups_dataGridView.Columns["EndLearning"].Visible = false;
-            Groups_dataGridView.Columns["Category"].Visible = false;
-            Groups_dataGridView.Columns["Teacher"].Visible = false;
+            Transmissions_dataGridView.Columns["ID"].Visible = false;
+            Transmissions_dataGridView.Columns["Transmission"].Visible = false;
 
             IDColumn.DataPropertyName = "ID";
-            NameColumn.DataPropertyName = "Name";
-            StartLearningColumn.DataPropertyName = "StartLearning";
-            EndLearningColumn.DataPropertyName = "EndLearning";
-            CategoryColumn.DataPropertyName = "CategoryName";
-            TeacherColumn.DataPropertyName = "TeacherFIO";
+            NameColumn.DataPropertyName = "Transmission";
         }
 
-        private void GroupsForm_Load(object sender, EventArgs e)
+        private void TransmissionsFrom_Load(object sender, EventArgs e)
         {
-            ReloadGroups();
+            ReloadTransmissions();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
+            Transmissions_dataGridView_SelectionChanged(sender, e);
+        }
+
+        private void Transmissions_dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Transmissions_dataGridView.SelectedRows.Count == 1)
+            {
+                Edit_button.Enabled = true;
+                Delete_button.Enabled = true;
+            }
+            else
+            {
+                Edit_button.Enabled = false;
+                Delete_button.Enabled = false;
+            }
         }
 
         private void Search_button_Click(object sender, EventArgs e)
         {
             bool Find = false;
-            string CurrentSearchingText = SearchGroup_textBox.Text.Trim();
+            string CurrentSearchingText = SearchTransmission_textBox.Text.Trim();
             int BeginRow = 0;
             if (LastSearchingText == CurrentSearchingText)
             {
@@ -67,11 +74,11 @@ namespace Автошкола
             Search:
             if (Direction_checkBox.Checked)
             {
-                for (int i = BeginRow; i < Groups_dataGridView.RowCount; i++)
+                for (int i = BeginRow; i < Transmissions_dataGridView.RowCount; i++)
                 {
-                    if (Groups_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
+                    if (Transmissions_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
                     {
-                        Groups_dataGridView.CurrentCell = Groups_dataGridView[1, i];
+                        Transmissions_dataGridView.CurrentCell = Transmissions_dataGridView[1, i];
                         LastFoundRow = i;
                         return;
                     }
@@ -90,9 +97,9 @@ namespace Автошкола
             {
                 for (int i = BeginRow; i >= 0; i--)
                 {
-                    if (Groups_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
+                    if (Transmissions_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
                     {
-                        Groups_dataGridView.CurrentCell = Groups_dataGridView[1, i];
+                        Transmissions_dataGridView.CurrentCell = Transmissions_dataGridView[1, i];
                         LastFoundRow = i;
                         return;
                     }
@@ -102,14 +109,14 @@ namespace Автошкола
                     DialogResult result = MessageBox.Show("Поиск достиг первой строки таблицы. Продолжить поиск с конца таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
                     {
-                        BeginRow = Groups_dataGridView.RowCount - 1;
+                        BeginRow = Transmissions_dataGridView.RowCount - 1;
                         goto Search;
                     }
-                }                
-            }            
+                }
+            }
         }
 
-        private void SearchGroup_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void SearchTransmission_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((char)e.KeyChar == (Char)Keys.Enter)
             {
@@ -121,51 +128,44 @@ namespace Автошкола
             }
         }
 
-        private void Groups_dataGridView_SelectionChanged(object sender, EventArgs e)
+        private void TransmissionsFrom_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Groups_dataGridView.SelectedRows.Count == 1)
-            {
-                Edit_button.Enabled = true;
-                Delete_button.Enabled = true;
-            }
-            else
-            {
-                Edit_button.Enabled = false;
-                Delete_button.Enabled = false;
-            }
+            e.Cancel = true;
+            Hide();
+            MainForm.Perem(MainForm.FormsNames[8], false);
         }
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            AddEditGroup AddGroup = new AddEditGroup(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, null);
-            AddGroup.Text = "Добавление группы";
+            AddEditTransmissionForm AddTransmission = new AddEditTransmissionForm(dataSet.Transmissions, null);
+            AddTransmission.Text = "Добавление трансмиссии";
             this.Enabled = false;
-            AddGroup.ShowDialog();            
-            if (AddGroup.DialogResult == DialogResult.OK)
+            AddTransmission.ShowDialog();
+            if (AddTransmission.DialogResult == DialogResult.OK)
             {
-                dataSet = BusinessLogic.WriteGroups(dataSet);
-                ReloadGroups();
+                dataSet = BusinessLogic.WriteTransmissions(dataSet);
+                ReloadTransmissions();
             }
             this.Enabled = true;
         }
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
-            AddEditGroup EditGroup = new AddEditGroup(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value));
-            EditGroup.Text = "Редактирование группы";
+            AddEditTransmissionForm EditTransmission = new AddEditTransmissionForm(dataSet.Transmissions, dataSet.Transmissions.Rows.Find(Transmissions_dataGridView.SelectedRows[0].Cells["ID"].Value));
+            EditTransmission.Text = "Редактирование трансмиссии";
             this.Enabled = false;
-            EditGroup.ShowDialog();
-            if (EditGroup.DialogResult == DialogResult.OK)
+            EditTransmission.ShowDialog();
+            if (EditTransmission.DialogResult == DialogResult.OK)
             {
-                dataSet = BusinessLogic.WriteGroups(dataSet);
-                ReloadGroups();
+                dataSet = BusinessLogic.WriteTransmissions(dataSet);
+                ReloadTransmissions();
             }
             this.Enabled = true;
         }
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            if (Groups_dataGridView.SelectedRows.Count != 1)
+            if (Transmissions_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -175,23 +175,16 @@ namespace Автошкола
             {
                 try
                 {
-                    dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value).Delete();
-                    dataSet = BusinessLogic.WriteGroups(dataSet);
-                    ReloadGroups();
+                    dataSet.Transmissions.Rows.Find(Transmissions_dataGridView.SelectedRows[0].Cells["ID"].Value).Delete();
+                    dataSet = BusinessLogic.WriteTransmissions(dataSet);
+                    ReloadTransmissions();
                 }
                 catch
                 {
                     MessageBox.Show("Не удалось удалить выбранную строку.\nСкорее всего, на данную строку имеются ссылки из других таблиц", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReloadGroups();
+                    ReloadTransmissions();
                 }
             }
-        }
-
-        private void GroupsForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
-            Hide();
-            MainForm.Perem(MainForm.FormsNames[1], false);
         }
     }
 }

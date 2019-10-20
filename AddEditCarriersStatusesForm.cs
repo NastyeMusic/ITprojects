@@ -10,40 +10,40 @@ using System.Windows.Forms;
 
 namespace Автошкола
 {
-    public partial class AddEditWorkStatusesForm : Form
+    public partial class AddEditCarriersStatusesForm : Form
     {
-        public AddEditWorkStatusesForm(AutoschoolDataSet.WorkStatusesDataTable workStatusesDataTable, DataRow row)
+        public AddEditCarriersStatusesForm(AutoschoolDataSet.CarriersStatusesDataTable carriersStatusesDataTable, DataRow row)
         {
             InitializeComponent();
-            this.workStatusesDataTable = workStatusesDataTable;
+            this.carriersStatusesDataTable = carriersStatusesDataTable;
             dataRow = row;
         }
 
         BusinessLogic BusinessLogic = new BusinessLogic();
-        AutoschoolDataSet.WorkStatusesDataTable workStatusesDataTable;
+        AutoschoolDataSet.CarriersStatusesDataTable carriersStatusesDataTable;
         DataRow dataRow;
 
-        private void AddEditWorkStatusesForm_Load(object sender, EventArgs e)
+        private void AddEditCarriersStatusesForm_Load(object sender, EventArgs e)
         {
             if (dataRow != null)
             {
-                WorkStatusName_textBox.Text = dataRow["Name"].ToString();
+                CarrierStatusName_textBox.Text = dataRow["Name"].ToString();
             }
             else
             {
-                WorkStatusName_textBox.Text = "";
+                CarrierStatusName_textBox.Text = "";
             }
         }
 
-        private void AddEditWorkStatusesForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void AddEditCarriersStatusesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
             {
                 try
                 {
-                    if (WorkStatusName_textBox.Text.Trim() == "")
+                    if (CarrierStatusName_textBox.Text.Trim() == "")
                     {
-                        throw new Exception("Не указано наименование аудитории");
+                        throw new Exception("Не указано наименование статуса ТС");
                     }
                 }
                 catch (Exception exp)
@@ -54,16 +54,16 @@ namespace Автошкола
                 }
                 if (dataRow != null)
                 {
-                    dataRow["Name"] = WorkStatusName_textBox.Text;
+                    dataRow["Name"] = CarrierStatusName_textBox.Text;
                 }
                 else
                 {
-                    workStatusesDataTable.AddWorkStatusesRow(WorkStatusName_textBox.Text);
+                    carriersStatusesDataTable.AddCarriersStatusesRow(CarrierStatusName_textBox.Text);
                 }
             }
         }
 
-        private void WorkStatusName_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void CarrierStatusName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((char)e.KeyChar == (Char)Keys.Back) return;
             if ((char)e.KeyChar == (Char)Keys.Space) return;

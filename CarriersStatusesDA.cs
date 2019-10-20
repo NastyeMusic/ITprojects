@@ -33,7 +33,7 @@ namespace Автошкола
             dataAdapter.DeleteCommand = new SqlCommand("DELETE CarriersStatuses WHERE ID = @ID", conn.getConnection(), tr.getTransaction());
             dataAdapter.DeleteCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
-            dataAdapter.Update(dataSet, "CarrierStatuses");
+            dataAdapter.Update(dataSet, "CarriersStatuses");
         }
 
         // прочитать таблицу
@@ -41,7 +41,7 @@ namespace Автошкола
         {
             dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM CarriersStatuses", conn.getConnection(), tr.getTransaction());
-            dataAdapter.Fill(dataSet, "CarrierStatuses");
+            dataAdapter.Fill(dataSet, "CarriersStatuses");
         }
     }
 }

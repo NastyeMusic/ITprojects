@@ -54,6 +54,24 @@
     <Compile Include="AddEditAuditoriumsForm.Designer.cs">
       <DependentUpon>AddEditAuditoriumsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditCarrierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditCarrierForm.Designer.cs">
+      <DependentUpon>AddEditCarrierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditCarriersStatusesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditCarriersStatusesForm.Designer.cs">
+      <DependentUpon>AddEditCarriersStatusesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditCategoryForm.Designer.cs">
+      <DependentUpon>AddEditCategoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +84,12 @@
     <Compile Include="AddEditStudent.Designer.cs">
       <DependentUpon>AddEditStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditTransmissionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditTransmissionForm.Designer.cs">
+      <DependentUpon>AddEditTransmissionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditWorkerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +101,12 @@
     </Compile>
     <Compile Include="AddEditWorkStatusesForm.Designer.cs">
       <DependentUpon>AddEditWorkStatusesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRepairFromFormCarriers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRepairFromFormCarriers.Designer.cs">
+      <DependentUpon>AddRepairFromFormCarriers.cs</DependentUpon>
     </Compile>
     <Compile Include="AuditoriumsDA.cs" />
     <Compile Include="AuditoriumsForm.cs">
@@ -92,10 +122,28 @@
     </Compile>
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="CarriersDA.cs" />
+    <Compile Include="CarriersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarriersForm.Designer.cs">
+      <DependentUpon>CarriersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarriersRepairsDA.cs" />
     <Compile Include="CarriersStatusesDA.cs" />
+    <Compile Include="CarriersStatusesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarriersStatusesForm.Designer.cs">
+      <DependentUpon>CarriersStatusesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarriersUsesDA.cs" />
     <Compile Include="CategoriesDA.cs" />
+    <Compile Include="CategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriesForm.Designer.cs">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="GroupsForm.cs">
       <SubType>Form</SubType>
@@ -121,6 +169,12 @@
     <Compile Include="TheoryLessonsDA.cs" />
     <Compile Include="TheoryTeachersDA.cs" />
     <Compile Include="TransmissionsDA.cs" />
+    <Compile Include="TransmissionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransmissionsForm.Designer.cs">
+      <DependentUpon>TransmissionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,11 +191,23 @@
     <EmbeddedResource Include="AddEditAuditoriumsForm.resx">
       <DependentUpon>AddEditAuditoriumsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEditCarrierForm.resx">
+      <DependentUpon>AddEditCarrierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditCarriersStatusesForm.resx">
+      <DependentUpon>AddEditCarriersStatusesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditCategoryForm.resx">
+      <DependentUpon>AddEditCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditGroup.resx">
       <DependentUpon>AddEditGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditStudent.resx">
       <DependentUpon>AddEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditTransmissionForm.resx">
+      <DependentUpon>AddEditTransmissionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditWorkerForm.resx">
       <DependentUpon>AddEditWorkerForm.cs</DependentUpon>
@@ -149,8 +215,20 @@
     <EmbeddedResource Include="AddEditWorkStatusesForm.resx">
       <DependentUpon>AddEditWorkStatusesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddRepairFromFormCarriers.resx">
+      <DependentUpon>AddRepairFromFormCarriers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AuditoriumsForm.resx">
       <DependentUpon>AuditoriumsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarriersForm.resx">
+      <DependentUpon>CarriersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarriersStatusesForm.resx">
+      <DependentUpon>CarriersStatusesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoriesForm.resx">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GroupsForm.resx">
       <DependentUpon>GroupsForm.cs</DependentUpon>
@@ -168,6 +246,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TransmissionsForm.resx">
+      <DependentUpon>TransmissionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkersForm.resx">
       <DependentUpon>WorkersForm.cs</DependentUpon>
     </EmbeddedResource>
