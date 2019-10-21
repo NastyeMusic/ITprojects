@@ -45,5 +45,28 @@ namespace Автошкола
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM InstructorsCategories", conn.getConnection(), tr.getTransaction());
             dataAdapter.Fill(dataSet, "InstructorsCategories");
         }
+
+        public void ReadByInstructorID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int ID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM InstructorsCategories WHERE Instructor = @ID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@ID", ID);
+            dataAdapter.Fill(dataSet, "InstructorsCategories");
+        }
+        public void ReadByCategoryID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int ID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM InstructorsCategories WHERE Category = @ID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@ID", ID);
+            dataAdapter.Fill(dataSet, "InstructorsCategories");
+        }
+        public void ReadByInstructorIdANDCategoryId(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int InstructorID, int CategoryID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM InstructorsCategories WHERE Instructor = @InstructorID AND Category = @CategoryID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@InstructorID", InstructorID);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CategoryID", CategoryID);
+            dataAdapter.Fill(dataSet, "InstructorsCategories");
+        }
     }
 }

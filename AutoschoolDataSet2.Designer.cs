@@ -671,7 +671,7 @@ namespace Автошкола {
             base.Tables.Add(this.tableAuditoriums);
             this.tableGroups = new GroupsDataTable(false);
             base.Tables.Add(this.tableGroups);
-            this.tableInstructorsCategories = new InstructorsCategoriesDataTable();
+            this.tableInstructorsCategories = new InstructorsCategoriesDataTable(false);
             base.Tables.Add(this.tableInstructorsCategories);
             this.tableTheoryLessons = new TheoryLessonsDataTable();
             base.Tables.Add(this.tableTheoryLessons);
@@ -946,6 +946,7 @@ namespace Автошкола {
             this.TheoryTeachers.WorkStatusNameColumn.Expression = "Parent(WorkStatuses_TheoryTeachers).Name";
             this.Groups.TeacherFIOColumn.Expression = "Parent(TheoryTeachers_Groups).FIO";
             this.Groups.CategoryNameColumn.Expression = "Parent(Categories_Groups).Name";
+            this.InstructorsCategories.InstructorFIOColumn.Expression = "Parent(Instructors_InstructorsCategories).FIO";
             this.CarriersUses.InstructorNameColumn.Expression = "Parent(Instructors_CarriersUses).FIO";
             this.CarriersUses.CarrierNameColumn.Expression = "Parent(Carriers_CarriersUses).FinalName";
             this.Students.InstructorNameColumn.Expression = "Parent(CarriersUses_Students).InstructorName";
@@ -3599,12 +3600,23 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnCategory;
             
+            private global::System.Data.DataColumn columnInstructorFIO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InstructorsCategoriesDataTable() {
+            public InstructorsCategoriesDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public InstructorsCategoriesDataTable(bool initExpressions) {
                 this.TableName = "InstructorsCategories";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -3658,6 +3670,14 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InstructorFIOColumn {
+                get {
+                    return this.columnInstructorFIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3693,9 +3713,30 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public InstructorsCategoriesRow AddInstructorsCategoriesRow(InstructorsRow parentInstructorsRowByInstructors_InstructorsCategories, CategoriesRow parentCategoriesRowByCategories_InstructorsCategories, string InstructorFIO) {
+                InstructorsCategoriesRow rowInstructorsCategoriesRow = ((InstructorsCategoriesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null,
+                        InstructorFIO};
+                if ((parentInstructorsRowByInstructors_InstructorsCategories != null)) {
+                    columnValuesArray[1] = parentInstructorsRowByInstructors_InstructorsCategories[0];
+                }
+                if ((parentCategoriesRowByCategories_InstructorsCategories != null)) {
+                    columnValuesArray[2] = parentCategoriesRowByCategories_InstructorsCategories[0];
+                }
+                rowInstructorsCategoriesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowInstructorsCategoriesRow);
+                return rowInstructorsCategoriesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InstructorsCategoriesRow AddInstructorsCategoriesRow(InstructorsRow parentInstructorsRowByInstructors_InstructorsCategories, CategoriesRow parentCategoriesRowByCategories_InstructorsCategories) {
                 InstructorsCategoriesRow rowInstructorsCategoriesRow = ((InstructorsCategoriesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         null,
                         null,
                         null};
@@ -3737,6 +3778,7 @@ namespace Автошкола {
                 this.columnID = base.Columns["ID"];
                 this.columnInstructor = base.Columns["Instructor"];
                 this.columnCategory = base.Columns["Category"];
+                this.columnInstructorFIO = base.Columns["InstructorFIO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3748,6 +3790,8 @@ namespace Автошкола {
                 base.Columns.Add(this.columnInstructor);
                 this.columnCategory = new global::System.Data.DataColumn("Category", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategory);
+                this.columnInstructorFIO = new global::System.Data.DataColumn("InstructorFIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstructorFIO);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_InstructorsCategoriesInstructors", new global::System.Data.DataColumn[] {
                                 this.columnInstructor}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_InstructorsCategoriesCategories", new global::System.Data.DataColumn[] {
@@ -3759,6 +3803,7 @@ namespace Автошкола {
                 this.columnID.Unique = true;
                 this.columnInstructor.Unique = true;
                 this.columnCategory.Unique = true;
+                this.columnInstructorFIO.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3777,6 +3822,12 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(InstructorsCategoriesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitExpressions() {
+                this.InstructorFIOColumn.Expression = "Parent(Instructors_InstructorsCategories).FIO";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8386,6 +8437,23 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string InstructorFIO {
+                get {
+                    try {
+                        return ((string)(this[this.tableInstructorsCategories.InstructorFIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'InstructorFIO\' в таблице \'InstructorsCategories\' равно DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableInstructorsCategories.InstructorFIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CategoriesRow CategoriesRow {
                 get {
                     return ((CategoriesRow)(this.GetParentRow(this.Table.ParentRelations["Categories_InstructorsCategories"])));
@@ -8428,6 +8496,18 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCategoryNull() {
                 this[this.tableInstructorsCategories.CategoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInstructorFIONull() {
+                return this.IsNull(this.tableInstructorsCategories.InstructorFIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInstructorFIONull() {
+                this[this.tableInstructorsCategories.InstructorFIOColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -39,7 +39,7 @@ namespace Автошкола
 
         byte[] ImageByte;
 
-        MemoryStream memoryStream = new MemoryStream(); // Поток в который запишем изображение
+        //MemoryStream memoryStream = new MemoryStream(); // Поток в который запишем изображение
 
         private void AddEditWorkerForm_Load(object sender, EventArgs e)
         {

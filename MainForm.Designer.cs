@@ -315,6 +315,7 @@
             this.тСИнструкторовToolStripMenuItem.Name = "тСИнструкторовToolStripMenuItem";
             this.тСИнструкторовToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.тСИнструкторовToolStripMenuItem.Text = "ТС инструкторов";
+            this.тСИнструкторовToolStripMenuItem.Click += new System.EventHandler(this.тСИнструкторовToolStripMenuItem_Click);
             // 
             // заменаТСУИнструктораToolStripMenuItem
             // 

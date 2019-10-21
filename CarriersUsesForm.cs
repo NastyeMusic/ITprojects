@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Автошкола
 {
-    public partial class InstructorsCategoriesForm : Form
+    public partial class CarriersUsesForm : Form
     {
-        public InstructorsCategoriesForm()
+        public CarriersUsesForm()
         {
             InitializeComponent();
         }
@@ -23,16 +23,17 @@ namespace Автошкола
         int LastFoundRow = -1;
         int LastSelectionIndex;
 
-        void ReloadInstructorsCategories()
+        void ReloadCarriersUses()
         {
-            dataSet = BusinessLogic.ReadInstructorsCategories();
-            InstructorsCategories_dataGridView.DataSource = dataSet;
-            InstructorsCategories_dataGridView.DataMember = "InstructorsCategories";
+            dataSet = BusinessLogic.ReadCarriersUses();
+            CarriersUses_dataGridView.DataSource = dataSet;
+            CarriersUses_dataGridView.DataMember = "CarriersUses";
 
-            InstructorsCategories_dataGridView.Columns["ID"].Visible = false;
-            InstructorsCategories_dataGridView.Columns["Instructor"].Visible = false;
-            InstructorsCategories_dataGridView.Columns["Category"].Visible = false;
-            InstructorsCategories_dataGridView.Columns["InstructorFIO"].Visible = false;
+            CarriersUses_dataGridView.Columns["ID"].Visible = false;
+            CarriersUses_dataGridView.Columns["Instructor"].Visible = false;
+            CarriersUses_dataGridView.Columns["Carrier"].Visible = false;
+            CarriersUses_dataGridView.Columns["InstructorName"].Visible = false;
+            CarriersUses_dataGridView.Columns["CarrierName"].Visible = false;
 
             IDColumn.DataPropertyName = "ID";
 
@@ -51,27 +52,27 @@ namespace Автошкола
             PatronymicNameColumn.ValueMember = "ID";
             PatronymicNameColumn.DataPropertyName = "Instructor";
 
-            CategoryColumn.DataSource = dataSet.Categories;
-            CategoryColumn.DisplayMember = "Name";
-            CategoryColumn.ValueMember = "ID";
-            CategoryColumn.DataPropertyName = "Category";
+            CarrierColumn.DataSource = dataSet.Carriers;
+            CarrierColumn.DisplayMember = "FinalName";
+            CarrierColumn.ValueMember = "ID";
+            CarrierColumn.DataPropertyName = "Carrier";
 
             if (LastSelectionIndex != -1)
-                InstructorsCategories_dataGridView.CurrentCell = InstructorsCategories_dataGridView[1, LastSelectionIndex];
+                CarriersUses_dataGridView.CurrentCell = CarriersUses_dataGridView[1, LastSelectionIndex];
         }
 
-        private void InstructorsCategoriesForm_Load(object sender, EventArgs e)
+        private void CarriersUsesForm_Load(object sender, EventArgs e)
         {
             LastSelectionIndex = -1;
-            ReloadInstructorsCategories();
+            ReloadCarriersUses();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
-            InstructorsCategories_dataGridView_SelectionChanged(sender, e);
+            CarriersUses_dataGridView_SelectionChanged(sender, e);
         }
 
-        private void InstructorsCategories_dataGridView_SelectionChanged(object sender, EventArgs e)
+        private void CarriersUses_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (InstructorsCategories_dataGridView.SelectedRows.Count == 1)
+            if (CarriersUses_dataGridView.SelectedRows.Count == 1)
             {
                 Edit_button.Enabled = true;
                 Delete_button.Enabled = true;
@@ -85,7 +86,7 @@ namespace Автошкола
 
         private void Search_button_Click(object sender, EventArgs e)
         {
-            SearchingInDataGridViewClass.Search(SearchInstructor_textBox, ref InstructorsCategories_dataGridView, Direction_checkBox,
+            SearchingInDataGridViewClass.Search(SearchInstructor_textBox, ref CarriersUses_dataGridView, Direction_checkBox,
                 ref LastSearchingText, ref LastFoundRow, 3);
         }
 
@@ -101,54 +102,54 @@ namespace Автошкола
             }
         }
 
-        private void ReloadInstructorsCategories_button_Click(object sender, EventArgs e)
+        private void ReloadCarriersUses_button_Click(object sender, EventArgs e)
         {
             LastSelectionIndex = -1;
-            ReloadInstructorsCategories();
+            ReloadCarriersUses();
         }
 
-        private void InstructorsCategoriesForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void CarriersUsesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
             Hide();
-            MainForm.Perem(MainForm.FormsNames[17], false);
+            MainForm.Perem(MainForm.FormsNames[18], false);
         }
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            AddEditInstructorsCategoriesForm AddInstructorCategory = new AddEditInstructorsCategoriesForm(dataSet.InstructorsCategories, 
-                dataSet.Instructors, dataSet.Categories, null);
-            AddInstructorCategory.Text = "Добавление категориии инструктору";
+            AddEditCarrierUseForm AddCarrierUse = new AddEditCarrierUseForm(dataSet.CarriersUses,
+                dataSet.Instructors, dataSet.Carriers, null);
+            AddCarrierUse.Text = "Добавление ТС инструктору";
             this.Enabled = false;
-            AddInstructorCategory.ShowDialog();
-            if (AddInstructorCategory.DialogResult == DialogResult.OK)
+            AddCarrierUse.ShowDialog();
+            if (AddCarrierUse.DialogResult == DialogResult.OK)
             {
-                dataSet = BusinessLogic.WriteInstructorsCategories(dataSet);
-                ReloadInstructorsCategories();
+                dataSet = BusinessLogic.WriteCarriersUses(dataSet);
+                ReloadCarriersUses();
             }
             this.Enabled = true;
         }
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = InstructorsCategories_dataGridView.SelectedRows[0].Index;
-            AddEditInstructorsCategoriesForm EditInstructorCategory = new AddEditInstructorsCategoriesForm(dataSet.InstructorsCategories,
-                dataSet.Instructors, dataSet.Categories, 
-                dataSet.InstructorsCategories.Rows.Find(InstructorsCategories_dataGridView.SelectedRows[0].Cells["ID"].Value));
-            EditInstructorCategory.Text = "Редактирование категориии инструктора";
+            LastSelectionIndex = CarriersUses_dataGridView.SelectedRows[0].Index;
+            AddEditCarrierUseForm EditCarrierUse = new AddEditCarrierUseForm(dataSet.CarriersUses,
+                dataSet.Instructors, dataSet.Carriers, 
+                dataSet.CarriersUses.Rows.Find(CarriersUses_dataGridView.SelectedRows[0].Cells["ID"].Value));
+            EditCarrierUse.Text = "Редактирование ТС инструктора";
             this.Enabled = false;
-            EditInstructorCategory.ShowDialog();
-            if (EditInstructorCategory.DialogResult == DialogResult.OK)
+            EditCarrierUse.ShowDialog();
+            if (EditCarrierUse.DialogResult == DialogResult.OK)
             {
-                dataSet = BusinessLogic.WriteInstructorsCategories(dataSet);
-                ReloadInstructorsCategories();
+                dataSet = BusinessLogic.WriteCarriersUses(dataSet);
+                ReloadCarriersUses();
             }
             this.Enabled = true;
         }
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            if (InstructorsCategories_dataGridView.SelectedRows.Count != 1)
+            if (CarriersUses_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -158,14 +159,14 @@ namespace Автошкола
             {
                 try
                 {
-                    dataSet.InstructorsCategories.Rows.Find(InstructorsCategories_dataGridView.SelectedRows[0].Cells["ID"].Value).Delete();
-                    dataSet = BusinessLogic.WriteInstructorsCategories(dataSet);
-                    ReloadInstructorsCategories();
+                    dataSet.CarriersUses.Rows.Find(CarriersUses_dataGridView.SelectedRows[0].Cells["ID"].Value).Delete();
+                    dataSet = BusinessLogic.WriteCarriersUses(dataSet);
+                    ReloadCarriersUses();
                 }
                 catch
                 {
                     MessageBox.Show("Не удалось удалить выбранную строку.\nСкорее всего, на данную строку имеются ссылки из других таблиц", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReloadInstructorsCategories();
+                    ReloadCarriersUses();
                 }
             }
         }

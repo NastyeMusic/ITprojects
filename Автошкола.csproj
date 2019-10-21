@@ -66,6 +66,12 @@
     <Compile Include="AddEditCarriersStatusesForm.Designer.cs">
       <DependentUpon>AddEditCarriersStatusesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditCarrierUseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditCarrierUseForm.Designer.cs">
+      <DependentUpon>AddEditCarrierUseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditCategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,12 @@
       <DependentUpon>CarriersStatusesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CarriersUsesDA.cs" />
+    <Compile Include="CarriersUsesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarriersUsesForm.Designer.cs">
+      <DependentUpon>CarriersUsesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoriesDA.cs" />
     <Compile Include="CategoriesForm.cs">
       <SubType>Form</SubType>
@@ -210,6 +222,9 @@
     <EmbeddedResource Include="AddEditCarriersStatusesForm.resx">
       <DependentUpon>AddEditCarriersStatusesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEditCarrierUseForm.resx">
+      <DependentUpon>AddEditCarrierUseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditCategoryForm.resx">
       <DependentUpon>AddEditCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CarriersStatusesForm.resx">
       <DependentUpon>CarriersStatusesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarriersUsesForm.resx">
+      <DependentUpon>CarriersUsesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CategoriesForm.resx">
       <DependentUpon>CategoriesForm.cs</DependentUpon>

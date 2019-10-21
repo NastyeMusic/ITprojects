@@ -33,13 +33,16 @@ namespace Автошкола
         AutoschoolDataSet.CarriersDataTable carriersDataTable;
         AutoschoolDataSet.StudentsDataTable studentsDataTable;
         AutoschoolDataSet.CarriersUsesDataTable carriersUsesDataTable;
+        AutoschoolDataSet.InstructorsCategoriesDataTable instructorsForThisGroupDataTable;
         DataRow dataRow;
         int SelectedInstructorID = -1;
         int SelectedCarrierID = -1;
         int SelectedCarrierUseID = -1;
-        MemoryStream memoryStream = new MemoryStream(); // Поток в который запишем изображение
 
         bool FormLoad = false;
+
+        byte[] ImageByte;
+        //MemoryStream memoryStream = new MemoryStream(); // Поток в который запишем изображение
 
         private void AddEditStudent_Load(object sender, EventArgs e)
         {
@@ -47,7 +50,8 @@ namespace Автошкола
             Group_comboBox.DisplayMember = "Name";
             Group_comboBox.ValueMember = "ID";
             if (NameOfGroup != null && NameOfGroup != "")
-                Group_comboBox.SelectedText = NameOfGroup;
+                Group_comboBox.DataBindings.Add("SelectedText", dataRow, NameOfGroup);
+            //Group_comboBox.SelectedItem = NameOfGroup;
             else
                 Group_comboBox.SelectedIndex = -1;
             Group_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
@@ -65,7 +69,7 @@ namespace Автошкола
                 PhoneNumber_maskedTextBox.Text = dataRow["PhoneNumber"].ToString();
                 Retraining_checkBox.Checked = Convert.ToBoolean(dataRow["Retraining"].ToString());
                 Group_comboBox.SelectedValue = dataRow["Group"].ToString();
-                Instructor_comboBox.SelectedText = dataRow["InstructorName"].ToString();
+                Instructor_comboBox.SelectedItem = dataRow["InstructorName"].ToString();
                 ChoosenCarrier_label.Text = dataRow["CarrierName"].ToString();
                 InstructorChanged();
                 if (CarriersUses_dataGridView.Rows.Count > 1)
@@ -80,9 +84,11 @@ namespace Автошкола
                         }
                     }
                 }
-                System.Drawing.ImageConverter converter = new System.Drawing.ImageConverter();
+                if (dataRow["Photo"].ToString() != "")
+                    Photo_pictureBox.Image = byteArrayToImage((byte[])dataRow["Photo"]);
+                /*System.Drawing.ImageConverter converter = new System.Drawing.ImageConverter();
                 Image img = (Image)converter.ConvertFromString(dataRow["Photo"].ToString());
-                Photo_pictureBox.Image = img;
+                Photo_pictureBox.Image = img;*/
             }
             else
             {
@@ -153,7 +159,7 @@ namespace Автошкола
                     dataRow["Retraining"] = Retraining_checkBox.Checked;
                     dataRow["Group"] = Group_comboBox.SelectedValue;
                     dataRow["CarrierUse"] = SelectedCarrierUseID;
-                    dataRow["Photo"] = memoryStream.ToArray();
+                    dataRow["Photo"] = ImageByte /*memoryStream.ToArray()*/;
                 }
                 else //добавление
                 {
@@ -161,38 +167,49 @@ namespace Автошкола
                     carriersUsesDataTable = dataSetForCarriersUses.CarriersUses;
                     studentsDataTable.AddStudentsRow(Surname_textBox.Text, FirstName_textBox.Text,
                         PatronymicName_textBox.Text, PhoneNumber_maskedTextBox.Text, Retraining_checkBox.Checked,
-                        groupsDataTable[Group_comboBox.SelectedIndex], carriersUsesDataTable[0], memoryStream.ToArray());
+                        groupsDataTable[Group_comboBox.SelectedIndex], carriersUsesDataTable[0], /*memoryStream.ToArray()*/ ImageByte);
                 }
             }            
         }
 
-        void ControlEnterTextOneWord(ref KeyPressEventArgs e)
+        void ControlEnterTextOneWord(object sender, ref KeyPressEventArgs e)
         {
-            if ((char)e.KeyChar == (Char)Keys.Back) return;
-            if (char.IsLetter(e.KeyChar)) return;
-            e.Handled = true;
+            if ((((TextBox)sender).TextLength - ((TextBox)sender).SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetter(e.KeyChar)) return;
+                e.Handled = true;
+            }
         }
 
         private void Surname_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterTextOneWord(ref e);
+            ControlEnterTextOneWord(sender, ref e);
         }
 
         private void FirstName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterTextOneWord(ref e);
+            ControlEnterTextOneWord(sender, ref e);
         }
 
         private void PatronymicName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterTextOneWord(ref e);
+            ControlEnterTextOneWord(sender, ref e);
         }
 
-        void ControlEnterNumber(ref KeyPressEventArgs e)
+        void ControlEnterNumber(object sender, ref KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if (!Char.IsDigit(number) && ((char)e.KeyChar == (Char)Keys.Back))
+            if ((((TextBox)sender).TextLength - ((TextBox)sender).SelectionLength) >= 20 && (char)e.KeyChar != (Char)Keys.Back)
                 e.Handled = true;
+            else
+            {
+                char number = e.KeyChar;
+                if (!Char.IsDigit(number) && ((char)e.KeyChar == (Char)Keys.Back))
+                    e.Handled = true;
+            }
         }
 
         private void Instructor_comboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -211,9 +228,11 @@ namespace Автошкола
             {
                 try
                 {
-                    Image image = Image.FromFile(SelectPicture_openFileDialog.FileName.ToString());
-                    Photo_pictureBox.Image = image; 
-                    image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Bmp); //Сохраняем изображение в поток.
+                    Bitmap image = new Bitmap(SelectPicture_openFileDialog.FileName.ToString());
+                    ImageByte = imageToByteArray(image, SelectPicture_openFileDialog.FileName.ToString());
+                    //Image image = Image.FromFile(SelectPicture_openFileDialog.FileName.ToString());
+                    Photo_pictureBox.Image = image;
+                    //image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg); //Сохраняем изображение в поток.
                 }
                 catch
                 {
@@ -232,7 +251,7 @@ namespace Автошкола
 
         private void PhoneNumber_maskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterNumber(ref e);
+            ControlEnterNumber(sender, ref e);
         }
 
         private void ReloadGroups_button_Click(object sender, EventArgs e)
@@ -247,19 +266,22 @@ namespace Автошкола
 
         void InstructorChanged()
         {
-            if (Instructor_comboBox.SelectedIndex != -1)
+            if (Instructor_comboBox.SelectedIndex != -1 && FormLoad)
             {
-                ChoosenInstructor_label.Text = Instructor_comboBox.DisplayMember.ToString();
-                SelectedInstructorID = Convert.ToInt32(Instructor_comboBox.SelectedValue);
-                dataSetForCarriers = BusinessLogic.ReadCarriersUsesByInstructorID(Convert.ToInt32(Instructor_comboBox.SelectedValue));
-                carriersDataTable = dataSetForCarriers.Carriers;
-                for (int i = 0; i < carriersDataTable.Rows.Count; i++)
+                if (CarriersUses_dataGridView.RowCount > 0)
                 {
-                    CarriersUses_dataGridView[0, i].Value = carriersDataTable[i][3];
-                    CarriersUses_dataGridView[2, i].Value = carriersDataTable[i][1];
-                    CarriersUses_dataGridView[1, i].Value = carriersDataTable[i][4];
-                    CarriersUses_dataGridView[3, i].Value = carriersDataTable[i][2];
-                    CarriersUses_dataGridView[4, i].Value = carriersDataTable[i][0];
+                    ChoosenInstructor_label.Text = Instructor_comboBox.DisplayMember.ToString();
+                    SelectedInstructorID = Convert.ToInt32(Instructor_comboBox.SelectedValue);
+                    dataSetForCarriers = BusinessLogic.ReadCarriersUsesByInstructorID(Convert.ToInt32(Instructor_comboBox.SelectedValue));
+                    carriersDataTable = dataSetForCarriers.Carriers;
+                    for (int i = 0; i < carriersDataTable.Rows.Count; i++)
+                    {
+                        CarriersUses_dataGridView[0, i].Value = carriersDataTable[i][3];
+                        CarriersUses_dataGridView[2, i].Value = carriersDataTable[i][1];
+                        CarriersUses_dataGridView[1, i].Value = carriersDataTable[i][4];
+                        CarriersUses_dataGridView[3, i].Value = carriersDataTable[i][2];
+                        CarriersUses_dataGridView[4, i].Value = carriersDataTable[i][0];
+                    }
                 }
             }
             else
@@ -275,6 +297,45 @@ namespace Автошкола
             {
                 CarriersUses_dataGridView.Rows[0].Selected = true;
                 ChangeSelectedCarrier();
+            }
+        }
+
+        public byte[] imageToByteArray(System.Drawing.Image imageIn, string FileName)
+        {
+            byte[] bytes = File.ReadAllBytes(FileName);
+            return bytes;
+            /*MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+            return ms.ToArray();*/
+        }
+
+        private void Group_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Group_comboBox.SelectedIndex != -1 && FormLoad)
+            {
+                int CategoryID = groupsDataTable[Group_comboBox.SelectedIndex].Category;
+                instructorsForThisGroupDataTable = BusinessLogic.ReadInstructorsCategoriesByCategoryID(CategoryID).InstructorsCategories;
+
+                Instructor_comboBox.DataSource = instructorsForThisGroupDataTable;
+                Instructor_comboBox.DisplayMember = "InstructorFIO";
+                Instructor_comboBox.ValueMember = "Instructor";
+                Instructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+                Instructor_comboBox.SelectedIndex = -1;
+            }
+        }
+
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream(byteArrayIn);
+                Image returnImage = Image.FromStream(ms);
+                return returnImage;
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка при загрузке изображения", "Ошибка");
+                return null;
             }
         }
     }

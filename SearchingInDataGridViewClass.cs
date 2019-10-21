@@ -120,7 +120,7 @@ namespace Автошкола
         {
             if (dGV[ColumnNumber, CurrentRow].FormattedValue.ToString().Contains(CurrentSearchingText))
             {
-                dGV.CurrentCell = dGV[3, CurrentRow];
+                dGV.CurrentCell = dGV[ColumnNumber, CurrentRow];
                 LastFoundRow = CurrentRow;
                 return true;
             }

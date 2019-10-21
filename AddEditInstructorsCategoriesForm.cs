@@ -69,6 +69,11 @@ namespace Автошкола
                         Category_comboBox.Focus();
                         throw new Exception("Не выбрана категория");
                     }
+                    AutoschoolDataSet TempDS = new AutoschoolDataSet();
+                    TempDS = BusinessLogic.ReadInstructorsCategoriesByInstructorIdANDCategoryId(
+                        Convert.ToInt32(Instructor_comboBox.SelectedValue), Convert.ToInt32(Category_comboBox.SelectedValue));
+                    if (TempDS.InstructorsCategories.Rows.Count > 0)
+                        throw new Exception("Такая связка между инструктором и категорией уже существует");
                 }
                 catch (Exception exp)
                 {
