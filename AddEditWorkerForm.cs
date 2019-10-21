@@ -286,7 +286,7 @@ namespace Автошкола
 
         void ControlEnterTextOneWord(object sender, ref KeyPressEventArgs e)
         {
-            if ((((TextBox)sender).TextLength - ((TextBox)sender).SelectionLength) >= 50)
+            if ((((TextBox)sender).TextLength - ((TextBox)sender).SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
                 e.Handled = true;
             else
             {

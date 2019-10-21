@@ -105,7 +105,7 @@ namespace Автошкола
 
         private void GroupName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((GroupName_textBox.TextLength - GroupName_textBox.SelectionLength) >= 50)
+            if ((GroupName_textBox.TextLength - GroupName_textBox.SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
                 e.Handled = true;
             else
             {

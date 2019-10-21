@@ -65,7 +65,7 @@ namespace Автошкола
 
         private void TransmissionName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((TransmissionName_textBox.TextLength - TransmissionName_textBox.SelectionLength) >= 10)
+            if ((TransmissionName_textBox.TextLength - TransmissionName_textBox.SelectionLength) >= 10 && (char)e.KeyChar != (Char)Keys.Back)
                 e.Handled = true;
             else
             {

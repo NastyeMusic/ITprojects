@@ -17,13 +17,15 @@ namespace Автошкола
             InitializeComponent();
         }
 
-        public BusinessLogic BusinessLogic = new BusinessLogic();
+        BusinessLogic BusinessLogic = new BusinessLogic();
         AutoschoolDataSet dataSet;
         string LastSearchingText = "";
         int LastFoundRow = -1;
 
-        //WorkStatusesForm WorkStatusesForm = new WorkStatusesForm();
-        //static bool WorkStatusesFormOpened = false;
+        int LastSelectionIndex;
+
+        //AddRepairFromFormCarriers AddRepairFromFormCarriersForm = new AddRepairFromFormCarriers();
+        //static bool AddRepairFromFormCarriersFormOpened = false;
 
         private void AddRepairSelectedCarrier_button_Click(object sender, EventArgs e)
         {
@@ -44,6 +46,7 @@ namespace Автошкола
             Carriers_dataGridView.Columns["Transmission"].Visible = false;
             Carriers_dataGridView.Columns["Category"].Visible = false;
             Carriers_dataGridView.Columns["Status"].Visible = false;
+            Carriers_dataGridView.Columns["FinalName"].Visible = false;
 
             IDColumn.DataPropertyName = "ID";
             BrandColumn.DataPropertyName = "Brand";
@@ -65,96 +68,24 @@ namespace Автошкола
             StatusColumn.DisplayMember = "Name";
             StatusColumn.ValueMember = "ID";
             StatusColumn.DataPropertyName = "Status";
+
+            if (LastSelectionIndex != -1)
+                Carriers_dataGridView.CurrentCell = Carriers_dataGridView[1, LastSelectionIndex];
         }
 
         private void CarriersForm_Load(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadCarriers();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
+            Carriers_dataGridView_SelectionChanged(sender, e);
         }
 
         private void Search_button_Click(object sender, EventArgs e)
         {
-            bool Find = false;
-            string CurrentSearchingText = SearchCarrier_textBox.Text.Trim();
-            int BeginRow = 0;
-            if (LastSearchingText == CurrentSearchingText)
-            {
-                if (Direction_checkBox.Checked)
-                    BeginRow = LastFoundRow + 1;
-                else
-                    BeginRow = LastFoundRow - 1;
-            }
-            else
-                LastSearchingText = CurrentSearchingText;
-            Search:
-            if (Direction_checkBox.Checked)
-            {
-                for (int i = BeginRow; i < Carriers_dataGridView.RowCount; i++)
-                {
-                    if (Carriers_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Carriers_dataGridView.CurrentCell = Carriers_dataGridView[1, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                    if (Carriers_dataGridView[2, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Carriers_dataGridView.CurrentCell = Carriers_dataGridView[2, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                    if (Carriers_dataGridView[3, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Carriers_dataGridView.CurrentCell = Carriers_dataGridView[3, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                }
-                if (!Find)
-                {
-                    DialogResult result = MessageBox.Show("Поиск достиг последней строки таблицы. Продолжить поиск с начала таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (result == DialogResult.Yes)
-                    {
-                        BeginRow = 0;
-                        goto Search;
-                    }
-                }
-            }
-            else
-            {
-                for (int i = BeginRow; i >= 0; i--)
-                {
-                    if (Carriers_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Carriers_dataGridView.CurrentCell = Carriers_dataGridView[1, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                    if (Carriers_dataGridView[2, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Carriers_dataGridView.CurrentCell = Carriers_dataGridView[2, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                    if (Carriers_dataGridView[3, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Carriers_dataGridView.CurrentCell = Carriers_dataGridView[3, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                }
-                if (!Find)
-                {
-                    DialogResult result = MessageBox.Show("Поиск достиг первой строки таблицы. Продолжить поиск с конца таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (result == DialogResult.Yes)
-                    {
-                        BeginRow = Carriers_dataGridView.RowCount - 1;
-                        goto Search;
-                    }
-                }
-            }
+            SearchingInDataGridViewClass.Search(SearchCarrier_textBox, ref Carriers_dataGridView, Direction_checkBox,
+                ref LastSearchingText, ref LastFoundRow, 3);
         }
 
         private void SearchCarrier_textBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -200,6 +131,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = Carriers_dataGridView.SelectedRows[0].Index;
             AddEditCarrierForm EditCarrier = new AddEditCarrierForm(dataSet.Carriers, dataSet.Categories, dataSet.CarriersStatuses,
                 dataSet.Transmissions, dataSet.Carriers.Rows.Find(Carriers_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditCarrier.Text = "Редактирование ТС";
@@ -239,6 +171,7 @@ namespace Автошкола
 
         private void ReloadCarriers_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadCarriers();
         }
 

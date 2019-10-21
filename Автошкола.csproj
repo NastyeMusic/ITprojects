@@ -78,6 +78,12 @@
     <Compile Include="AddEditGroup.Designer.cs">
       <DependentUpon>AddEditGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditInstructorsCategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditInstructorsCategoriesForm.Designer.cs">
+      <DependentUpon>AddEditInstructorsCategoriesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     <Compile Include="GroupsForm.Designer.cs">
       <DependentUpon>GroupsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InstructorsCategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructorsCategoriesForm.Designer.cs">
+      <DependentUpon>InstructorsCategoriesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +176,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReplacementsCarriersDA.cs" />
+    <Compile Include="SearchingInDataGridViewClass.cs" />
     <Compile Include="ServiceMastersDA.cs" />
     <Compile Include="StudentsDA.cs" />
     <Compile Include="TheoryLessonsDA.cs" />
@@ -203,6 +216,9 @@
     <EmbeddedResource Include="AddEditGroup.resx">
       <DependentUpon>AddEditGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEditInstructorsCategoriesForm.resx">
+      <DependentUpon>AddEditInstructorsCategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditStudent.resx">
       <DependentUpon>AddEditStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GroupsForm.resx">
       <DependentUpon>GroupsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorsCategoriesForm.resx">
+      <DependentUpon>InstructorsCategoriesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

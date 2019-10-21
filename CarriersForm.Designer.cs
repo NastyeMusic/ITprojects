@@ -255,9 +255,9 @@
             // Search_button
             // 
             this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Search_button.Location = new System.Drawing.Point(936, 9);
+            this.Search_button.Location = new System.Drawing.Point(936, 6);
             this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(98, 25);
+            this.Search_button.Size = new System.Drawing.Size(98, 30);
             this.Search_button.TabIndex = 37;
             this.Search_button.Text = "Найти";
             this.Search_button.UseVisualStyleBackColor = true;

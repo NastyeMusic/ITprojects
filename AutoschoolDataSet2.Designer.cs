@@ -709,7 +709,7 @@ namespace Автошкола {
             this.Relations.Add(this.relationCategories_InstructorsCategories);
             this.relationInstructors_InstructorsCategories = new global::System.Data.DataRelation("Instructors_InstructorsCategories", new global::System.Data.DataColumn[] {
                         this.tableInstructors.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableInstructorsCategories.InctructorColumn}, false);
+                        this.tableInstructorsCategories.InstructorColumn}, false);
             this.Relations.Add(this.relationInstructors_InstructorsCategories);
             this.relationInstructors_CarriersUses = new global::System.Data.DataRelation("Instructors_CarriersUses", new global::System.Data.DataColumn[] {
                         this.tableInstructors.IDColumn}, new global::System.Data.DataColumn[] {
@@ -3595,7 +3595,7 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnInctructor;
+            private global::System.Data.DataColumn columnInstructor;
             
             private global::System.Data.DataColumn columnCategory;
             
@@ -3642,9 +3642,9 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InctructorColumn {
+            public global::System.Data.DataColumn InstructorColumn {
                 get {
-                    return this.columnInctructor;
+                    return this.columnInstructor;
                 }
             }
             
@@ -3693,10 +3693,10 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InstructorsCategoriesRow AddInstructorsCategoriesRow(string ID, InstructorsRow parentInstructorsRowByInstructors_InstructorsCategories, CategoriesRow parentCategoriesRowByCategories_InstructorsCategories) {
+            public InstructorsCategoriesRow AddInstructorsCategoriesRow(InstructorsRow parentInstructorsRowByInstructors_InstructorsCategories, CategoriesRow parentCategoriesRowByCategories_InstructorsCategories) {
                 InstructorsCategoriesRow rowInstructorsCategoriesRow = ((InstructorsCategoriesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         null,
                         null};
                 if ((parentInstructorsRowByInstructors_InstructorsCategories != null)) {
@@ -3712,7 +3712,7 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InstructorsCategoriesRow FindByID(string ID) {
+            public InstructorsCategoriesRow FindByID(int ID) {
                 return ((InstructorsCategoriesRow)(this.Rows.Find(new object[] {
                             ID})));
             }
@@ -3735,28 +3735,29 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnInctructor = base.Columns["Inctructor"];
+                this.columnInstructor = base.Columns["Instructor"];
                 this.columnCategory = base.Columns["Category"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnInctructor = new global::System.Data.DataColumn("Inctructor", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInctructor);
+                this.columnInstructor = new global::System.Data.DataColumn("Instructor", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstructor);
                 this.columnCategory = new global::System.Data.DataColumn("Category", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategory);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_InstructorsCategoriesInstructors", new global::System.Data.DataColumn[] {
-                                this.columnInctructor}, false));
+                                this.columnInstructor}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_InstructorsCategoriesCategories", new global::System.Data.DataColumn[] {
                                 this.columnCategory}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_InstructorsCategories", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
+                this.columnID.AutoIncrement = true;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
-                this.columnInctructor.Unique = true;
+                this.columnInstructor.Unique = true;
                 this.columnCategory.Unique = true;
             }
             
@@ -8341,9 +8342,9 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ID {
+            public int ID {
                 get {
-                    return ((string)(this[this.tableInstructorsCategories.IDColumn]));
+                    return ((int)(this[this.tableInstructorsCategories.IDColumn]));
                 }
                 set {
                     this[this.tableInstructorsCategories.IDColumn] = value;
@@ -8352,18 +8353,18 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Inctructor {
+            public int Instructor {
                 get {
                     try {
-                        return ((int)(this[this.tableInstructorsCategories.InctructorColumn]));
+                        return ((int)(this[this.tableInstructorsCategories.InstructorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Inctructor\' в таблице \'InstructorsCategories\' равно DBNull." +
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Instructor\' в таблице \'InstructorsCategories\' равно DBNull." +
                                 "", e);
                     }
                 }
                 set {
-                    this[this.tableInstructorsCategories.InctructorColumn] = value;
+                    this[this.tableInstructorsCategories.InstructorColumn] = value;
                 }
             }
             
@@ -8407,14 +8408,14 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsInctructorNull() {
-                return this.IsNull(this.tableInstructorsCategories.InctructorColumn);
+            public bool IsInstructorNull() {
+                return this.IsNull(this.tableInstructorsCategories.InstructorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetInctructorNull() {
-                this[this.tableInstructorsCategories.InctructorColumn] = global::System.Convert.DBNull;
+            public void SetInstructorNull() {
+                this[this.tableInstructorsCategories.InstructorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

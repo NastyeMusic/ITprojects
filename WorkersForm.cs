@@ -84,85 +84,8 @@ namespace Автошкола
 
         private void Search_button_Click(object sender, EventArgs e)
         {
-            bool Find = false;
-            string CurrentSearchingText = SearchWorker_textBox.Text.Trim();
-            int BeginRow = 0;
-            if (LastSearchingText == CurrentSearchingText)
-            {
-                if (Direction_checkBox.Checked)
-                    BeginRow = LastFoundRow + 1;
-                else
-                    BeginRow = LastFoundRow - 1;
-            }
-            else
-                LastSearchingText = CurrentSearchingText;
-            Search:
-            if (Direction_checkBox.Checked)
-            {
-                for (int i = BeginRow; i < Workers_dataGridView.RowCount; i++)
-                {
-                    if (Workers_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Workers_dataGridView.CurrentCell = Workers_dataGridView[1, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                    if (Workers_dataGridView[2, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Workers_dataGridView.CurrentCell = Workers_dataGridView[2, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                    if (Workers_dataGridView[3, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Workers_dataGridView.CurrentCell = Workers_dataGridView[3, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                }
-                if (!Find)
-                {
-                    DialogResult result = MessageBox.Show("Поиск достиг последней строки таблицы. Продолжить поиск с начала таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (result == DialogResult.Yes)
-                    {
-                        BeginRow = 0;
-                        goto Search;
-                    }
-                }
-            }
-            else
-            {
-                for (int i = BeginRow; i >= 0; i--)
-                {
-                    if (Workers_dataGridView[1, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Workers_dataGridView.CurrentCell = Workers_dataGridView[1, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                    if (Workers_dataGridView[2, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Workers_dataGridView.CurrentCell = Workers_dataGridView[2, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                    if (Workers_dataGridView[3, i].Value.ToString().Contains(CurrentSearchingText))
-                    {
-                        Workers_dataGridView.CurrentCell = Workers_dataGridView[3, i];
-                        LastFoundRow = i;
-                        return;
-                    }
-                }
-                if (!Find)
-                {
-                    DialogResult result = MessageBox.Show("Поиск достиг первой строки таблицы. Продолжить поиск с конца таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (result == DialogResult.Yes)
-                    {
-                        BeginRow = Workers_dataGridView.RowCount - 1;
-                        goto Search;
-                    }
-                }
-            }
+            SearchingInDataGridViewClass.Search(SearchWorker_textBox, ref Workers_dataGridView, Direction_checkBox,
+                ref LastSearchingText, ref LastFoundRow, 3);
         }
 
         private void SearchWorker_textBox_KeyPress(object sender, KeyPressEventArgs e)

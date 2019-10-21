@@ -25,7 +25,7 @@ namespace Автошкола
             dataRow = row;
         }
 
-        public BusinessLogic BusinessLogic = new BusinessLogic();
+        BusinessLogic BusinessLogic = new BusinessLogic();
         AutoschoolDataSet.CarriersDataTable carriersDataTable;
         AutoschoolDataSet.CategoriesDataTable categoriesDataTable;
         AutoschoolDataSet.CarriersStatusesDataTable carriersStatusesDataTable;
@@ -100,7 +100,7 @@ namespace Автошкола
                     }
                     if (Transmission_comboBox.SelectedIndex == -1)
                     {
-                        Category_comboBox.Focus();
+                        Transmission_comboBox.Focus();
                         throw new Exception("Не выбрана трансмиссия транспортного средства");
                     }
                     if (Category_comboBox.SelectedIndex == -1)
@@ -141,24 +141,58 @@ namespace Автошкола
 
         private void Brand_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char)e.KeyChar == (Char)Keys.Back) return;
-            if ((char)e.KeyChar == (Char)Keys.Space) return;
-            if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
-            if (char.IsLetter(e.KeyChar)) return;
-            e.Handled = true;
+            if ((Brand_textBox.TextLength - Brand_textBox.SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.Space) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetter(e.KeyChar)) return;
+                e.Handled = true;
+            }
         }
 
         private void Color_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar)) return;
-            if (e.KeyChar == '-') return;
-            e.Handled = true;
+            if ((Color_textBox.TextLength - Color_textBox.SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetter(e.KeyChar)) return;
+                if (e.KeyChar == '-') return;
+                e.Handled = true;
+            }
         }
 
         private void StateNumber_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetterOrDigit(e.KeyChar)) return;
-            e.Handled = true;
+            if ((StateNumber_textBox.TextLength - StateNumber_textBox.SelectionLength) >= 15 && (char)e.KeyChar != (Char)Keys.Back)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.Space) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetterOrDigit(e.KeyChar)) return;
+                e.Handled = true;
+            }
         }
+
+        private void Model_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Model_textBox.TextLength - Model_textBox.SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.Space) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetterOrDigit(e.KeyChar)) return;
+                e.Handled = true;
+            }
+         }
     }
 }

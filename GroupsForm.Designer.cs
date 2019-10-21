@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.SearchGroup_textBox = new System.Windows.Forms.TextBox();
             this.Groups_dataGridView = new System.Windows.Forms.DataGridView();
@@ -45,7 +45,7 @@
             this.Edit_button = new System.Windows.Forms.Button();
             this.Search_button = new System.Windows.Forms.Button();
             this.Direction_checkBox = new System.Windows.Forms.CheckBox();
-            this.ReloadWorkers_button = new System.Windows.Forms.Button();
+            this.ReloadGroups_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Groups_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,14 +78,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Groups_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Groups_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Groups_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Groups_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Groups_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -94,26 +94,26 @@
             this.EndLearningColumn,
             this.CategoryColumn,
             this.TeacherColumn});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Groups_dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Groups_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.Groups_dataGridView.Location = new System.Drawing.Point(12, 36);
             this.Groups_dataGridView.MultiSelect = false;
             this.Groups_dataGridView.Name = "Groups_dataGridView";
             this.Groups_dataGridView.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Groups_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Groups_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Groups_dataGridView.RowHeadersVisible = false;
             this.Groups_dataGridView.RowTemplate.Height = 24;
             this.Groups_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -223,23 +223,23 @@
             this.Direction_checkBox.Text = "поиск вниз";
             this.Direction_checkBox.UseVisualStyleBackColor = true;
             // 
-            // ReloadWorkers_button
+            // ReloadGroups_button
             // 
-            this.ReloadWorkers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadWorkers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadWorkers_button.Location = new System.Drawing.Point(1040, 59);
-            this.ReloadWorkers_button.Name = "ReloadWorkers_button";
-            this.ReloadWorkers_button.Size = new System.Drawing.Size(45, 35);
-            this.ReloadWorkers_button.TabIndex = 31;
-            this.ReloadWorkers_button.UseVisualStyleBackColor = true;
-            this.ReloadWorkers_button.Click += new System.EventHandler(this.ReloadWorkers_button_Click);
+            this.ReloadGroups_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadGroups_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadGroups_button.Location = new System.Drawing.Point(1040, 59);
+            this.ReloadGroups_button.Name = "ReloadGroups_button";
+            this.ReloadGroups_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadGroups_button.TabIndex = 31;
+            this.ReloadGroups_button.UseVisualStyleBackColor = true;
+            this.ReloadGroups_button.Click += new System.EventHandler(this.ReloadGroups_button_Click);
             // 
             // GroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1187, 632);
-            this.Controls.Add(this.ReloadWorkers_button);
+            this.Controls.Add(this.ReloadGroups_button);
             this.Controls.Add(this.Direction_checkBox);
             this.Controls.Add(this.Search_button);
             this.Controls.Add(this.Edit_button);
@@ -276,6 +276,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherColumn;
         private System.Windows.Forms.Button Search_button;
         private System.Windows.Forms.CheckBox Direction_checkBox;
-        private System.Windows.Forms.Button ReloadWorkers_button;
+        private System.Windows.Forms.Button ReloadGroups_button;
     }
 }

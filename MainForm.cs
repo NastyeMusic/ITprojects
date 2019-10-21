@@ -66,6 +66,9 @@ namespace Автошкола
         CarriersStatusesForm CarriersStatusesForm = new CarriersStatusesForm();
         static bool CarriersStatusesFormOpened = false;
 
+        InstructorsCategoriesForm InstructorsCategoriesForm = new InstructorsCategoriesForm();
+        static bool InstructorsCategoriesFormOpened = false;
+
         static public string[] FormsNames = new string[21];
 
         public static void Perem(string s, bool b)
@@ -122,11 +125,11 @@ namespace Автошкола
                     break;
                 case "TheoryTeacherScheduleForm":
                     CarriersFormOpened = b;
-                    break;
+                    break;*/
                 case "InstructorsCategoriesForm":
-                    CarriersFormOpened = b;
+                    InstructorsCategoriesFormOpened = b;
                     break;
-                case "CarriersUsesForm":
+                /*case "CarriersUsesForm":
                     CarriersFormOpened = b;
                     break;
                 case "ReplacementCarriers":
@@ -489,6 +492,19 @@ namespace Автошкола
             else
             {
                 CarriersStatusesForm.Activate();
+            }
+        }
+
+        private void категорииИнструкторовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!InstructorsCategoriesFormOpened)
+            {
+                InstructorsCategoriesForm.Show();
+                InstructorsCategoriesFormOpened = true;
+            }
+            else
+            {
+                InstructorsCategoriesForm.Activate();
             }
         }
     }

@@ -74,6 +74,7 @@
             this.Model_textBox.Name = "Model_textBox";
             this.Model_textBox.Size = new System.Drawing.Size(286, 24);
             this.Model_textBox.TabIndex = 4;
+            this.Model_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Model_textBox_KeyPress);
             // 
             // label2
             // 
@@ -107,9 +108,9 @@
             // StateNumber_textBox
             // 
             this.StateNumber_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StateNumber_textBox.Location = new System.Drawing.Point(700, 12);
+            this.StateNumber_textBox.Location = new System.Drawing.Point(713, 12);
             this.StateNumber_textBox.Name = "StateNumber_textBox";
-            this.StateNumber_textBox.Size = new System.Drawing.Size(294, 24);
+            this.StateNumber_textBox.Size = new System.Drawing.Size(281, 24);
             this.StateNumber_textBox.TabIndex = 8;
             this.StateNumber_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StateNumber_textBox_KeyPress);
             // 
@@ -127,16 +128,16 @@
             // 
             this.Transmission_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Transmission_comboBox.FormattingEnabled = true;
-            this.Transmission_comboBox.Location = new System.Drawing.Point(700, 42);
+            this.Transmission_comboBox.Location = new System.Drawing.Point(713, 42);
             this.Transmission_comboBox.Name = "Transmission_comboBox";
-            this.Transmission_comboBox.Size = new System.Drawing.Size(294, 26);
+            this.Transmission_comboBox.Size = new System.Drawing.Size(281, 26);
             this.Transmission_comboBox.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(594, 45);
+            this.label5.Location = new System.Drawing.Point(607, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 18);
             this.label5.TabIndex = 9;
@@ -146,16 +147,16 @@
             // 
             this.Category_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Category_comboBox.FormattingEnabled = true;
-            this.Category_comboBox.Location = new System.Drawing.Point(700, 72);
+            this.Category_comboBox.Location = new System.Drawing.Point(713, 72);
             this.Category_comboBox.Name = "Category_comboBox";
-            this.Category_comboBox.Size = new System.Drawing.Size(294, 26);
+            this.Category_comboBox.Size = new System.Drawing.Size(281, 26);
             this.Category_comboBox.TabIndex = 12;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(614, 75);
+            this.label6.Location = new System.Drawing.Point(627, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 18);
             this.label6.TabIndex = 11;

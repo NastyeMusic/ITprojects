@@ -65,7 +65,7 @@ namespace Автошкола
 
         private void WorkStatusName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((WorkStatusName_textBox.TextLength - WorkStatusName_textBox.SelectionLength) >= 50)
+            if ((WorkStatusName_textBox.TextLength - WorkStatusName_textBox.SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
                 e.Handled = true;
             else
             {
