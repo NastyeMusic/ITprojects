@@ -34,6 +34,7 @@ namespace Автошкола
             CarriersUses_dataGridView.Columns["Carrier"].Visible = false;
             CarriersUses_dataGridView.Columns["InstructorName"].Visible = false;
             CarriersUses_dataGridView.Columns["CarrierName"].Visible = false;
+            CarriersUses_dataGridView.Columns["CategoryCarrierID"].Visible = false;
 
             IDColumn.DataPropertyName = "ID";
 

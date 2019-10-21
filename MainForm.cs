@@ -160,6 +160,9 @@ namespace Автошкола
             Students_dGV.Columns["Group"].Visible = false;
             Students_dGV.Columns["CarrierUse"].Visible = false;
             Students_dGV.Columns["Photo"].Visible = false;
+            Students_dGV.Columns["FIO"].Visible = false;
+            Students_dGV.Columns["InstructorName"].Visible = false;
+            Students_dGV.Columns["CarrierName"].Visible = false;
 
             IDColumn.DataPropertyName = "ID";
             FIOColumn.DataPropertyName = "FIO";
@@ -182,13 +185,9 @@ namespace Автошкола
             Groups_treeView.Nodes.Clear();
 
             dataSet = BusinessLogic.ReadGroups();
-            DataGridView Groups_dGV = new DataGridView();
-            Groups_dGV.DataSource = dataSet;
-            Groups_dGV.DataMember = "Groups";
-
-            for (int i = 0; i < Groups_dGV.RowCount; i++)
+            for (int i = 0; i < dataSet.Groups.Rows.Count; i++)
             {
-                int year = Convert.ToDateTime(Groups_dGV[2, i].ToString()).Year;
+                int year = Convert.ToDateTime(dataSet.Groups.Rows[i][2].ToString()).Year;
 
                 bool Find = false;
                 for (int j = 0; j < Groups_treeView.Nodes.Count; j++)
@@ -197,7 +196,7 @@ namespace Автошкола
                     {
                         Find = true;
                         // добавляем в уже существующую ветку
-                        Groups_treeView.Nodes[j].Nodes.Add(Groups_dGV[1, i].ToString());
+                        Groups_treeView.Nodes[j].Nodes.Add(dataSet.Groups.Rows[i][1].ToString());
                         break;
                     }
                 }
@@ -205,7 +204,7 @@ namespace Автошкола
                 {
                     // создаем новую ветку, и добавляем в нее
                     TreeNode TempNode = Groups_treeView.Nodes.Add(year.ToString());
-                    TempNode.Nodes.Add(Groups_dGV[1, i].ToString());
+                    TempNode.Nodes.Add(dataSet.Groups.Rows[i][1].ToString());
                 }
             }
         }
@@ -221,13 +220,15 @@ namespace Автошкола
 
         private void Groups_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (Groups_treeView.SelectedNode.Level == 2)
+            if (Groups_treeView.SelectedNode.Level == 1)
             {
                 GroupName = Groups_treeView.SelectedNode.Text;
                 ReloadStudents(GroupName);
             }
             else
+            {
                 GroupName = "";
+            }
         }
 
         private void UpdateGroups_Button_Click(object sender, EventArgs e)

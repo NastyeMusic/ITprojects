@@ -58,5 +58,12 @@ namespace Автошкола
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Carriers", conn.getConnection(), tr.getTransaction());
             dataAdapter.Fill(dataSet, "Carriers");
         }
+        public void ReadByCategory(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CategoryID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Carriers WHERE Category = @CategoryID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CategoryID", CategoryID);
+            dataAdapter.Fill(dataSet, "Carriers");
+        }
     }
 }

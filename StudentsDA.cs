@@ -19,7 +19,7 @@ namespace Автошкола
             // на обновление
             dataAdapter.UpdateCommand = new SqlCommand("UPDATE Students SET ID = @ID, Surname = @Surname, " +
                 "FirstName = @FirstName, PatronymicName = @PatronymicName, PhoneNumber = @PhoneNumber, " +
-                "Retraining = @Retraining, Group = @Group, CarrierUse = @CarrierUse, Photo = @Photo " +
+                "Retraining = @Retraining, [Group] = @Group, CarrierUse = @CarrierUse, Photo = @Photo " +
                 "WHERE ID = @OldID", conn.getConnection(), tr.getTransaction());
             dataAdapter.UpdateCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID");
             dataAdapter.UpdateCommand.Parameters.Add("@Surname", System.Data.SqlDbType.Text, 255, "Surname");
@@ -34,7 +34,7 @@ namespace Автошкола
 
             // на вставку 
             dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Students (ID, Surname, FirstName, PatronymicName, " +
-                "PhoneNumber, Retraining, Group, CarrierUse, Photo)  VALUES (@ID, @Surname, @FirstName, @PatronymicName, " +
+                "PhoneNumber, Retraining, [Group], CarrierUse, Photo)  VALUES (@ID, @Surname, @FirstName, @PatronymicName, " +
                 "@PhoneNumber, @Retraining, @Group, @CarrierUse, @Photo)", conn.getConnection(), tr.getTransaction());
             dataAdapter.InsertCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID");
             dataAdapter.InsertCommand.Parameters.Add("@Surname", System.Data.SqlDbType.Text, 255, "Surname");
@@ -64,7 +64,7 @@ namespace Автошкола
         public void ReadStudentsOfGroup(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int ID)
         {
             dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Students WHERE ID = @ID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Students WHERE [Group] = @ID", conn.getConnection(), tr.getTransaction());
             dataAdapter.SelectCommand.Parameters.AddWithValue("@ID", ID);
             dataAdapter.Fill(dataSet, "Students");
         }

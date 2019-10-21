@@ -27,10 +27,10 @@ namespace Автошкола
 
         string NameOfGroup;
         public BusinessLogic BusinessLogic = new BusinessLogic();
-        AutoschoolDataSet dataSetForCarriers, dataSetForCarriersUses;
+        AutoschoolDataSet /*dataSetForCarriers,*/ dataSetForCarriersUses;
         AutoschoolDataSet.GroupsDataTable groupsDataTable;
         AutoschoolDataSet.InstructorsDataTable instructorsDataTable;
-        AutoschoolDataSet.CarriersDataTable carriersDataTable;
+        //AutoschoolDataSet.CarriersDataTable carriersDataTable;
         AutoschoolDataSet.StudentsDataTable studentsDataTable;
         AutoschoolDataSet.CarriersUsesDataTable carriersUsesDataTable;
         AutoschoolDataSet.InstructorsCategoriesDataTable instructorsForThisGroupDataTable;
@@ -50,8 +50,8 @@ namespace Автошкола
             Group_comboBox.DisplayMember = "Name";
             Group_comboBox.ValueMember = "ID";
             if (NameOfGroup != null && NameOfGroup != "")
-                Group_comboBox.DataBindings.Add("SelectedText", dataRow, NameOfGroup);
-            //Group_comboBox.SelectedItem = NameOfGroup;
+                //Group_comboBox.DataBindings.Add("SelectedText", dataRow, NameOfGroup);
+                Group_comboBox.SelectedItem = NameOfGroup;
             else
                 Group_comboBox.SelectedIndex = -1;
             Group_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
@@ -60,6 +60,8 @@ namespace Автошкола
             Instructor_comboBox.DisplayMember = "FIO";
             Instructor_comboBox.ValueMember = "ID";
             Instructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+
+            FormLoad = true;
 
             if (dataRow != null)
             {
@@ -72,7 +74,7 @@ namespace Автошкола
                 Instructor_comboBox.SelectedItem = dataRow["InstructorName"].ToString();
                 ChoosenCarrier_label.Text = dataRow["CarrierName"].ToString();
                 InstructorChanged();
-                if (CarriersUses_dataGridView.Rows.Count > 1)
+                if (CarriersUses_dataGridView.Rows.Count > 0)
                 {
                     for (int i = 0; i < CarriersUses_dataGridView.Rows.Count; i++)
                     {
@@ -100,8 +102,7 @@ namespace Автошкола
                 Instructor_comboBox.SelectedIndex = -1;
                 InstructorChanged();
                 Photo_pictureBox.Image = null;
-            }
-            FormLoad = true;
+            }            
         }
 
         private void AddEditStudent_FormClosing(object sender, FormClosingEventArgs e)
@@ -118,28 +119,29 @@ namespace Автошкола
                         Group_comboBox.Focus();
                         throw new Exception("Не выбрана группа курсанта");
                     }
-                    if (Surname_textBox.Text == "")
+                    if (Surname_textBox.Text.Trim() == "")
                     {
                         Surname_textBox.Focus();
                         throw new Exception("Не указана фамилия студента");
                     }
-                    if (FirstName_textBox.Text == "")
+                    if (FirstName_textBox.Text.Trim() == "")
                     {
                         FirstName_textBox.Focus();
                         throw new Exception("Не указано имя студента");
                     }
-                    if (PatronymicName_textBox.Text == "")
+                    if (PatronymicName_textBox.Text.Trim() == "")
                     {
                         PatronymicName_textBox.Focus();
                         throw new Exception("Не указано отчество студента");
                     }
-                    if (PhoneNumber_maskedTextBox.Text == "")
+                    if (PhoneNumber_maskedTextBox.Text.Trim() == "+7 (   )    -")
                     {
                         PhoneNumber_maskedTextBox.Focus();
                         throw new Exception("Не указан номер телефона студента");
                     }                    
                     if (SelectedCarrierUseID == -1)
                     {
+                        Instructor_comboBox.Focus();
                         throw new Exception("Не выбрана связка инструктора с транспортным средством. \nСначала выберите инструктора из списка, а затем выберите одну из его ТС в таблице ниже. ");
                     }
                 }
@@ -202,7 +204,7 @@ namespace Автошкола
 
         void ControlEnterNumber(object sender, ref KeyPressEventArgs e)
         {
-            if ((((TextBox)sender).TextLength - ((TextBox)sender).SelectionLength) >= 20 && (char)e.KeyChar != (Char)Keys.Back)
+            if ((((MaskedTextBox)sender).TextLength - ((MaskedTextBox)sender).SelectionLength) >= 20 && (char)e.KeyChar != (Char)Keys.Back)
                 e.Handled = true;
             else
             {
@@ -243,10 +245,13 @@ namespace Автошкола
 
         void ChangeSelectedCarrier()
         {
-            int CurRow = CarriersUses_dataGridView.SelectedRows[0].Index;
-            SelectedCarrierID = Convert.ToInt32(CarriersUses_dataGridView[3, CurRow].Value);
-            SelectedCarrierUseID = Convert.ToInt32(CarriersUses_dataGridView[4, CurRow].Value);
-            ChoosenCarrier_label.Text = CarriersUses_dataGridView[1, CurRow].Value.ToString();
+            if (CarriersUses_dataGridView.SelectedRows.Count > 0)
+            {
+                int CurRow = CarriersUses_dataGridView.SelectedRows[0].Index;
+                SelectedCarrierID = Convert.ToInt32(CarriersUses_dataGridView[3, CurRow].Value);
+                SelectedCarrierUseID = Convert.ToInt32(CarriersUses_dataGridView[4, CurRow].Value);
+                ChoosenCarrier_label.Text = CarriersUses_dataGridView[1, CurRow].Value.ToString();
+            }
         }
 
         private void PhoneNumber_maskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -268,20 +273,17 @@ namespace Автошкола
         {
             if (Instructor_comboBox.SelectedIndex != -1 && FormLoad)
             {
-                if (CarriersUses_dataGridView.RowCount > 0)
+                ChoosenInstructor_label.Text = Instructor_comboBox.Text;
+                SelectedInstructorID = Convert.ToInt32(Instructor_comboBox.SelectedValue);
+                dataSetForCarriersUses = BusinessLogic.ReadCarriersUsesByInstructorID(Convert.ToInt32(Instructor_comboBox.SelectedValue));
+                carriersUsesDataTable = dataSetForCarriersUses.CarriersUses;
+                int CategoryID = groupsDataTable[Group_comboBox.SelectedIndex].Category;
+                CarriersUses_dataGridView.Rows.Clear();
+                for (int i = 0; i < carriersUsesDataTable.Rows.Count; i++)
                 {
-                    ChoosenInstructor_label.Text = Instructor_comboBox.DisplayMember.ToString();
-                    SelectedInstructorID = Convert.ToInt32(Instructor_comboBox.SelectedValue);
-                    dataSetForCarriers = BusinessLogic.ReadCarriersUsesByInstructorID(Convert.ToInt32(Instructor_comboBox.SelectedValue));
-                    carriersDataTable = dataSetForCarriers.Carriers;
-                    for (int i = 0; i < carriersDataTable.Rows.Count; i++)
-                    {
-                        CarriersUses_dataGridView[0, i].Value = carriersDataTable[i][3];
-                        CarriersUses_dataGridView[2, i].Value = carriersDataTable[i][1];
-                        CarriersUses_dataGridView[1, i].Value = carriersDataTable[i][4];
-                        CarriersUses_dataGridView[3, i].Value = carriersDataTable[i][2];
-                        CarriersUses_dataGridView[4, i].Value = carriersDataTable[i][0];
-                    }
+                    if (Convert.ToInt32(carriersUsesDataTable[i][5]) == CategoryID)
+                        CarriersUses_dataGridView.Rows.Add(carriersUsesDataTable[i][3], carriersUsesDataTable[i][4],
+                            carriersUsesDataTable[i][1], carriersUsesDataTable[i][2], carriersUsesDataTable[i][0]);
                 }
             }
             else

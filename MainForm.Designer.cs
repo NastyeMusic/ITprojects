@@ -501,9 +501,9 @@
             // 
             this.Search_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Search_button.Location = new System.Drawing.Point(969, 40);
+            this.Search_button.Location = new System.Drawing.Point(969, 35);
             this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(98, 27);
+            this.Search_button.Size = new System.Drawing.Size(98, 33);
             this.Search_button.TabIndex = 8;
             this.Search_button.Text = "Найти";
             this.Search_button.UseVisualStyleBackColor = true;

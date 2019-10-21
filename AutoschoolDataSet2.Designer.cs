@@ -949,6 +949,7 @@ namespace Автошкола {
             this.InstructorsCategories.InstructorFIOColumn.Expression = "Parent(Instructors_InstructorsCategories).FIO";
             this.CarriersUses.InstructorNameColumn.Expression = "Parent(Instructors_CarriersUses).FIO";
             this.CarriersUses.CarrierNameColumn.Expression = "Parent(Carriers_CarriersUses).FinalName";
+            this.CarriersUses.CategoryCarrierIDColumn.Expression = "Parent(Carriers_CarriersUses).Category";
             this.Students.InstructorNameColumn.Expression = "Parent(CarriersUses_Students).InstructorName";
             this.Students.CarrierNameColumn.Expression = "Parent(CarriersUses_Students).CarrierName";
             this.Students.FIOColumn.Expression = "Surname + \' \' + FirstName + \' \' + PatronymicName";
@@ -5165,6 +5166,8 @@ namespace Автошкола {
             
             private global::System.Data.DataColumn columnCarrierName;
             
+            private global::System.Data.DataColumn columnCategoryCarrierID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CarriersUsesDataTable() : 
@@ -5249,6 +5252,14 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CategoryCarrierIDColumn {
+                get {
+                    return this.columnCategoryCarrierID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5284,14 +5295,15 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CarriersUsesRow AddCarriersUsesRow(InstructorsRow parentInstructorsRowByInstructors_CarriersUses, CarriersRow parentCarriersRowByCarriers_CarriersUses, string InstructorName, string CarrierName) {
+            public CarriersUsesRow AddCarriersUsesRow(InstructorsRow parentInstructorsRowByInstructors_CarriersUses, CarriersRow parentCarriersRowByCarriers_CarriersUses, string InstructorName, string CarrierName, string CategoryCarrierID) {
                 CarriersUsesRow rowCarriersUsesRow = ((CarriersUsesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         InstructorName,
-                        CarrierName};
+                        CarrierName,
+                        CategoryCarrierID};
                 if ((parentInstructorsRowByInstructors_CarriersUses != null)) {
                     columnValuesArray[1] = parentInstructorsRowByInstructors_CarriersUses[0];
                 }
@@ -5308,6 +5320,7 @@ namespace Автошкола {
             public CarriersUsesRow AddCarriersUsesRow(InstructorsRow parentInstructorsRowByInstructors_CarriersUses, CarriersRow parentCarriersRowByCarriers_CarriersUses) {
                 CarriersUsesRow rowCarriersUsesRow = ((CarriersUsesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         null,
                         null,
                         null,
@@ -5353,6 +5366,7 @@ namespace Автошкола {
                 this.columnCarrier = base.Columns["Carrier"];
                 this.columnInstructorName = base.Columns["InstructorName"];
                 this.columnCarrierName = base.Columns["CarrierName"];
+                this.columnCategoryCarrierID = base.Columns["CategoryCarrierID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5368,6 +5382,8 @@ namespace Автошкола {
                 base.Columns.Add(this.columnInstructorName);
                 this.columnCarrierName = new global::System.Data.DataColumn("CarrierName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCarrierName);
+                this.columnCategoryCarrierID = new global::System.Data.DataColumn("CategoryCarrierID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCategoryCarrierID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_CarriersUsesCarriers", new global::System.Data.DataColumn[] {
                                 this.columnCarrier}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_CarriersUsesInstructors", new global::System.Data.DataColumn[] {
@@ -5381,6 +5397,7 @@ namespace Автошкола {
                 this.columnCarrier.Unique = true;
                 this.columnInstructorName.ReadOnly = true;
                 this.columnCarrierName.ReadOnly = true;
+                this.columnCategoryCarrierID.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5406,6 +5423,7 @@ namespace Автошкола {
             private void InitExpressions() {
                 this.InstructorNameColumn.Expression = "Parent(Instructors_CarriersUses).FIO";
                 this.CarrierNameColumn.Expression = "Parent(Carriers_CarriersUses).FinalName";
+                this.CategoryCarrierIDColumn.Expression = "Parent(Carriers_CarriersUses).Category";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9069,6 +9087,22 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CategoryCarrierID {
+                get {
+                    try {
+                        return ((string)(this[this.tableCarriersUses.CategoryCarrierIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'CategoryCarrierID\' в таблице \'CarriersUses\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCarriersUses.CategoryCarrierIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InstructorsRow InstructorsRow {
                 get {
                     return ((InstructorsRow)(this.GetParentRow(this.Table.ParentRelations["Instructors_CarriersUses"])));
@@ -9135,6 +9169,18 @@ namespace Автошкола {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCarrierNameNull() {
                 this[this.tableCarriersUses.CarrierNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCategoryCarrierIDNull() {
+                return this.IsNull(this.tableCarriersUses.CategoryCarrierIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCategoryCarrierIDNull() {
+                this[this.tableCarriersUses.CategoryCarrierIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

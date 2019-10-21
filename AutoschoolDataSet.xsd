@@ -155,6 +155,7 @@
               <xs:element name="Carrier" msprop:Generator_ColumnVarNameInTable="columnCarrier" msprop:Generator_ColumnPropNameInRow="Carrier" msprop:Generator_ColumnPropNameInTable="CarrierColumn" msprop:Generator_UserColumnName="Carrier" type="xs:int" minOccurs="0" />
               <xs:element name="InstructorName" msdata:ReadOnly="true" msdata:Expression="Parent(Instructors_CarriersUses).FIO" msprop:Generator_ColumnVarNameInTable="columnInstructorName" msprop:Generator_ColumnPropNameInRow="InstructorName" msprop:Generator_ColumnPropNameInTable="InstructorNameColumn" msprop:Generator_UserColumnName="InstructorName" type="xs:string" minOccurs="0" />
               <xs:element name="CarrierName" msdata:ReadOnly="true" msdata:Expression="Parent(Carriers_CarriersUses).FinalName" msprop:Generator_ColumnVarNameInTable="columnCarrierName" msprop:Generator_ColumnPropNameInRow="CarrierName" msprop:Generator_ColumnPropNameInTable="CarrierNameColumn" msprop:Generator_UserColumnName="CarrierName" type="xs:string" minOccurs="0" />
+              <xs:element name="CategoryCarrierID" msdata:ReadOnly="true" msdata:Expression="Parent(Carriers_CarriersUses).Category" msprop:Generator_ColumnVarNameInTable="columnCategoryCarrierID" msprop:Generator_ColumnPropNameInRow="CategoryCarrierID" msprop:Generator_ColumnPropNameInTable="CategoryCarrierIDColumn" msprop:Generator_UserColumnName="CategoryCarrierID" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

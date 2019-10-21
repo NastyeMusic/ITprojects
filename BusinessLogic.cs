@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Автошкола
 {
@@ -192,7 +193,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -221,7 +223,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -253,7 +256,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -281,7 +285,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -308,7 +313,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -331,7 +337,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -356,7 +363,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -383,7 +391,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -406,7 +415,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -431,7 +441,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -457,7 +468,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -479,7 +491,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -508,7 +521,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -533,7 +547,36 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet ReadCarriersByCategory(int CategoryID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.ReadByCategory(ds, abstrCon, abstrTr, CategoryID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -559,7 +602,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -581,7 +625,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -613,7 +658,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -641,7 +687,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -671,7 +718,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -701,7 +749,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -731,7 +780,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -760,7 +810,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -785,7 +836,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -812,7 +864,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -839,7 +892,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -866,7 +920,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -892,7 +947,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -914,7 +970,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -949,7 +1006,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -980,7 +1038,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -1016,19 +1075,18 @@ namespace Автошкола
                     carriersUsesDA.Read(ds, abstrCon, abstrTr);
 
                     studentsDA.ReadStudentsOfGroup(ds, abstrCon, abstrTr, ID);
+                    abstrTr.Commit();
                 }
                 else
                 {
-                    throw new Exception();
-                }
-
-                studentsDA.Read(ds, abstrCon, abstrTr);
-                abstrTr.Commit();
+                    throw new Exception("Группы с таким именем не существует");
+                }                
             }
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -1057,7 +1115,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -1082,7 +1141,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -1108,7 +1168,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -1130,7 +1191,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -1156,7 +1218,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -1178,7 +1241,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -1214,7 +1278,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -1246,7 +1311,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -1273,7 +1339,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -1296,7 +1363,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -1321,7 +1389,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -1352,7 +1421,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
@@ -1379,7 +1449,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
             }
             finally
             {
@@ -1408,7 +1479,8 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                throw e;
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
             }
             finally
             {
