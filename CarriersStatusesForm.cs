@@ -20,6 +20,8 @@ namespace Автошкола
         public BusinessLogic BusinessLogic = new BusinessLogic();
         AutoschoolDataSet dataSet;
 
+        int LastSelectionIndex;
+
         void ReloadCarriersStatuses()
         {
             dataSet = BusinessLogic.ReadCarriersStatuses();
@@ -31,10 +33,14 @@ namespace Автошкола
 
             IDColumn.DataPropertyName = "ID";
             NameColumn.DataPropertyName = "Name";
+
+            if (LastSelectionIndex != -1)
+                CarriersStatuses_dataGridView.CurrentCell = CarriersStatuses_dataGridView[1, LastSelectionIndex];
         }
 
         private void CarriersStatusesForm_Load(object sender, EventArgs e)
         {
+            LastSelectionIndex = 1;
             ReloadCarriersStatuses();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
@@ -78,6 +84,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = CarriersStatuses_dataGridView.SelectedRows[0].Index;
             AddEditCarriersStatusesForm EditCarriersStatus = new AddEditCarriersStatusesForm(dataSet.CarriersStatuses, dataSet.CarriersStatuses.Rows.Find(CarriersStatuses_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditCarriersStatus.Text = "Редактирование статуса ТС";
             this.Enabled = false;

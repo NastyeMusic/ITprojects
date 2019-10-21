@@ -73,6 +73,7 @@
             this.AuditoriumName_textBox.Name = "AuditoriumName_textBox";
             this.AuditoriumName_textBox.Size = new System.Drawing.Size(765, 24);
             this.AuditoriumName_textBox.TabIndex = 31;
+            this.AuditoriumName_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AuditoriumName_textBox_KeyPress);
             // 
             // label1
             // 

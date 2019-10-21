@@ -62,5 +62,20 @@ namespace Автошкола
                 }
             }
         }
+
+        private void AuditoriumName_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((AuditoriumName_textBox.TextLength - AuditoriumName_textBox.SelectionLength) >= 50)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.Space) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetterOrDigit(e.KeyChar)) return;
+                if ((char)e.KeyChar == '-') return;
+                e.Handled = true;
+            }
+        }
     }
 }

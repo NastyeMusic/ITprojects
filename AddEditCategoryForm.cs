@@ -65,11 +65,16 @@ namespace Автошкола
 
         private void CategoryName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char)e.KeyChar == (Char)Keys.Back) return;
-            if ((char)e.KeyChar == (Char)Keys.Space) return;
-            if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
-            if (char.IsLetterOrDigit(e.KeyChar)) return;
-            e.Handled = true;
+            if ((CategoryName_textBox.TextLength - CategoryName_textBox.SelectionLength) >= 25)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.Space) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetterOrDigit(e.KeyChar)) return;
+                e.Handled = true;
+            }
         }
     }
 }

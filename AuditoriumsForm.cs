@@ -22,6 +22,8 @@ namespace Автошкола
         string LastSearchingText = "";
         int LastFoundRow = -1;
 
+        int LastSelectionIndex;
+
         void ReloadAuditoriums()
         {
             dataSet = BusinessLogic.ReadAuditoriums();
@@ -33,10 +35,14 @@ namespace Автошкола
 
             IDColumn.DataPropertyName = "ID";
             NameColumn.DataPropertyName = "Name";
+
+            if (LastSelectionIndex != -1)
+                Auditoriums_dataGridView.CurrentCell = Auditoriums_dataGridView[1, LastSelectionIndex];
         }
 
         private void AuditoriumsForm_Load(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadAuditoriums();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
@@ -144,6 +150,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = Auditoriums_dataGridView.SelectedRows[0].Index;
             AddEditAuditoriumsForm EditAuditorium = new AddEditAuditoriumsForm(dataSet.Auditoriums, dataSet.Auditoriums.Rows.Find(Auditoriums_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditAuditorium.Text = "Редактирование аудитории";
             this.Enabled = false;

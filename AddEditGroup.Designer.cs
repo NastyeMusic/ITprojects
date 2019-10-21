@@ -48,7 +48,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(10, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 18);
             this.label1.TabIndex = 0;
@@ -61,6 +61,7 @@
             this.GroupName_textBox.Name = "GroupName_textBox";
             this.GroupName_textBox.Size = new System.Drawing.Size(294, 24);
             this.GroupName_textBox.TabIndex = 1;
+            this.GroupName_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GroupName_textBox_KeyPress);
             // 
             // label2
             // 
@@ -132,7 +133,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(6, 85);
+            this.label5.Location = new System.Drawing.Point(10, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(169, 18);
             this.label5.TabIndex = 15;
@@ -142,9 +143,9 @@
             // 
             this.TheoryTeacher_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TheoryTeacher_comboBox.FormattingEnabled = true;
-            this.TheoryTeacher_comboBox.Location = new System.Drawing.Point(181, 82);
+            this.TheoryTeacher_comboBox.Location = new System.Drawing.Point(196, 82);
             this.TheoryTeacher_comboBox.Name = "TheoryTeacher_comboBox";
-            this.TheoryTeacher_comboBox.Size = new System.Drawing.Size(813, 26);
+            this.TheoryTeacher_comboBox.Size = new System.Drawing.Size(798, 26);
             this.TheoryTeacher_comboBox.TabIndex = 16;
             // 
             // label6
@@ -184,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.Cancel_button;
-            this.ClientSize = new System.Drawing.Size(1006, 171);
+            this.ClientSize = new System.Drawing.Size(1006, 163);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.Save_button);
@@ -202,9 +203,9 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1024, 218);
+            this.MaximumSize = new System.Drawing.Size(1024, 210);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1024, 218);
+            this.MinimumSize = new System.Drawing.Size(1024, 210);
             this.Name = "AddEditGroup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditGroup";

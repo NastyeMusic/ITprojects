@@ -17,13 +17,15 @@ namespace Автошкола
             InitializeComponent();
         }
 
-        public BusinessLogic BusinessLogic = new BusinessLogic();
+        BusinessLogic BusinessLogic = new BusinessLogic();
         AutoschoolDataSet dataSet;
         string LastSearchingText = "";
         int LastFoundRow = -1;
 
         WorkStatusesForm WorkStatusesForm = new WorkStatusesForm();
         static public bool WorkStatusesFormOpened = false;
+
+        int LastSelectionIndex;
 
         private void ChangeWorkStatuses_button_Click(object sender, EventArgs e)
         {
@@ -41,9 +43,10 @@ namespace Автошкола
         void ReloadWorkers()
         {
             Workers_dataGridView.Rows.Clear();
+            dataSet = BusinessLogic.ReadWorkers();
 
             // загружаем преподавателей теории
-            dataSet = BusinessLogic.ReadTheoryTeachers();;
+            //dataSet = BusinessLogic.ReadTheoryTeachers();;
             for (int i = 0; i < dataSet.TheoryTeachers.Rows.Count; i++)
             {
                 Workers_dataGridView.Rows.Add(dataSet.TheoryTeachers.Rows[i][0].ToString(),
@@ -52,7 +55,7 @@ namespace Автошкола
             }
 
             // загружаем инструкторов
-            dataSet = BusinessLogic.ReadInstructors();
+            //dataSet = BusinessLogic.ReadInstructors();
             for (int i = 0; i < dataSet.Instructors.Rows.Count; i++)
             {
                 Workers_dataGridView.Rows.Add(dataSet.Instructors.Rows[i][0].ToString(), dataSet.Instructors.Rows[i][1].ToString(),
@@ -60,16 +63,19 @@ namespace Автошкола
             }
 
             // загружаем мастеров сервиса
-            dataSet = BusinessLogic.ReadServiceMasters();
+            //dataSet = BusinessLogic.ReadServiceMasters();
             for (int i = 0; i < dataSet.ServiceMasters.Rows.Count; i++)
             {
                 Workers_dataGridView.Rows.Add(dataSet.ServiceMasters.Rows[i][0].ToString(), dataSet.ServiceMasters.Rows[i][1].ToString(),
                     dataSet.ServiceMasters.Rows[i][2].ToString(), dataSet.ServiceMasters.Rows[i][3].ToString(), "мастер сервиса", dataSet.ServiceMasters.Rows[i][6].ToString());
             }
+            if (LastSelectionIndex != -1)
+                Workers_dataGridView.CurrentCell = Workers_dataGridView[1, LastSelectionIndex];
         }
 
         private void WorkersForm_Load(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadWorkers();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
@@ -174,7 +180,7 @@ namespace Автошкола
         private void Workers_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (Workers_dataGridView.SelectedRows.Count == 1)
-            {
+            {                
                 Edit_button.Enabled = true;
                 Delete_button.Enabled = true;
             }
@@ -182,7 +188,7 @@ namespace Автошкола
             {
                 Edit_button.Enabled = false;
                 Delete_button.Enabled = false;
-            }
+            }            
         }
 
         private void Add_button_Click(object sender, EventArgs e)
@@ -193,12 +199,9 @@ namespace Автошкола
             AddWorker.ShowDialog();
             if (AddWorker.DialogResult == DialogResult.OK)
             {
-                if (AddWorker.NewPost == "преподаватель теории")
-                    dataSet = BusinessLogic.WriteTheoryTeachers(AddWorker.ds);
-                else if (AddWorker.NewPost == "инструктор")
-                    dataSet = BusinessLogic.WriteInstructors(AddWorker.ds);
-                else if (AddWorker.NewPost == "мастер сервиса")
-                    dataSet = BusinessLogic.WriteServiceMasters(AddWorker.ds);
+                dataSet = BusinessLogic.WriteTheoryTeachers(dataSet);
+                dataSet = BusinessLogic.WriteInstructors(dataSet);
+                dataSet = BusinessLogic.WriteServiceMasters(dataSet);
                 ReloadWorkers();
             }
             this.Enabled = true;
@@ -206,21 +209,19 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = Workers_dataGridView.SelectedRows[0].Index;
             string Post = Workers_dataGridView.SelectedRows[0].Cells["PostColumn"].Value.ToString();
             AddEditWorkerForm EditWorker;
             if (Post == "преподаватель теории")
             {
-                dataSet = BusinessLogic.ReadTheoryTeachers();
                 EditWorker = new AddEditWorkerForm(Post, dataSet.TheoryTeachers.Rows.Find(Workers_dataGridView.SelectedRows[0].Cells["ID"].Value), dataSet.WorkStatuses, dataSet);
             }
             else if (Post == "инструктор")
             {
-                dataSet = BusinessLogic.ReadInstructors();
                 EditWorker = new AddEditWorkerForm(Post, dataSet.Instructors.Rows.Find(Workers_dataGridView.SelectedRows[0].Cells["ID"].Value), dataSet.WorkStatuses, dataSet);
             }
             else if (Post == "мастер сервиса")
             {
-                dataSet = BusinessLogic.ReadServiceMasters();
                 EditWorker = new AddEditWorkerForm(Post, dataSet.ServiceMasters.Rows.Find(Workers_dataGridView.SelectedRows[0].Cells["ID"].Value), dataSet.WorkStatuses, dataSet);
             }
             else
@@ -291,6 +292,7 @@ namespace Автошкола
 
         private void ReloadWorkers_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadWorkers();
         }
 

@@ -20,25 +20,11 @@ namespace Автошкола
             theoryTeachersDataTable = dataSet.TheoryTeachers;
             instructorsDataTable = dataSet.Instructors;
             serviceMastersDataTable = dataSet.ServiceMasters;
-
-            /*if (Post == "преподаватель теории")
-            {
-                theoryTeachersDataTable = dataSet.TheoryTeachers;
-            }
-            else if (Post == "инструктор")
-            {
-                instructorsDataTable = dataSet.Instructors;
-            }
-            else if (Post == "мастер сервиса")
-            {
-                serviceMastersDataTable = dataSet.ServiceMasters;
-            }*/
-
             this.workStatusesDataTable = workStatusesDataTable;
             dataRow = row;            
         }
 
-        public BusinessLogic BusinessLogic = new BusinessLogic();
+        BusinessLogic BusinessLogic = new BusinessLogic();
 
         AutoschoolDataSet.TheoryTeachersDataTable theoryTeachersDataTable;
         AutoschoolDataSet.InstructorsDataTable instructorsDataTable;       
@@ -47,13 +33,11 @@ namespace Автошкола
         AutoschoolDataSet.WorkStatusesDataTable workStatusesDataTable;
 
         string Post = "";
-        public string NewPost = "";
+        string NewPost = "";
 
         DataRow dataRow;
 
         byte[] ImageByte;
-
-        public AutoschoolDataSet ds = new AutoschoolDataSet();
 
         MemoryStream memoryStream = new MemoryStream(); // Поток в который запишем изображение
 
@@ -99,7 +83,8 @@ namespace Автошкола
                     /*else
                         img = null;
                     Photo_pictureBox.Image = img;*/
-                    Photo_pictureBox.Image = byteArrayToImage((byte[])dataRow["Photo"]);
+                    if (dataRow["Photo"].ToString() != "")
+                        Photo_pictureBox.Image = byteArrayToImage((byte[])dataRow["Photo"]);
                 }
                 else if (Post == "мастер сервиса")
                 {
@@ -183,7 +168,7 @@ namespace Автошкола
                         {
                             AutoschoolDataSet TempDataSet = new AutoschoolDataSet();
                             TempDataSet = BusinessLogic.ReadTheoryTeacherByID(ID);
-                            theoryTeachersDataTable.Rows.Find(TempDataSet.TheoryTeachers.Rows[0][0].ToString()).Delete();                            
+                            theoryTeachersDataTable.Rows.Find(TempDataSet.TheoryTeachers.Rows[0][0].ToString()).Delete();
                         }
                         else if (Post == "инструктор")
                         {
@@ -232,8 +217,6 @@ namespace Автошкола
                 {
                     if (NewPost == "преподаватель теории")
                     {
-                        ds = BusinessLogic.ReadTheoryTeachers();
-                        theoryTeachersDataTable = ds.TheoryTeachers;
                         if (Photo_pictureBox.Image != null)
                             theoryTeachersDataTable.AddTheoryTeachersRow(Surname_textBox.Text, FirstName_textBox.Text,
                                 PatronymicName_textBox.Text, /*memoryStream.ToArray()*/ ImageByte,
@@ -245,8 +228,6 @@ namespace Автошкола
                     }
                     else if (NewPost == "инструктор")
                     {                        
-                        ds = BusinessLogic.ReadInstructors();
-                        instructorsDataTable = ds.Instructors;
                         if (Photo_pictureBox.Image != null)
                             instructorsDataTable.AddInstructorsRow(Surname_textBox.Text, FirstName_textBox.Text,
                                 PatronymicName_textBox.Text, /*memoryStream.ToArray()*/ ImageByte,
@@ -258,8 +239,6 @@ namespace Автошкола
                     }
                     else if (NewPost == "мастер сервиса")
                     {
-                        ds = BusinessLogic.ReadServiceMasters();
-                        serviceMastersDataTable = ds.ServiceMasters;
                         serviceMastersDataTable.AddServiceMastersRow(Surname_textBox.Text, FirstName_textBox.Text,
                             PatronymicName_textBox.Text, workStatusesDataTable[WorkStatus_comboBox.SelectedIndex]);
                     }
@@ -305,27 +284,32 @@ namespace Автошкола
             }
         }
 
-        void ControlEnterTextOneWord(ref KeyPressEventArgs e)
+        void ControlEnterTextOneWord(object sender, ref KeyPressEventArgs e)
         {
-            if ((char)e.KeyChar == (Char)Keys.Back) return;
-            if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
-            if (char.IsLetter(e.KeyChar)) return;
-            e.Handled = true;
+            if ((((TextBox)sender).TextLength - ((TextBox)sender).SelectionLength) >= 50)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetter(e.KeyChar)) return;
+                e.Handled = true;
+            }
         }
 
         private void Surname_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterTextOneWord(ref e);
+            ControlEnterTextOneWord(sender, ref e);
         }
 
         private void FirstName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterTextOneWord(ref e);
+            ControlEnterTextOneWord(sender, ref e);
         }
 
         private void PatronymicName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterTextOneWord(ref e);
+            ControlEnterTextOneWord(sender, ref e);
         }
 
         public byte[] imageToByteArray(System.Drawing.Image imageIn, string FileName)

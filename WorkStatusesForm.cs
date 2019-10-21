@@ -20,6 +20,8 @@ namespace Автошкола
         public BusinessLogic BusinessLogic = new BusinessLogic();
         AutoschoolDataSet dataSet;
 
+        int LastSelectionIndex;
+
         void ReloadWorkStatuses()
         {
             dataSet = BusinessLogic.ReadWorkStatuses();
@@ -31,10 +33,14 @@ namespace Автошкола
 
             IDColumn.DataPropertyName = "ID";
             NameColumn.DataPropertyName = "Name";
+
+            if (LastSelectionIndex != -1)
+                WorkStatuses_dataGridView.CurrentCell = WorkStatuses_dataGridView[1, LastSelectionIndex];
         }
 
         private void WorkStatusesForm_Load(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadWorkStatuses();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
@@ -71,6 +77,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = WorkStatuses_dataGridView.SelectedRows[0].Index;
             AddEditWorkStatusesForm EditWorkStatus = new AddEditWorkStatusesForm(dataSet.WorkStatuses, dataSet.WorkStatuses.Rows.Find(WorkStatuses_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditWorkStatus.Text = "Редактирование рабочего статуса";
             this.Enabled = false;

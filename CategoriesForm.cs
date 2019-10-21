@@ -22,6 +22,8 @@ namespace Автошкола
         string LastSearchingText = "";
         int LastFoundRow = -1;
 
+        int LastSelectionIndex;
+
         void ReloadCategories()
         {
             dataSet = BusinessLogic.ReadCategories();
@@ -33,10 +35,14 @@ namespace Автошкола
 
             IDColumn.DataPropertyName = "ID";
             NameColumn.DataPropertyName = "Name";
+
+            if (LastSelectionIndex != -1)
+                Categories_dataGridView.CurrentCell = Categories_dataGridView[1, LastSelectionIndex];
         }
 
         private void CategoriesForm_Load(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadCategories();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
@@ -151,6 +157,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = Categories_dataGridView.SelectedRows[0].Index;
             AddEditCategoryForm EditCategory = new AddEditCategoryForm(dataSet.Categories, dataSet.Categories.Rows.Find(Categories_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditCategory.Text = "Редактирование категории";
             this.Enabled = false;

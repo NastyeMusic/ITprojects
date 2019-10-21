@@ -20,7 +20,7 @@ namespace Автошкола
             this.theoryTeachersDataTable = theoryTeachersDataTable;
             dataRow = row;
         }
-        public BusinessLogic BusinessLogic = new BusinessLogic();
+        BusinessLogic BusinessLogic = new BusinessLogic();
         AutoschoolDataSet.GroupsDataTable groupsDataTable;
         AutoschoolDataSet.CategoriesDataTable categoriesDataTable;
         AutoschoolDataSet.TheoryTeachersDataTable theoryTeachersDataTable;
@@ -28,7 +28,7 @@ namespace Автошкола
 
         private void AddEditGroup_Load(object sender, EventArgs e)
         {
-            Category_comboBox.DataSource = groupsDataTable;
+            Category_comboBox.DataSource = categoriesDataTable;
             Category_comboBox.DisplayMember = "Name";
             Category_comboBox.ValueMember = "ID";
             Category_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
@@ -96,8 +96,24 @@ namespace Автошкола
                 }
                 else
                 {
-                    groupsDataTable.AddGroupsRow(GroupName_textBox.Text, Convert.ToDateTime(BeginLearning_dateTimePicker.Text).Date, Convert.ToDateTime(EndLearning_dateTimePicker.Text).Date, categoriesDataTable[Category_comboBox.SelectedIndex], theoryTeachersDataTable[TheoryTeacher_comboBox.SelectedIndex]);
+                    groupsDataTable.AddGroupsRow(GroupName_textBox.Text, Convert.ToDateTime(BeginLearning_dateTimePicker.Text).Date, 
+                        Convert.ToDateTime(EndLearning_dateTimePicker.Text).Date, categoriesDataTable[Category_comboBox.SelectedIndex], 
+                        theoryTeachersDataTable[TheoryTeacher_comboBox.SelectedIndex]);
                 }
+            }
+        }
+
+        private void GroupName_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((GroupName_textBox.TextLength - GroupName_textBox.SelectionLength) >= 50)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if (char.IsLetterOrDigit(e.KeyChar)) return;
+                if ((char)e.KeyChar == '-') return;
+                e.Handled = true;
             }
         }
     }

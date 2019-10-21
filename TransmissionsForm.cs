@@ -22,6 +22,8 @@ namespace Автошкола
         string LastSearchingText = "";
         int LastFoundRow = -1;
 
+        int LastSelectionIndex;
+
         void ReloadTransmissions()
         {
             dataSet = BusinessLogic.ReadTransmissions();
@@ -33,10 +35,14 @@ namespace Автошкола
 
             IDColumn.DataPropertyName = "ID";
             NameColumn.DataPropertyName = "Transmission";
+
+            if (LastSelectionIndex != -1)
+                Transmissions_dataGridView.CurrentCell = Transmissions_dataGridView[1, LastSelectionIndex];
         }
 
         private void TransmissionsFrom_Load(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadTransmissions();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
@@ -151,6 +157,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = Transmissions_dataGridView.SelectedRows[0].Index;
             AddEditTransmissionForm EditTransmission = new AddEditTransmissionForm(dataSet.Transmissions, dataSet.Transmissions.Rows.Find(Transmissions_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditTransmission.Text = "Редактирование трансмиссии";
             this.Enabled = false;

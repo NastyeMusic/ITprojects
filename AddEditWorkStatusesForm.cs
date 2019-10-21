@@ -65,10 +65,15 @@ namespace Автошкола
 
         private void WorkStatusName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char)e.KeyChar == (Char)Keys.Back) return;
-            if ((char)e.KeyChar == (Char)Keys.Space) return;
-            if (char.IsLetter(e.KeyChar)) return;
-            e.Handled = true;
+            if ((WorkStatusName_textBox.TextLength - WorkStatusName_textBox.SelectionLength) >= 50)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.Space) return;
+                if (char.IsLetter(e.KeyChar)) return;
+                e.Handled = true;
+            }
         }
     }
 }

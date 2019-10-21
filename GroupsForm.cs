@@ -17,10 +17,12 @@ namespace Автошкола
             InitializeComponent();
         }
 
-        public BusinessLogic BusinessLogic = new BusinessLogic();
+        BusinessLogic BusinessLogic = new BusinessLogic();
         AutoschoolDataSet dataSet;
         string LastSearchingText = "";
         int LastFoundRow = -1;
+
+        int LastSelectionIndex;
 
         void ReloadGroups()
         {
@@ -34,6 +36,8 @@ namespace Автошкола
             Groups_dataGridView.Columns["EndLearning"].Visible = false;
             Groups_dataGridView.Columns["Category"].Visible = false;
             Groups_dataGridView.Columns["Teacher"].Visible = false;
+            Groups_dataGridView.Columns["TeacherFIO"].Visible = false;
+            Groups_dataGridView.Columns["CategoryName"].Visible = false;
 
             IDColumn.DataPropertyName = "ID";
             NameColumn.DataPropertyName = "Name";
@@ -41,13 +45,18 @@ namespace Автошкола
             EndLearningColumn.DataPropertyName = "EndLearning";
             CategoryColumn.DataPropertyName = "CategoryName";
             TeacherColumn.DataPropertyName = "TeacherFIO";
+
+            if (LastSelectionIndex != -1)
+                Groups_dataGridView.CurrentCell = Groups_dataGridView[1, LastSelectionIndex];
         }
 
         private void GroupsForm_Load(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadGroups();
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
+            Groups_dataGridView_SelectionChanged(sender, e);
         }
 
         private void Search_button_Click(object sender, EventArgs e)
@@ -151,6 +160,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = Groups_dataGridView.SelectedRows[0].Index;
             AddEditGroup EditGroup = new AddEditGroup(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditGroup.Text = "Редактирование группы";
             this.Enabled = false;
@@ -192,6 +202,12 @@ namespace Автошкола
             e.Cancel = true;
             Hide();
             MainForm.Perem(MainForm.FormsNames[1], false);
+        }
+
+        private void ReloadWorkers_button_Click(object sender, EventArgs e)
+        {
+            LastSelectionIndex = -1;
+            ReloadGroups();
         }
     }
 }
