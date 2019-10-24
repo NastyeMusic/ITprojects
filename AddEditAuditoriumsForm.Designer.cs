@@ -56,7 +56,7 @@
             this.Save_button.Name = "Save_button";
             this.Save_button.Size = new System.Drawing.Size(114, 28);
             this.Save_button.TabIndex = 33;
-            this.Save_button.Text = "Save";
+            this.Save_button.Text = "Сохранить";
             this.Save_button.UseVisualStyleBackColor = true;
             // 
             // label6
