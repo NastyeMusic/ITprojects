@@ -39,9 +39,10 @@
             // 
             this.Cancel_button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Cancel_button.Location = new System.Drawing.Point(852, 55);
+            this.Cancel_button.Location = new System.Drawing.Point(682, 44);
+            this.Cancel_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Cancel_button.Name = "Cancel_button";
-            this.Cancel_button.Size = new System.Drawing.Size(142, 35);
+            this.Cancel_button.Size = new System.Drawing.Size(114, 28);
             this.Cancel_button.TabIndex = 34;
             this.Cancel_button.Text = "Отмена";
             this.Cancel_button.UseVisualStyleBackColor = true;
@@ -50,28 +51,31 @@
             // 
             this.Save_button.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Save_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Save_button.Location = new System.Drawing.Point(685, 55);
+            this.Save_button.Location = new System.Drawing.Point(548, 44);
+            this.Save_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Save_button.Name = "Save_button";
-            this.Save_button.Size = new System.Drawing.Size(142, 35);
+            this.Save_button.Size = new System.Drawing.Size(114, 28);
             this.Save_button.TabIndex = 33;
-            this.Save_button.Text = "Сохранить";
+            this.Save_button.Text = "Save";
             this.Save_button.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Location = new System.Drawing.Point(12, 47);
+            this.label6.Location = new System.Drawing.Point(10, 38);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(982, 2);
+            this.label6.Size = new System.Drawing.Size(786, 2);
             this.label6.TabIndex = 32;
             this.label6.Text = "label6";
             // 
             // AuditoriumName_textBox
             // 
             this.AuditoriumName_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AuditoriumName_textBox.Location = new System.Drawing.Point(229, 12);
+            this.AuditoriumName_textBox.Location = new System.Drawing.Point(183, 10);
+            this.AuditoriumName_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AuditoriumName_textBox.Name = "AuditoriumName_textBox";
-            this.AuditoriumName_textBox.Size = new System.Drawing.Size(765, 24);
+            this.AuditoriumName_textBox.Size = new System.Drawing.Size(613, 21);
             this.AuditoriumName_textBox.TabIndex = 31;
             this.AuditoriumName_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AuditoriumName_textBox_KeyPress);
             // 
@@ -79,19 +83,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 13);
+            this.label1.Location = new System.Drawing.Point(10, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 18);
+            this.label1.Size = new System.Drawing.Size(159, 15);
             this.label1.TabIndex = 30;
             this.label1.Text = "Наименование аудитории";
             // 
             // AddEditAuditoriumsForm
             // 
             this.AcceptButton = this.Save_button;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.Cancel_button;
-            this.ClientSize = new System.Drawing.Size(1006, 98);
+            this.ClientSize = new System.Drawing.Size(806, 86);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.Save_button);
@@ -99,10 +104,11 @@
             this.Controls.Add(this.AuditoriumName_textBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1024, 145);
+            this.MaximumSize = new System.Drawing.Size(822, 124);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1024, 145);
+            this.MinimumSize = new System.Drawing.Size(822, 124);
             this.Name = "AddEditAuditoriumsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditAuditoriumsForm";
