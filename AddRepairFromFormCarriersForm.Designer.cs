@@ -1,6 +1,6 @@
 ﻿namespace Автошкола
 {
-    partial class AddRepairFromFormCarriers
+    partial class AddRepairFromFormCarriersForm
     {
         /// <summary>
         /// Required designer variable.

@@ -11,9 +11,9 @@ using System.IO;
 
 namespace Автошкола
 {
-    public partial class AddEditStudent : Form
+    public partial class AddEditStudentForm : Form
     {
-        public AddEditStudent(string GroupName, AutoschoolDataSet.StudentsDataTable studentsDataTable, 
+        public AddEditStudentForm(string GroupName, AutoschoolDataSet.StudentsDataTable studentsDataTable, 
             AutoschoolDataSet.GroupsDataTable groupsDataTable,  AutoschoolDataSet.InstructorsDataTable instructorsDataTable, 
             DataRow row)
         {

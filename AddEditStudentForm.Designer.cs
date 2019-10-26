@@ -1,6 +1,6 @@
 ﻿namespace Автошкола
 {
-    partial class AddEditStudent
+    partial class AddEditStudentForm
     {
         /// <summary>
         /// Required designer variable.

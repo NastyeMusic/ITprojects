@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Автошкола
 {
-    public partial class добавление_практического_занятия : Form
+    public partial class AddEditPracticeLessonForm : Form
     {
-        public добавление_практического_занятия()
+        public AddEditPracticeLessonForm()
         {
             InitializeComponent();
         }

@@ -78,11 +78,11 @@
     <Compile Include="AddEditCategoryForm.Designer.cs">
       <DependentUpon>AddEditCategoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditGroup.cs">
+    <Compile Include="AddEditGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditGroup.Designer.cs">
-      <DependentUpon>AddEditGroup.cs</DependentUpon>
+    <Compile Include="AddEditGroupForm.Designer.cs">
+      <DependentUpon>AddEditGroupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddEditInstructorsCategoriesForm.cs">
       <SubType>Form</SubType>
@@ -90,11 +90,11 @@
     <Compile Include="AddEditInstructorsCategoriesForm.Designer.cs">
       <DependentUpon>AddEditInstructorsCategoriesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditStudent.cs">
+    <Compile Include="AddEditStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditStudent.Designer.cs">
-      <DependentUpon>AddEditStudent.cs</DependentUpon>
+    <Compile Include="AddEditStudentForm.Designer.cs">
+      <DependentUpon>AddEditStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddEditTransmissionForm.cs">
       <SubType>Form</SubType>
@@ -114,11 +114,11 @@
     <Compile Include="AddEditWorkStatusesForm.Designer.cs">
       <DependentUpon>AddEditWorkStatusesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddRepairFromFormCarriers.cs">
+    <Compile Include="AddRepairFromFormCarriersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddRepairFromFormCarriers.Designer.cs">
-      <DependentUpon>AddRepairFromFormCarriers.cs</DependentUpon>
+    <Compile Include="AddRepairFromFormCarriersForm.Designer.cs">
+      <DependentUpon>AddRepairFromFormCarriersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AuditoriumsDA.cs" />
     <Compile Include="AuditoriumsForm.cs">
@@ -213,17 +213,17 @@
     <Compile Include="WorkStatusesForm.Designer.cs">
       <DependentUpon>WorkStatusesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="добавление практического занятия.cs">
+    <Compile Include="AddEditPracticeLessonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="добавление практического занятия.Designer.cs">
-      <DependentUpon>добавление практического занятия.cs</DependentUpon>
+    <Compile Include="AddEditPracticeLessonForm.Designer.cs">
+      <DependentUpon>AddEditPracticeLessonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Расписание курсанта.cs">
+    <Compile Include="StudentsScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Расписание курсанта.Designer.cs">
-      <DependentUpon>Расписание курсанта.cs</DependentUpon>
+    <Compile Include="StudentsScheduleForm.Designer.cs">
+      <DependentUpon>StudentsScheduleForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddEditAuditoriumsForm.resx">
       <DependentUpon>AddEditAuditoriumsForm.cs</DependentUpon>
@@ -240,14 +240,14 @@
     <EmbeddedResource Include="AddEditCategoryForm.resx">
       <DependentUpon>AddEditCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditGroup.resx">
-      <DependentUpon>AddEditGroup.cs</DependentUpon>
+    <EmbeddedResource Include="AddEditGroupForm.resx">
+      <DependentUpon>AddEditGroupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditInstructorsCategoriesForm.resx">
       <DependentUpon>AddEditInstructorsCategoriesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditStudent.resx">
-      <DependentUpon>AddEditStudent.cs</DependentUpon>
+    <EmbeddedResource Include="AddEditStudentForm.resx">
+      <DependentUpon>AddEditStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditTransmissionForm.resx">
       <DependentUpon>AddEditTransmissionForm.cs</DependentUpon>
@@ -258,8 +258,8 @@
     <EmbeddedResource Include="AddEditWorkStatusesForm.resx">
       <DependentUpon>AddEditWorkStatusesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddRepairFromFormCarriers.resx">
-      <DependentUpon>AddRepairFromFormCarriers.cs</DependentUpon>
+    <EmbeddedResource Include="AddRepairFromFormCarriersForm.resx">
+      <DependentUpon>AddRepairFromFormCarriersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuditoriumsForm.resx">
       <DependentUpon>AuditoriumsForm.cs</DependentUpon>
@@ -304,11 +304,11 @@
     <EmbeddedResource Include="WorkStatusesForm.resx">
       <DependentUpon>WorkStatusesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="добавление практического занятия.resx">
-      <DependentUpon>добавление практического занятия.cs</DependentUpon>
+    <EmbeddedResource Include="AddEditPracticeLessonForm.resx">
+      <DependentUpon>AddEditPracticeLessonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Расписание курсанта.resx">
-      <DependentUpon>Расписание курсанта.cs</DependentUpon>
+    <EmbeddedResource Include="StudentsScheduleForm.resx">
+      <DependentUpon>StudentsScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AutoschoolDataSet.xsc">
       <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>

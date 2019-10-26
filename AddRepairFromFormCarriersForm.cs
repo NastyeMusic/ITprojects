@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Автошкола
 {
-    public partial class AddRepairFromFormCarriers : Form
+    public partial class AddRepairFromFormCarriersForm : Form
     {
-        public AddRepairFromFormCarriers()
+        public AddRepairFromFormCarriersForm()
         {
             InitializeComponent();
         }

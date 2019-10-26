@@ -93,7 +93,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            AddEditGroup AddGroup = new AddEditGroup(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, null);
+            AddEditGroupForm AddGroup = new AddEditGroupForm(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, null);
             AddGroup.Text = "Добавление группы";
             this.Enabled = false;
             AddGroup.ShowDialog();            
@@ -108,7 +108,7 @@ namespace Автошкола
         private void Edit_button_Click(object sender, EventArgs e)
         {
             LastSelectionIndex = Groups_dataGridView.SelectedRows[0].Index;
-            AddEditGroup EditGroup = new AddEditGroup(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value));
+            AddEditGroupForm EditGroup = new AddEditGroupForm(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditGroup.Text = "Редактирование группы";
             this.Enabled = false;
             EditGroup.ShowDialog();

@@ -274,6 +274,7 @@
             this.расписаниеКурсантаToolStripMenuItem.Name = "расписаниеКурсантаToolStripMenuItem";
             this.расписаниеКурсантаToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
             this.расписаниеКурсантаToolStripMenuItem.Text = "Расписание курсанта";
+            this.расписаниеКурсантаToolStripMenuItem.Click += new System.EventHandler(this.расписаниеКурсантаToolStripMenuItem_Click);
             // 
             // расписаниеГруппыToolStripMenuItem
             // 

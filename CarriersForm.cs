@@ -179,7 +179,7 @@ namespace Автошкола
         {
             e.Cancel = true;
             Hide();
-            MainForm.Perem(MainForm.FormsNames[6], false);
+            MainForm.Perem(MainForm.FormsNames[13], false);
         }
     }
 }

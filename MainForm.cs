@@ -73,6 +73,9 @@ namespace Автошкола
         CarriersUsesForm CarriersUsesForm = new CarriersUsesForm();
         static bool CarriersUsesFormOpened = false;
 
+        StudentsScheduleForm StudentsScheduleForm = new StudentsScheduleForm();
+        static bool StudentsScheduleFormOpened = false;
+
         static public string[] FormsNames = new string[21];
 
         public static void Perem(string s, bool b)
@@ -117,11 +120,11 @@ namespace Автошкола
                     break;
                 case "CurrentStatusesForm":
                     CarriersFormOpened = b;
-                    break;
+                    break;*/
                 case "StudentsScheduleForm":
-                    CarriersFormOpened = b;
+                    StudentsScheduleFormOpened = b;
                     break;
-                case "GroupsScheduleForm":
+                /*case "GroupsScheduleForm":
                     CarriersFormOpened = b;
                     break;
                 case "InstructorsScheduleForm":
@@ -241,12 +244,12 @@ namespace Автошкола
         {
             AutoschoolDataSet dataSetForAllStudent;
             dataSetForAllStudent = BusinessLogic.ReadStudents();
-            AddEditStudent AddStudent;
+            AddEditStudentForm AddStudent;
             if (GroupName != "")
-                AddStudent = new AddEditStudent(GroupName, dataSetForAllStudent.Students, dataSetForAllStudent.Groups, 
+                AddStudent = new AddEditStudentForm(GroupName, dataSetForAllStudent.Students, dataSetForAllStudent.Groups, 
                     dataSetForAllStudent.Instructors, null);
             else
-                AddStudent = new AddEditStudent(null, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
+                AddStudent = new AddEditStudentForm(null, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
                     dataSetForAllStudent.Instructors, null);
 
             AddStudent.Text = "Добавление курсанта";
@@ -276,12 +279,12 @@ namespace Автошкола
             }
             AutoschoolDataSet dataSetForAllStudent;
             dataSetForAllStudent = BusinessLogic.ReadStudents();
-            AddEditStudent EditStudent;
+            AddEditStudentForm EditStudent;
             if (GroupName != "")
-                EditStudent = new AddEditStudent(GroupName, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
+                EditStudent = new AddEditStudentForm(GroupName, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
                     dataSetForAllStudent.Instructors, dataSetForAllStudent.Students.Rows.Find(Students_dGV.SelectedRows[0].Cells["ID"].Value));
             else
-                EditStudent = new AddEditStudent(null, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
+                EditStudent = new AddEditStudentForm(null, dataSetForAllStudent.Students, dataSetForAllStudent.Groups,
                     dataSetForAllStudent.Instructors, dataSetForAllStudent.Students.Rows.Find(Students_dGV.SelectedRows[0].Cells["ID"].Value));
 
             EditStudent.Text = "Редактирование курсанта";
@@ -468,6 +471,19 @@ namespace Автошкола
             else
             {
                 CarriersUsesForm.Activate();
+            }
+        }
+
+        private void расписаниеКурсантаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!StudentsScheduleFormOpened)
+            {
+                StudentsScheduleForm.Show();
+                StudentsScheduleFormOpened = true;
+            }
+            else
+            {
+                StudentsScheduleForm.Activate();
             }
         }
     }

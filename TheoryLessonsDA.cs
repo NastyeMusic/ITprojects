@@ -51,5 +51,13 @@ namespace Автошкола
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM TheoryLessons", conn.getConnection(), tr.getTransaction());
             dataAdapter.Fill(dataSet, "TheoryLessons");
         }
+
+        public void ReadByGroupID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int GroupID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM TheoryLessons WHERE [Group] = @GroupID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@GroupID", GroupID);
+            dataAdapter.Fill(dataSet, "TheoryLessons");
+        }
     }
 }

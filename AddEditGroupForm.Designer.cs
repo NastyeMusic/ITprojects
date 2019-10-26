@@ -1,6 +1,6 @@
 ﻿namespace Автошкола
 {
-    partial class AddEditGroup
+    partial class AddEditGroupForm
     {
         /// <summary>
         /// Required designer variable.

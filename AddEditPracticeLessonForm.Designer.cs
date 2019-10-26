@@ -1,6 +1,6 @@
 ﻿namespace Автошкола
 {
-    partial class добавление_практического_занятия
+    partial class AddEditPracticeLessonForm
     {
         /// <summary>
         /// Required designer variable.

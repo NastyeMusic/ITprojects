@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Автошкола
 {
-    public partial class AddEditGroup : Form
+    public partial class AddEditGroupForm : Form
     {
-        public AddEditGroup(AutoschoolDataSet.GroupsDataTable groupsDataTable, AutoschoolDataSet.CategoriesDataTable categoriesDataTable, AutoschoolDataSet.TheoryTeachersDataTable theoryTeachersDataTable, DataRow row)
+        public AddEditGroupForm(AutoschoolDataSet.GroupsDataTable groupsDataTable, AutoschoolDataSet.CategoriesDataTable categoriesDataTable, AutoschoolDataSet.TheoryTeachersDataTable theoryTeachersDataTable, DataRow row)
         {
             InitializeComponent();
             this.groupsDataTable = groupsDataTable;

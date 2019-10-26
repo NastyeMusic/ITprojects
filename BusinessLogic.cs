@@ -1094,6 +1094,40 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet GetGroupOfStudent(int StudentID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.Read(ds, abstrCon, abstrTr);
+                studentsDA.GetGroupOfStudent(ds, abstrCon, abstrTr, StudentID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу Groups
         public AutoschoolDataSet ReadGroups()
@@ -1320,6 +1354,41 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadPracticeLessonsByStudentID(int StudentID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.Read(ds, abstrCon, abstrTr);
+                studentsDA.Read(ds, abstrCon, abstrTr);
+                practiceLessonsDA.ReadByStudentID(ds, abstrCon, abstrTr, StudentID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу TheoryTeachers
         public AutoschoolDataSet ReadTheoryTeachers()
@@ -1450,6 +1519,36 @@ namespace Автошкола
             {
                 abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet ReadTheoryLessonsByGroupID(int ID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                auditoriumsDA.Read(ds, abstrCon, abstrTr);
+                theoryLessonsDA.ReadByGroupID(ds, abstrCon, abstrTr, ID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
             finally
