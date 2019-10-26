@@ -16,5 +16,15 @@ namespace Автошкола
         {
             InitializeComponent();
         }
+
+        private void Students_dGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

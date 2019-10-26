@@ -213,6 +213,12 @@
     <Compile Include="WorkStatusesForm.Designer.cs">
       <DependentUpon>WorkStatusesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="добавление практического занятия.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="добавление практического занятия.Designer.cs">
+      <DependentUpon>добавление практического занятия.cs</DependentUpon>
+    </Compile>
     <Compile Include="Расписание курсанта.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WorkStatusesForm.resx">
       <DependentUpon>WorkStatusesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="добавление практического занятия.resx">
+      <DependentUpon>добавление практического занятия.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Расписание курсанта.resx">
+      <DependentUpon>Расписание курсанта.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AutoschoolDataSet.xsc">
       <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
