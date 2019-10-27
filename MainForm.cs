@@ -351,7 +351,7 @@ namespace Автошкола
         private void Search_button_Click(object sender, EventArgs e)
         {
             SearchingInDataGridViewClass.Search(SearchStudent_textBox, ref Students_dGV, Direction_checkBox,
-                ref LastSearchingText, ref LastFoundRow, 1);            
+                ref LastSearchingText, ref LastFoundRow, "FIOColumn");            
         }
 
         private void SearchStudent_textBox_KeyPress(object sender, KeyPressEventArgs e)

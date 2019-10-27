@@ -15,11 +15,13 @@ namespace Автошкола
         }
 
         static public void Search(TextBox Search_textBox, ref DataGridView dGV, CheckBox Direction_checkBox, 
-            ref string LastSearchingText, ref int LastFoundRow, int CountColumns)
+            ref string LastSearchingText, ref int LastFoundRow, params string[] ColumnsForSearch)
         {
             bool Find = false;
             string CurrentSearchingText = Search_textBox.Text.Trim();
-            int BeginRow = 0;
+
+            int BeginRow;            
+
             if (LastSearchingText == CurrentSearchingText)
             {
                 if (Direction_checkBox.Checked)
@@ -28,11 +30,25 @@ namespace Автошкола
                     BeginRow = LastFoundRow - 1;
             }
             else
+            {
                 LastSearchingText = CurrentSearchingText;
+                if (Direction_checkBox.Checked)
+                    BeginRow = 0;
+                else
+                    BeginRow = dGV.RowCount;
+            }
             Search:
             if (Direction_checkBox.Checked)
             {
-                switch (CountColumns)
+                for (int i = BeginRow; i < dGV.RowCount; i++)
+                {
+                    for (int j = 0; j < ColumnsForSearch.Length; j++)
+                    {
+                        if (CheckRow(ref dGV, CurrentSearchingText, ref LastFoundRow, i, ColumnsForSearch[j]))
+                            return;
+                    }
+                }
+                /*switch (CountColumns)
                 {
                     case 1:
                         for (int i = BeginRow; i < dGV.RowCount; i++)
@@ -61,7 +77,7 @@ namespace Автошкола
                                 return;
                         }
                         break;
-                }
+                }*/
                 if (!Find)
                 {
                     DialogResult result = MessageBox.Show("Поиск достиг последней строки таблицы. Продолжить поиск с начала таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -74,7 +90,15 @@ namespace Автошкола
             }
             else
             {
-                switch (CountColumns)
+                for (int i = BeginRow; i >= 0; i--)
+                {
+                    for (int j = 0; j < ColumnsForSearch.Length; j++)
+                    {
+                        if (CheckRow(ref dGV, CurrentSearchingText, ref LastFoundRow, i, ColumnsForSearch[j]))
+                            return;
+                    }
+                }
+                /*switch (CountColumns)
                 {
                     case 1:
                         for (int i = BeginRow; i >= 0; i--)
@@ -103,7 +127,7 @@ namespace Автошкола
                                 return;
                         }
                         break;
-                }
+                }*/
                 if (!Find)
                 {
                     DialogResult result = MessageBox.Show("Поиск достиг первой строки таблицы. Продолжить поиск с конца таблицы?", "Поиск", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -116,11 +140,11 @@ namespace Автошкола
             }
         }
 
-        static bool CheckRow(ref DataGridView dGV, string CurrentSearchingText, ref int LastFoundRow, int CurrentRow, int ColumnNumber)
+        static bool CheckRow(ref DataGridView dGV, string CurrentSearchingText, ref int LastFoundRow, int CurrentRow, string ColumnName)
         {
-            if (dGV[ColumnNumber, CurrentRow].FormattedValue.ToString().Contains(CurrentSearchingText))
+            if (dGV[ColumnName, CurrentRow].FormattedValue.ToString().ToLower().Contains(CurrentSearchingText.ToLower()))
             {
-                dGV.CurrentCell = dGV[ColumnNumber, CurrentRow];
+                dGV.CurrentCell = dGV[ColumnName, CurrentRow];
                 LastFoundRow = CurrentRow;
                 return true;
             }

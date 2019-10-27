@@ -85,7 +85,7 @@ namespace Автошкола
         private void Search_button_Click(object sender, EventArgs e)
         {
             SearchingInDataGridViewClass.Search(SearchCarrier_textBox, ref Carriers_dataGridView, Direction_checkBox,
-                ref LastSearchingText, ref LastFoundRow, 3);
+                ref LastSearchingText, ref LastFoundRow, "BrandColumn", "ModelColumn", "StateNumberColumn");
         }
 
         private void SearchCarrier_textBox_KeyPress(object sender, KeyPressEventArgs e)
