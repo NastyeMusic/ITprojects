@@ -66,10 +66,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 16);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(13, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 17);
+            this.label1.Size = new System.Drawing.Size(121, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Выбор курсанта";
             // 
@@ -116,6 +117,7 @@
             this.Edit_button.TabIndex = 46;
             this.Edit_button.Text = "Редактировать выбранное";
             this.Edit_button.UseVisualStyleBackColor = true;
+            this.Edit_button.Click += new System.EventHandler(this.Edit_button_Click);
             // 
             // Delete_button
             // 
@@ -128,6 +130,7 @@
             this.Delete_button.TabIndex = 45;
             this.Delete_button.Text = "Удалить выбранное";
             this.Delete_button.UseVisualStyleBackColor = true;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
             // Add_button
             // 
@@ -140,6 +143,7 @@
             this.Add_button.TabIndex = 44;
             this.Add_button.Text = "Добавить";
             this.Add_button.UseVisualStyleBackColor = true;
+            this.Add_button.Click += new System.EventHandler(this.Add_button_Click);
             // 
             // TheoryLessonsOfStudent_dGV
             // 
@@ -363,9 +367,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedStudent_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SelectedStudent_comboBox.FormattingEnabled = true;
-            this.SelectedStudent_comboBox.Location = new System.Drawing.Point(135, 11);
+            this.SelectedStudent_comboBox.Location = new System.Drawing.Point(141, 11);
             this.SelectedStudent_comboBox.Name = "SelectedStudent_comboBox";
-            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(731, 26);
+            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(725, 26);
             this.SelectedStudent_comboBox.TabIndex = 54;
             this.SelectedStudent_comboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedStudent_comboBox_SelectedIndexChanged);
             this.SelectedStudent_comboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SelectedStudent_comboBox_KeyDown);

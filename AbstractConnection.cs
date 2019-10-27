@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Автошкола
 {
@@ -18,7 +19,14 @@ namespace Автошкола
 
         public void Open()
         {
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка при открытии соединения с БД", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void Close()

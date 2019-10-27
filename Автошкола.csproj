@@ -184,6 +184,7 @@
     <Compile Include="GroupsDA.cs" />
     <Compile Include="InstructorsCategoriesDA.cs" />
     <Compile Include="InstructorsDA.cs" />
+    <Compile Include="MultipleDA.cs" />
     <Compile Include="PracticeLessonsDA.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4948,7 +4948,7 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PracticeLessonsRow AddPracticeLessonsRow(StudentsRow parentStudentsRowByStudents_PracticeLessons, System.DateTime AppointedDate, System.DateTime AppointedTime, System.DateTime FactDate, System.DateTime FactTime) {
+            public PracticeLessonsRow AddPracticeLessonsRow(StudentsRow parentStudentsRowByStudents_PracticeLessons, System.DateTime AppointedDate, System.TimeSpan AppointedTime, System.DateTime FactDate, System.TimeSpan FactTime) {
                 PracticeLessonsRow rowPracticeLessonsRow = ((PracticeLessonsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5006,11 +5006,11 @@ namespace Автошкола {
                 base.Columns.Add(this.columnStudent);
                 this.columnAppointedDate = new global::System.Data.DataColumn("AppointedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAppointedDate);
-                this.columnAppointedTime = new global::System.Data.DataColumn("AppointedTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnAppointedTime = new global::System.Data.DataColumn("AppointedTime", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAppointedTime);
                 this.columnFactDate = new global::System.Data.DataColumn("FactDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFactDate);
-                this.columnFactTime = new global::System.Data.DataColumn("FactTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnFactTime = new global::System.Data.DataColumn("FactTime", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFactTime);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("FK_PracticeLessonsStudents", new global::System.Data.DataColumn[] {
                                 this.columnStudent}, false));
@@ -8878,10 +8878,10 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime AppointedTime {
+            public System.TimeSpan AppointedTime {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablePracticeLessons.AppointedTimeColumn]));
+                        return ((global::System.TimeSpan)(this[this.tablePracticeLessons.AppointedTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'AppointedTime\' в таблице \'PracticeLessons\' равно DBNull.", e);
@@ -8910,10 +8910,10 @@ namespace Автошкола {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime FactTime {
+            public System.TimeSpan FactTime {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablePracticeLessons.FactTimeColumn]));
+                        return ((global::System.TimeSpan)(this[this.tablePracticeLessons.FactTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'FactTime\' в таблице \'PracticeLessons\' равно DBNull.", e);

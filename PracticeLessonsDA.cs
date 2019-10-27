@@ -29,9 +29,9 @@ namespace Автошкола
             dataAdapter.UpdateCommand.Parameters.Add("@OldID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
             // на вставку 
-            dataAdapter.InsertCommand = new SqlCommand("INSERT INTO PracticeLessons (ID, Surname, FirstName, PatronymicName, " +
-                "PhoneNumber, Retraining, Group, CarrierUse, Photo)  VALUES (@ID, @Surname, @FirstName, @PatronymicName, " +
-                "@PhoneNumber, @Retraining, @Group, @CarrierUse, @Photo)", conn.getConnection(), tr.getTransaction());
+            dataAdapter.InsertCommand = new SqlCommand("INSERT INTO PracticeLessons (ID, Student, AppointedDate, AppointedTime, " +
+                "FactDate, FactTime)  VALUES (@ID, @Student, @AppointedDate, @AppointedTime, " +
+                "@FactDate, @FactTime)", conn.getConnection(), tr.getTransaction());
             dataAdapter.InsertCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID");
             dataAdapter.InsertCommand.Parameters.Add("@Student", System.Data.SqlDbType.Int, 255, "Student");
             dataAdapter.InsertCommand.Parameters.Add("@AppointedDate", System.Data.SqlDbType.Date, 255, "AppointedDate");

@@ -7,22 +7,22 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="149" ViewPortY="-132" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Categories" ZOrder="24" X="969" Y="230" Height="79" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
-    <Shape ID="DesignTable:Carriers" ZOrder="20" X="809" Y="232" Height="240" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="236" />
-    <Shape ID="DesignTable:Instructors" ZOrder="6" X="653" Y="-82" Height="217" Width="164" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="213" />
-    <Shape ID="DesignTable:ServiceMasters" ZOrder="7" X="468" Y="155" Height="194" Width="175" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="190" />
-    <Shape ID="DesignTable:TheoryTeachers" ZOrder="11" X="1333" Y="204" Height="217" Width="181" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="213" />
+    <Shape ID="DesignTable:Carriers" ZOrder="21" X="809" Y="232" Height="240" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="236" />
+    <Shape ID="DesignTable:Instructors" ZOrder="7" X="653" Y="-82" Height="217" Width="164" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="213" />
+    <Shape ID="DesignTable:ServiceMasters" ZOrder="8" X="468" Y="155" Height="194" Width="175" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="190" />
+    <Shape ID="DesignTable:TheoryTeachers" ZOrder="12" X="1333" Y="204" Height="217" Width="181" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="213" />
     <Shape ID="DesignTable:Auditoriums" ZOrder="30" X="1138" Y="482" Height="79" Width="157" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
     <Shape ID="DesignTable:Groups" ZOrder="29" X="1137" Y="239" Height="217" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="213" />
-    <Shape ID="DesignTable:InstructorsCategories" ZOrder="5" X="877" Y="-83" Height="125" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:TheoryLessons" ZOrder="13" X="1339" Y="427" Height="148" Width="173" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="144" />
+    <Shape ID="DesignTable:InstructorsCategories" ZOrder="6" X="877" Y="-83" Height="125" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
+    <Shape ID="DesignTable:TheoryLessons" ZOrder="14" X="1339" Y="427" Height="148" Width="173" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="144" />
     <Shape ID="DesignTable:CarriersStatuses" ZOrder="38" X="941" Y="482" Height="79" Width="177" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
     <Shape ID="DesignTable:Transmissions" ZOrder="37" X="702" Y="481" Height="79" Width="168" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
-    <Shape ID="DesignTable:PracticeLessons" ZOrder="21" X="1333" Y="28" Height="171" Width="179" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="167" />
-    <Shape ID="DesignTable:CarriersUses" ZOrder="4" X="882" Y="49" Height="171" Width="156" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="167" />
+    <Shape ID="DesignTable:PracticeLessons" ZOrder="1" X="1333" Y="28" Height="171" Width="179" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="167" />
+    <Shape ID="DesignTable:CarriersUses" ZOrder="5" X="882" Y="49" Height="171" Width="156" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="167" />
     <Shape ID="DesignTable:CarriersRepairs" ZOrder="28" X="518" Y="389" Height="171" Width="170" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="167" />
-    <Shape ID="DesignTable:ReplacementsCarriers" ZOrder="3" X="408" Y="-38" Height="148" Width="224" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="144" />
+    <Shape ID="DesignTable:ReplacementsCarriers" ZOrder="4" X="408" Y="-38" Height="148" Width="224" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="144" />
     <Shape ID="DesignTable:WorkStatuses" ZOrder="27" X="1333" Y="-113" Height="79" Width="167" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
-    <Shape ID="DesignTable:Students" ZOrder="15" X="1127" Y="-83" Height="309" Width="164" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="305" />
+    <Shape ID="DesignTable:Students" ZOrder="16" X="1127" Y="-83" Height="309" Width="164" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="305" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:CarriesStatuses_Carriers" ZOrder="36" LineWidth="11">
@@ -85,7 +85,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Instructors_InstructorsCategories" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:Instructors_InstructorsCategories" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>817</X>
@@ -105,7 +105,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Instructors_CarriersUses" ZOrder="14" LineWidth="11">
+    <Connector ID="DesignRelation:Instructors_CarriersUses" ZOrder="15" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>817</X>
@@ -117,7 +117,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Carriers_CarriersUses" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:Carriers_CarriersUses" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>846</X>
@@ -197,7 +197,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Carriers_ReplacementCarrier" ZOrder="8" LineWidth="11">
+    <Connector ID="DesignRelation:Carriers_ReplacementCarrier" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>827</X>
@@ -217,7 +217,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:WorkStatuses_ServiceMasters" ZOrder="9" LineWidth="11">
+    <Connector ID="DesignRelation:WorkStatuses_ServiceMasters" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1333</X>
@@ -237,7 +237,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:WorkStatuses_Instructors" ZOrder="10" LineWidth="11">
+    <Connector ID="DesignRelation:WorkStatuses_Instructors" ZOrder="11" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1333</X>
@@ -257,7 +257,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:WorkStatuses_TheoryTeachers" ZOrder="12" LineWidth="11">
+    <Connector ID="DesignRelation:WorkStatuses_TheoryTeachers" ZOrder="13" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1500</X>
@@ -289,7 +289,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Categories_Groups" ZOrder="19" LineWidth="11">
+    <Connector ID="DesignRelation:Categories_Groups" ZOrder="20" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1073</X>
@@ -305,7 +305,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Students_PracticeLessons" ZOrder="18" LineWidth="11">
+    <Connector ID="DesignRelation:Students_PracticeLessons" ZOrder="19" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1291</X>
@@ -317,7 +317,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:CarriersUses_Students" ZOrder="17" LineWidth="11">
+    <Connector ID="DesignRelation:CarriersUses_Students" ZOrder="18" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1038</X>
@@ -329,7 +329,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Groups_Students" ZOrder="16" LineWidth="11">
+    <Connector ID="DesignRelation:Groups_Students" ZOrder="17" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1287</X>

@@ -144,6 +144,77 @@ namespace Автошкола
             }
         }
 
+        private void Add_button_Click(object sender, EventArgs e)
+        {
+            dataSet = BusinessLogic.ReadPracticeLessons();
+            AddEditPracticeLessonForm AddPracticeLesson;
+            if (SelectedStudent_comboBox.SelectedIndex != -1)
+                AddPracticeLesson = new AddEditPracticeLessonForm(dataSet.PracticeLessons, dataSet.Students, 
+                    dataSet.Students.Rows.Find(SelectedStudent_comboBox.SelectedValue),
+                    null);
+            else
+                AddPracticeLesson = new AddEditPracticeLessonForm(dataSet.PracticeLessons, dataSet.Students, null, null);
+            AddPracticeLesson.Text = "Добавление практического занятия";
+            this.Enabled = false;
+            AddPracticeLesson.ShowDialog();
+            if (AddPracticeLesson.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WritePracticeLessons(dataSet);
+                if (SelectedStudent_comboBox.SelectedIndex != -1)
+                    ReloadPracticeLessons(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
+            }
+            this.Enabled = true;
+        }
+
+        private void Edit_button_Click(object sender, EventArgs e)
+        {
+            dataSet = BusinessLogic.ReadPracticeLessons();
+            AddEditPracticeLessonForm EditPracticeLesson;
+            if (SelectedStudent_comboBox.SelectedIndex != -1)
+                EditPracticeLesson = new AddEditPracticeLessonForm(dataSet.PracticeLessons, dataSet.Students,
+                    dataSet.Students.Rows.Find(SelectedStudent_comboBox.SelectedValue),
+                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["ID"].Value));
+            else
+                EditPracticeLesson = new AddEditPracticeLessonForm(dataSet.PracticeLessons, dataSet.Students, null,
+                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["ID"].Value));
+            EditPracticeLesson.Text = "Редактирование практического занятия";
+            this.Enabled = false;
+            EditPracticeLesson.ShowDialog();
+            if (EditPracticeLesson.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WritePracticeLessons(dataSet);
+                if (SelectedStudent_comboBox.SelectedIndex != -1)
+                    ReloadPracticeLessons(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
+            }
+            this.Enabled = true;
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            if (PracticeLessonsOfStudent_dGV.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную запись?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["ID"].Value).Delete();
+                    dataSet = BusinessLogic.WritePracticeLessons(dataSet);
+                    if (SelectedStudent_comboBox.SelectedIndex != -1)
+                        ReloadPracticeLessons(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
+                }
+                catch
+                {
+                    MessageBox.Show("Не удалось удалить выбранную строку.\nСкорее всего, на данную строку имеются ссылки из других таблиц", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (SelectedStudent_comboBox.SelectedIndex != -1)
+                        ReloadPracticeLessons(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
+                }
+            }
+        }
+
         private void SelectedStudent_comboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             for (int i = 0; i < SelectedStudent_comboBox.Items.Count; i++)
