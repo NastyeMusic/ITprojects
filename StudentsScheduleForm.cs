@@ -26,8 +26,8 @@ namespace Автошкола
 
         void ReloadTheoryLessons(int StudentID)
         {
-            AutoschoolDataSet TempDS = BusinessLogic.GetGroupOfStudent(StudentID);
-            int GroupID = Convert.ToInt32(TempDS.Students[0][0].ToString());
+            AutoschoolDataSet TempDS = BusinessLogic.ReadStudentByID(StudentID);
+            int GroupID = Convert.ToInt32(TempDS.Students[0][6].ToString());
             dataSet = BusinessLogic.ReadTheoryLessonsByGroupID(GroupID);
             TheoryLessonsOfStudent_dGV.DataSource = dataSet;
             TheoryLessonsOfStudent_dGV.DataMember = "TheoryLessons";
@@ -40,7 +40,7 @@ namespace Автошкола
 
             IDTLColumn.DataPropertyName = "ID";
             TheoryDateColumn.DataPropertyName = "Date";
-            TheoryDateColumn.DataPropertyName = "Time";
+            TheoryTimeColumn.DataPropertyName = "Time";
 
             AuditoriumColumn.DataSource = dataSet.Auditoriums;
             AuditoriumColumn.DisplayMember = "Name";
@@ -70,6 +70,8 @@ namespace Автошкола
             PracticeLessonsOfStudent_dGV.Columns["AppointedTime"].Visible = false;
             PracticeLessonsOfStudent_dGV.Columns["FactDate"].Visible = false;
             PracticeLessonsOfStudent_dGV.Columns["FactTime"].Visible = false;
+            PracticeLessonsOfStudent_dGV.Columns["StudentFIO"].Visible = false;
+            PracticeLessonsOfStudent_dGV.Columns["CarrierName"].Visible = false;
 
             IDPLColumn.DataPropertyName = "ID";
             AppointedDateColumn.DataPropertyName = "AppointedDate";
@@ -112,7 +114,7 @@ namespace Автошкола
         {
             e.Cancel = true;
             Hide();
-            MainForm.Perem(MainForm.FormsNames[6], false);
+            MainForm.Perem(MainForm.FormsNames[13], false);
         }
 
         private void PracticeLessonsOfStudent_dGV_SelectionChanged(object sender, EventArgs e)
@@ -168,6 +170,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndexInPracticeLessons = PracticeLessonsOfStudent_dGV.SelectedRows[0].Index;
             dataSet = BusinessLogic.ReadPracticeLessons();
             AddEditPracticeLessonForm EditPracticeLesson;
             if (SelectedStudent_comboBox.SelectedIndex != -1)

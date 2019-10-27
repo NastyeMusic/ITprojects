@@ -96,6 +96,12 @@
     <Compile Include="AddEditStudentForm.Designer.cs">
       <DependentUpon>AddEditStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditTheoryLessonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditTheoryLessonForm.Designer.cs">
+      <DependentUpon>AddEditTheoryLessonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditTransmissionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <Compile Include="AuditoriumsForm.Designer.cs">
       <DependentUpon>AuditoriumsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoschoolDataSet.cs">
+      <DependentUpon>AutoschoolDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="AutoschoolDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -169,11 +178,23 @@
     <Compile Include="GroupsForm.Designer.cs">
       <DependentUpon>GroupsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GroupsScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupsScheduleForm.Designer.cs">
+      <DependentUpon>GroupsScheduleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InstructorsCategoriesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InstructorsCategoriesForm.Designer.cs">
       <DependentUpon>InstructorsCategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorsScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructorsScheduleForm.Designer.cs">
+      <DependentUpon>InstructorsScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -194,6 +215,12 @@
     <Compile Include="StudentsDA.cs" />
     <Compile Include="TheoryLessonsDA.cs" />
     <Compile Include="TheoryTeachersDA.cs" />
+    <Compile Include="TheoryTeachersScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheoryTeachersScheduleForm.Designer.cs">
+      <DependentUpon>TheoryTeachersScheduleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransmissionsDA.cs" />
     <Compile Include="TransmissionsForm.cs">
       <SubType>Form</SubType>
@@ -250,6 +277,9 @@
     <EmbeddedResource Include="AddEditStudentForm.resx">
       <DependentUpon>AddEditStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEditTheoryLessonForm.resx">
+      <DependentUpon>AddEditTheoryLessonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditTransmissionForm.resx">
       <DependentUpon>AddEditTransmissionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,8 +310,14 @@
     <EmbeddedResource Include="GroupsForm.resx">
       <DependentUpon>GroupsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GroupsScheduleForm.resx">
+      <DependentUpon>GroupsScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InstructorsCategoriesForm.resx">
       <DependentUpon>InstructorsCategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorsScheduleForm.resx">
+      <DependentUpon>InstructorsScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -296,6 +332,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TheoryTeachersScheduleForm.resx">
+      <DependentUpon>TheoryTeachersScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransmissionsForm.resx">
       <DependentUpon>TransmissionsForm.cs</DependentUpon>
     </EmbeddedResource>

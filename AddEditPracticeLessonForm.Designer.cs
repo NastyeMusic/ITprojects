@@ -130,7 +130,7 @@
             this.SelectedStudent_comboBox.FormattingEnabled = true;
             this.SelectedStudent_comboBox.Location = new System.Drawing.Point(88, 9);
             this.SelectedStudent_comboBox.Name = "SelectedStudent_comboBox";
-            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(426, 26);
+            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(414, 26);
             this.SelectedStudent_comboBox.TabIndex = 55;
             this.SelectedStudent_comboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedStudent_comboBox_SelectedIndexChanged);
             // 
@@ -248,7 +248,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1024, 225);
             this.MinimizeBox = false;

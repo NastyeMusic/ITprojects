@@ -281,18 +281,21 @@
             this.расписаниеГруппыToolStripMenuItem.Name = "расписаниеГруппыToolStripMenuItem";
             this.расписаниеГруппыToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
             this.расписаниеГруппыToolStripMenuItem.Text = "Расписание группы";
+            this.расписаниеГруппыToolStripMenuItem.Click += new System.EventHandler(this.расписаниеГруппыToolStripMenuItem_Click);
             // 
             // расписаниеИнструктораToolStripMenuItem
             // 
             this.расписаниеИнструктораToolStripMenuItem.Name = "расписаниеИнструктораToolStripMenuItem";
             this.расписаниеИнструктораToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
             this.расписаниеИнструктораToolStripMenuItem.Text = "Расписание инструктора";
+            this.расписаниеИнструктораToolStripMenuItem.Click += new System.EventHandler(this.расписаниеИнструктораToolStripMenuItem_Click);
             // 
             // расписаниеПреподавателяToolStripMenuItem
             // 
             this.расписаниеПреподавателяToolStripMenuItem.Name = "расписаниеПреподавателяToolStripMenuItem";
             this.расписаниеПреподавателяToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
             this.расписаниеПреподавателяToolStripMenuItem.Text = "Расписание преподавателя";
+            this.расписаниеПреподавателяToolStripMenuItem.Click += new System.EventHandler(this.расписаниеПреподавателяToolStripMenuItem_Click);
             // 
             // инструктораToolStripMenuItem
             // 

@@ -18,7 +18,7 @@ namespace Автошкола
 
             // на обновление
             dataAdapter.UpdateCommand = new SqlCommand("UPDATE TheoryLessons SET ID = @ID, Date = @Date, " +
-                "Time = @Time, Auditorium = @Auditorium, Group = @Group " +
+                "Time = @Time, Auditorium = @Auditorium, [Group] = @Group " +
                 "WHERE ID = @OldID", conn.getConnection(), tr.getTransaction());
             dataAdapter.UpdateCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID");
             dataAdapter.UpdateCommand.Parameters.Add("@Date", System.Data.SqlDbType.Date, 255, "Date");
@@ -28,9 +28,8 @@ namespace Автошкола
             dataAdapter.UpdateCommand.Parameters.Add("@OldID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
             // на вставку 
-            dataAdapter.InsertCommand = new SqlCommand("INSERT INTO TheoryLessons (ID, Surname, FirstName, PatronymicName, " +
-                "PhoneNumber, Retraining, Group, CarrierUse, Photo)  VALUES (@ID, @Surname, @FirstName, @PatronymicName, " +
-                "@PhoneNumber, @Retraining, @Group, @CarrierUse, @Photo)", conn.getConnection(), tr.getTransaction());
+            dataAdapter.InsertCommand = new SqlCommand("INSERT INTO TheoryLessons (ID, Date, Time, Auditorium, " +
+                "[Group])  VALUES (@ID, @Date, @Time, @Auditorium, @Group)", conn.getConnection(), tr.getTransaction());
             dataAdapter.InsertCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID");
             dataAdapter.InsertCommand.Parameters.Add("@Date", System.Data.SqlDbType.Date, 255, "Date");
             dataAdapter.InsertCommand.Parameters.Add("@Time", System.Data.SqlDbType.Time, 255, "Time");
@@ -57,6 +56,13 @@ namespace Автошкола
             dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM TheoryLessons WHERE [Group] = @GroupID", conn.getConnection(), tr.getTransaction());
             dataAdapter.SelectCommand.Parameters.AddWithValue("@GroupID", GroupID);
+            dataAdapter.Fill(dataSet, "TheoryLessons");
+        }
+        public void ReadByAuditoriumID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int AuditoriumID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM TheoryLessons WHERE Auditorium = @AuditoriumID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@AuditoriumID", AuditoriumID);
             dataAdapter.Fill(dataSet, "TheoryLessons");
         }
     }

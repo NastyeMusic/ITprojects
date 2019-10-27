@@ -1103,7 +1103,7 @@ namespace Автошкола
             }
             return ds;
         }
-        public AutoschoolDataSet GetGroupOfStudent(int StudentID)
+        public AutoschoolDataSet ReadStudentByID(int StudentID)
         {
             AutoschoolDataSet ds = new AutoschoolDataSet();
             AbstractConnection abstrCon = ConnectionFactory.getConnection();
@@ -1122,7 +1122,7 @@ namespace Автошкола
                 carriersDA.Read(ds, abstrCon, abstrTr);
                 instructorsDA.Read(ds, abstrCon, abstrTr);
                 carriersUsesDA.Read(ds, abstrCon, abstrTr);
-                studentsDA.GetGroupOfStudent(ds, abstrCon, abstrTr, StudentID);
+                studentsDA.ReadStudentByID(ds, abstrCon, abstrTr, StudentID);
                 abstrTr.Commit();
             }
             catch (Exception e)
@@ -1221,7 +1221,7 @@ namespace Автошкола
             }
             return ds;
         }
-        public AutoschoolDataSet GetGroupByID(int ID)
+        public AutoschoolDataSet ReadGroupByID(int ID)
         {
             AutoschoolDataSet ds = new AutoschoolDataSet();
             AbstractConnection abstrCon = ConnectionFactory.getConnection();
@@ -1234,7 +1234,7 @@ namespace Автошкола
                 workStatusesDA.Read(ds, abstrCon, abstrTr);
                 theoryTeachersDA.Read(ds, abstrCon, abstrTr);
                 categoriesDA.Read(ds, abstrCon, abstrTr);
-                groupsDA.GetGroupByID(ds, abstrCon, abstrTr, ID);
+                groupsDA.ReadGroupByID(ds, abstrCon, abstrTr, ID);
                 abstrTr.Commit();
             }
             catch (Exception e)
@@ -1592,7 +1592,7 @@ namespace Автошкола
             }
             return ds;
         }
-        public AutoschoolDataSet ReadTheoryLessonsByGroupID(int ID)
+        public AutoschoolDataSet ReadTheoryLessonsByGroupID(int GroupID)
         {
             AutoschoolDataSet ds = new AutoschoolDataSet();
             AbstractConnection abstrCon = ConnectionFactory.getConnection();
@@ -1607,7 +1607,37 @@ namespace Автошкола
                 categoriesDA.Read(ds, abstrCon, abstrTr);
                 groupsDA.Read(ds, abstrCon, abstrTr);
                 auditoriumsDA.Read(ds, abstrCon, abstrTr);
-                theoryLessonsDA.ReadByGroupID(ds, abstrCon, abstrTr, ID);
+                theoryLessonsDA.ReadByGroupID(ds, abstrCon, abstrTr, GroupID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet ReadTheoryLessonsByAuditoriumID(int AuditoriumID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                auditoriumsDA.Read(ds, abstrCon, abstrTr);
+                theoryLessonsDA.ReadByAuditoriumID(ds, abstrCon, abstrTr, AuditoriumID);
                 abstrTr.Commit();
             }
             catch (Exception e)
@@ -1786,6 +1816,39 @@ namespace Автошкола
                 studentsDA.Read(ds, abstrCon, abstrTr);
 
                 multipleDA.ReadPracticeLessonsByCarrierID(ds, abstrCon, abstrTr, CarrierID);
+
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet GetTheoryTeacherSchedule(int TeacherID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                groupsDA.Read(ds, abstrCon, abstrTr);
+                auditoriumsDA.Read(ds, abstrCon, abstrTr);
+
+                multipleDA.ReadTheoryLessonsByTeacherID(ds, abstrCon, abstrTr, TeacherID);
 
                 abstrTr.Commit();
             }

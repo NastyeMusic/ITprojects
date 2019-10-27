@@ -43,9 +43,9 @@ namespace Автошкола
             {
                 SelectedStudent_comboBox.SelectedValue = dataRow["Student"].ToString();
 
-                AutoschoolDataSet TempDS = BusinessLogic.GetGroupOfStudent(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
-                int GroupID = Convert.ToInt32(TempDS.Students[0][0].ToString());
-                Group_label.Text = BusinessLogic.GetGroupByID(GroupID).Groups[0][1].ToString();
+                AutoschoolDataSet TempDS = BusinessLogic.ReadStudentByID(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
+                int GroupID = Convert.ToInt32(TempDS.Students[0][6].ToString());
+                Group_label.Text = BusinessLogic.ReadGroupByID(GroupID).Groups[0][1].ToString();
 
                 AppointedDate_dateTimePicker.Text = dataRow["AppointedDate"].ToString();
                 AppointedTime_dateTimePicker.Text = dataRow["AppointedTime"].ToString();
@@ -57,7 +57,7 @@ namespace Автошкола
                 if (SelectedStudent != null)
                 {
                     SelectedStudent_comboBox.SelectedItem = SelectedStudent["FIO"].ToString();
-                    Group_label.Text = BusinessLogic.GetGroupByID(Convert.ToInt32(SelectedStudent["Group"].ToString())).Groups[0][1].ToString();
+                    Group_label.Text = BusinessLogic.ReadGroupByID(Convert.ToInt32(SelectedStudent["Group"].ToString())).Groups[0][1].ToString();
                 }
                 else
                     SelectedStudent_comboBox.SelectedIndex = -1;
@@ -70,9 +70,9 @@ namespace Автошкола
         {
             if (SelectedStudent_comboBox.SelectedIndex != -1 && FormLoad)
             {
-                AutoschoolDataSet TempDS = BusinessLogic.GetGroupOfStudent(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
-                int GroupID = Convert.ToInt32(TempDS.Students[0][0].ToString());
-                Group_label.Text = BusinessLogic.GetGroupByID(GroupID).Groups[0][1].ToString();
+                AutoschoolDataSet TempDS = BusinessLogic.ReadStudentByID(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
+                int GroupID = Convert.ToInt32(TempDS.Students[0][6].ToString());
+                Group_label.Text = BusinessLogic.ReadGroupByID(GroupID).Groups[0][1].ToString();
             }
         }
 
@@ -110,17 +110,17 @@ namespace Автошкола
                                 Convert.ToDateTime(TempDS.PracticeLessons[i][3].ToString()).AddMinutes(45).TimeOfDay >
                                 Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay)
                             {
-                                throw new Exception("У выбранного курсанта в это время в течении 45 минут уже назначено занятие");
+                                throw new Exception("У выбранного курсанта в это время уже назначено занятие");
                             }
                         }
                         if (Convert.ToDateTime(TempDS.PracticeLessons[i][4]) == Convert.ToDateTime(FactDate_dateTimePicker.Text).Date)
                         {
                             if (Convert.ToDateTime(TempDS.PracticeLessons[i][5].ToString()).TimeOfDay <=
-                                Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay &&
+                                Convert.ToDateTime(FactTime_dateTimePicker.Text).TimeOfDay &&
                                 Convert.ToDateTime(TempDS.PracticeLessons[i][5].ToString()).AddMinutes(45).TimeOfDay >
-                                Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay)
+                                Convert.ToDateTime(FactTime_dateTimePicker.Text).TimeOfDay)
                             {
-                                throw new Exception("У выбранного курсанта в это время в течении 45 минут уже произошло занятие");
+                                throw new Exception("У выбранного курсанта в это время уже произошло занятие");
                             }
                         }
                     }
@@ -138,17 +138,17 @@ namespace Автошкола
                                 Convert.ToDateTime(TempDS.PracticeLessons[i][3].ToString()).AddMinutes(45).TimeOfDay >
                                 Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay)
                             {
-                                throw new Exception("У инструктора выбранного курсанта в это время в течении 45 минут уже назначено занятие");
+                                throw new Exception("У инструктора выбранного курсанта в это время уже назначено занятие");
                             }
                         }
                         if (Convert.ToDateTime(TempDS.PracticeLessons[i][4]) == Convert.ToDateTime(FactDate_dateTimePicker.Text).Date)
                         {
                             if (Convert.ToDateTime(TempDS.PracticeLessons[i][5].ToString()).TimeOfDay <=
-                                Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay &&
+                                Convert.ToDateTime(FactTime_dateTimePicker.Text).TimeOfDay &&
                                 Convert.ToDateTime(TempDS.PracticeLessons[i][5].ToString()).AddMinutes(45).TimeOfDay >
-                                Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay)
+                                Convert.ToDateTime(FactTime_dateTimePicker.Text).TimeOfDay)
                             {
-                                throw new Exception("У инструктора выбранного курсанта в это время в течении 45 минут уже произошло занятие");
+                                throw new Exception("У инструктора выбранного курсанта в это время уже произошло занятие");
                             }
                         }
                     }
@@ -166,17 +166,44 @@ namespace Автошкола
                                 Convert.ToDateTime(TempDS.PracticeLessons[i][3].ToString()).AddMinutes(45).TimeOfDay >
                                 Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay)
                             {
-                                throw new Exception("ТС инструктора выбранного курсанта в это время в течении 45 минут уже используется");
+                                throw new Exception("ТС инструктора выбранного курсанта в это время уже используется");
                             }
                         }
                         if (Convert.ToDateTime(TempDS.PracticeLessons[i][4]) == Convert.ToDateTime(FactDate_dateTimePicker.Text).Date)
                         {
                             if (Convert.ToDateTime(TempDS.PracticeLessons[i][5].ToString()).TimeOfDay <=
-                                Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay &&
+                                Convert.ToDateTime(FactTime_dateTimePicker.Text).TimeOfDay &&
                                 Convert.ToDateTime(TempDS.PracticeLessons[i][5].ToString()).AddMinutes(45).TimeOfDay >
+                                Convert.ToDateTime(FactTime_dateTimePicker.Text).TimeOfDay)
+                            {
+                                throw new Exception("ТС инструктора выбранного курсанта в это время уже использовалось");
+                            }
+                        }
+                    }
+
+                    TempDS = BusinessLogic.ReadStudentByID(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
+                    int GroupID = Convert.ToInt32(TempDS.Students[0][6].ToString());
+                    TempDS = BusinessLogic.ReadTheoryLessonsByGroupID(GroupID);
+                    for (int i = 0; i < TempDS.TheoryLessons.Rows.Count; i++)
+                    {
+                        if (Convert.ToDateTime(TempDS.TheoryLessons[i][1]) == Convert.ToDateTime(AppointedDate_dateTimePicker.Text).Date)
+                        {
+                            if (Convert.ToDateTime(TempDS.TheoryLessons[i][2].ToString()).TimeOfDay <=
+                                Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay &&
+                                Convert.ToDateTime(TempDS.TheoryLessons[i][2].ToString()).AddMinutes(45).TimeOfDay >
                                 Convert.ToDateTime(AppointedTime_dateTimePicker.Text).TimeOfDay)
                             {
-                                throw new Exception("ТС инструктора выбранного курсанта в это время в течении 45 минут уже использовалось");
+                                throw new Exception("У выбранного курсанта в это время назначено теоретическое занятие");
+                            }
+                        }
+                        if (Convert.ToDateTime(TempDS.TheoryLessons[i][1]) == Convert.ToDateTime(FactDate_dateTimePicker.Text).Date)
+                        {
+                            if (Convert.ToDateTime(TempDS.TheoryLessons[i][2].ToString()).TimeOfDay <=
+                                Convert.ToDateTime(FactTime_dateTimePicker.Text).TimeOfDay &&
+                                Convert.ToDateTime(TempDS.TheoryLessons[i][2].ToString()).AddMinutes(45).TimeOfDay >
+                                Convert.ToDateTime(FactTime_dateTimePicker.Text).TimeOfDay)
+                            {
+                                throw new Exception("У выбранного курсанта в это время происходило теоретическое занятие");
                             }
                         }
                     }

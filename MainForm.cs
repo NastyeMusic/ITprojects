@@ -32,7 +32,7 @@ namespace Автошкола
             FormsNames[13] = "StudentsScheduleForm";
             FormsNames[14] = "GroupsScheduleForm";
             FormsNames[15] = "InstructorsScheduleForm";
-            FormsNames[16] = "TheoryTeacherScheduleForm";
+            FormsNames[16] = "TheoryTeachersScheduleForm";
             FormsNames[17] = "InstructorsCategoriesForm";
             FormsNames[18] = "CarriersUsesForm";
             FormsNames[19] = "ReplacementCarriers";
@@ -75,6 +75,15 @@ namespace Автошкола
 
         StudentsScheduleForm StudentsScheduleForm = new StudentsScheduleForm();
         static bool StudentsScheduleFormOpened = false;
+
+        InstructorsScheduleForm InstructorsScheduleForm = new InstructorsScheduleForm();
+        static bool InstructorsScheduleFormOpened = false;
+
+        GroupsScheduleForm GroupsScheduleForm = new GroupsScheduleForm();
+        static bool GroupsScheduleFormOpened = false;
+
+        TheoryTeachersScheduleForm TheoryTeachersScheduleForm = new TheoryTeachersScheduleForm();
+        static bool TheoryTeachersScheduleFormOpened = false;
 
         static public string[] FormsNames = new string[21];
 
@@ -124,15 +133,15 @@ namespace Автошкола
                 case "StudentsScheduleForm":
                     StudentsScheduleFormOpened = b;
                     break;
-                /*case "GroupsScheduleForm":
-                    CarriersFormOpened = b;
+                case "GroupsScheduleForm":
+                    GroupsScheduleFormOpened = b;
                     break;
                 case "InstructorsScheduleForm":
-                    CarriersFormOpened = b;
+                    InstructorsScheduleFormOpened = b;
                     break;
-                case "TheoryTeacherScheduleForm":
-                    CarriersFormOpened = b;
-                    break;*/
+                case "TheoryTeachersScheduleForm":
+                    TheoryTeachersScheduleFormOpened = b;
+                    break;
                 case "InstructorsCategoriesForm":
                     InstructorsCategoriesFormOpened = b;
                     break;
@@ -484,6 +493,45 @@ namespace Автошкола
             else
             {
                 StudentsScheduleForm.Activate();
+            }
+        }
+
+        private void расписаниеИнструктораToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!InstructorsScheduleFormOpened)
+            {
+                InstructorsScheduleForm.Show();
+                InstructorsScheduleFormOpened = true;
+            }
+            else
+            {
+                InstructorsScheduleForm.Activate();
+            }
+        }
+
+        private void расписаниеГруппыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!GroupsScheduleFormOpened)
+            {
+                GroupsScheduleForm.Show();
+                GroupsScheduleFormOpened = true;
+            }
+            else
+            {
+                GroupsScheduleForm.Activate();
+            }
+        }
+
+        private void расписаниеПреподавателяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!TheoryTeachersScheduleFormOpened)
+            {
+                TheoryTeachersScheduleForm.Show();
+                TheoryTeachersScheduleFormOpened = true;
+            }
+            else
+            {
+                TheoryTeachersScheduleForm.Activate();
             }
         }
     }
