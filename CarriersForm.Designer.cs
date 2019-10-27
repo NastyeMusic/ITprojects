@@ -242,6 +242,7 @@
             // 
             // Direction_checkBox
             // 
+            this.Direction_checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Direction_checkBox.AutoSize = true;
             this.Direction_checkBox.Checked = true;
             this.Direction_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -254,6 +255,7 @@
             // 
             // Search_button
             // 
+            this.Search_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Search_button.Location = new System.Drawing.Point(936, 6);
             this.Search_button.Name = "Search_button";
@@ -265,6 +267,7 @@
             // 
             // ReloadCarriers_button
             // 
+            this.ReloadCarriers_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ReloadCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ReloadCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
             this.ReloadCarriers_button.Location = new System.Drawing.Point(1040, 60);

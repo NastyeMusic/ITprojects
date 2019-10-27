@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Edit_button = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
             this.Add_button = new System.Windows.Forms.Button();
             this.CarriersUses_dataGridView = new System.Windows.Forms.DataGridView();
-            this.SearchInstructor_textBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
-            this.Search_button = new System.Windows.Forms.Button();
-            this.ReloadCarriersUses_button = new System.Windows.Forms.Button();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SurnameColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.FirstNameColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PatronymicNameColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.CarrierColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SearchInstructor_textBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
+            this.Search_button = new System.Windows.Forms.Button();
+            this.ReloadCarriersUses_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersUses_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,14 +92,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CarriersUses_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarriersUses_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarriersUses_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CarriersUses_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CarriersUses_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -107,87 +107,32 @@
             this.FirstNameColumn,
             this.PatronymicNameColumn,
             this.CarrierColumn});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CarriersUses_dataGridView.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CarriersUses_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.CarriersUses_dataGridView.Location = new System.Drawing.Point(12, 39);
             this.CarriersUses_dataGridView.MultiSelect = false;
             this.CarriersUses_dataGridView.Name = "CarriersUses_dataGridView";
             this.CarriersUses_dataGridView.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarriersUses_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarriersUses_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.CarriersUses_dataGridView.RowHeadersVisible = false;
             this.CarriersUses_dataGridView.RowTemplate.Height = 24;
             this.CarriersUses_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersUses_dataGridView.Size = new System.Drawing.Size(1022, 581);
             this.CarriersUses_dataGridView.TabIndex = 43;
             this.CarriersUses_dataGridView.SelectionChanged += new System.EventHandler(this.CarriersUses_dataGridView_SelectionChanged);
-            // 
-            // SearchInstructor_textBox
-            // 
-            this.SearchInstructor_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchInstructor_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchInstructor_textBox.Location = new System.Drawing.Point(160, 9);
-            this.SearchInstructor_textBox.Name = "SearchInstructor_textBox";
-            this.SearchInstructor_textBox.Size = new System.Drawing.Size(770, 24);
-            this.SearchInstructor_textBox.TabIndex = 42;
-            this.SearchInstructor_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchInstructor_textBox_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 18);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Поиск инструктора";
-            // 
-            // Direction_checkBox
-            // 
-            this.Direction_checkBox.AutoSize = true;
-            this.Direction_checkBox.Checked = true;
-            this.Direction_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Direction_checkBox.Location = new System.Drawing.Point(1040, 13);
-            this.Direction_checkBox.Name = "Direction_checkBox";
-            this.Direction_checkBox.Size = new System.Drawing.Size(102, 21);
-            this.Direction_checkBox.TabIndex = 48;
-            this.Direction_checkBox.Text = "поиск вниз";
-            this.Direction_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // Search_button
-            // 
-            this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Search_button.Location = new System.Drawing.Point(936, 5);
-            this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(98, 32);
-            this.Search_button.TabIndex = 47;
-            this.Search_button.Text = "Найти";
-            this.Search_button.UseVisualStyleBackColor = true;
-            this.Search_button.Click += new System.EventHandler(this.Search_button_Click);
-            // 
-            // ReloadCarriersUses_button
-            // 
-            this.ReloadCarriersUses_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadCarriersUses_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadCarriersUses_button.Location = new System.Drawing.Point(1040, 60);
-            this.ReloadCarriersUses_button.Name = "ReloadCarriersUses_button";
-            this.ReloadCarriersUses_button.Size = new System.Drawing.Size(45, 35);
-            this.ReloadCarriersUses_button.TabIndex = 49;
-            this.ReloadCarriersUses_button.UseVisualStyleBackColor = true;
-            this.ReloadCarriersUses_button.Click += new System.EventHandler(this.ReloadCarriersUses_button_Click);
             // 
             // IDColumn
             // 
@@ -231,6 +176,64 @@
             this.CarrierColumn.ReadOnly = true;
             this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CarrierColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // SearchInstructor_textBox
+            // 
+            this.SearchInstructor_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchInstructor_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchInstructor_textBox.Location = new System.Drawing.Point(160, 9);
+            this.SearchInstructor_textBox.Name = "SearchInstructor_textBox";
+            this.SearchInstructor_textBox.Size = new System.Drawing.Size(770, 24);
+            this.SearchInstructor_textBox.TabIndex = 42;
+            this.SearchInstructor_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchInstructor_textBox_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 18);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Поиск инструктора";
+            // 
+            // Direction_checkBox
+            // 
+            this.Direction_checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Direction_checkBox.AutoSize = true;
+            this.Direction_checkBox.Checked = true;
+            this.Direction_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Direction_checkBox.Location = new System.Drawing.Point(1040, 13);
+            this.Direction_checkBox.Name = "Direction_checkBox";
+            this.Direction_checkBox.Size = new System.Drawing.Size(102, 21);
+            this.Direction_checkBox.TabIndex = 48;
+            this.Direction_checkBox.Text = "поиск вниз";
+            this.Direction_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // Search_button
+            // 
+            this.Search_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Search_button.Location = new System.Drawing.Point(936, 5);
+            this.Search_button.Name = "Search_button";
+            this.Search_button.Size = new System.Drawing.Size(98, 32);
+            this.Search_button.TabIndex = 47;
+            this.Search_button.Text = "Найти";
+            this.Search_button.UseVisualStyleBackColor = true;
+            this.Search_button.Click += new System.EventHandler(this.Search_button_Click);
+            // 
+            // ReloadCarriersUses_button
+            // 
+            this.ReloadCarriersUses_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReloadCarriersUses_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadCarriersUses_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadCarriersUses_button.Location = new System.Drawing.Point(1040, 60);
+            this.ReloadCarriersUses_button.Name = "ReloadCarriersUses_button";
+            this.ReloadCarriersUses_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadCarriersUses_button.TabIndex = 49;
+            this.ReloadCarriersUses_button.UseVisualStyleBackColor = true;
+            this.ReloadCarriersUses_button.Click += new System.EventHandler(this.ReloadCarriersUses_button_Click);
             // 
             // CarriersUsesForm
             // 
