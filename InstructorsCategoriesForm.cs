@@ -118,7 +118,7 @@ namespace Автошкола
         {
             AddEditInstructorsCategoriesForm AddInstructorCategory = new AddEditInstructorsCategoriesForm(dataSet.InstructorsCategories, 
                 dataSet.Instructors, dataSet.Categories, null);
-            AddInstructorCategory.Text = "Добавление категориии инструктору";
+            AddInstructorCategory.Text = "Добавление категории инструктору";
             this.Enabled = false;
             AddInstructorCategory.ShowDialog();
             if (AddInstructorCategory.DialogResult == DialogResult.OK)
@@ -135,7 +135,7 @@ namespace Автошкола
             AddEditInstructorsCategoriesForm EditInstructorCategory = new AddEditInstructorsCategoriesForm(dataSet.InstructorsCategories,
                 dataSet.Instructors, dataSet.Categories, 
                 dataSet.InstructorsCategories.Rows.Find(InstructorsCategories_dataGridView.SelectedRows[0].Cells["ID"].Value));
-            EditInstructorCategory.Text = "Редактирование категориии инструктора";
+            EditInstructorCategory.Text = "Редактирование категории инструктора";
             this.Enabled = false;
             EditInstructorCategory.ShowDialog();
             if (EditInstructorCategory.DialogResult == DialogResult.OK)

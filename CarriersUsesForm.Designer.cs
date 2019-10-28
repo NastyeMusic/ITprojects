@@ -40,7 +40,7 @@
             this.FirstNameColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PatronymicNameColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.CarrierColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SearchInstructor_textBox = new System.Windows.Forms.TextBox();
+            this.Search_textBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Direction_checkBox = new System.Windows.Forms.CheckBox();
             this.Search_button = new System.Windows.Forms.Button();
@@ -177,16 +177,16 @@
             this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CarrierColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // SearchInstructor_textBox
+            // Search_textBox
             // 
-            this.SearchInstructor_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Search_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchInstructor_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchInstructor_textBox.Location = new System.Drawing.Point(160, 9);
-            this.SearchInstructor_textBox.Name = "SearchInstructor_textBox";
-            this.SearchInstructor_textBox.Size = new System.Drawing.Size(770, 24);
-            this.SearchInstructor_textBox.TabIndex = 42;
-            this.SearchInstructor_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchInstructor_textBox_KeyPress);
+            this.Search_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Search_textBox.Location = new System.Drawing.Point(70, 9);
+            this.Search_textBox.Name = "Search_textBox";
+            this.Search_textBox.Size = new System.Drawing.Size(860, 24);
+            this.Search_textBox.TabIndex = 42;
+            this.Search_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Search_textBox_KeyPress);
             // 
             // label1
             // 
@@ -194,9 +194,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 18);
+            this.label1.Size = new System.Drawing.Size(52, 18);
             this.label1.TabIndex = 41;
-            this.label1.Text = "Поиск инструктора";
+            this.label1.Text = "Поиск";
             // 
             // Direction_checkBox
             // 
@@ -244,7 +244,7 @@
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Add_button);
             this.Controls.Add(this.CarriersUses_dataGridView);
-            this.Controls.Add(this.SearchInstructor_textBox);
+            this.Controls.Add(this.Search_textBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Direction_checkBox);
             this.Controls.Add(this.Search_button);
@@ -267,7 +267,7 @@
         private System.Windows.Forms.Button Delete_button;
         private System.Windows.Forms.Button Add_button;
         private System.Windows.Forms.DataGridView CarriersUses_dataGridView;
-        private System.Windows.Forms.TextBox SearchInstructor_textBox;
+        private System.Windows.Forms.TextBox Search_textBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox Direction_checkBox;
         private System.Windows.Forms.Button Search_button;

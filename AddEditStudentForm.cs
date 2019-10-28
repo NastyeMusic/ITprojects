@@ -189,7 +189,16 @@ namespace Автошкола
 
         private void Surname_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterTextOneWord(sender, ref e);
+            if ((((TextBox)sender).TextLength - ((TextBox)sender).SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if ((char)e.KeyChar == '-') return;
+                if (char.IsLetter(e.KeyChar)) return;
+                e.Handled = true;
+            }
         }
 
         private void FirstName_textBox_KeyPress(object sender, KeyPressEventArgs e)

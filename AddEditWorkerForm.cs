@@ -114,17 +114,17 @@ namespace Автошкола
             {
                 try
                 {
-                    if (Surname_textBox.Text == "")
+                    if (Surname_textBox.Text.Trim() == "")
                     {
                         Surname_textBox.Focus();
                         throw new Exception("Не указана фамилия сотрудника");
                     }
-                    if (FirstName_textBox.Text == "")
+                    if (FirstName_textBox.Text.Trim() == "")
                     {
                         FirstName_textBox.Focus();
                         throw new Exception("Не указано имя сотрудника");
                     }
-                    if (PatronymicName_textBox.Text == "")
+                    if (PatronymicName_textBox.Text.Trim() == "")
                     {
                         PatronymicName_textBox.Focus();
                         throw new Exception("Не указано отчество сотрудника");
@@ -299,7 +299,16 @@ namespace Автошкола
 
         private void Surname_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ControlEnterTextOneWord(sender, ref e);
+            if ((((TextBox)sender).TextLength - ((TextBox)sender).SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
+                e.Handled = true;
+            else
+            {
+                if ((char)e.KeyChar == (Char)Keys.Back) return;
+                if ((char)e.KeyChar == (Char)Keys.ControlKey) return;
+                if ((char)e.KeyChar == '-') return;
+                if (char.IsLetter(e.KeyChar)) return;
+                e.Handled = true;
+            }
         }
 
         private void FirstName_textBox_KeyPress(object sender, KeyPressEventArgs e)
