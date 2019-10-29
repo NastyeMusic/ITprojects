@@ -168,6 +168,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = 0;
             if (Workers_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

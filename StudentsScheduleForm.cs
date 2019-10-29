@@ -196,6 +196,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndexInPracticeLessons = 0;
             if (PracticeLessonsOfStudent_dGV.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

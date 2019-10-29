@@ -41,6 +41,7 @@
             this.Auditoriums_dataGridView = new System.Windows.Forms.DataGridView();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reload_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Auditoriums_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             this.Edit_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Edit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Edit_button.Location = new System.Drawing.Point(1040, 102);
+            this.Edit_button.Location = new System.Drawing.Point(1040, 209);
             this.Edit_button.Name = "Edit_button";
             this.Edit_button.Size = new System.Drawing.Size(135, 48);
             this.Edit_button.TabIndex = 13;
@@ -60,7 +61,7 @@
             // 
             this.Delete_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Delete_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Delete_button.Location = new System.Drawing.Point(1040, 165);
+            this.Delete_button.Location = new System.Drawing.Point(1040, 272);
             this.Delete_button.Name = "Delete_button";
             this.Delete_button.Size = new System.Drawing.Size(135, 48);
             this.Delete_button.TabIndex = 12;
@@ -72,7 +73,7 @@
             // 
             this.Add_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Add_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Add_button.Location = new System.Drawing.Point(1040, 39);
+            this.Add_button.Location = new System.Drawing.Point(1040, 146);
             this.Add_button.Name = "Add_button";
             this.Add_button.Size = new System.Drawing.Size(135, 48);
             this.Add_button.TabIndex = 11;
@@ -186,11 +187,24 @@
             this.NameColumn.Name = "NameColumn";
             this.NameColumn.ReadOnly = true;
             // 
+            // Reload_button
+            // 
+            this.Reload_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Reload_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Reload_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.Reload_button.Location = new System.Drawing.Point(1040, 72);
+            this.Reload_button.Name = "Reload_button";
+            this.Reload_button.Size = new System.Drawing.Size(45, 35);
+            this.Reload_button.TabIndex = 30;
+            this.Reload_button.UseVisualStyleBackColor = true;
+            this.Reload_button.Click += new System.EventHandler(this.Reload_button_Click);
+            // 
             // AuditoriumsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1187, 632);
+            this.Controls.Add(this.Reload_button);
             this.Controls.Add(this.Auditoriums_dataGridView);
             this.Controls.Add(this.Edit_button);
             this.Controls.Add(this.Delete_button);
@@ -223,5 +237,6 @@
         private System.Windows.Forms.DataGridView Auditoriums_dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
+        private System.Windows.Forms.Button Reload_button;
     }
 }
