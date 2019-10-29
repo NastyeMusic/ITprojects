@@ -43,7 +43,12 @@ namespace Автошкола
                 {
                     if (WorkStatusName_textBox.Text.Trim() == "")
                     {
-                        throw new Exception("Не указано наименование аудитории");
+                        throw new Exception("Не указано наименование рабочего статуса");
+                    }
+                    for (int i = 0; i < workStatusesDataTable.Rows.Count; i++)
+                    {
+                        if (workStatusesDataTable[i][1].ToString().ToLower() == WorkStatusName_textBox.Text.Trim().ToLower())
+                            throw new Exception("Рабочий статус с таким наименованием уже имеется в базе");
                     }
                 }
                 catch (Exception exp)

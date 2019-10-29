@@ -47,7 +47,7 @@ namespace Автошкола
                     }
                     for (int i = 0; i < auditoriumsDataTable.Rows.Count; i++)
                     {
-                        if (auditoriumsDataTable[i][1].ToString().ToLower() == AuditoriumName_textBox.Text.ToLower())
+                        if (auditoriumsDataTable[i][1].ToString().ToLower() == AuditoriumName_textBox.Text.Trim().ToLower())
                         {
                             throw new Exception("Аудитория с таким названием уже существует.");
                         }

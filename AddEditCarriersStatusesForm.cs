@@ -45,6 +45,11 @@ namespace Автошкола
                     {
                         throw new Exception("Не указано наименование статуса ТС");
                     }
+                    for (int i = 0; i < carriersStatusesDataTable.Rows.Count; i++)
+                    {
+                        if (carriersStatusesDataTable[i][1].ToString().ToLower() == CarrierStatusName_textBox.Text.Trim().ToLower())
+                            throw new Exception("Статус ТС с таким наименованием уже имеется в базе");
+                    }
                 }
                 catch (Exception exp)
                 {
