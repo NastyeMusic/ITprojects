@@ -70,6 +70,38 @@ namespace Автошкола
             Close();
         }
 
+        private void ReloadTeachers_button_Click(object sender, EventArgs e)
+        {
+            FormLoad = false;
+            string temp = "";
+            if (SelectedTheoryTeacher_comboBox.SelectedValue != null)
+                temp = SelectedTheoryTeacher_comboBox.SelectedValue.ToString();
+
+            dataSetForTheoryTeachers = BusinessLogic.ReadTheoryTeachers();
+            SelectedTheoryTeacher_comboBox.DataSource = dataSetForTheoryTeachers.TheoryTeachers;
+            SelectedTheoryTeacher_comboBox.DisplayMember = "FIO";
+            SelectedTheoryTeacher_comboBox.ValueMember = "ID";
+            SelectedTheoryTeacher_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            SelectedTheoryTeacher_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+
+            FormLoad = true;
+            if (temp != "")
+            {
+                try
+                {
+                    SelectedTheoryTeacher_comboBox.SelectedValue = temp;
+                }
+                catch
+                {
+                    SelectedTheoryTeacher_comboBox.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                SelectedTheoryTeacher_comboBox.SelectedIndex = -1;
+            }
+        }
+
         private void TheoryTeachersScheduleForm_Load(object sender, EventArgs e)
         {
             dataSetForTheoryTeachers = BusinessLogic.ReadTheoryTeachers();

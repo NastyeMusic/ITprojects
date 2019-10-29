@@ -180,7 +180,7 @@ namespace Автошкола
             FIOColumn.DataPropertyName = "FIO";
             PhoneNumberColumn.DataPropertyName = "PhoneNumber";
             RetrainingColumn.DataPropertyName = "Retraining";
-
+                
             GroupColumn.DataSource = dataSet.Groups;
             GroupColumn.DisplayMember = "Name";
             GroupColumn.ValueMember = "ID";
@@ -194,6 +194,13 @@ namespace Автошкола
 
         void ReloadGroups()
         {
+            string temp = "";
+            string tempParent = "";
+            if (Groups_treeView.SelectedNode != null)
+            {
+                temp = Groups_treeView.SelectedNode.Text;
+                tempParent = Groups_treeView.SelectedNode.Parent.Text;
+            }
             Groups_treeView.Nodes.Clear();
 
             dataSet = BusinessLogic.ReadGroups();
@@ -208,15 +215,27 @@ namespace Автошкола
                     {
                         Find = true;
                         // добавляем в уже существующую ветку
-                        Groups_treeView.Nodes[j].Nodes.Add(dataSet.Groups.Rows[i][1].ToString());
+                        Groups_treeView.Nodes[j].Nodes.Add(dataSet.Groups.Rows[i][1].ToString(), dataSet.Groups.Rows[i][1].ToString());
                         break;
                     }
                 }
                 if (!Find)
                 {
                     // создаем новую ветку, и добавляем в нее
-                    TreeNode TempNode = Groups_treeView.Nodes.Add(year.ToString());
-                    TempNode.Nodes.Add(dataSet.Groups.Rows[i][1].ToString());
+                    TreeNode TempNode = Groups_treeView.Nodes.Add(year.ToString(), year.ToString());
+                    TempNode.Nodes.Add(dataSet.Groups.Rows[i][1].ToString(), dataSet.Groups.Rows[i][1].ToString());
+                }
+            }
+            if (temp != "")
+            {
+                try
+                {
+                    Groups_treeView.SelectedNode = Groups_treeView.Nodes[tempParent].Nodes[temp];
+                    Groups_treeView.Focus();
+                }
+                catch
+                {
+
                 }
             }
         }

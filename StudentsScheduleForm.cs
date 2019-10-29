@@ -140,6 +140,7 @@ namespace Автошкола
 
         private void SelectedStudent_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LastSelectionIndexInPracticeLessons = -1;
             if (SelectedStudent_comboBox.SelectedIndex != -1 && FormLoad)
             {
                 int StudentID = Convert.ToInt32(SelectedStudent_comboBox.SelectedValue);
@@ -196,7 +197,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndexInPracticeLessons = 0;
+            LastSelectionIndexInPracticeLessons = -1;
             if (PracticeLessonsOfStudent_dGV.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -224,6 +225,44 @@ namespace Автошкола
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ReloadStudents_button_Click(object sender, EventArgs e)
+        {
+            FormLoad = false;
+            string temp = "";
+            if (SelectedStudent_comboBox.SelectedValue != null)
+                temp = SelectedStudent_comboBox.SelectedValue.ToString();
+
+            LastSelectionIndexInPracticeLessons = -1;
+
+            dataSetForStudents = BusinessLogic.ReadStudents();
+            SelectedStudent_comboBox.DataSource = dataSetForStudents.Students;
+            SelectedStudent_comboBox.DisplayMember = "FIO";
+            SelectedStudent_comboBox.ValueMember = "ID";
+            SelectedStudent_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            SelectedStudent_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+
+            Edit_button.Enabled = false;
+            Delete_button.Enabled = false;
+            PracticeLessonsOfStudent_dGV_SelectionChanged(sender, e);
+
+            FormLoad = true;
+            if (temp != "")
+            {
+                try
+                {
+                    SelectedStudent_comboBox.SelectedValue = temp;
+                }
+                catch
+                {
+                    SelectedStudent_comboBox.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                SelectedStudent_comboBox.SelectedIndex = -1;
+            }
         }
 
         private void SelectedStudent_comboBox_KeyPress(object sender, KeyPressEventArgs e)

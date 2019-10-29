@@ -83,6 +83,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadAuditoriums();
             AddEditAuditoriumsForm AddAuditorium = new AddEditAuditoriumsForm(dataSet.Auditoriums, null);
             AddAuditorium.Text = "Добавление аудитории";
             this.Enabled = false;
@@ -97,6 +98,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadAuditoriums();
             LastSelectionIndex = Auditoriums_dataGridView.SelectedRows[0].Index;
             AddEditAuditoriumsForm EditAuditorium = new AddEditAuditoriumsForm(dataSet.Auditoriums, dataSet.Auditoriums.Rows.Find(Auditoriums_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditAuditorium.Text = "Редактирование аудитории";
@@ -112,7 +114,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = 0;
+            LastSelectionIndex = -1;
             if (Auditoriums_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -144,6 +146,7 @@ namespace Автошкола
 
         private void Reload_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadAuditoriums();
         }
 

@@ -24,7 +24,14 @@ namespace Автошкола
 
         void ReloadInstructorsSchedule(int InstructorID)
         {
-            dataSet = BusinessLogic.GetInstructorSchedule(InstructorID);
+            if (InstructorID != -1)
+            {
+                dataSet = BusinessLogic.GetInstructorSchedule(InstructorID);
+            }
+            else
+            {
+                dataSet.Clear();
+            }            
             InstructorsSchedule_dGV.DataSource = dataSet;
             InstructorsSchedule_dGV.DataMember = "PracticeLessons";
 
@@ -65,6 +72,38 @@ namespace Автошкола
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ReloadInstructors_button_Click(object sender, EventArgs e)
+        {
+            FormLoad = false;
+            string temp = "";
+            if (SelectedInstructor_comboBox.SelectedValue != null)
+                temp = SelectedInstructor_comboBox.SelectedValue.ToString();
+
+            dataSetForInstructors = BusinessLogic.ReadInstructors();
+            SelectedInstructor_comboBox.DataSource = dataSetForInstructors.Instructors;
+            SelectedInstructor_comboBox.DisplayMember = "FIO";
+            SelectedInstructor_comboBox.ValueMember = "ID";
+            SelectedInstructor_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            SelectedInstructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+
+            FormLoad = true;
+            if (temp != "")
+            {
+                try
+                {
+                    SelectedInstructor_comboBox.SelectedValue = temp;
+                }
+                catch
+                {
+                    SelectedInstructor_comboBox.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                SelectedInstructor_comboBox.SelectedIndex = -1;
+            }
         }
 
         private void InstructorsScheduleForm_Load(object sender, EventArgs e)

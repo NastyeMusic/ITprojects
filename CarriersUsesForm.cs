@@ -118,6 +118,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadCarriersUses();
             AddEditCarrierUseForm AddCarrierUse = new AddEditCarrierUseForm(dataSet.CarriersUses,
                 dataSet.Instructors, dataSet.Carriers, null);
             AddCarrierUse.Text = "Добавление ТС инструктору";
@@ -133,6 +134,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadCarriersUses();
             LastSelectionIndex = CarriersUses_dataGridView.SelectedRows[0].Index;
             AddEditCarrierUseForm EditCarrierUse = new AddEditCarrierUseForm(dataSet.CarriersUses,
                 dataSet.Instructors, dataSet.Carriers, 
@@ -150,7 +152,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = 0;
+            LastSelectionIndex = -1;
             if (CarriersUses_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

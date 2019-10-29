@@ -90,6 +90,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadCategories();
             AddEditCategoryForm AddCategory = new AddEditCategoryForm(dataSet.Categories, null);
             AddCategory.Text = "Добавление категории";
             this.Enabled = false;
@@ -104,6 +105,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadCategories();
             LastSelectionIndex = Categories_dataGridView.SelectedRows[0].Index;
             AddEditCategoryForm EditCategory = new AddEditCategoryForm(dataSet.Categories, dataSet.Categories.Rows.Find(Categories_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditCategory.Text = "Редактирование категории";
@@ -119,7 +121,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = 0;
+            LastSelectionIndex = -1;
             if (Categories_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -144,6 +146,7 @@ namespace Автошкола
 
         private void Reload_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadCategories();
         }
 

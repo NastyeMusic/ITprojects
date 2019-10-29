@@ -93,6 +93,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadGroups();
             AddEditGroupForm AddGroup = new AddEditGroupForm(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, null);
             AddGroup.Text = "Добавление группы";
             this.Enabled = false;
@@ -107,6 +108,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadGroups();
             LastSelectionIndex = Groups_dataGridView.SelectedRows[0].Index;
             AddEditGroupForm EditGroup = new AddEditGroupForm(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditGroup.Text = "Редактирование группы";
@@ -122,7 +124,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = 0;
+            LastSelectionIndex = -1;
             if (Groups_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

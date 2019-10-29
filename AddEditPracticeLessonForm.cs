@@ -57,7 +57,7 @@ namespace Автошкола
             {
                 if (SelectedStudent != null)
                 {
-                    SelectedStudent_comboBox.SelectedItem = SelectedStudent["FIO"].ToString();
+                    SelectedStudent_comboBox.SelectedValue = SelectedStudent["ID"].ToString();
                     Group_label.Text = BusinessLogic.ReadGroupByID(Convert.ToInt32(SelectedStudent["Group"].ToString())).Groups[0][1].ToString();
                 }
                 else

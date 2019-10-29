@@ -90,6 +90,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadTransmissions();
             AddEditTransmissionForm AddTransmission = new AddEditTransmissionForm(dataSet.Transmissions, null);
             AddTransmission.Text = "Добавление трансмиссии";
             this.Enabled = false;
@@ -104,6 +105,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadTransmissions();
             LastSelectionIndex = Transmissions_dataGridView.SelectedRows[0].Index;
             AddEditTransmissionForm EditTransmission = new AddEditTransmissionForm(dataSet.Transmissions, dataSet.Transmissions.Rows.Find(Transmissions_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditTransmission.Text = "Редактирование трансмиссии";
@@ -119,7 +121,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = 0;
+            LastSelectionIndex = -1;
             if (Transmissions_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -144,6 +146,7 @@ namespace Автошкола
 
         private void Reload_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadTransmissions();
         }
 

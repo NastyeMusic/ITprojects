@@ -40,6 +40,7 @@ namespace Автошкола
         int SelectedCarrierUseID = -1;
 
         bool FormLoad = false;
+        bool GroupSelected = false;
 
         byte[] ImageByte;
         //MemoryStream memoryStream = new MemoryStream(); // Поток в который запишем изображение
@@ -291,7 +292,7 @@ namespace Автошкола
 
         void InstructorChanged()
         {
-            if (Instructor_comboBox.SelectedIndex != -1 && FormLoad)
+            if (Instructor_comboBox.SelectedIndex != -1 && FormLoad && GroupSelected)
             {
                 ChoosenInstructor_label.Text = Instructor_comboBox.Text;
                 SelectedInstructorID = Convert.ToInt32(Instructor_comboBox.SelectedValue);
@@ -304,6 +305,14 @@ namespace Автошкола
                     if (Convert.ToInt32(carriersUsesDataTable[i][5]) == CategoryID)
                         CarriersUses_dataGridView.Rows.Add(carriersUsesDataTable[i][3], carriersUsesDataTable[i][4],
                             carriersUsesDataTable[i][1], carriersUsesDataTable[i][2], carriersUsesDataTable[i][0]);
+                }
+                if (carriersUsesDataTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("У выбранного инструктора отсутствуют прикрепленные ТС. \nДо тех пор, пока инструктору не будет прикреплено хотя бы одно ТС, работа с ним будет невозможна.", "Ошибка");
+                }
+                else if (CarriersUses_dataGridView.RowCount == 0)
+                {
+                    MessageBox.Show("У выбранного инструктора отсутствуют прикрепленные ТС той категории, на которую обучается группа, выбранная курсанту. \nДо тех пор, пока инструктору не будет прикреплено хотя бы одно ТС соответствующей категории, работа с ним в этой группе будет невозможна.", "Ошибка");
                 }
             }
             else
@@ -343,6 +352,7 @@ namespace Автошкола
         {
             if (FormLoad)
             {
+                GroupSelected = false;
                 if (Group_comboBox.SelectedIndex != -1)
                 {
                     int CategoryID = groupsDataTable[Group_comboBox.SelectedIndex].Category;
@@ -359,6 +369,7 @@ namespace Автошкола
                 {
                     Instructor_comboBox.Enabled = false;
                 }
+                GroupSelected = true;
             }
         }
 

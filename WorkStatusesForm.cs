@@ -63,6 +63,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadWorkStatuses();
             AddEditWorkStatusesForm AddWorkStatus = new AddEditWorkStatusesForm(dataSet.WorkStatuses, null);
             AddWorkStatus.Text = "Добавление рабочего статуса";
             this.Enabled = false;
@@ -77,6 +78,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadWorkStatuses();
             LastSelectionIndex = WorkStatuses_dataGridView.SelectedRows[0].Index;
             AddEditWorkStatusesForm EditWorkStatus = new AddEditWorkStatusesForm(dataSet.WorkStatuses, dataSet.WorkStatuses.Rows.Find(WorkStatuses_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditWorkStatus.Text = "Редактирование рабочего статуса";
@@ -92,7 +94,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = 0;
+            LastSelectionIndex = -1;
             if (WorkStatuses_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -124,6 +126,7 @@ namespace Автошкола
 
         private void Reload_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = -1;
             ReloadWorkStatuses();
         }
 

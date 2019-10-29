@@ -143,7 +143,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = 0;
+            LastSelectionIndex = -1;
             if (TheoryLessonsOfGroup_dGV.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -173,11 +173,49 @@ namespace Автошкола
             Close();
         }
 
+        private void ReloadGroups_button_Click(object sender, EventArgs e)
+        {
+            FormLoad = false;
+            string temp = "";
+            if (SelectedGroup_comboBox.SelectedValue != null)
+                temp = SelectedGroup_comboBox.SelectedValue.ToString();
+
+            LastSelectionIndex = -1;
+
+            dataSetForGroups = BusinessLogic.ReadGroups();
+            SelectedGroup_comboBox.DataSource = dataSetForGroups.Groups;
+            SelectedGroup_comboBox.DisplayMember = "Name";
+            SelectedGroup_comboBox.ValueMember = "ID";
+            SelectedGroup_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            SelectedGroup_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+
+            Edit_button.Enabled = false;
+            Delete_button.Enabled = false;
+            TheoryLessonsOfGroup_dGV_SelectionChanged(sender, e);
+
+            FormLoad = true;
+            if (temp != "")
+            {
+                try
+                {
+                    SelectedGroup_comboBox.SelectedValue = temp;
+                }
+                catch
+                {
+                    SelectedGroup_comboBox.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                SelectedGroup_comboBox.SelectedIndex = -1;
+            }
+        }
+
         private void GroupsScheduleForm_Load(object sender, EventArgs e)
         {
             LastSelectionIndex = -1;
 
-            dataSetForGroups = BusinessLogic.ReadStudents();
+            dataSetForGroups = BusinessLogic.ReadGroups();
             SelectedGroup_comboBox.DataSource = dataSetForGroups.Groups;
             SelectedGroup_comboBox.DisplayMember = "Name";
             SelectedGroup_comboBox.ValueMember = "ID";

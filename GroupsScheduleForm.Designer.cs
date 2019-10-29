@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SelectedGroup_comboBox = new System.Windows.Forms.ComboBox();
             this.TheoryLessonsOfGroup_dGV = new System.Windows.Forms.DataGridView();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +43,7 @@
             this.Add_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Close_button = new System.Windows.Forms.Button();
+            this.ReloadGroups_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TheoryLessonsOfGroup_dGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.SelectedGroup_comboBox.FormattingEnabled = true;
             this.SelectedGroup_comboBox.Location = new System.Drawing.Point(127, 11);
             this.SelectedGroup_comboBox.Name = "SelectedGroup_comboBox";
-            this.SelectedGroup_comboBox.Size = new System.Drawing.Size(928, 26);
+            this.SelectedGroup_comboBox.Size = new System.Drawing.Size(778, 26);
             this.SelectedGroup_comboBox.TabIndex = 65;
             this.SelectedGroup_comboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedGroup_comboBox_SelectedIndexChanged);
             this.SelectedGroup_comboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SelectedGroup_comboBox_KeyDown);
@@ -68,14 +69,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TheoryLessonsOfGroup_dGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TheoryLessonsOfGroup_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TheoryLessonsOfGroup_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.TheoryLessonsOfGroup_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TheoryLessonsOfGroup_dGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -83,22 +84,22 @@
             this.TheoryTimeColumn,
             this.AuditoriumColumn,
             this.TeacherColumn});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TheoryLessonsOfGroup_dGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TheoryLessonsOfGroup_dGV.DefaultCellStyle = dataGridViewCellStyle5;
             this.TheoryLessonsOfGroup_dGV.Location = new System.Drawing.Point(12, 42);
             this.TheoryLessonsOfGroup_dGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TheoryLessonsOfGroup_dGV.MultiSelect = false;
             this.TheoryLessonsOfGroup_dGV.Name = "TheoryLessonsOfGroup_dGV";
             this.TheoryLessonsOfGroup_dGV.ReadOnly = true;
             this.TheoryLessonsOfGroup_dGV.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TheoryLessonsOfGroup_dGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TheoryLessonsOfGroup_dGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.TheoryLessonsOfGroup_dGV.RowTemplate.Height = 24;
             this.TheoryLessonsOfGroup_dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TheoryLessonsOfGroup_dGV.Size = new System.Drawing.Size(893, 585);
@@ -210,11 +211,24 @@
             this.Close_button.UseVisualStyleBackColor = false;
             this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
             // 
+            // ReloadGroups_button
+            // 
+            this.ReloadGroups_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReloadGroups_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadGroups_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadGroups_button.Location = new System.Drawing.Point(911, 6);
+            this.ReloadGroups_button.Name = "ReloadGroups_button";
+            this.ReloadGroups_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadGroups_button.TabIndex = 67;
+            this.ReloadGroups_button.UseVisualStyleBackColor = true;
+            this.ReloadGroups_button.Click += new System.EventHandler(this.ReloadGroups_button_Click);
+            // 
             // GroupsScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1067, 638);
+            this.Controls.Add(this.ReloadGroups_button);
             this.Controls.Add(this.Close_button);
             this.Controls.Add(this.SelectedGroup_comboBox);
             this.Controls.Add(this.TheoryLessonsOfGroup_dGV);
@@ -248,5 +262,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn AuditoriumColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn TeacherColumn;
         private System.Windows.Forms.Button Close_button;
+        private System.Windows.Forms.Button ReloadGroups_button;
     }
 }

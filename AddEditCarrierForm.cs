@@ -44,8 +44,8 @@ namespace Автошкола
             Category_comboBox.DataSource = categoriesDataTable;
             Category_comboBox.DisplayMember = "Name";
             Category_comboBox.ValueMember = "ID";
-            Category_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
-            Category_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //Category_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            //Category_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             Status_comboBox.DataSource = carriersStatusesDataTable;
             Status_comboBox.DisplayMember = "Name";

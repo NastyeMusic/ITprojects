@@ -65,7 +65,7 @@ namespace Автошкола
 
         private void CarrierStatusName_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((CarrierStatusName_textBox.TextLength - CarrierStatusName_textBox.SelectionLength) >= 10 && (char)e.KeyChar != (Char)Keys.Back)
+            if ((CarrierStatusName_textBox.TextLength - CarrierStatusName_textBox.SelectionLength) >= 50 && (char)e.KeyChar != (Char)Keys.Back)
                 e.Handled = true;
             else
             {

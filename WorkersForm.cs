@@ -116,6 +116,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadWorkers();
             AddEditWorkerForm AddWorker = new AddEditWorkerForm(null, null, dataSet.WorkStatuses, dataSet);
             AddWorker.Text = "Добавление сотрудника";
             this.Enabled = false;
@@ -132,6 +133,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            dataSet = BusinessLogic.ReadWorkers();
             LastSelectionIndex = Workers_dataGridView.SelectedRows[0].Index;
             string Post = Workers_dataGridView.SelectedRows[0].Cells["PostColumn"].Value.ToString();
             AddEditWorkerForm EditWorker;
@@ -168,7 +170,7 @@ namespace Автошкола
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            LastSelectionIndex = 0;
+            LastSelectionIndex = -1;
             if (Workers_dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

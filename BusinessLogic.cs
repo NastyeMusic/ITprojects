@@ -1290,7 +1290,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message == "Конфликт инструкции DELETE с ограничением REFERENCE \"TheoryLessons_Auditoriums\". Конфликт произошел в базе данных \"AutoschoolDataBase\", таблица \"dbo.TheoryLessons\", column 'Auditorium'.\r\nВыполнение данной инструкции было прервано.")
+                    MessageBox.Show("Данную аудиторию невозможно удалить, поскольку в ней проходят занятия", "Ошибка удаления аудитории");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally

@@ -59,6 +59,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.SelectedStudent_comboBox = new System.Windows.Forms.ComboBox();
             this.Close_button = new System.Windows.Forms.Button();
+            this.ReloadStudents_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TheoryLessonsOfStudent_dGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PracticeLessonsOfStudent_dGV)).BeginInit();
             this.SuspendLayout();
@@ -368,7 +369,7 @@
             this.SelectedStudent_comboBox.FormattingEnabled = true;
             this.SelectedStudent_comboBox.Location = new System.Drawing.Point(141, 11);
             this.SelectedStudent_comboBox.Name = "SelectedStudent_comboBox";
-            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(914, 26);
+            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(764, 26);
             this.SelectedStudent_comboBox.TabIndex = 54;
             this.SelectedStudent_comboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedStudent_comboBox_SelectedIndexChanged);
             this.SelectedStudent_comboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SelectedStudent_comboBox_KeyDown);
@@ -387,11 +388,24 @@
             this.Close_button.UseVisualStyleBackColor = false;
             this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
             // 
+            // ReloadStudents_button
+            // 
+            this.ReloadStudents_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReloadStudents_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadStudents_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadStudents_button.Location = new System.Drawing.Point(911, 6);
+            this.ReloadStudents_button.Name = "ReloadStudents_button";
+            this.ReloadStudents_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadStudents_button.TabIndex = 68;
+            this.ReloadStudents_button.UseVisualStyleBackColor = true;
+            this.ReloadStudents_button.Click += new System.EventHandler(this.ReloadStudents_button_Click);
+            // 
             // StudentsScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1067, 685);
+            this.Controls.Add(this.ReloadStudents_button);
             this.Controls.Add(this.Close_button);
             this.Controls.Add(this.SelectedStudent_comboBox);
             this.Controls.Add(this.label5);
@@ -445,5 +459,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FactDateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FactTimeColumn;
         private System.Windows.Forms.Button Close_button;
+        private System.Windows.Forms.Button ReloadStudents_button;
     }
 }
