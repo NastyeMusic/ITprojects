@@ -346,7 +346,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данного мастера сервиса невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления мастера сервиса");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -424,7 +427,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данного инструктора невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления инструктора");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -500,7 +506,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данную трансмиссию невозможно удалить, поскольку на неее имеются ссылки в других таблицах", "Ошибка удаления трансмиссии");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -556,7 +565,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данное ТС невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления ТС");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -634,7 +646,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данный статус ТС невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления статуса ТС");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -696,7 +711,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данную связку инструктора и ТС невозможно удалить, поскольку на нее имеются ссылки в других таблицах", "Ошибка удаления связки инструктора и ТС");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -845,7 +863,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данную связку инструктора и категории невозможно удалить, поскольку на нее имеются ссылки в других таблицах", "Ошибка удаления связки инструктора и категории");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -979,7 +1000,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данную категорию невозможно удалить, поскольку на нее имеются ссылки в других таблицах", "Ошибка удаления категории");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -1047,7 +1071,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данного курсанта невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления курсанта");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -1184,7 +1211,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данную группу невозможно удалить, поскольку на нее имеются ссылки в других таблицах", "Ошибка удаления группы");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -1343,7 +1373,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данный рабочий статус невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления рабочего статуса");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
@@ -1500,7 +1533,10 @@ namespace Автошкола
             catch (Exception e)
             {
                 abstrTr.Rollback();
-                MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Данного преподавателя теории невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления преподавателя теории");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally
