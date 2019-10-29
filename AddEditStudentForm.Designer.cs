@@ -65,6 +65,7 @@
             this.ReloadInstructors_button = new System.Windows.Forms.Button();
             this.ReloadGroups_button = new System.Windows.Forms.Button();
             this.Photo_pictureBox = new System.Windows.Forms.PictureBox();
+            this.DeletePhoto_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersUses_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Photo_pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -199,7 +200,7 @@
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.Location = new System.Drawing.Point(266, 170);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(2, 316);
+            this.label9.Size = new System.Drawing.Size(2, 360);
             this.label9.TabIndex = 14;
             // 
             // ChangePhoto_button
@@ -352,9 +353,9 @@
             // label13
             // 
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Location = new System.Drawing.Point(12, 489);
+            this.label13.Location = new System.Drawing.Point(276, 487);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(982, 2);
+            this.label13.Size = new System.Drawing.Size(718, 2);
             this.label13.TabIndex = 25;
             this.label13.Text = "label13";
             // 
@@ -421,7 +422,18 @@
             this.Photo_pictureBox.TabIndex = 15;
             this.Photo_pictureBox.TabStop = false;
             // 
-            // AddEditStudent
+            // DeletePhoto_button
+            // 
+            this.DeletePhoto_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeletePhoto_button.Location = new System.Drawing.Point(61, 495);
+            this.DeletePhoto_button.Name = "DeletePhoto_button";
+            this.DeletePhoto_button.Size = new System.Drawing.Size(146, 30);
+            this.DeletePhoto_button.TabIndex = 31;
+            this.DeletePhoto_button.Text = "Удалить фото";
+            this.DeletePhoto_button.UseVisualStyleBackColor = true;
+            this.DeletePhoto_button.Click += new System.EventHandler(this.DeletePhoto_button_Click);
+            // 
+            // AddEditStudentForm
             // 
             this.AcceptButton = this.Save_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -429,6 +441,7 @@
             this.CancelButton = this.Cancel_button;
             this.ClientSize = new System.Drawing.Size(1006, 542);
             this.ControlBox = false;
+            this.Controls.Add(this.DeletePhoto_button);
             this.Controls.Add(this.ReloadInstructors_button);
             this.Controls.Add(this.ReloadGroups_button);
             this.Controls.Add(this.PhoneNumber_maskedTextBox);
@@ -463,7 +476,7 @@
             this.MaximumSize = new System.Drawing.Size(1024, 589);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1024, 589);
-            this.Name = "AddEditStudent";
+            this.Name = "AddEditStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditStudent";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEditStudent_FormClosing);
@@ -512,5 +525,6 @@
         private System.Windows.Forms.OpenFileDialog SelectPicture_openFileDialog;
         private System.Windows.Forms.Button ReloadGroups_button;
         private System.Windows.Forms.Button ReloadInstructors_button;
+        private System.Windows.Forms.Button DeletePhoto_button;
     }
 }

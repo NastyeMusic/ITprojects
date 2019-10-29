@@ -83,13 +83,22 @@ namespace Автошкола
                     /*else
                         img = null;
                     Photo_pictureBox.Image = img;*/
-                    if (dataRow["Photo"].ToString() != "")
-                        Photo_pictureBox.Image = byteArrayToImage((byte[])dataRow["Photo"]);
+                    try
+                    {
+                        if (dataRow["Photo"].ToString() != "")
+                            Photo_pictureBox.Image = byteArrayToImage((byte[])dataRow["Photo"]);
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show(exp.Message, "Ошибка при чтении фотографии из базы");
+                    }
                 }
                 else if (Post == "мастер сервиса")
                 {
                     Photo_pictureBox.Enabled = false;
                     ChangePhoto_button.Enabled = false;
+                    DeletePhoto_button.Enabled = false;
+                    ImageByte = null;
                 }
             }
             else
@@ -104,6 +113,8 @@ namespace Автошкола
                 {                    
                     Photo_pictureBox.Enabled = false;
                     ChangePhoto_button.Enabled = false;
+                    DeletePhoto_button.Enabled = false;
+                    ImageByte = null;
                 }
             }
         }
@@ -255,7 +266,7 @@ namespace Автошкола
                     Bitmap image = new Bitmap(SelectPicture_openFileDialog.FileName.ToString());
                     ImageByte = imageToByteArray(image, SelectPicture_openFileDialog.FileName.ToString());
                     //Image image = Image.FromFile(SelectPicture_openFileDialog.FileName.ToString());
-                    Photo_pictureBox.Image = image;
+                    Photo_pictureBox.Image = byteArrayToImage(ImageByte);
                     //image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg); //Сохраняем изображение в поток.
                 }
                 catch
@@ -273,13 +284,16 @@ namespace Автошкола
                 if (NewPost == "мастер сервиса")
                 {
                     Photo_pictureBox.Image = null;
+                    ImageByte = null;
                     Photo_pictureBox.Enabled = false;
                     ChangePhoto_button.Enabled = false;
+                    DeletePhoto_button.Enabled = false;
                 }
                 else
                 {
                     Photo_pictureBox.Enabled = true;
                     ChangePhoto_button.Enabled = true;
+                    DeletePhoto_button.Enabled = true;
                 }
             }
         }
@@ -323,11 +337,19 @@ namespace Автошкола
 
         public byte[] imageToByteArray(System.Drawing.Image imageIn, string FileName)
         {
-            byte[] bytes = File.ReadAllBytes(FileName);
-            return bytes;
-            /*MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-            return ms.ToArray();*/
+            try
+            {
+                byte[] bytes = File.ReadAllBytes(FileName);
+                return bytes;
+                /*MemoryStream ms = new MemoryStream();
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+                return ms.ToArray();*/
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message, "Произошла ошибка при конвертации изображения в массив байтов");
+                return null;
+            }
         }
         public Image byteArrayToImage(byte[] byteArrayIn)
         {
@@ -337,11 +359,16 @@ namespace Автошкола
                 Image returnImage = Image.FromStream(ms);
                 return returnImage;
             }
-            catch
+            catch (Exception exp)
             {
-                MessageBox.Show("Произошла ошибка при загрузке изображения", "Ошибка");
+                MessageBox.Show(exp.Message, "Произошла ошибка при конвертации массива байтов в изображение");
                 return null;
             }
+        }
+
+        private void DeletePhoto_button_Click(object sender, EventArgs e)
+        {
+            Photo_pictureBox.Image = null;
         }
     }
 }

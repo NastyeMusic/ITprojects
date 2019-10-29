@@ -35,11 +35,13 @@ namespace Автошкола
             Instructor_comboBox.DisplayMember = "FIO";
             Instructor_comboBox.ValueMember = "ID";
             Instructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            Instructor_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             Carrier_comboBox.DataSource = carriersDataTable;
             Carrier_comboBox.DisplayMember = "FinalName";
             Carrier_comboBox.ValueMember = "ID";
             Carrier_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            Carrier_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             if (dataRow != null)
             {

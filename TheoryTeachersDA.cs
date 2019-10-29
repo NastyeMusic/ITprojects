@@ -24,7 +24,7 @@ namespace Автошкола
             dataAdapter.UpdateCommand.Parameters.Add("@Surname", System.Data.SqlDbType.Text, 255, "Surname");
             dataAdapter.UpdateCommand.Parameters.Add("@FirstName", System.Data.SqlDbType.Text, 255, "FirstName");
             dataAdapter.UpdateCommand.Parameters.Add("@PatronymicName", System.Data.SqlDbType.Text, 255, "PatronymicName");
-            dataAdapter.UpdateCommand.Parameters.Add("@Photo", System.Data.SqlDbType.Image, 255, "Photo");
+            dataAdapter.UpdateCommand.Parameters.Add("@Photo", System.Data.SqlDbType.Image, 2147483647, "Photo");
             dataAdapter.UpdateCommand.Parameters.Add("@WorkStatus", System.Data.SqlDbType.Int, 255, "WorkStatus");
             dataAdapter.UpdateCommand.Parameters.Add("@OldID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
@@ -36,7 +36,7 @@ namespace Автошкола
             dataAdapter.InsertCommand.Parameters.Add("@Surname", System.Data.SqlDbType.Text, 255, "Surname");
             dataAdapter.InsertCommand.Parameters.Add("@FirstName", System.Data.SqlDbType.Text, 255, "FirstName");
             dataAdapter.InsertCommand.Parameters.Add("@PatronymicName", System.Data.SqlDbType.Text, 255, "PatronymicName");
-            dataAdapter.InsertCommand.Parameters.Add("@Photo", System.Data.SqlDbType.Image, 255, "Photo");
+            dataAdapter.InsertCommand.Parameters.Add("@Photo", System.Data.SqlDbType.Image, 2147483647, "Photo");
             dataAdapter.InsertCommand.Parameters.Add("@WorkStatus", System.Data.SqlDbType.Int, 255, "WorkStatus");
 
             // на удаление

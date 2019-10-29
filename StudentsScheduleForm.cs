@@ -100,8 +100,10 @@ namespace Автошкола
             dataSetForStudents = BusinessLogic.ReadStudents();
             SelectedStudent_comboBox.DataSource = dataSetForStudents.Students;
             SelectedStudent_comboBox.DisplayMember = "FIO";
-            SelectedStudent_comboBox.ValueMember = "ID";           
-            
+            SelectedStudent_comboBox.ValueMember = "ID";
+            SelectedStudent_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            SelectedStudent_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
             PracticeLessonsOfStudent_dGV_SelectionChanged(sender, e);
@@ -220,14 +222,14 @@ namespace Автошкола
 
         private void SelectedStudent_comboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            for (int i = 0; i < SelectedStudent_comboBox.Items.Count; i++)
+            /*for (int i = 0; i < SelectedStudent_comboBox.Items.Count; i++)
             {
                 if (((AutoschoolDataSet.StudentsRow)((DataRowView)(SelectedStudent_comboBox.Items[i])).Row).FIO.ToLower().Contains(SelectedStudent_comboBox.Text.ToLower()))
                 {
                     SelectedStudent_comboBox.SelectedIndex = i;
                     break;
                 }
-            }
+            }*/
         }
     }
 }

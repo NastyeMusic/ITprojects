@@ -41,11 +41,13 @@ namespace Автошкола
             SelectedGroup_comboBox.DisplayMember = "Name";
             SelectedGroup_comboBox.ValueMember = "ID";
             SelectedGroup_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            SelectedGroup_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             Auditorium_comboBox.DataSource = auditoriumsDataTable;
             Auditorium_comboBox.DisplayMember = "Name";
             Auditorium_comboBox.ValueMember = "ID";
             Auditorium_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            Auditorium_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             if (dataRow != null)
             {

@@ -55,11 +55,13 @@ namespace Автошкола
             else
                 Group_comboBox.SelectedIndex = -1;
             Group_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            Group_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             Instructor_comboBox.DataSource = instructorsDataTable;
             Instructor_comboBox.DisplayMember = "FIO";
             Instructor_comboBox.ValueMember = "ID";
             Instructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            Instructor_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             FormLoad = true;
 
@@ -86,8 +88,15 @@ namespace Автошкола
                         }
                     }
                 }
-                if (dataRow["Photo"].ToString() != "")
-                    Photo_pictureBox.Image = byteArrayToImage((byte[])dataRow["Photo"]);
+                try
+                {
+                    if (dataRow["Photo"].ToString() != "")
+                        Photo_pictureBox.Image = byteArrayToImage((byte[])dataRow["Photo"]);
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show(exp.Message, "Ошибка при чтении фотографии из базы");
+                }
                 /*System.Drawing.ImageConverter converter = new System.Drawing.ImageConverter();
                 Image img = (Image)converter.ConvertFromString(dataRow["Photo"].ToString());
                 Photo_pictureBox.Image = img;*/
@@ -242,12 +251,12 @@ namespace Автошкола
                     Bitmap image = new Bitmap(SelectPicture_openFileDialog.FileName.ToString());
                     ImageByte = imageToByteArray(image, SelectPicture_openFileDialog.FileName.ToString());
                     //Image image = Image.FromFile(SelectPicture_openFileDialog.FileName.ToString());
-                    Photo_pictureBox.Image = image;
+                    Photo_pictureBox.Image = byteArrayToImage(ImageByte);
                     //image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg); //Сохраняем изображение в поток.
                 }
-                catch
+                catch (Exception exp)
                 {
-                    MessageBox.Show("Произошла ошибка при загрузке картинки", "Ошибка");
+                    MessageBox.Show(exp.Message, "Произошла ошибка при загрузке картинки");
                 }
             }
         }
@@ -313,11 +322,19 @@ namespace Автошкола
 
         public byte[] imageToByteArray(System.Drawing.Image imageIn, string FileName)
         {
-            byte[] bytes = File.ReadAllBytes(FileName);
-            return bytes;
-            /*MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-            return ms.ToArray();*/
+            try
+            {
+                byte[] bytes = File.ReadAllBytes(FileName);
+                return bytes;
+                /*MemoryStream ms = new MemoryStream();
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+                return ms.ToArray();*/
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message, "Произошла ошибка при конвертации изображения в массив байтов");
+                return null;
+            }
         }
 
         private void Group_comboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -343,11 +360,16 @@ namespace Автошкола
                 Image returnImage = Image.FromStream(ms);
                 return returnImage;
             }
-            catch
+            catch (Exception exp)
             {
-                MessageBox.Show("Произошла ошибка при загрузке изображения", "Ошибка");
+                MessageBox.Show(exp.Message, "Произошла ошибка при конвертации массива байтов в изображение");
                 return null;
             }
+        }
+
+        private void DeletePhoto_button_Click(object sender, EventArgs e)
+        {
+            Photo_pictureBox.Image = null;
         }
     }
 }

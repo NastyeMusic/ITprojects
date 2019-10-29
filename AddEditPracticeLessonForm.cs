@@ -37,7 +37,8 @@ namespace Автошкола
             SelectedStudent_comboBox.DataSource = studentsDataTable;
             SelectedStudent_comboBox.DisplayMember = "FIO";
             SelectedStudent_comboBox.ValueMember = "ID";
-            SelectedStudent_comboBox.AutoCompleteMode = AutoCompleteMode.Append;       
+            SelectedStudent_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            SelectedStudent_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             if (dataRow != null)
             {

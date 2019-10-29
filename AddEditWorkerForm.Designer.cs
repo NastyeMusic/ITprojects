@@ -45,15 +45,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.WorkStatus_comboBox = new System.Windows.Forms.ComboBox();
             this.SelectPicture_openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.DeletePhoto_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Photo_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
             // 
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Location = new System.Drawing.Point(12, 334);
+            this.label13.Location = new System.Drawing.Point(276, 330);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(982, 2);
+            this.label13.Size = new System.Drawing.Size(718, 2);
             this.label13.TabIndex = 29;
             this.label13.Text = "label13";
             // 
@@ -83,7 +84,7 @@
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.Location = new System.Drawing.Point(266, 15);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(2, 316);
+            this.label9.Size = new System.Drawing.Size(2, 355);
             this.label9.TabIndex = 26;
             // 
             // PatronymicName_textBox
@@ -212,6 +213,17 @@
             this.WorkStatus_comboBox.Size = new System.Drawing.Size(597, 26);
             this.WorkStatus_comboBox.TabIndex = 10;
             // 
+            // DeletePhoto_button
+            // 
+            this.DeletePhoto_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeletePhoto_button.Location = new System.Drawing.Point(61, 339);
+            this.DeletePhoto_button.Name = "DeletePhoto_button";
+            this.DeletePhoto_button.Size = new System.Drawing.Size(146, 30);
+            this.DeletePhoto_button.TabIndex = 30;
+            this.DeletePhoto_button.Text = "Удалить фото";
+            this.DeletePhoto_button.UseVisualStyleBackColor = true;
+            this.DeletePhoto_button.Click += new System.EventHandler(this.DeletePhoto_button_Click);
+            // 
             // AddEditWorkerForm
             // 
             this.AcceptButton = this.Save_button;
@@ -220,6 +232,7 @@
             this.CancelButton = this.Cancel_button;
             this.ClientSize = new System.Drawing.Size(1006, 382);
             this.ControlBox = false;
+            this.Controls.Add(this.DeletePhoto_button);
             this.Controls.Add(this.WorkStatus_comboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Post_comboBox);
@@ -271,5 +284,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox WorkStatus_comboBox;
         private System.Windows.Forms.OpenFileDialog SelectPicture_openFileDialog;
+        private System.Windows.Forms.Button DeletePhoto_button;
     }
 }

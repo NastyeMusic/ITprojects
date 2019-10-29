@@ -86,14 +86,14 @@ namespace Автошкола
 
         private void SelectedGroup_comboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            for (int i = 0; i < SelectedGroup_comboBox.Items.Count; i++)
+            /*for (int i = 0; i < SelectedGroup_comboBox.Items.Count; i++)
             {
                 if (((AutoschoolDataSet.GroupsRow)((DataRowView)(SelectedGroup_comboBox.Items[i])).Row).Name.ToLower().Contains(SelectedGroup_comboBox.Text.ToLower()))
                 {
                     SelectedGroup_comboBox.SelectedIndex = i;
                     break;
                 }
-            }
+            }*/
         }
 
         private void Add_button_Click(object sender, EventArgs e)
@@ -175,6 +175,8 @@ namespace Автошкола
             SelectedGroup_comboBox.DataSource = dataSetForGroups.Groups;
             SelectedGroup_comboBox.DisplayMember = "Name";
             SelectedGroup_comboBox.ValueMember = "ID";
+            SelectedGroup_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            SelectedGroup_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
 
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;

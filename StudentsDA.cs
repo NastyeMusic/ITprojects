@@ -29,7 +29,7 @@ namespace Автошкола
             dataAdapter.UpdateCommand.Parameters.Add("@Retraining", System.Data.SqlDbType.Bit, 255, "Retraining");
             dataAdapter.UpdateCommand.Parameters.Add("@Group", System.Data.SqlDbType.Int, 255, "Group");
             dataAdapter.UpdateCommand.Parameters.Add("@CarrierUse", System.Data.SqlDbType.Int, 255, "CarrierUse");
-            dataAdapter.UpdateCommand.Parameters.Add("@Photo", System.Data.SqlDbType.Image, 255, "Photo");
+            dataAdapter.UpdateCommand.Parameters.Add("@Photo", System.Data.SqlDbType.Image, 2147483647, "Photo");
             dataAdapter.UpdateCommand.Parameters.Add("@OldID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
             // на вставку 
@@ -44,7 +44,7 @@ namespace Автошкола
             dataAdapter.InsertCommand.Parameters.Add("@Retraining", System.Data.SqlDbType.Bit, 255, "Retraining");
             dataAdapter.InsertCommand.Parameters.Add("@Group", System.Data.SqlDbType.Int, 255, "Group");
             dataAdapter.InsertCommand.Parameters.Add("@CarrierUse", System.Data.SqlDbType.Int, 255, "CarrierUse");
-            dataAdapter.InsertCommand.Parameters.Add("@Photo", System.Data.SqlDbType.Image, 255, "Photo");
+            dataAdapter.InsertCommand.Parameters.Add("@Photo", System.Data.SqlDbType.Image, 2147483647, "Photo");
 
             // на удаление
             dataAdapter.DeleteCommand = new SqlCommand("DELETE Students WHERE ID = @ID", conn.getConnection(), tr.getTransaction());

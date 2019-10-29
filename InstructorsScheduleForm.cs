@@ -69,6 +69,8 @@ namespace Автошкола
             SelectedInstructor_comboBox.DisplayMember = "FIO";
             SelectedInstructor_comboBox.ValueMember = "ID";
             SelectedInstructor_comboBox.SelectedIndex = -1;
+            SelectedInstructor_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            SelectedInstructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
 
             FormLoad = true;
         }
