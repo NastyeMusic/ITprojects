@@ -62,6 +62,7 @@ namespace Автошкола
             Instructor_comboBox.ValueMember = "ID";
             Instructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
             Instructor_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            Instructor_comboBox.Enabled = false;
 
             FormLoad = true;
 
@@ -88,6 +89,7 @@ namespace Автошкола
                         }
                     }
                 }
+                Instructor_comboBox.Enabled = true;
                 try
                 {
                     if (dataRow["Photo"].ToString() != "")
@@ -339,16 +341,24 @@ namespace Автошкола
 
         private void Group_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Group_comboBox.SelectedIndex != -1 && FormLoad)
+            if (FormLoad)
             {
-                int CategoryID = groupsDataTable[Group_comboBox.SelectedIndex].Category;
-                instructorsForThisGroupDataTable = BusinessLogic.ReadInstructorsCategoriesByCategoryID(CategoryID).InstructorsCategories;
+                if (Group_comboBox.SelectedIndex != -1)
+                {
+                    int CategoryID = groupsDataTable[Group_comboBox.SelectedIndex].Category;
+                    instructorsForThisGroupDataTable = BusinessLogic.ReadInstructorsCategoriesByCategoryID(CategoryID).InstructorsCategories;
 
-                Instructor_comboBox.DataSource = instructorsForThisGroupDataTable;
-                Instructor_comboBox.DisplayMember = "InstructorFIO";
-                Instructor_comboBox.ValueMember = "Instructor";
-                Instructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
-                Instructor_comboBox.SelectedIndex = -1;
+                    Instructor_comboBox.DataSource = instructorsForThisGroupDataTable;
+                    Instructor_comboBox.DisplayMember = "InstructorFIO";
+                    Instructor_comboBox.ValueMember = "Instructor";
+                    Instructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
+                    Instructor_comboBox.SelectedIndex = -1;
+                    Instructor_comboBox.Enabled = true;
+                }
+                else
+                {
+                    Instructor_comboBox.Enabled = false;
+                }
             }
         }
 
@@ -370,6 +380,18 @@ namespace Автошкола
         private void DeletePhoto_button_Click(object sender, EventArgs e)
         {
             Photo_pictureBox.Image = null;
+        }
+
+        private void Group_comboBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Group_comboBox.SelectedIndex == -1 || Group_comboBox.Text == "")
+            {
+                Instructor_comboBox.Enabled = false;
+            }
+            else
+            {
+                Instructor_comboBox.Enabled = true;
+            }
         }
     }
 }
