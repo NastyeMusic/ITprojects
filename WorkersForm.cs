@@ -226,5 +226,10 @@ namespace Автошкола
             Hide();
             MainForm.Perem(MainForm.FormsNames[3], false);
         }
+
+        private void Close_button_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
