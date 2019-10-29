@@ -58,6 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SelectedStudent_comboBox = new System.Windows.Forms.ComboBox();
+            this.Close_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TheoryLessonsOfStudent_dGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PracticeLessonsOfStudent_dGV)).BeginInit();
             this.SuspendLayout();
@@ -277,7 +278,7 @@
             this.PracticeLessonsOfStudent_dGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.PracticeLessonsOfStudent_dGV.RowTemplate.Height = 24;
             this.PracticeLessonsOfStudent_dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PracticeLessonsOfStudent_dGV.Size = new System.Drawing.Size(893, 280);
+            this.PracticeLessonsOfStudent_dGV.Size = new System.Drawing.Size(893, 327);
             this.PracticeLessonsOfStudent_dGV.TabIndex = 51;
             this.PracticeLessonsOfStudent_dGV.SelectionChanged += new System.EventHandler(this.PracticeLessonsOfStudent_dGV_SelectionChanged);
             // 
@@ -373,11 +374,25 @@
             this.SelectedStudent_comboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SelectedStudent_comboBox_KeyDown);
             this.SelectedStudent_comboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SelectedStudent_comboBox_KeyPress);
             // 
+            // Close_button
+            // 
+            this.Close_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Close_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Close_button.Location = new System.Drawing.Point(911, 626);
+            this.Close_button.Name = "Close_button";
+            this.Close_button.Size = new System.Drawing.Size(144, 48);
+            this.Close_button.TabIndex = 55;
+            this.Close_button.Text = "Закрыть";
+            this.Close_button.UseVisualStyleBackColor = false;
+            this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
+            // 
             // StudentsScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1067, 638);
+            this.ClientSize = new System.Drawing.Size(1067, 685);
+            this.Controls.Add(this.Close_button);
             this.Controls.Add(this.SelectedStudent_comboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -429,5 +444,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn CarrierColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FactDateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FactTimeColumn;
+        private System.Windows.Forms.Button Close_button;
     }
 }

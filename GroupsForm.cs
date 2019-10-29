@@ -157,5 +157,10 @@ namespace Автошкола
             LastSelectionIndex = -1;
             ReloadGroups();
         }
+
+        private void Close_button_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

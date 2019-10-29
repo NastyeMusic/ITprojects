@@ -42,6 +42,7 @@
             this.Delete_button = new System.Windows.Forms.Button();
             this.Add_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Close_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TheoryLessonsOfGroup_dGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,11 +197,25 @@
             this.label1.TabIndex = 55;
             this.label1.Text = "Выбор группы";
             // 
+            // Close_button
+            // 
+            this.Close_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Close_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Close_button.Location = new System.Drawing.Point(911, 578);
+            this.Close_button.Name = "Close_button";
+            this.Close_button.Size = new System.Drawing.Size(144, 48);
+            this.Close_button.TabIndex = 66;
+            this.Close_button.Text = "Закрыть";
+            this.Close_button.UseVisualStyleBackColor = false;
+            this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
+            // 
             // GroupsScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1067, 638);
+            this.Controls.Add(this.Close_button);
             this.Controls.Add(this.SelectedGroup_comboBox);
             this.Controls.Add(this.TheoryLessonsOfGroup_dGV);
             this.Controls.Add(this.Edit_button);
@@ -232,5 +247,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TheoryTimeColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn AuditoriumColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn TeacherColumn;
+        private System.Windows.Forms.Button Close_button;
     }
 }

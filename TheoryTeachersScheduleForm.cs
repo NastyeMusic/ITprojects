@@ -65,6 +65,11 @@ namespace Автошкола
             }
         }
 
+        private void Close_button_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void TheoryTeachersScheduleForm_Load(object sender, EventArgs e)
         {
             dataSetForTheoryTeachers = BusinessLogic.ReadTheoryTeachers();

@@ -168,6 +168,11 @@ namespace Автошкола
             }
         }
 
+        private void Close_button_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void GroupsScheduleForm_Load(object sender, EventArgs e)
         {
             LastSelectionIndex = -1;

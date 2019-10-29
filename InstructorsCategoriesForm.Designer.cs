@@ -45,6 +45,7 @@
             this.Direction_checkBox = new System.Windows.Forms.CheckBox();
             this.Search_button = new System.Windows.Forms.Button();
             this.ReloadInstructorsCategories_button = new System.Windows.Forms.Button();
+            this.Close_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.InstructorsCategories_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -235,11 +236,25 @@
             this.ReloadInstructorsCategories_button.UseVisualStyleBackColor = true;
             this.ReloadInstructorsCategories_button.Click += new System.EventHandler(this.ReloadInstructorsCategories_button_Click);
             // 
+            // Close_button
+            // 
+            this.Close_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Close_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Close_button.Location = new System.Drawing.Point(1040, 572);
+            this.Close_button.Name = "Close_button";
+            this.Close_button.Size = new System.Drawing.Size(135, 48);
+            this.Close_button.TabIndex = 41;
+            this.Close_button.Text = "Закрыть";
+            this.Close_button.UseVisualStyleBackColor = false;
+            this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
+            // 
             // InstructorsCategoriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1187, 632);
+            this.Controls.Add(this.Close_button);
             this.Controls.Add(this.Edit_button);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Add_button);
@@ -277,5 +292,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn FirstNameColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn PatronymicNameColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn CategoryColumn;
+        private System.Windows.Forms.Button Close_button;
     }
 }

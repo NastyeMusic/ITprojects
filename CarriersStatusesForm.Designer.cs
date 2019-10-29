@@ -38,6 +38,7 @@
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reload_button = new System.Windows.Forms.Button();
+            this.Close_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersStatuses_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,11 +150,25 @@
             this.Reload_button.UseVisualStyleBackColor = true;
             this.Reload_button.Click += new System.EventHandler(this.Reload_button_Click);
             // 
+            // Close_button
+            // 
+            this.Close_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Close_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Close_button.Location = new System.Drawing.Point(1040, 572);
+            this.Close_button.Name = "Close_button";
+            this.Close_button.Size = new System.Drawing.Size(135, 48);
+            this.Close_button.TabIndex = 32;
+            this.Close_button.Text = "Закрыть";
+            this.Close_button.UseVisualStyleBackColor = false;
+            this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
+            // 
             // CarriersStatusesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1187, 632);
+            this.Controls.Add(this.Close_button);
             this.Controls.Add(this.Reload_button);
             this.Controls.Add(this.Edit_button);
             this.Controls.Add(this.Delete_button);
@@ -179,5 +194,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.Button Reload_button;
+        private System.Windows.Forms.Button Close_button;
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SelectedTheoryTeacher_comboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TheoryTeachersSchedule_dGV = new System.Windows.Forms.DataGridView();
@@ -39,6 +39,7 @@
             this.TheoryTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AuditoriumColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.GroupColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Close_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TheoryTeachersSchedule_dGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             this.SelectedTheoryTeacher_comboBox.FormattingEnabled = true;
             this.SelectedTheoryTeacher_comboBox.Location = new System.Drawing.Point(247, 11);
             this.SelectedTheoryTeacher_comboBox.Name = "SelectedTheoryTeacher_comboBox";
-            this.SelectedTheoryTeacher_comboBox.Size = new System.Drawing.Size(808, 26);
+            this.SelectedTheoryTeacher_comboBox.Size = new System.Drawing.Size(768, 26);
             this.SelectedTheoryTeacher_comboBox.TabIndex = 68;
             this.SelectedTheoryTeacher_comboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedTheoryTeacher_comboBox_SelectedIndexChanged);
             // 
@@ -73,14 +74,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TheoryTeachersSchedule_dGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TheoryTeachersSchedule_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TheoryTeachersSchedule_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.TheoryTeachersSchedule_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TheoryTeachersSchedule_dGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -88,25 +89,25 @@
             this.TheoryTimeColumn,
             this.AuditoriumColumn,
             this.GroupColumn});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TheoryTeachersSchedule_dGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TheoryTeachersSchedule_dGV.DefaultCellStyle = dataGridViewCellStyle5;
             this.TheoryTeachersSchedule_dGV.Location = new System.Drawing.Point(16, 42);
             this.TheoryTeachersSchedule_dGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TheoryTeachersSchedule_dGV.MultiSelect = false;
             this.TheoryTeachersSchedule_dGV.Name = "TheoryTeachersSchedule_dGV";
             this.TheoryTeachersSchedule_dGV.ReadOnly = true;
             this.TheoryTeachersSchedule_dGV.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TheoryTeachersSchedule_dGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TheoryTeachersSchedule_dGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.TheoryTeachersSchedule_dGV.RowTemplate.Height = 24;
             this.TheoryTeachersSchedule_dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TheoryTeachersSchedule_dGV.Size = new System.Drawing.Size(1039, 585);
+            this.TheoryTeachersSchedule_dGV.Size = new System.Drawing.Size(999, 585);
             this.TheoryTeachersSchedule_dGV.TabIndex = 69;
             // 
             // IDColumn
@@ -151,11 +152,25 @@
             this.GroupColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.GroupColumn.Width = 85;
             // 
+            // Close_button
+            // 
+            this.Close_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Close_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Close_button.Location = new System.Drawing.Point(1021, 579);
+            this.Close_button.Name = "Close_button";
+            this.Close_button.Size = new System.Drawing.Size(135, 48);
+            this.Close_button.TabIndex = 70;
+            this.Close_button.Text = "Закрыть";
+            this.Close_button.UseVisualStyleBackColor = false;
+            this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
+            // 
             // TheoryTeachersScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1067, 638);
+            this.ClientSize = new System.Drawing.Size(1168, 638);
+            this.Controls.Add(this.Close_button);
             this.Controls.Add(this.TheoryTeachersSchedule_dGV);
             this.Controls.Add(this.SelectedTheoryTeacher_comboBox);
             this.Controls.Add(this.label1);
@@ -181,5 +196,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TheoryTimeColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn AuditoriumColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn GroupColumn;
+        private System.Windows.Forms.Button Close_button;
     }
 }

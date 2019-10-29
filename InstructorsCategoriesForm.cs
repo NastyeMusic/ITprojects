@@ -170,5 +170,10 @@ namespace Автошкола
                 }
             }
         }
+
+        private void Close_button_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

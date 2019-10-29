@@ -221,6 +221,11 @@ namespace Автошкола
             }
         }
 
+        private void Close_button_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void SelectedStudent_comboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             /*for (int i = 0; i < SelectedStudent_comboBox.Items.Count; i++)
