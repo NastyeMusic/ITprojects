@@ -116,10 +116,25 @@ namespace Автошкола
                         Status_comboBox.Focus();
                         throw new Exception("Не выбран статус транспортного средства");
                     }
-                    for (int i = 0; i < carriersDataTable.Rows.Count; i++)
+                    if (dataRow != null)
                     {
-                        if (carriersDataTable.Rows[i][3].ToString().ToLower() == StateNumber_textBox.Text.Trim().ToLower())
-                            throw new Exception("ТС с таким государственным регистрационным номером уже имеется в базе");
+                        for (int i = 0; i < carriersDataTable.Rows.Count; i++)
+                        {
+                            if ((carriersDataTable[i][0].ToString() != dataRow[0].ToString()) && (carriersDataTable[i][3].ToString().ToLower() == StateNumber_textBox.Text.Trim().ToLower()))
+                            {
+                                throw new Exception("ТС с таким государственным регистрационным номером уже имеется в базе");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < carriersDataTable.Rows.Count; i++)
+                        {
+                            if (carriersDataTable[i][3].ToString().ToLower() == StateNumber_textBox.Text.Trim().ToLower())
+                            {
+                                throw new Exception("ТС с таким государственным регистрационным номером уже имеется в базе");
+                            }
+                        }
                     }
                 }
                 catch (Exception exp)

@@ -45,10 +45,25 @@ namespace Автошкола
                     {
                         throw new Exception("Не указано наименование категории");
                     }
-                    for (int i = 0; i < categoriesDataTable.Rows.Count; i++)
+                    if (dataRow != null)
                     {
-                        if (categoriesDataTable[i][1].ToString().ToLower() == CategoryName_textBox.Text.Trim().ToLower())
-                            throw new Exception("Категория с таким наименованием уже имеется в базе");
+                        for (int i = 0; i < categoriesDataTable.Rows.Count; i++)
+                        {
+                            if ((categoriesDataTable[i][0].ToString() != dataRow[0].ToString()) && (categoriesDataTable[i][1].ToString().ToLower() == CategoryName_textBox.Text.Trim().ToLower()))
+                            {
+                                throw new Exception("Категория с таким наименованием уже имеется в базе");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < categoriesDataTable.Rows.Count; i++)
+                        {
+                            if (categoriesDataTable[i][1].ToString().ToLower() == CategoryName_textBox.Text.Trim().ToLower())
+                            {
+                                throw new Exception("Категория с таким наименованием уже имеется в базе");
+                            }
+                        }
                     }
                 }
                 catch (Exception exp)

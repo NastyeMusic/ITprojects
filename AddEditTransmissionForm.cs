@@ -45,10 +45,25 @@ namespace Автошкола
                     {
                         throw new Exception("Не указано наименование трансмиссии");
                     }
-                    for (int i = 0; i < transmissionsDataTable.Rows.Count; i++)
+                    if (dataRow != null)
                     {
-                        if (transmissionsDataTable[i][1].ToString().ToLower() == TransmissionName_textBox.Text.Trim().ToLower())
-                            throw new Exception("Трансмиссия с таким наименованием уже имеется в базе");
+                        for (int i = 0; i < transmissionsDataTable.Rows.Count; i++)
+                        {
+                            if ((transmissionsDataTable[i][0].ToString() != dataRow[0].ToString()) && (transmissionsDataTable[i][1].ToString().ToLower() == TransmissionName_textBox.Text.Trim().ToLower()))
+                            {
+                                throw new Exception("Трансмиссия с таким наименованием уже имеется в базе");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < transmissionsDataTable.Rows.Count; i++)
+                        {
+                            if (transmissionsDataTable[i][1].ToString().ToLower() == TransmissionName_textBox.Text.Trim().ToLower())
+                            {
+                                throw new Exception("Трансмиссия с таким наименованием уже имеется в базе");
+                            }
+                        }
                     }
                 }
                 catch (Exception exp)

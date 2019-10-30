@@ -150,7 +150,12 @@ namespace Автошкола
                     {
                         PhoneNumber_maskedTextBox.Focus();
                         throw new Exception("Не указан номер телефона студента");
-                    }                    
+                    }
+                    if (PhoneNumber_maskedTextBox.Text.Trim().Contains(" "))
+                    {
+                        PhoneNumber_maskedTextBox.Focus();
+                        throw new Exception("Номер телефона не может содержать пробелы");
+                    }
                     if (SelectedCarrierUseID == -1)
                     {
                         Instructor_comboBox.Focus();

@@ -80,10 +80,10 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 51);
+            this.label3.Location = new System.Drawing.Point(12, 49);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1043, 18);
+            this.label3.Size = new System.Drawing.Size(1043, 23);
             this.label3.TabIndex = 41;
             this.label3.Text = "Теоретические занятия";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -93,10 +93,10 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(12, 324);
+            this.label4.Location = new System.Drawing.Point(12, 321);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1043, 18);
+            this.label4.Size = new System.Drawing.Size(1043, 24);
             this.label4.TabIndex = 43;
             this.label4.Text = "Практические  занятия";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

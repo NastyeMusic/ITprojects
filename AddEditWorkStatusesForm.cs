@@ -45,10 +45,25 @@ namespace Автошкола
                     {
                         throw new Exception("Не указано наименование рабочего статуса");
                     }
-                    for (int i = 0; i < workStatusesDataTable.Rows.Count; i++)
+                    if (dataRow != null)
                     {
-                        if (workStatusesDataTable[i][1].ToString().ToLower() == WorkStatusName_textBox.Text.Trim().ToLower())
-                            throw new Exception("Рабочий статус с таким наименованием уже имеется в базе");
+                        for (int i = 0; i < workStatusesDataTable.Rows.Count; i++)
+                        {
+                            if ((workStatusesDataTable[i][0].ToString() != dataRow[0].ToString()) && (workStatusesDataTable[i][1].ToString().ToLower() == WorkStatusName_textBox.Text.Trim().ToLower()))
+                            {
+                                throw new Exception("Рабочий статус с таким наименованием уже имеется в базе");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < workStatusesDataTable.Rows.Count; i++)
+                        {
+                            if (workStatusesDataTable[i][1].ToString().ToLower() == WorkStatusName_textBox.Text.Trim().ToLower())
+                            {
+                                throw new Exception("Рабочий статус с таким наименованием уже имеется в базе");
+                            }
+                        }
                     }
                 }
                 catch (Exception exp)

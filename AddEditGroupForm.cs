@@ -81,10 +81,25 @@ namespace Автошкола
                         TheoryTeacher_comboBox.Focus();
                         throw new Exception("Не выбран преподаватель теории для этой группы");
                     }
-                    for (int i = 0; i < groupsDataTable.Rows.Count; i++)
+                    if (dataRow != null)
                     {
-                        if (groupsDataTable[i][1].ToString().ToLower() == GroupName_textBox.Text.Trim().ToLower())
-                            throw new Exception("Группа с таким наименованием уже имеется в базе");
+                        for (int i = 0; i < groupsDataTable.Rows.Count; i++)
+                        {
+                            if ((groupsDataTable[i][0].ToString() != dataRow[0].ToString()) && (groupsDataTable[i][1].ToString().ToLower() == GroupName_textBox.Text.Trim().ToLower()))
+                            {
+                                throw new Exception("Группа с таким наименованием уже имеется в базе");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < groupsDataTable.Rows.Count; i++)
+                        {
+                            if (groupsDataTable[i][1].ToString().ToLower() == GroupName_textBox.Text.Trim().ToLower())
+                            {
+                                throw new Exception("Группа с таким наименованием уже имеется в базе");
+                            }
+                        }
                     }
                 }
                 catch (Exception exp)
