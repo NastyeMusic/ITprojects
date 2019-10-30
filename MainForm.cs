@@ -85,6 +85,7 @@ namespace Автошкола
         TheoryTeachersScheduleForm TheoryTeachersScheduleForm = new TheoryTeachersScheduleForm();
         static bool TheoryTeachersScheduleFormOpened = false;
 
+        // здесь храним названия всех форм, открывающихся с главного окна
         static public string[] FormsNames = new string[21];
 
         public static void Perem(string s, bool b)
@@ -193,24 +194,30 @@ namespace Автошкола
         }
 
         void ReloadGroups()
-        {
+        {            
             string temp = "";
             string tempParent = "";
+            // забираем год и название той группы, которая выделена на текущий момент
             if (Groups_treeView.SelectedNode != null)
             {
                 temp = Groups_treeView.SelectedNode.Text;
                 tempParent = Groups_treeView.SelectedNode.Parent.Text;
             }
+            // очищаем дерево
             Groups_treeView.Nodes.Clear();
 
+            // читаем все группы
             dataSet = BusinessLogic.ReadGroups();
+            // перебираем все группы
             for (int i = 0; i < dataSet.Groups.Rows.Count; i++)
             {
+                // берем год группы из даты начала обучения
                 int year = Convert.ToDateTime(dataSet.Groups.Rows[i][2].ToString()).Year;
 
                 bool Find = false;
                 for (int j = 0; j < Groups_treeView.Nodes.Count; j++)
                 {
+                    // если такой год уже есть в дереве
                     if (Convert.ToInt32(Groups_treeView.Nodes[j].Text) == year)
                     {
                         Find = true;
@@ -219,6 +226,7 @@ namespace Автошкола
                         break;
                     }
                 }
+                // если такой год не был найден в дереве
                 if (!Find)
                 {
                     // создаем новую ветку, и добавляем в нее
@@ -226,6 +234,7 @@ namespace Автошкола
                     TempNode.Nodes.Add(dataSet.Groups.Rows[i][1].ToString(), dataSet.Groups.Rows[i][1].ToString());
                 }
             }
+            // если до обновления в дереве что-то было выбрано, то возвращаем это выбор
             if (temp != "")
             {
                 try
@@ -251,8 +260,10 @@ namespace Автошкола
 
         private void Groups_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            // если была выбрана группа
             if (Groups_treeView.SelectedNode.Level == 1)
             {
+                // загружаем студентов этой группы
                 GroupName = Groups_treeView.SelectedNode.Text;
                 ReloadStudents(GroupName);
             }

@@ -299,12 +299,15 @@ namespace Автошкола
         {
             if (Instructor_comboBox.SelectedIndex != -1 && FormLoad && GroupSelected)
             {
+                // отбираем ТС, прикрепленные к выбранному инструктору
                 ChoosenInstructor_label.Text = Instructor_comboBox.Text;
                 SelectedInstructorID = Convert.ToInt32(Instructor_comboBox.SelectedValue);
                 dataSetForCarriersUses = BusinessLogic.ReadCarriersUsesByInstructorID(Convert.ToInt32(Instructor_comboBox.SelectedValue));
                 carriersUsesDataTable = dataSetForCarriersUses.CarriersUses;
+                // получаем категорию, на которую обучается группа
                 int CategoryID = groupsDataTable[Group_comboBox.SelectedIndex].Category;
                 CarriersUses_dataGridView.Rows.Clear();
+                // добавляем в таблицу только те ТС, категория которых соответствует категории обучения группы
                 for (int i = 0; i < carriersUsesDataTable.Rows.Count; i++)
                 {
                     if (Convert.ToInt32(carriersUsesDataTable[i][5]) == CategoryID)

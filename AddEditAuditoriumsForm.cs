@@ -45,20 +45,26 @@ namespace Автошкола
                     {
                         throw new Exception("Не указано наименование аудитории");
                     }
+                    // если редактируется запись
                     if (dataRow != null)
                     {
+                        // перебираем все аудитории
                         for (int i = 0; i < auditoriumsDataTable.Rows.Count; i++)
                         {
+                            // если эта не редактируемая запись и название совпало
                             if ((auditoriumsDataTable[i][0].ToString() != dataRow[0].ToString()) && (auditoriumsDataTable[i][1].ToString().ToLower() == AuditoriumName_textBox.Text.Trim().ToLower()))
                             {
                                 throw new Exception("Аудитория с таким названием уже существует.");
                             }                            
                         }
                     }
+                    // если добавляется запись
                     else
                     {
+                        // перебираем все аудитории              
                         for (int i = 0; i < auditoriumsDataTable.Rows.Count; i++)
                         {
+                            // если названия совпали
                             if (auditoriumsDataTable[i][1].ToString().ToLower() == AuditoriumName_textBox.Text.Trim().ToLower())
                             {
                                 throw new Exception("Аудитория с таким названием уже существует.");
