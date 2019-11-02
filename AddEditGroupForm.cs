@@ -138,5 +138,10 @@ namespace Автошкола
                 e.Handled = true;
             }
         }
+
+        private void BeginLearning_dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            EndLearning_dateTimePicker.MinDate = Convert.ToDateTime(BeginLearning_dateTimePicker.Text).AddDays(1);
+        }
     }
 }

@@ -101,6 +101,7 @@
             this.BeginLearning_dateTimePicker.Name = "BeginLearning_dateTimePicker";
             this.BeginLearning_dateTimePicker.Size = new System.Drawing.Size(294, 24);
             this.BeginLearning_dateTimePicker.TabIndex = 5;
+            this.BeginLearning_dateTimePicker.ValueChanged += new System.EventHandler(this.BeginLearning_dateTimePicker_ValueChanged);
             // 
             // label4
             // 

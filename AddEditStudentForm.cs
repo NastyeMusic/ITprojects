@@ -75,6 +75,7 @@ namespace Автошкола
                 PhoneNumber_maskedTextBox.Text = dataRow["PhoneNumber"].ToString();
                 Retraining_checkBox.Checked = Convert.ToBoolean(dataRow["Retraining"].ToString());
                 Group_comboBox.SelectedValue = dataRow["Group"].ToString();
+                GroupSelected = true;
                 Instructor_comboBox.SelectedItem = dataRow["InstructorName"].ToString();
                 ChoosenCarrier_label.Text = dataRow["CarrierName"].ToString();
                 InstructorChanged();
@@ -151,11 +152,11 @@ namespace Автошкола
                         PhoneNumber_maskedTextBox.Focus();
                         throw new Exception("Не указан номер телефона студента");
                     }
-                    if (PhoneNumber_maskedTextBox.Text.Trim().Contains(" "))
+                    /*if (PhoneNumber_maskedTextBox.Text.Trim().Contains(" "))
                     {
                         PhoneNumber_maskedTextBox.Focus();
                         throw new Exception("Номер телефона не может содержать пробелы");
-                    }
+                    }*/
                     if (SelectedCarrierUseID == -1)
                     {
                         Instructor_comboBox.Focus();
