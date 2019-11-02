@@ -100,7 +100,7 @@ namespace Автошкола
                     TempDS = BusinessLogic.ReadTheoryLessonsByAuditoriumID(Convert.ToInt32(Auditorium_comboBox.SelectedValue));
                     for (int i = 0; i < TempDS.TheoryLessons.Rows.Count; i++)
                     {
-                        if (dataRow != null && dataRow["ID"] == TempDS.TheoryLessons[i][0])
+                        if (dataRow != null && dataRow["ID"].ToString() == TempDS.TheoryLessons[i][0].ToString())
                             continue;
                         if (Convert.ToDateTime(TempDS.TheoryLessons[i][1]) == Convert.ToDateTime(Date_dateTimePicker.Text).Date)
                         {
@@ -117,7 +117,7 @@ namespace Автошкола
                     TempDS = BusinessLogic.ReadTheoryLessonsByGroupID(Convert.ToInt32(SelectedGroup_comboBox.SelectedValue));
                     for (int i = 0; i < TempDS.TheoryLessons.Rows.Count; i++)
                     {
-                        if (dataRow != null && dataRow["ID"] == TempDS.TheoryLessons[i][0])
+                        if (dataRow != null && dataRow["ID"].ToString() == TempDS.TheoryLessons[i][0].ToString())
                             continue;
                         if (Convert.ToDateTime(TempDS.TheoryLessons[i][1]) == Convert.ToDateTime(Date_dateTimePicker.Text).Date)
                         {
@@ -135,7 +135,7 @@ namespace Автошкола
                     TempDS = BusinessLogic.GetTheoryTeacherSchedule(TeacherID);
                     for (int i = 0; i < TempDS.TheoryLessons.Rows.Count; i++)
                     {
-                        if (dataRow != null && dataRow["ID"] == TempDS.TheoryLessons[i][0])
+                        if (dataRow != null && dataRow["ID"].ToString() == TempDS.TheoryLessons[i][0].ToString())
                             continue;
                         if (Convert.ToDateTime(TempDS.TheoryLessons[i][1]) == Convert.ToDateTime(Date_dateTimePicker.Text).Date)
                         {

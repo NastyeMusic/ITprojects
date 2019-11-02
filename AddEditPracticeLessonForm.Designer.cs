@@ -92,11 +92,13 @@
             // 
             // FactDate_dateTimePicker
             // 
+            this.FactDate_dateTimePicker.Checked = false;
             this.FactDate_dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FactDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.FactDate_dateTimePicker.Location = new System.Drawing.Point(725, 54);
             this.FactDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FactDate_dateTimePicker.Name = "FactDate_dateTimePicker";
+            this.FactDate_dateTimePicker.ShowCheckBox = true;
             this.FactDate_dateTimePicker.Size = new System.Drawing.Size(269, 24);
             this.FactDate_dateTimePicker.TabIndex = 8;
             // 
@@ -130,7 +132,7 @@
             this.SelectedStudent_comboBox.FormattingEnabled = true;
             this.SelectedStudent_comboBox.Location = new System.Drawing.Point(88, 9);
             this.SelectedStudent_comboBox.Name = "SelectedStudent_comboBox";
-            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(414, 26);
+            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(402, 26);
             this.SelectedStudent_comboBox.TabIndex = 55;
             this.SelectedStudent_comboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedStudent_comboBox_SelectedIndexChanged);
             // 
@@ -215,10 +217,12 @@
             // 
             // FactTime_dateTimePicker
             // 
+            this.FactTime_dateTimePicker.Checked = false;
             this.FactTime_dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FactTime_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.FactTime_dateTimePicker.Location = new System.Drawing.Point(738, 90);
             this.FactTime_dateTimePicker.Name = "FactTime_dateTimePicker";
+            this.FactTime_dateTimePicker.ShowCheckBox = true;
             this.FactTime_dateTimePicker.Size = new System.Drawing.Size(256, 24);
             this.FactTime_dateTimePicker.TabIndex = 64;
             // 
