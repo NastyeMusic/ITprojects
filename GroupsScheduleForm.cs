@@ -98,7 +98,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            dataSet = BusinessLogic.ReadTheoryLessons();
+            ReloadTheoryLessons(Convert.ToInt32(SelectedGroup_comboBox.SelectedValue));
             AddEditTheoryLessonForm AddTheoryLesson;
             if (SelectedGroup_comboBox.SelectedIndex != -1)
                 AddTheoryLesson = new AddEditTheoryLessonForm(dataSet.TheoryLessons, dataSet.Groups, dataSet.Auditoriums, 
@@ -120,7 +120,7 @@ namespace Автошкола
         private void Edit_button_Click(object sender, EventArgs e)
         {
             LastSelectionIndex = TheoryLessonsOfGroup_dGV.SelectedRows[0].Index;
-            dataSet = BusinessLogic.ReadTheoryLessons();
+            ReloadTheoryLessons(Convert.ToInt32(SelectedGroup_comboBox.SelectedValue));
             AddEditTheoryLessonForm EditTheoryLesson;
             if (SelectedGroup_comboBox.SelectedIndex != -1)
                 EditTheoryLesson = new AddEditTheoryLessonForm(dataSet.TheoryLessons, dataSet.Groups, dataSet.Auditoriums,

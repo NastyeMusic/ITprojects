@@ -118,7 +118,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            dataSet = BusinessLogic.ReadCarriersUses();
+            ReloadCarriersUses();
             AddEditCarrierUseForm AddCarrierUse = new AddEditCarrierUseForm(dataSet.CarriersUses,
                 dataSet.Instructors, dataSet.Carriers, null);
             AddCarrierUse.Text = "Добавление ТС инструктору";
@@ -134,8 +134,8 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
-            dataSet = BusinessLogic.ReadCarriersUses();
             LastSelectionIndex = CarriersUses_dataGridView.SelectedRows[0].Index;
+            ReloadCarriersUses();
             AddEditCarrierUseForm EditCarrierUse = new AddEditCarrierUseForm(dataSet.CarriersUses,
                 dataSet.Instructors, dataSet.Carriers, 
                 dataSet.CarriersUses.Rows.Find(CarriersUses_dataGridView.SelectedRows[0].Cells["ID"].Value));

@@ -29,8 +29,8 @@ namespace Автошкола
             dataAdapter.UpdateCommand.Parameters.Add("@OldID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
             // на вставку 
-            dataAdapter.InsertCommand = new SqlCommand("INSERT INTO ReplacementsCarriers (ID, Carrier, Master, Work, " +
-                "BeginDate, EndDate)  VALUES (@ID, @Carrier, @Master, @Work, @BeginDate, @EndDate)",
+            dataAdapter.InsertCommand = new SqlCommand("INSERT INTO ReplacementsCarriers (ID, CarrierUse, CarrierReplacement, " +
+                "DateBeginReplacement, DateEndReplacement)  VALUES (@ID, @CarrierUse, @CarrierReplacement, @DateBeginReplacement, @DateEndReplacement)",
                 conn.getConnection(), tr.getTransaction());
             dataAdapter.InsertCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID");
             dataAdapter.InsertCommand.Parameters.Add("@CarrierUse", System.Data.SqlDbType.Int, 255, "CarrierUse");
@@ -42,7 +42,7 @@ namespace Автошкола
             dataAdapter.DeleteCommand = new SqlCommand("DELETE ReplacementsCarriers WHERE ID = @ID", conn.getConnection(), tr.getTransaction());
             dataAdapter.DeleteCommand.Parameters.Add("@ID", System.Data.SqlDbType.Int, 255, "ID").SourceVersion = System.Data.DataRowVersion.Original;
 
-            dataAdapter.Update(dataSet, "ReplacementsCarries");
+            dataAdapter.Update(dataSet, "ReplacementsCarriers");
         }
 
         // прочитать таблицу
@@ -50,7 +50,23 @@ namespace Автошкола
         {
             dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM ReplacementsCarriers", conn.getConnection(), tr.getTransaction());
-            dataAdapter.Fill(dataSet, "ReplacementsCarries");
+            dataAdapter.Fill(dataSet, "ReplacementsCarriers");
+        }
+
+        public void ReadByCarrierUseID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CarrierUseID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM ReplacementsCarriers WHERE CarrierUse = @CarrierUseID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierUseID", CarrierUseID);
+            dataAdapter.Fill(dataSet, "ReplacementsCarriers");
+        }
+
+        public void ReadByCarrierReplacementID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CarrierReplacementID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM ReplacementsCarriers WHERE CarrierReplacement = @CarrierReplacementID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierReplacementID", CarrierReplacementID);
+            dataAdapter.Fill(dataSet, "ReplacementsCarriers");
         }
     }
 }

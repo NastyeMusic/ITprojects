@@ -151,7 +151,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            dataSet = BusinessLogic.ReadPracticeLessons();
+            ReloadPracticeLessons(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
             AddEditPracticeLessonForm AddPracticeLesson;
             if (SelectedStudent_comboBox.SelectedIndex != -1)
                 AddPracticeLesson = new AddEditPracticeLessonForm(dataSet.PracticeLessons, dataSet.Students, 
@@ -174,7 +174,7 @@ namespace Автошкола
         private void Edit_button_Click(object sender, EventArgs e)
         {
             LastSelectionIndexInPracticeLessons = PracticeLessonsOfStudent_dGV.SelectedRows[0].Index;
-            dataSet = BusinessLogic.ReadPracticeLessons();
+            ReloadPracticeLessons(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
             AddEditPracticeLessonForm EditPracticeLesson;
             if (SelectedStudent_comboBox.SelectedIndex != -1)
                 EditPracticeLesson = new AddEditPracticeLessonForm(dataSet.PracticeLessons, dataSet.Students,

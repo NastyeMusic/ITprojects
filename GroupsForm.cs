@@ -93,7 +93,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            dataSet = BusinessLogic.ReadGroups();
+            ReloadGroups();
             AddEditGroupForm AddGroup = new AddEditGroupForm(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, null);
             AddGroup.Text = "Добавление группы";
             this.Enabled = false;
@@ -108,8 +108,8 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
-            dataSet = BusinessLogic.ReadGroups();
             LastSelectionIndex = Groups_dataGridView.SelectedRows[0].Index;
+            ReloadGroups();
             AddEditGroupForm EditGroup = new AddEditGroupForm(dataSet.Groups, dataSet.Categories, dataSet.TheoryTeachers, dataSet.Groups.Rows.Find(Groups_dataGridView.SelectedRows[0].Cells["ID"].Value));
             EditGroup.Text = "Редактирование группы";
             this.Enabled = false;

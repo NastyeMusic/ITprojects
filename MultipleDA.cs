@@ -45,5 +45,29 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@TeacherID", TeacherID);
             dataAdapter.Fill(dataSet, "TheoryLessons");
         }
+
+        public void ReadCarriersByInstructorID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int InstructorID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status " +
+                "FROM Carriers Cr " +
+                "INNER JOIN CarriersUses CU ON Cr.ID=CU.Carrier " +
+                "WHERE CU.Instructor = @InstructorID";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@InstructorID", InstructorID);
+            dataAdapter.Fill(dataSet, "Carriers");
+        }
+
+        public void ReadCarriersByStatusName(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, string StatusName)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status " +
+                "FROM Carriers Cr " +
+                "INNER JOIN CarriersStatuses CS ON Cr.Status=CS.ID " +
+                "WHERE CS.Name = @StatusName";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@StatusName", StatusName);
+            dataAdapter.Fill(dataSet, "Carriers");
+        }
     }
 }

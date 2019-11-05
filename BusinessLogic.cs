@@ -241,6 +241,70 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadReplacementsCarriersByCarrierUseID(int CarrierUseID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.Read(ds, abstrCon, abstrTr);
+                replacementsCarriersDA.ReadByCarrierUseID(ds, abstrCon, abstrTr, CarrierUseID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+        public AutoschoolDataSet ReadReplacementsCarriersByCarrierReplacementID(int CarrierReplacementID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                instructorsDA.Read(ds, abstrCon, abstrTr);
+                carriersUsesDA.Read(ds, abstrCon, abstrTr);
+                replacementsCarriersDA.ReadByCarrierReplacementID(ds, abstrCon, abstrTr, CarrierReplacementID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу CarriersRepairs
         public AutoschoolDataSet ReadCarriersRepairs()
@@ -1888,6 +1952,70 @@ namespace Автошкола
                 auditoriumsDA.Read(ds, abstrCon, abstrTr);
 
                 multipleDA.ReadTheoryLessonsByTeacherID(ds, abstrCon, abstrTr, TeacherID);
+
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        public AutoschoolDataSet ReadCarriersByInstructorID(int InstructorID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+
+                multipleDA.ReadCarriersByInstructorID(ds, abstrCon, abstrTr, InstructorID);
+
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        public AutoschoolDataSet ReadCarriersByStatusName(string CarrierStatusName)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+
+                multipleDA.ReadCarriersByStatusName(ds, abstrCon, abstrTr, CarrierStatusName);
 
                 abstrTr.Commit();
             }

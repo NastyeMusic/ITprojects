@@ -116,7 +116,7 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            dataSet = BusinessLogic.ReadInstructorsCategories();
+            ReloadInstructorsCategories();
             AddEditInstructorsCategoriesForm AddInstructorCategory = new AddEditInstructorsCategoriesForm(dataSet.InstructorsCategories, 
                 dataSet.Instructors, dataSet.Categories, null);
             AddInstructorCategory.Text = "Добавление категории инструктору";
@@ -132,8 +132,8 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
-            dataSet = BusinessLogic.ReadInstructorsCategories();
             LastSelectionIndex = InstructorsCategories_dataGridView.SelectedRows[0].Index;
+            ReloadInstructorsCategories();
             AddEditInstructorsCategoriesForm EditInstructorCategory = new AddEditInstructorsCategoriesForm(dataSet.InstructorsCategories,
                 dataSet.Instructors, dataSet.Categories, 
                 dataSet.InstructorsCategories.Rows.Find(InstructorsCategories_dataGridView.SelectedRows[0].Cells["ID"].Value));

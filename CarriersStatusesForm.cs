@@ -49,7 +49,7 @@ namespace Автошкола
 
         private void CarriersStatuses_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (CarriersStatuses_dataGridView.SelectedRows.Count == 1)
+            if (CarriersStatuses_dataGridView.SelectedRows.Count == 1 && CarriersStatuses_dataGridView.SelectedRows[0].Cells["NameColumn"].Value.ToString() != "Резерв")
             {
                 Edit_button.Enabled = true;
                 Delete_button.Enabled = true;

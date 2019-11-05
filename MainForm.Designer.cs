@@ -113,14 +113,15 @@
             // путьКБДToolStripMenuItem
             // 
             this.путьКБДToolStripMenuItem.Name = "путьКБДToolStripMenuItem";
-            this.путьКБДToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.путьКБДToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.путьКБДToolStripMenuItem.Text = "Путь к БД";
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // курсантыToolStripMenuItem
             // 
@@ -326,6 +327,7 @@
             this.заменаТСУИнструктораToolStripMenuItem.Name = "заменаТСУИнструктораToolStripMenuItem";
             this.заменаТСУИнструктораToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.заменаТСУИнструктораToolStripMenuItem.Text = "Замена ТС у инструктора";
+            this.заменаТСУИнструктораToolStripMenuItem.Click += new System.EventHandler(this.заменаТСУИнструктораToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 

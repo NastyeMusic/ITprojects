@@ -54,6 +54,7 @@ namespace Автошкола
                 Category_comboBox.SelectedIndex = -1;
                 TheoryTeacher_comboBox.SelectedIndex = -1;
             }
+            BeginLearning_dateTimePicker_ValueChanged(sender, e);
         }
 
         private void AddEditGroup_FormClosing(object sender, FormClosingEventArgs e)
