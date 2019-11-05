@@ -246,6 +246,7 @@
             this.ремонтыТСToolStripMenuItem.Name = "ремонтыТСToolStripMenuItem";
             this.ремонтыТСToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.ремонтыТСToolStripMenuItem.Text = "Ремонты ТС";
+            this.ремонтыТСToolStripMenuItem.Click += new System.EventHandler(this.ремонтыТСToolStripMenuItem_Click);
             // 
             // журналИспользованияТСToolStripMenuItem
             // 

@@ -32,7 +32,7 @@ namespace Автошкола
         AutoschoolDataSet.InstructorsDataTable instructorsDataTable;
         DataRow dataRow;
 
-        AutoschoolDataSet dataSetForReplaceableCarriers, dataSetForReplacingCarriers, dataSetForInstructorsComboBox;
+        AutoschoolDataSet dataSetForReplaceableCarriers, dataSetForReplacingCarriers;
 
         int SelectedReplaceableCarrierID = -1;
         int SelectedReplacingCarrierID = -1;
@@ -149,6 +149,11 @@ namespace Автошкола
                 int CurRow = ReplaceableCarriers_dataGridView.SelectedRows[0].Index;
                 SelectedReplaceableCarrierID = Convert.ToInt32(ReplaceableCarriers_dataGridView[0, CurRow].Value);
                 SelectedReplaceableCarrier_label.Text = ReplaceableCarriers_dataGridView["FinalName", CurRow].Value.ToString();
+            }
+            else
+            {
+                SelectedReplaceableCarrierID = -1;
+                SelectedReplaceableCarrier_label.Text = "";
             }
         }
 
@@ -342,6 +347,11 @@ namespace Автошкола
                 SelectedReplacingCarrierID = Convert.ToInt32(ReplacingCarriers_dataGridView[0, CurRow].Value);
                 SelectedReplacingCarrier_label.Text = ReplacingCarriers_dataGridView["FinalName", CurRow].Value.ToString();
             }
+            else
+            {
+                SelectedReplacingCarrierID = -1;
+                SelectedReplacingCarrier_label.Text = "";
+            }
         }
 
         private void AddEditReplacementCarrierForm_Load(object sender, EventArgs e)
@@ -369,7 +379,7 @@ namespace Автошкола
                     {
                         if (CarrierID == Convert.ToInt32(ReplaceableCarriers_dataGridView["ID1Column", i].Value))
                         {
-                            ReplaceableCarriers_dataGridView.Rows[i].Selected = true;
+                            ReplaceableCarriers_dataGridView.Rows[i].Cells["Brand1Column"].Selected = true;
                             ChangeSelectedReplaceableCarrier();
                             break;
                         }
@@ -382,7 +392,7 @@ namespace Автошкола
                     {
                         if (Convert.ToInt32(dataRow["CarrierReplacement"].ToString()) == Convert.ToInt32(ReplacingCarriers_dataGridView["ID2Column", i].Value))
                         {
-                            ReplacingCarriers_dataGridView.Rows[i].Selected = true;
+                            ReplacingCarriers_dataGridView.Rows[i].Cells["Brand2Column"].Selected = true;
                             ChangeSelectedReplaceableCarrier();
                             break;
                         }

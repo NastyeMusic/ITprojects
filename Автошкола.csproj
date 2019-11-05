@@ -60,6 +60,12 @@
     <Compile Include="AddEditCarrierForm.Designer.cs">
       <DependentUpon>AddEditCarrierForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditCarrierRepairForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditCarrierRepairForm.Designer.cs">
+      <DependentUpon>AddEditCarrierRepairForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditCarriersStatusesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,12 @@
       <DependentUpon>CarriersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CarriersRepairsDA.cs" />
+    <Compile Include="CarriersRepairsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarriersRepairsForm.Designer.cs">
+      <DependentUpon>CarriersRepairsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarriersStatusesDA.cs" />
     <Compile Include="CarriersStatusesForm.cs">
       <SubType>Form</SubType>
@@ -271,6 +283,9 @@
     <EmbeddedResource Include="AddEditCarrierForm.resx">
       <DependentUpon>AddEditCarrierForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEditCarrierRepairForm.resx">
+      <DependentUpon>AddEditCarrierRepairForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditCarriersStatusesForm.resx">
       <DependentUpon>AddEditCarriersStatusesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CarriersForm.resx">
       <DependentUpon>CarriersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarriersRepairsForm.resx">
+      <DependentUpon>CarriersRepairsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarriersStatusesForm.resx">
       <DependentUpon>CarriersStatusesForm.cs</DependentUpon>

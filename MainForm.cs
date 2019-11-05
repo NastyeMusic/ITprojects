@@ -88,6 +88,9 @@ namespace Автошкола
         ReplacementsCarriersForm ReplacementsCarriersForm = new ReplacementsCarriersForm();
         static bool ReplacementsCarriersFormOpened = false;
 
+        CarriersRepairsForm CarriersRepairsForm = new CarriersRepairsForm();
+        static bool CarriersRepairsFormOpened = false;
+
         // здесь храним названия всех форм, открывающихся с главного окна
         static public string[] FormsNames = new string[21];
 
@@ -125,10 +128,10 @@ namespace Автошкола
                 case "CarriersStatusesForm":
                     CarriersStatusesFormOpened = b;
                     break;
-                /*case "CarriersRepairsForm":
-                    CarriersFormOpened = b;
+                case "CarriersRepairsForm":
+                    CarriersRepairsFormOpened = b;
                     break;
-                case "JournalUsesForm":
+                /*case "JournalUsesForm":
                     CarriersFormOpened = b;
                     break;
                 case "CurrentStatusesForm":
@@ -584,6 +587,19 @@ namespace Автошкола
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ремонтыТСToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CarriersRepairsFormOpened)
+            {
+                CarriersRepairsForm.Show();
+                CarriersRepairsFormOpened = true;
+            }
+            else
+            {
+                CarriersRepairsForm.Activate();
+            }
         }
     }
 }
