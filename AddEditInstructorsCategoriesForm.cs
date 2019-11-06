@@ -72,6 +72,16 @@ namespace Автошкола
                         throw new Exception("Не выбрана категория");
                     }
                     AutoschoolDataSet TempDS = new AutoschoolDataSet();
+                    TempDS = BusinessLogic.ReadInstructorByID(Convert.ToInt32(Instructor_comboBox.SelectedValue.ToString()));
+                    if (TempDS.Instructors[0]["WorkStatusName"].ToString() != "Работает")
+                    {
+                        DialogResult result = MessageBox.Show("Вы выбрали отсутствующего инструктора. Вы уверены, что хотите продолжить?", "Выбор отсутствующего сотрудника", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.No)
+                        {
+                            e.Cancel = true;
+                            return;
+                        }
+                    }
                     TempDS = BusinessLogic.ReadInstructorsCategoriesByInstructorIdANDCategoryId(
                         Convert.ToInt32(Instructor_comboBox.SelectedValue), Convert.ToInt32(Category_comboBox.SelectedValue));
                     if (TempDS.InstructorsCategories.Rows.Count > 0)

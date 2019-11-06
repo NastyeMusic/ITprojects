@@ -157,6 +157,17 @@ namespace Автошкола
                         PhoneNumber_maskedTextBox.Focus();
                         throw new Exception("Номер телефона не может содержать пробелы");
                     }*/
+                    AutoschoolDataSet TempDS = new AutoschoolDataSet();
+                    TempDS = BusinessLogic.ReadInstructorByID(Convert.ToInt32(Instructor_comboBox.SelectedValue.ToString()));
+                    if (TempDS.Instructors[0]["WorkStatusName"].ToString() != "Работает")
+                    {
+                        DialogResult result = MessageBox.Show("Вы выбрали отсутствующего инструктора. Вы уверены, что хотите продолжить?", "Выбор отсутствующего сотрудника", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.No)
+                        {
+                            e.Cancel = true;
+                            return;
+                        }
+                    }
                     if (SelectedCarrierUseID == -1)
                     {
                         Instructor_comboBox.Focus();

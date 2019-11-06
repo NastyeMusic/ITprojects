@@ -102,6 +102,17 @@ namespace Автошкола
                             }
                         }
                     }
+                    AutoschoolDataSet TempDS = new AutoschoolDataSet();
+                    TempDS = BusinessLogic.ReadTheoryTeacherByID(Convert.ToInt32(TheoryTeacher_comboBox.SelectedValue.ToString()));
+                    if (TempDS.TheoryTeachers[0]["WorkStatusName"].ToString() != "Работает")
+                    {
+                        DialogResult result = MessageBox.Show("Вы выбрали отсутствующего преподавателя теории. Вы уверены, что хотите продолжить?", "Выбор отсутствующего сотрудника", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.No)
+                        {
+                            e.Cancel = true;
+                            return;
+                        }
+                    }
                 }
                 catch (Exception exp)
                 {

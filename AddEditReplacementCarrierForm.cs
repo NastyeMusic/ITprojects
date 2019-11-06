@@ -168,6 +168,17 @@ namespace Автошкола
                         Instructor_comboBox.Focus();
                         throw new Exception("Не выбран инструктор");
                     }
+                    AutoschoolDataSet TempDS = new AutoschoolDataSet();
+                    TempDS = BusinessLogic.ReadInstructorByID(Convert.ToInt32(Instructor_comboBox.SelectedValue.ToString()));
+                    if (TempDS.Instructors[0]["WorkStatusName"].ToString() != "Работает")
+                    {
+                        DialogResult result = MessageBox.Show("Вы выбрали отсутствующего инструктора. Вы уверены, что хотите продолжить?", "Выбор отсутствующего сотрудника", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.No)
+                        {
+                            e.Cancel = true;
+                            return;
+                        }
+                    }
                     if (SelectedReplaceableCarrierID  == -1)
                     {
                         throw new Exception("Не выбрано заменяемое ТС");
@@ -176,7 +187,6 @@ namespace Автошкола
                     {
                         throw new Exception("Не выбрано заменяющее ТС");
                     }
-                    AutoschoolDataSet TempDS = new AutoschoolDataSet();
                     TempDS = BusinessLogic.ReadReplacementsCarriersByCarrierUseID(Convert.ToInt32(BusinessLogic.ReadCarriersUsesByInstructorCarrierID(Convert.ToInt32(Instructor_comboBox.SelectedValue), Convert.ToInt32(ReplaceableCarriers_dataGridView.SelectedRows[0].Cells["ID1Column"].Value)).CarriersUses[0]["ID"].ToString()));
                     if (dataRow != null)
                     {

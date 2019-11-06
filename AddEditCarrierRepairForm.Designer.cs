@@ -79,8 +79,6 @@
             // 
             this.Carriers_dataGridView.AllowUserToAddRows = false;
             this.Carriers_dataGridView.AllowUserToDeleteRows = false;
-            this.Carriers_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Carriers_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -124,7 +122,7 @@
             this.Carriers_dataGridView.RowHeadersVisible = false;
             this.Carriers_dataGridView.RowTemplate.Height = 24;
             this.Carriers_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Carriers_dataGridView.Size = new System.Drawing.Size(907, 204);
+            this.Carriers_dataGridView.Size = new System.Drawing.Size(931, 204);
             this.Carriers_dataGridView.TabIndex = 58;
             this.Carriers_dataGridView.SelectionChanged += new System.EventHandler(this.Carriers_dataGridView_SelectionChanged);
             // 
@@ -296,8 +294,6 @@
             // 
             this.Masters_dataGridView.AllowUserToAddRows = false;
             this.Masters_dataGridView.AllowUserToDeleteRows = false;
-            this.Masters_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Masters_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -338,7 +334,7 @@
             this.Masters_dataGridView.RowHeadersVisible = false;
             this.Masters_dataGridView.RowTemplate.Height = 24;
             this.Masters_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Masters_dataGridView.Size = new System.Drawing.Size(907, 204);
+            this.Masters_dataGridView.Size = new System.Drawing.Size(931, 204);
             this.Masters_dataGridView.TabIndex = 64;
             this.Masters_dataGridView.SelectionChanged += new System.EventHandler(this.Masters_dataGridView_SelectionChanged);
             // 

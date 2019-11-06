@@ -784,6 +784,31 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadCarriersStatusesByID(int ID)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                carriersStatusesDA.ReadByID(ds, abstrCon, abstrTr, ID);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу CarriersUses
         public AutoschoolDataSet ReadCarriersUses()
@@ -2085,6 +2110,36 @@ namespace Автошкола
             {
                 abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        public AutoschoolDataSet WriteWorkers(AutoschoolDataSet ds)
+        {
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                workStatusesDA.Save(ds, abstrCon, abstrTr);
+                theoryTeachersDA.Save(ds, abstrCon, abstrTr);
+                instructorsDA.Save(ds, abstrCon, abstrTr);
+                serviceMastersDA.Save(ds, abstrCon, abstrTr);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
+                    MessageBox.Show("Сотрудника невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления сотрудника");
+                else
+                    MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
             finally

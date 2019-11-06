@@ -160,9 +160,7 @@ namespace Автошкола
             EditWorker.ShowDialog();
             if (EditWorker.DialogResult == DialogResult.OK)
             {
-                dataSet = BusinessLogic.WriteTheoryTeachers(dataSet);
-                dataSet = BusinessLogic.WriteInstructors(dataSet);
-                dataSet = BusinessLogic.WriteServiceMasters(dataSet);
+                dataSet = BusinessLogic.WriteWorkers(dataSet);              
                 ReloadWorkers();
             }
             this.Enabled = true;
