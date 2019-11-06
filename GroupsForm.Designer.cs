@@ -272,6 +272,7 @@
             this.Text = "Учебные группы";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GroupsForm_FormClosing);
             this.Load += new System.EventHandler(this.GroupsForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.GroupsForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.Groups_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

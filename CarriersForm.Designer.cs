@@ -313,6 +313,7 @@
             this.Text = "Учебные ТС";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CarriersForm_FormClosing);
             this.Load += new System.EventHandler(this.CarriersForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.CarriersForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.Carriers_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

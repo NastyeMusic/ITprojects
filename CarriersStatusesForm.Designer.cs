@@ -180,6 +180,7 @@
             this.Text = "Статусы ТС";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CarriersStatusesForm_FormClosing);
             this.Load += new System.EventHandler(this.CarriersStatusesForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.CarriersStatusesForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.CarriersStatuses_dataGridView)).EndInit();
             this.ResumeLayout(false);
 

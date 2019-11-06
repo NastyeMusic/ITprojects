@@ -234,6 +234,7 @@
             this.Text = "Категории ТС";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CategoriesForm_FormClosing);
             this.Load += new System.EventHandler(this.CategoriesForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.CategoriesForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.Categories_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

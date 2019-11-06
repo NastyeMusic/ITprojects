@@ -26,6 +26,7 @@ namespace Автошкола
         static public bool WorkStatusesFormOpened = false;
 
         int LastSelectionIndex;
+        bool FirstLoad = true;
 
         private void ChangeWorkStatuses_button_Click(object sender, EventArgs e)
         {
@@ -230,6 +231,17 @@ namespace Автошкола
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void WorkersForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                if (!FirstLoad)
+                    ReloadWorkers_button_Click(sender, e);
+                else
+                    FirstLoad = false;
+            }
         }
     }
 }

@@ -234,6 +234,7 @@
             this.Text = "Трансмиссии";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TransmissionsFrom_FormClosing);
             this.Load += new System.EventHandler(this.TransmissionsFrom_Load);
+            this.VisibleChanged += new System.EventHandler(this.TransmissionsForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.Transmissions_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

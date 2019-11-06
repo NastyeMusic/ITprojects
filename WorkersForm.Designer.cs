@@ -286,6 +286,7 @@
             this.Text = "Работа с сотрудниками";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WorkersForm_FormClosing);
             this.Load += new System.EventHandler(this.WorkersForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.WorkersForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.Workers_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

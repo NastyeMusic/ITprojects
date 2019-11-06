@@ -22,6 +22,7 @@ namespace Автошкола
         string LastSearchingText = "";
         int LastFoundRow = -1;
         int LastSelectionIndex;
+        bool FirstLoad = true;
 
         void ReloadCarriersUses()
         {
@@ -178,6 +179,17 @@ namespace Автошкола
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CarriersUsesForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                if (!FirstLoad)
+                    ReloadCarriersUses_button_Click(sender, e);
+                else
+                    FirstLoad = false;
+            }
         }
     }
 }

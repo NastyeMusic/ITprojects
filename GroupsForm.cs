@@ -23,6 +23,7 @@ namespace Автошкола
         int LastFoundRow = -1;
 
         int LastSelectionIndex;
+        bool FirstLoad = true;
 
         void ReloadGroups()
         {
@@ -163,6 +164,17 @@ namespace Автошкола
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void GroupsForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                if (!FirstLoad)
+                    ReloadGroups_button_Click(sender, e);
+                else
+                    FirstLoad = false;
+            }
         }
     }
 }

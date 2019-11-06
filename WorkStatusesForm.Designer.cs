@@ -180,6 +180,7 @@
             this.Text = "Рабочие статусы";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WorkStatusesForm_FormClosing);
             this.Load += new System.EventHandler(this.WorkStatusesForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.WorkStatusesForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.WorkStatuses_dataGridView)).EndInit();
             this.ResumeLayout(false);
 

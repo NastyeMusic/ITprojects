@@ -22,6 +22,7 @@ namespace Автошкола
         string LastSearchingText = "";
         int LastFoundRow = -1;
         int LastSelectionIndex;
+        bool FirstLoad = true;
 
         void ReloadCarriersRepairs()
         {
@@ -170,6 +171,17 @@ namespace Автошкола
                     MessageBox.Show("Не удалось удалить выбранную строку.\nСкорее всего, на данную строку имеются ссылки из других таблиц", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ReloadCarriersRepairs();
                 }
+            }
+        }
+
+        private void CarriersRepairsForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                if (!FirstLoad)
+                    ReloadCarriersRepairs_button_Click(sender, e);
+                else
+                    FirstLoad = false;
             }
         }
     }

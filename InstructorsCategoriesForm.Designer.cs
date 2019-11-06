@@ -270,6 +270,7 @@
             this.Text = "Категории инструкторов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InstructorsCategoriesForm_FormClosing);
             this.Load += new System.EventHandler(this.InstructorsCategoriesForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.InstructorsCategoriesForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.InstructorsCategories_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

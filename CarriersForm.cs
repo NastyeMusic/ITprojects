@@ -23,13 +23,23 @@ namespace Автошкола
         int LastFoundRow = -1;
 
         int LastSelectionIndex;
-
-        //AddRepairFromFormCarriers AddRepairFromFormCarriersForm = new AddRepairFromFormCarriers();
-        //static bool AddRepairFromFormCarriersFormOpened = false;
+        bool FirstLoad = true;
 
         private void AddRepairSelectedCarrier_button_Click(object sender, EventArgs e)
         {
-
+            AutoschoolDataSet TempDS = new AutoschoolDataSet();
+            TempDS = BusinessLogic.ReadCarriersRepairs();
+            AddRepairFromFormCarriersForm AddCarrierRepair = new AddRepairFromFormCarriersForm(TempDS.CarriersRepairs,
+                TempDS.ServiceMasters, TempDS.Carriers,
+                TempDS.Carriers.Rows.Find(Carriers_dataGridView.SelectedRows[0].Cells["ID"].Value));
+            this.Enabled = false;
+            AddCarrierRepair.ShowDialog();
+            if (AddCarrierRepair.DialogResult == DialogResult.OK)
+            {
+                TempDS = BusinessLogic.WriteCarriersRepairs(TempDS);
+                ReloadCarriers();
+            }
+            this.Enabled = true;
         }
 
         void ReloadCarriers()
@@ -188,6 +198,17 @@ namespace Автошкола
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CarriersForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                if (!FirstLoad)
+                    ReloadCarriers_button_Click(sender, e);
+                else
+                    FirstLoad = false;
+            }
         }
     }
 }

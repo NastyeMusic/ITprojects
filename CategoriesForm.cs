@@ -23,6 +23,7 @@ namespace Автошкола
         int LastFoundRow = -1;
 
         int LastSelectionIndex;
+        bool FirstLoad = true;
 
         void ReloadCategories()
         {
@@ -153,6 +154,17 @@ namespace Автошкола
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CategoriesForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                if (!FirstLoad)
+                    Reload_button_Click(sender, e);
+                else
+                    FirstLoad = false;
+            }
         }
     }
 }

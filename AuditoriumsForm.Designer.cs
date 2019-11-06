@@ -234,6 +234,7 @@
             this.Text = "Учебные аудитории";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuditoriumsForm_FormClosing);
             this.Load += new System.EventHandler(this.AuditoriumsForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.AuditoriumsForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.Auditoriums_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -274,6 +274,7 @@
             this.Text = "Ремонты ТС";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CarriersRepairsForm_FormClosing);
             this.Load += new System.EventHandler(this.CarriersRepairsForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.CarriersRepairsForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.CarriersRepairs_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

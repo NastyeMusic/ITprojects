@@ -270,6 +270,7 @@
             this.Text = "ТС инструкторов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CarriersUsesForm_FormClosing);
             this.Load += new System.EventHandler(this.CarriersUsesForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.CarriersUsesForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.CarriersUses_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

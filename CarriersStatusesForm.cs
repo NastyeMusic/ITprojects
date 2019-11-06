@@ -23,6 +23,7 @@ namespace Автошкола
         int LastSelectionIndex;
 
         bool FormLoad = false;
+        bool FirstLoad = true;
 
         void ReloadCarriersStatuses()
         {
@@ -136,6 +137,17 @@ namespace Автошкола
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CarriersStatusesForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                if (!FirstLoad)
+                    Reload_button_Click(sender, e);
+                else
+                    FirstLoad = false;
+            }
         }
     }
 }
