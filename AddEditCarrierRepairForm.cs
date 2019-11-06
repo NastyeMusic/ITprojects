@@ -73,6 +73,8 @@ namespace Автошкола
             StatusColumn.ValueMember = "ID";
             StatusColumn.DataPropertyName = "Status";
 
+            FinalNameColumn.DataPropertyName = "FinalName";
+
             if (Carriers_dataGridView.RowCount == 1)
             {
                 Carriers_dataGridView.Rows[0].Cells["BrandColumn"].Selected = true;
@@ -86,7 +88,7 @@ namespace Автошкола
             {
                 int CurRow = Carriers_dataGridView.SelectedRows[0].Index;
                 SelectedCarrierID = Convert.ToInt32(Carriers_dataGridView[0, CurRow].Value);
-                SelectedCarrier_label.Text = Carriers_dataGridView["FinalName", CurRow].Value.ToString();
+                SelectedCarrier_label.Text = Carriers_dataGridView["FinalNameColumn", CurRow].Value.ToString();
             }
             else
             {
@@ -180,7 +182,7 @@ namespace Автошкола
                 // находим мастера сервиса
                 for (int i = 0; i < Masters_dataGridView.Rows.Count; i++)
                 {
-                    if (Convert.ToInt32(dataRow["Master"].ToString()) == Convert.ToInt32(Masters_dataGridView["IDColumn", i].Value))
+                    if (Convert.ToInt32(dataRow["Master"].ToString()) == Convert.ToInt32(Masters_dataGridView["MastersIDColumn", i].Value))
                     {
                         Masters_dataGridView.Rows[i].Cells["SurnameColumn"].Selected = true;
                         ChangeSelectedMaster();
@@ -194,6 +196,10 @@ namespace Автошкола
             }
             else
             {
+                Carriers_dataGridView.Rows[0].Cells["BrandColumn"].Selected = true;
+                ChangeSelectedCarrier();
+                Masters_dataGridView.Rows[0].Cells["SurnameColumn"].Selected = true;
+                ChangeSelectedMaster();
                 Work_textBox.Text = "";
             }
             BeginRepair_dateTimePicker_ValueChanged(sender, e);
@@ -217,6 +223,15 @@ namespace Автошкола
                     {
                         Work_textBox.Focus();
                         throw new Exception("Не указаны проводимые работы по ремонту");
+                    }                    
+                    if (Masters_dataGridView["WorkStatusName", Masters_dataGridView.SelectedRows[0].Index].Value.ToString() != "Работает")
+                    {
+                        DialogResult result = MessageBox.Show("Вы выбрали отсутствующего мастера сервиса. Вы уверены, что хотите продолжить?", "Выбор отсутствующего сотрудника", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.No)
+                        {
+                            e.Cancel = true;
+                            return;
+                        }
                     }
                     AutoschoolDataSet TempDS = new AutoschoolDataSet();
                     TempDS = BusinessLogic.ReadCarriersRepairsByCarrierID(SelectedCarrierID);

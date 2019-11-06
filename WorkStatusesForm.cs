@@ -22,6 +22,8 @@ namespace Автошкола
 
         int LastSelectionIndex;
 
+        bool FormLoad = false;
+
         void ReloadWorkStatuses()
         {
             dataSet = BusinessLogic.ReadWorkStatuses();
@@ -42,6 +44,7 @@ namespace Автошкола
         {
             LastSelectionIndex = -1;
             ReloadWorkStatuses();
+            FormLoad = true;
             Edit_button.Enabled = false;
             Delete_button.Enabled = false;
             WorkStatuses_dataGridView_SelectionChanged(sender, e);
@@ -49,7 +52,7 @@ namespace Автошкола
 
         private void WorkStatuses_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (WorkStatuses_dataGridView.SelectedRows.Count == 1)
+            if (FormLoad && WorkStatuses_dataGridView.SelectedRows.Count == 1 && WorkStatuses_dataGridView.SelectedRows[0].Cells["NameColumn"].Value.ToString() != "Работает")
             {
                 Edit_button.Enabled = true;
                 Delete_button.Enabled = true;

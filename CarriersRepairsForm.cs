@@ -27,7 +27,7 @@ namespace Автошкола
         {
             dataSet = BusinessLogic.ReadCarriersRepairs();
             CarriersRepairs_dataGridView.DataSource = dataSet;
-            CarriersRepairs_dataGridView.DataMember = "ReplacementsCarriers";
+            CarriersRepairs_dataGridView.DataMember = "CarriersRepairs";
 
             CarriersRepairs_dataGridView.Columns["ID"].Visible = false;
             CarriersRepairs_dataGridView.Columns["Carrier"].Visible = false;
@@ -117,12 +117,35 @@ namespace Автошкола
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-
+            ReloadCarriersRepairs();
+            AddEditCarrierRepairForm AddCarrierRepair = new AddEditCarrierRepairForm(dataSet.CarriersRepairs,
+                dataSet.ServiceMasters, dataSet.Carriers, null);
+            AddCarrierRepair.Text = "Добавление ремонта ТС";
+            this.Enabled = false;
+            AddCarrierRepair.ShowDialog();
+            if (AddCarrierRepair.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WriteCarriersRepairs(dataSet);
+                ReloadCarriersRepairs();
+            }
+            this.Enabled = true;
         }
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
-
+            ReloadCarriersRepairs();
+            AddEditCarrierRepairForm EditCarrierRepair = new AddEditCarrierRepairForm(dataSet.CarriersRepairs,
+                dataSet.ServiceMasters, dataSet.Carriers,
+                dataSet.CarriersRepairs.Rows.Find(CarriersRepairs_dataGridView.SelectedRows[0].Cells["ID"].Value));
+            EditCarrierRepair.Text = "Редактирование ремонта ТС";
+            this.Enabled = false;
+            EditCarrierRepair.ShowDialog();
+            if (EditCarrierRepair.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WriteCarriersRepairs(dataSet);
+                ReloadCarriersRepairs();
+            }
+            this.Enabled = true;
         }
 
         private void Delete_button_Click(object sender, EventArgs e)

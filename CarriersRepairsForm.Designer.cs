@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Edit_button = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
             this.Add_button = new System.Windows.Forms.Button();
             this.CarriersRepairs_dataGridView = new System.Windows.Forms.DataGridView();
-            this.Close_button = new System.Windows.Forms.Button();
-            this.Search_textBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
-            this.Search_button = new System.Windows.Forms.Button();
-            this.ReloadCarriersRepairs_button = new System.Windows.Forms.Button();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CarrierColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.MasterColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.WorkColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BeginDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Close_button = new System.Windows.Forms.Button();
+            this.Search_textBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
+            this.Search_button = new System.Windows.Forms.Button();
+            this.ReloadCarriersRepairs_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersRepairs_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,14 +94,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CarriersRepairs_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarriersRepairs_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarriersRepairs_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CarriersRepairs_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CarriersRepairs_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -110,26 +110,26 @@
             this.WorkColumn,
             this.BeginDateColumn,
             this.EndDateColumn});
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CarriersRepairs_dataGridView.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CarriersRepairs_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.CarriersRepairs_dataGridView.Location = new System.Drawing.Point(12, 43);
             this.CarriersRepairs_dataGridView.MultiSelect = false;
             this.CarriersRepairs_dataGridView.Name = "CarriersRepairs_dataGridView";
             this.CarriersRepairs_dataGridView.ReadOnly = true;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarriersRepairs_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarriersRepairs_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.CarriersRepairs_dataGridView.RowHeadersVisible = false;
             this.CarriersRepairs_dataGridView.RowTemplate.Height = 24;
             this.CarriersRepairs_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -137,9 +137,54 @@
             this.CarriersRepairs_dataGridView.TabIndex = 54;
             this.CarriersRepairs_dataGridView.SelectionChanged += new System.EventHandler(this.CarriersRepairs_dataGridView_SelectionChanged);
             // 
+            // IDColumn
+            // 
+            this.IDColumn.HeaderText = "Код";
+            this.IDColumn.Name = "IDColumn";
+            this.IDColumn.ReadOnly = true;
+            this.IDColumn.Visible = false;
+            // 
+            // CarrierColumn
+            // 
+            this.CarrierColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.CarrierColumn.HeaderText = "ТС";
+            this.CarrierColumn.Name = "CarrierColumn";
+            this.CarrierColumn.ReadOnly = true;
+            this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarrierColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // MasterColumn
+            // 
+            this.MasterColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MasterColumn.HeaderText = "Мастер сервиса";
+            this.MasterColumn.Name = "MasterColumn";
+            this.MasterColumn.ReadOnly = true;
+            this.MasterColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MasterColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // WorkColumn
+            // 
+            this.WorkColumn.HeaderText = "Проводимая работа по ремонту";
+            this.WorkColumn.Name = "WorkColumn";
+            this.WorkColumn.ReadOnly = true;
+            this.WorkColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // BeginDateColumn
+            // 
+            this.BeginDateColumn.HeaderText = "Дата начала ремонта";
+            this.BeginDateColumn.Name = "BeginDateColumn";
+            this.BeginDateColumn.ReadOnly = true;
+            this.BeginDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // EndDateColumn
+            // 
+            this.EndDateColumn.HeaderText = "Дата окончания ремонта";
+            this.EndDateColumn.Name = "EndDateColumn";
+            this.EndDateColumn.ReadOnly = true;
+            // 
             // Close_button
             // 
-            this.Close_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Close_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Close_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Close_button.Location = new System.Drawing.Point(1040, 576);
@@ -207,51 +252,6 @@
             this.ReloadCarriersRepairs_button.TabIndex = 60;
             this.ReloadCarriersRepairs_button.UseVisualStyleBackColor = true;
             this.ReloadCarriersRepairs_button.Click += new System.EventHandler(this.ReloadCarriersRepairs_button_Click);
-            // 
-            // IDColumn
-            // 
-            this.IDColumn.HeaderText = "Код";
-            this.IDColumn.Name = "IDColumn";
-            this.IDColumn.ReadOnly = true;
-            this.IDColumn.Visible = false;
-            // 
-            // CarrierColumn
-            // 
-            this.CarrierColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.CarrierColumn.HeaderText = "ТС";
-            this.CarrierColumn.Name = "CarrierColumn";
-            this.CarrierColumn.ReadOnly = true;
-            this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarrierColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // MasterColumn
-            // 
-            this.MasterColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MasterColumn.HeaderText = "Мастер сервиса";
-            this.MasterColumn.Name = "MasterColumn";
-            this.MasterColumn.ReadOnly = true;
-            this.MasterColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MasterColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // WorkColumn
-            // 
-            this.WorkColumn.HeaderText = "Проводимая работа по ремонту";
-            this.WorkColumn.Name = "WorkColumn";
-            this.WorkColumn.ReadOnly = true;
-            this.WorkColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // BeginDateColumn
-            // 
-            this.BeginDateColumn.HeaderText = "Дата начала ремонта";
-            this.BeginDateColumn.Name = "BeginDateColumn";
-            this.BeginDateColumn.ReadOnly = true;
-            this.BeginDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // EndDateColumn
-            // 
-            this.EndDateColumn.HeaderText = "Дата окончания ремонта";
-            this.EndDateColumn.Name = "EndDateColumn";
-            this.EndDateColumn.ReadOnly = true;
             // 
             // CarriersRepairsForm
             // 
