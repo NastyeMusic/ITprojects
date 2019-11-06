@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Instructor_comboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -74,6 +74,14 @@
             this.ReloadReplaceableCarriers_button = new System.Windows.Forms.Button();
             this.ReloadReplacingCarriers_button = new System.Windows.Forms.Button();
             this.ReloadInstructors_button = new System.Windows.Forms.Button();
+            this.DirectionReplaceableCarrier_checkBox = new System.Windows.Forms.CheckBox();
+            this.SearchReplaceableCarrier_button = new System.Windows.Forms.Button();
+            this.SearchReplaceableCarrier_textBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.DirectionReplacingCarrier_checkBox = new System.Windows.Forms.CheckBox();
+            this.SearchReplacingCarrier_button = new System.Windows.Forms.Button();
+            this.SearchReplacingCarrier_textBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ReplaceableCarriers_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReplacingCarriers_dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -101,7 +109,7 @@
             // label6
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Location = new System.Drawing.Point(12, 47);
+            this.label6.Location = new System.Drawing.Point(12, 45);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(982, 2);
             this.label6.TabIndex = 38;
@@ -111,7 +119,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 57);
+            this.label1.Location = new System.Drawing.Point(12, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(244, 18);
             this.label1.TabIndex = 39;
@@ -122,14 +130,14 @@
             this.ReplaceableCarriers_dataGridView.AllowUserToAddRows = false;
             this.ReplaceableCarriers_dataGridView.AllowUserToDeleteRows = false;
             this.ReplaceableCarriers_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ReplaceableCarriers_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ReplaceableCarriers_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.ReplaceableCarriers_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ReplaceableCarriers_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID1Column,
@@ -141,30 +149,30 @@
             this.Category1Column,
             this.Status1Column,
             this.FinalName});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ReplaceableCarriers_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ReplaceableCarriers_dataGridView.Location = new System.Drawing.Point(12, 78);
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ReplaceableCarriers_dataGridView.DefaultCellStyle = dataGridViewCellStyle26;
+            this.ReplaceableCarriers_dataGridView.Location = new System.Drawing.Point(12, 83);
             this.ReplaceableCarriers_dataGridView.MultiSelect = false;
             this.ReplaceableCarriers_dataGridView.Name = "ReplaceableCarriers_dataGridView";
             this.ReplaceableCarriers_dataGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ReplaceableCarriers_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ReplaceableCarriers_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.ReplaceableCarriers_dataGridView.RowHeadersVisible = false;
             this.ReplaceableCarriers_dataGridView.RowTemplate.Height = 24;
             this.ReplaceableCarriers_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ReplaceableCarriers_dataGridView.Size = new System.Drawing.Size(931, 204);
+            this.ReplaceableCarriers_dataGridView.Size = new System.Drawing.Size(931, 199);
             this.ReplaceableCarriers_dataGridView.TabIndex = 40;
             this.ReplaceableCarriers_dataGridView.SelectionChanged += new System.EventHandler(this.ReplaceableCarriers_dataGridView_SelectionChanged);
             // 
@@ -259,7 +267,7 @@
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(12, 311);
+            this.label5.Location = new System.Drawing.Point(12, 307);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(982, 2);
             this.label5.TabIndex = 43;
@@ -290,14 +298,14 @@
             this.ReplacingCarriers_dataGridView.AllowUserToAddRows = false;
             this.ReplacingCarriers_dataGridView.AllowUserToDeleteRows = false;
             this.ReplacingCarriers_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ReplacingCarriers_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ReplacingCarriers_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.ReplacingCarriers_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ReplacingCarriers_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID2Column,
@@ -308,30 +316,30 @@
             this.Transmission2Column,
             this.Category2Column,
             this.Status2Column});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ReplacingCarriers_dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ReplacingCarriers_dataGridView.Location = new System.Drawing.Point(12, 343);
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ReplacingCarriers_dataGridView.DefaultCellStyle = dataGridViewCellStyle29;
+            this.ReplacingCarriers_dataGridView.Location = new System.Drawing.Point(12, 346);
             this.ReplacingCarriers_dataGridView.MultiSelect = false;
             this.ReplacingCarriers_dataGridView.Name = "ReplacingCarriers_dataGridView";
             this.ReplacingCarriers_dataGridView.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ReplacingCarriers_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ReplacingCarriers_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.ReplacingCarriers_dataGridView.RowHeadersVisible = false;
             this.ReplacingCarriers_dataGridView.RowTemplate.Height = 24;
             this.ReplacingCarriers_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ReplacingCarriers_dataGridView.Size = new System.Drawing.Size(931, 204);
+            this.ReplacingCarriers_dataGridView.Size = new System.Drawing.Size(931, 201);
             this.ReplacingCarriers_dataGridView.TabIndex = 45;
             this.ReplacingCarriers_dataGridView.SelectionChanged += new System.EventHandler(this.ReplacingCarriers_dataGridView_SelectionChanged);
             // 
@@ -405,7 +413,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(12, 322);
+            this.label9.Location = new System.Drawing.Point(12, 325);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(206, 18);
             this.label9.TabIndex = 44;
@@ -494,7 +502,7 @@
             // 
             this.ReloadReplaceableCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ReloadReplaceableCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadReplaceableCarriers_button.Location = new System.Drawing.Point(949, 78);
+            this.ReloadReplaceableCarriers_button.Location = new System.Drawing.Point(949, 83);
             this.ReloadReplaceableCarriers_button.Name = "ReloadReplaceableCarriers_button";
             this.ReloadReplaceableCarriers_button.Size = new System.Drawing.Size(45, 35);
             this.ReloadReplaceableCarriers_button.TabIndex = 56;
@@ -505,7 +513,7 @@
             // 
             this.ReloadReplacingCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ReloadReplacingCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadReplacingCarriers_button.Location = new System.Drawing.Point(949, 343);
+            this.ReloadReplacingCarriers_button.Location = new System.Drawing.Point(949, 346);
             this.ReloadReplacingCarriers_button.Name = "ReloadReplacingCarriers_button";
             this.ReloadReplacingCarriers_button.Size = new System.Drawing.Size(45, 35);
             this.ReloadReplacingCarriers_button.TabIndex = 57;
@@ -523,6 +531,90 @@
             this.ReloadInstructors_button.UseVisualStyleBackColor = true;
             this.ReloadInstructors_button.Click += new System.EventHandler(this.ReloadInstructors_button_Click);
             // 
+            // DirectionReplaceableCarrier_checkBox
+            // 
+            this.DirectionReplaceableCarrier_checkBox.AutoSize = true;
+            this.DirectionReplaceableCarrier_checkBox.Checked = true;
+            this.DirectionReplaceableCarrier_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DirectionReplaceableCarrier_checkBox.Location = new System.Drawing.Point(892, 55);
+            this.DirectionReplaceableCarrier_checkBox.Name = "DirectionReplaceableCarrier_checkBox";
+            this.DirectionReplaceableCarrier_checkBox.Size = new System.Drawing.Size(102, 21);
+            this.DirectionReplaceableCarrier_checkBox.TabIndex = 86;
+            this.DirectionReplaceableCarrier_checkBox.Text = "поиск вниз";
+            this.DirectionReplaceableCarrier_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // SearchReplaceableCarrier_button
+            // 
+            this.SearchReplaceableCarrier_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchReplaceableCarrier_button.Location = new System.Drawing.Point(788, 49);
+            this.SearchReplaceableCarrier_button.Name = "SearchReplaceableCarrier_button";
+            this.SearchReplaceableCarrier_button.Size = new System.Drawing.Size(98, 31);
+            this.SearchReplaceableCarrier_button.TabIndex = 85;
+            this.SearchReplaceableCarrier_button.Text = "Найти";
+            this.SearchReplaceableCarrier_button.UseVisualStyleBackColor = true;
+            this.SearchReplaceableCarrier_button.Click += new System.EventHandler(this.SearchReplaceableCarrier_button_Click);
+            // 
+            // SearchReplaceableCarrier_textBox
+            // 
+            this.SearchReplaceableCarrier_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchReplaceableCarrier_textBox.Location = new System.Drawing.Point(403, 53);
+            this.SearchReplaceableCarrier_textBox.Name = "SearchReplaceableCarrier_textBox";
+            this.SearchReplaceableCarrier_textBox.Size = new System.Drawing.Size(379, 24);
+            this.SearchReplaceableCarrier_textBox.TabIndex = 84;
+            this.SearchReplaceableCarrier_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchReplaceableCarrier_textBox_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(321, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 18);
+            this.label4.TabIndex = 83;
+            this.label4.Text = "Поиск ТС";
+            // 
+            // DirectionReplacingCarrier_checkBox
+            // 
+            this.DirectionReplacingCarrier_checkBox.AutoSize = true;
+            this.DirectionReplacingCarrier_checkBox.Checked = true;
+            this.DirectionReplacingCarrier_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DirectionReplacingCarrier_checkBox.Location = new System.Drawing.Point(892, 318);
+            this.DirectionReplacingCarrier_checkBox.Name = "DirectionReplacingCarrier_checkBox";
+            this.DirectionReplacingCarrier_checkBox.Size = new System.Drawing.Size(102, 21);
+            this.DirectionReplacingCarrier_checkBox.TabIndex = 90;
+            this.DirectionReplacingCarrier_checkBox.Text = "поиск вниз";
+            this.DirectionReplacingCarrier_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // SearchReplacingCarrier_button
+            // 
+            this.SearchReplacingCarrier_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchReplacingCarrier_button.Location = new System.Drawing.Point(788, 312);
+            this.SearchReplacingCarrier_button.Name = "SearchReplacingCarrier_button";
+            this.SearchReplacingCarrier_button.Size = new System.Drawing.Size(98, 31);
+            this.SearchReplacingCarrier_button.TabIndex = 89;
+            this.SearchReplacingCarrier_button.Text = "Найти";
+            this.SearchReplacingCarrier_button.UseVisualStyleBackColor = true;
+            this.SearchReplacingCarrier_button.Click += new System.EventHandler(this.SearchReplacingCarrier_button_Click);
+            // 
+            // SearchReplacingCarrier_textBox
+            // 
+            this.SearchReplacingCarrier_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchReplacingCarrier_textBox.Location = new System.Drawing.Point(403, 316);
+            this.SearchReplacingCarrier_textBox.Name = "SearchReplacingCarrier_textBox";
+            this.SearchReplacingCarrier_textBox.Size = new System.Drawing.Size(379, 24);
+            this.SearchReplacingCarrier_textBox.TabIndex = 88;
+            this.SearchReplacingCarrier_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchReplacingCarrier_textBox_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(321, 319);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 18);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "Поиск ТС";
+            // 
             // AddEditReplacementCarrierForm
             // 
             this.AcceptButton = this.Save_button;
@@ -531,6 +623,14 @@
             this.CancelButton = this.Cancel_button;
             this.ClientSize = new System.Drawing.Size(1006, 674);
             this.ControlBox = false;
+            this.Controls.Add(this.DirectionReplacingCarrier_checkBox);
+            this.Controls.Add(this.SearchReplacingCarrier_button);
+            this.Controls.Add(this.SearchReplacingCarrier_textBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.DirectionReplaceableCarrier_checkBox);
+            this.Controls.Add(this.SearchReplaceableCarrier_button);
+            this.Controls.Add(this.SearchReplaceableCarrier_textBox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ReloadInstructors_button);
             this.Controls.Add(this.ReloadReplacingCarriers_button);
             this.Controls.Add(this.ReloadReplaceableCarriers_button);
@@ -613,5 +713,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Category1Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status1Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinalName;
+        private System.Windows.Forms.CheckBox DirectionReplaceableCarrier_checkBox;
+        private System.Windows.Forms.Button SearchReplaceableCarrier_button;
+        private System.Windows.Forms.TextBox SearchReplaceableCarrier_textBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox DirectionReplacingCarrier_checkBox;
+        private System.Windows.Forms.Button SearchReplacingCarrier_button;
+        private System.Windows.Forms.TextBox SearchReplacingCarrier_textBox;
+        private System.Windows.Forms.Label label7;
     }
 }

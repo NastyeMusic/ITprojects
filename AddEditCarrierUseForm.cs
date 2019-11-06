@@ -33,6 +33,9 @@ namespace Автошкола
         int SelectedCarrierID = -1;
         bool FormLoad = false;
 
+        string LastSearchingText = "";
+        int LastFoundRow = -1;
+
         void ReloadCarriers()
         {
             dataSetForCarriers = BusinessLogic.ReadCarriers();
@@ -213,6 +216,24 @@ namespace Автошкола
             SelectedCarrierID = -1;
             ReloadCarriers();
             ChangeSelectedCarrier();
+        }
+
+        private void Search_button_Click(object sender, EventArgs e)
+        {
+            SearchingInDataGridViewClass.Search(Search_textBox, ref Carriers_dataGridView, Direction_checkBox,
+                ref LastSearchingText, ref LastFoundRow, "BrandColumn", "ModelColumn", "StateNumberColumn");
+        }
+
+        private void Search_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char)e.KeyChar == (Char)Keys.Enter)
+            {
+                Search_button_Click(sender, e);
+            }
+            if ((char)e.KeyChar == (Char)Keys.Back)
+            {
+                LastSearchingText = "";
+            }
         }
     }
 }

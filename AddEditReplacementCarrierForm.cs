@@ -39,6 +39,12 @@ namespace Автошкола
 
         bool FormLoad = false;
 
+        string LastReplaceableCarrierSearchingText = "";
+        int LastReplaceableCarrierFoundRow = -1;
+
+        string LastReplacingCarrierSearchingText = "";
+        int LastReplacingCarrierFoundRow = -1;
+
         void ReloadReplaceableCarriers(int InstructorID)
         {
             ReplaceableCarriers_dataGridView.Rows.Clear();
@@ -361,6 +367,44 @@ namespace Автошкола
             {
                 SelectedReplacingCarrierID = -1;
                 SelectedReplacingCarrier_label.Text = "";
+            }
+        }
+
+        private void SearchReplaceableCarrier_button_Click(object sender, EventArgs e)
+        {
+            SearchingInDataGridViewClass.Search(SearchReplaceableCarrier_textBox, ref ReplaceableCarriers_dataGridView, 
+                DirectionReplaceableCarrier_checkBox, ref LastReplaceableCarrierSearchingText, ref LastReplaceableCarrierFoundRow, 
+                "Brand1Column", "Model1Column", "StateNumber1Column");
+        }
+
+        private void SearchReplaceableCarrier_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char)e.KeyChar == (Char)Keys.Enter)
+            {
+                SearchReplaceableCarrier_button_Click(sender, e);
+            }
+            if ((char)e.KeyChar == (Char)Keys.Back)
+            {
+                LastReplaceableCarrierSearchingText = "";
+            }
+        }
+
+        private void SearchReplacingCarrier_button_Click(object sender, EventArgs e)
+        {
+            SearchingInDataGridViewClass.Search(SearchReplacingCarrier_textBox, ref ReplacingCarriers_dataGridView, 
+                DirectionReplacingCarrier_checkBox, ref LastReplacingCarrierSearchingText, ref LastReplacingCarrierFoundRow, 
+                "Brand2Column", "Model2Column", "StateNumber2Column");
+        }
+
+        private void SearchReplacingCarrier_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char)e.KeyChar == (Char)Keys.Enter)
+            {
+                SearchReplacingCarrier_button_Click(sender, e);
+            }
+            if ((char)e.KeyChar == (Char)Keys.Back)
+            {
+                LastReplacingCarrierSearchingText = "";
             }
         }
 

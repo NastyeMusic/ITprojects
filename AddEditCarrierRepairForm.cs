@@ -36,6 +36,12 @@ namespace Автошкола
 
         bool FormLoad = false;
 
+        string LastCarrierSearchingText = "";
+        int LastCarrierFoundRow = -1;
+
+        string LastMasterSearchingText = "";
+        int LastMasterFoundRow = -1;
+
         void ReloadCarriers()
         {
             dataSetForCarriers = BusinessLogic.ReadCarriers();
@@ -336,6 +342,42 @@ namespace Автошкола
                         Convert.ToDateTime(BeginRepair_dateTimePicker.Text).Date,
                         Convert.ToDateTime(EndRepair_dateTimePicker.Text).Date);
                 }
+            }
+        }
+
+        private void SearchCarrier_button_Click(object sender, EventArgs e)
+        {
+            SearchingInDataGridViewClass.Search(SearchCarrier_textBox, ref Carriers_dataGridView, DirectionCarrier_checkBox,
+                ref LastCarrierSearchingText, ref LastCarrierFoundRow, "BrandColumn", "ModelColumn", "StateNumberColumn");
+        }
+
+        private void SearchCarrier_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char)e.KeyChar == (Char)Keys.Enter)
+            {
+                SearchCarrier_button_Click(sender, e);
+            }
+            if ((char)e.KeyChar == (Char)Keys.Back)
+            {
+                LastCarrierSearchingText = "";
+            }
+        }
+
+        private void SearchMaster_button_Click(object sender, EventArgs e)
+        {
+            SearchingInDataGridViewClass.Search(SearchMaster_textBox, ref Masters_dataGridView, DirectionMaster_checkBox,
+                ref LastMasterSearchingText, ref LastMasterFoundRow, "SurnameColumn", "FirstNameColumn", "PatronymicNameColumn");
+        }
+
+        private void SearchMaster_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char)e.KeyChar == (Char)Keys.Enter)
+            {
+                SearchMaster_button_Click(sender, e);
+            }
+            if ((char)e.KeyChar == (Char)Keys.Back)
+            {
+                LastMasterSearchingText = "";
             }
         }
 
