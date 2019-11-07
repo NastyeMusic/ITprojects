@@ -100,6 +100,9 @@ namespace Автошкола
         JournalUsesForm JournalUsesForm = new JournalUsesForm();
         static bool JournalUsesFormOpened = false;
 
+        AboutProgramForm AboutProgramForm;
+        public static bool AboutProgramFormOpened = false;
+
         // здесь храним названия всех форм, открывающихся с главного окна
         static public string[] FormsNames = new string[21];
 
@@ -648,6 +651,18 @@ namespace Автошкола
             {
                 JournalUsesForm.Activate();
             }
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!AboutProgramFormOpened)
+            {
+                AboutProgramForm = new AboutProgramForm();
+                AboutProgramForm.Show();
+                AboutProgramFormOpened = true;
+            }
+            else
+                AboutProgramForm.Activate();
         }
     }
 }
