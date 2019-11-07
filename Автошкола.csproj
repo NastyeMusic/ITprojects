@@ -236,6 +236,18 @@
     </Compile>
     <Compile Include="SearchingInDataGridViewClass.cs" />
     <Compile Include="ServiceMastersDA.cs" />
+    <Compile Include="ServiceMastersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceMastersForm.Designer.cs">
+      <DependentUpon>ServiceMastersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceMastersRepairsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceMastersRepairsForm.Designer.cs">
+      <DependentUpon>ServiceMastersRepairsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentsDA.cs" />
     <Compile Include="TheoryLessonsDA.cs" />
     <Compile Include="TheoryTeachersDA.cs" />
@@ -373,6 +385,12 @@
     </Compile>
     <EmbeddedResource Include="ReplacementsCarriersForm.resx">
       <DependentUpon>ReplacementsCarriersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceMastersForm.resx">
+      <DependentUpon>ServiceMastersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceMastersRepairsForm.resx">
+      <DependentUpon>ServiceMastersRepairsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TheoryTeachersForm.resx">
       <DependentUpon>TheoryTeachersForm.cs</DependentUpon>

@@ -23,15 +23,12 @@ namespace Автошкола
         string LastSearchingText = "";
         int LastFoundRow = -1;
 
-        WorkStatusesForm WorkStatusesForm = new WorkStatusesForm();
-        static public bool WorkStatusesFormOpened = false;
-
         bool FormLoad = false;
         bool FirstLoad = true;
 
         void ReloadTheoryTeachers()
         {
-            dataSet = BusinessLogic.ReadWorkers();
+            dataSet = BusinessLogic.ReadTheoryTeachers();
             TheoryTeachers_dataGridView.DataSource = dataSet;
             TheoryTeachers_dataGridView.DataMember = "TheoryTeachers";
 

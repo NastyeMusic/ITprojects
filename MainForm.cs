@@ -94,6 +94,9 @@ namespace Автошкола
         TheoryTeachersForm TheoryTeachersForm = new TheoryTeachersForm();
         static bool TheoryTeachersFormOpened = false;
 
+        ServiceMastersForm ServiceMastersForm = new ServiceMastersForm();
+        static bool ServiceMastersFormOpened = false;
+
         // здесь храним названия всех форм, открывающихся с главного окна
         static public string[] FormsNames = new string[21];
 
@@ -116,9 +119,9 @@ namespace Автошкола
                 case "TheoryTeachersForm":
                     TheoryTeachersFormOpened = b;
                     break;
-                /*case "ServiceMastersForm":
+                case "ServiceMastersForm":
                     ServiceMastersFormOpened = b;
-                    break;*/
+                    break;
                 case "CarriersForm":
                     CarriersFormOpened = b;
                     break;
@@ -615,6 +618,19 @@ namespace Автошкола
             else
             {
                 TheoryTeachersForm.Activate();
+            }
+        }
+
+        private void мастераСервисаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!ServiceMastersFormOpened)
+            {
+                ServiceMastersForm.Show();
+                ServiceMastersFormOpened = true;
+            }
+            else
+            {
+                ServiceMastersForm.Activate();
             }
         }
     }

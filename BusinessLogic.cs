@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Автошкола
 {
@@ -2140,6 +2141,46 @@ namespace Автошкола
                     MessageBox.Show("Сотрудника невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления сотрудника");
                 else
                     MessageBox.Show(e.Message, "Ошибка записи в базу данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
+
+        public DataSet ReadCarriersByServiceMasterID(int ServiceMasterID)
+        {
+            DataSet ds = new DataSet();
+            ds.Tables.Add("RepairsOfServiceMaster");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("ID");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("Brand");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("Model");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("StateNumber");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("Color");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("Transmission");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("Category");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("Status");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("Work");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("BeginDate");
+            ds.Tables["RepairsOfServiceMaster"].Columns.Add("EndDate");
+
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+
+                multipleDA.ReadCarriersByServiceMasterID(ds, abstrCon, abstrTr, ServiceMasterID);
+
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
             finally

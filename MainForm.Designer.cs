@@ -199,6 +199,7 @@
             this.мастераСервисаToolStripMenuItem.Name = "мастераСервисаToolStripMenuItem";
             this.мастераСервисаToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
             this.мастераСервисаToolStripMenuItem.Text = "Мастера сервиса";
+            this.мастераСервисаToolStripMenuItem.Click += new System.EventHandler(this.мастераСервисаToolStripMenuItem_Click);
             // 
             // техникаToolStripMenuItem
             // 

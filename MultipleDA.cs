@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Автошкола
 {
@@ -68,6 +69,21 @@ namespace Автошкола
             dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
             dataAdapter.SelectCommand.Parameters.AddWithValue("@StatusName", StatusName);
             dataAdapter.Fill(dataSet, "Carriers");
+        }
+
+        public void ReadCarriersByServiceMasterID(DataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int ServiceMasterID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Tr.Transmission, Cat.Name AS [Category], CarSt.Name AS [Status], CarR.Work, CarR.BeginDate, CarR.EndDate " +
+                "FROM Carriers Cr " +
+                "INNER JOIN CarriersRepairs CarR ON Cr.ID=CarR.Carrier " +
+                "INNER JOIN Transmissions Tr ON Cr.Transmission=Tr.ID " +
+                "INNER JOIN CarriersStatuses CarSt ON Cr.Status=CarSt.ID " +
+                "INNER JOIN Categories Cat ON Cr.Category=Cat.ID " +
+                "WHERE CarR.Master = @ServiceMasterID";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@ServiceMasterID", ServiceMasterID);
+            dataAdapter.Fill(dataSet, "RepairsOfServiceMaster");
         }
     }
 }
