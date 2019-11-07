@@ -181,6 +181,12 @@
     <Compile Include="CarriersStatusesForm.Designer.cs">
       <DependentUpon>CarriersStatusesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CurrentStatusesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurrentStatusesForm.Designer.cs">
+      <DependentUpon>CurrentStatusesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="JournalUsesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CarriersStatusesForm.resx">
       <DependentUpon>CarriersStatusesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurrentStatusesForm.resx">
+      <DependentUpon>CurrentStatusesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JournalUsesForm.resx">
       <DependentUpon>JournalUsesForm.cs</DependentUpon>
