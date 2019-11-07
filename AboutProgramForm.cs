@@ -19,7 +19,7 @@ namespace Автошкола
 
         private void AboutProgramForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MainForm.AboutProgramFormOpened = false;
+            MainForm.Perem(MainForm.FormsNames[20], false);
         }
 
         private void Close_button_Click(object sender, EventArgs e)

@@ -170,9 +170,9 @@ namespace Автошкола
                 case "ReplacementCarriers":
                     ReplacementsCarriersFormOpened = b;
                     break;
-                /*case "AboutProgramForm":
-                    CarriersFormOpened = b;
-                    break;*/
+                case "AboutProgramForm":
+                    AboutProgramFormOpened = b;
+                    break;
             }
         }
 
