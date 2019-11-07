@@ -97,6 +97,9 @@ namespace Автошкола
         ServiceMastersForm ServiceMastersForm = new ServiceMastersForm();
         static bool ServiceMastersFormOpened = false;
 
+        JournalUsesForm JournalUsesForm = new JournalUsesForm();
+        static bool JournalUsesFormOpened = false;
+
         // здесь храним названия всех форм, открывающихся с главного окна
         static public string[] FormsNames = new string[21];
 
@@ -137,10 +140,10 @@ namespace Автошкола
                 case "CarriersRepairsForm":
                     CarriersRepairsFormOpened = b;
                     break;
-                /*case "JournalUsesForm":
-                    CarriersFormOpened = b;
+                case "JournalUsesForm":
+                    JournalUsesFormOpened = b;
                     break;
-                case "CurrentStatusesForm":
+                /*case "CurrentStatusesForm":
                     CarriersFormOpened = b;
                     break;*/
                 case "StudentsScheduleForm":
@@ -631,6 +634,19 @@ namespace Автошкола
             else
             {
                 ServiceMastersForm.Activate();
+            }
+        }
+
+        private void журналИспользованияТСToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!JournalUsesFormOpened)
+            {
+                JournalUsesForm.Show();
+                JournalUsesFormOpened = true;
+            }
+            else
+            {
+                JournalUsesForm.Activate();
             }
         }
     }

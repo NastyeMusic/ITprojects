@@ -255,6 +255,7 @@
             this.журналИспользованияТСToolStripMenuItem.Name = "журналИспользованияТСToolStripMenuItem";
             this.журналИспользованияТСToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.журналИспользованияТСToolStripMenuItem.Text = "Журнал использования ТС";
+            this.журналИспользованияТСToolStripMenuItem.Click += new System.EventHandler(this.журналИспользованияТСToolStripMenuItem_Click);
             // 
             // текущиеСостоянияТСToolStripMenuItem
             // 
