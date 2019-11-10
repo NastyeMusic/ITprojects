@@ -262,6 +262,7 @@
             this.текущиеСостоянияТСToolStripMenuItem.Name = "текущиеСостоянияТСToolStripMenuItem";
             this.текущиеСостоянияТСToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.текущиеСостоянияТСToolStripMenuItem.Text = "Текущие состояния ТС";
+            this.текущиеСостоянияТСToolStripMenuItem.Click += new System.EventHandler(this.текущиеСостоянияТСToolStripMenuItem_Click);
             // 
             // расписаниеToolStripMenuItem
             // 
@@ -344,7 +345,7 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 

@@ -101,7 +101,10 @@ namespace Автошкола
         static bool JournalUsesFormOpened = false;
 
         AboutProgramForm AboutProgramForm;
-        public static bool AboutProgramFormOpened = false;
+        static bool AboutProgramFormOpened = false;
+
+        CurrentStatusesForm CurrentStatusesForm;
+        static bool CurrentStatusesFormOpened = false;
 
         // здесь храним названия всех форм, открывающихся с главного окна
         static public string[] FormsNames = new string[21];
@@ -146,9 +149,9 @@ namespace Автошкола
                 case "JournalUsesForm":
                     JournalUsesFormOpened = b;
                     break;
-                /*case "CurrentStatusesForm":
-                    CarriersFormOpened = b;
-                    break;*/
+                case "CurrentStatusesForm":
+                    CurrentStatusesFormOpened = b;
+                    break;
                 case "StudentsScheduleForm":
                     StudentsScheduleFormOpened = b;
                     break;
@@ -686,6 +689,18 @@ namespace Автошкола
             }
             else
                 AboutProgramForm.Activate();
+        }
+
+        private void текущиеСостоянияТСToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CurrentStatusesFormOpened)
+            {
+                CurrentStatusesForm = new CurrentStatusesForm();
+                CurrentStatusesForm.Show();
+                CurrentStatusesFormOpened = true;
+            }
+            else
+                CurrentStatusesForm.Activate();
         }
     }
 }

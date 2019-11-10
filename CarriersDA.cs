@@ -65,5 +65,13 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@CategoryID", CategoryID);
             dataAdapter.Fill(dataSet, "Carriers");
         }
+
+        public void ReadByStatusID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int StatusID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Carriers WHERE Status = @StatusID", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@StatusID", StatusID);
+            dataAdapter.Fill(dataSet, "Carriers");
+        }
     }
 }
