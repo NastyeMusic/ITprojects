@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ReloadCarriers_button = new System.Windows.Forms.Button();
             this.ReloadCarriersStatuses_button = new System.Windows.Forms.Button();
@@ -46,14 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CarriersByCondition_dataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewComboBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.GetCarriersByCondition_button = new System.Windows.Forms.Button();
             this.Condition_comboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,6 +57,14 @@
             this.GetCarriersNeedsInReplacement_button = new System.Windows.Forms.Button();
             this.Close_button = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.ID2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StateNumber2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Color2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Transmission2Column = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Category2Column = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Status2Column = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersByStatus_dataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -138,8 +138,8 @@
             this.CarriersByStatus_dataGridView.Name = "CarriersByStatus_dataGridView";
             this.CarriersByStatus_dataGridView.ReadOnly = true;
             this.CarriersByStatus_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersByStatus_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersByStatus_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.CarriersByStatus_dataGridView.RowTemplate.Height = 24;
             this.CarriersByStatus_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersByStatus_dataGridView.Size = new System.Drawing.Size(1149, 196);
@@ -258,91 +258,25 @@
             this.CarriersByCondition_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.CarriersByCondition_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CarriersByCondition_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewComboBoxColumn1,
-            this.dataGridViewComboBoxColumn2,
-            this.dataGridViewComboBoxColumn3});
+            this.ID2Column,
+            this.Brand2Column,
+            this.Model2Column,
+            this.StateNumber2Column,
+            this.Color2Column,
+            this.Transmission2Column,
+            this.Category2Column,
+            this.Status2Column});
             this.CarriersByCondition_dataGridView.Location = new System.Drawing.Point(6, 60);
             this.CarriersByCondition_dataGridView.MultiSelect = false;
             this.CarriersByCondition_dataGridView.Name = "CarriersByCondition_dataGridView";
             this.CarriersByCondition_dataGridView.ReadOnly = true;
             this.CarriersByCondition_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersByCondition_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersByCondition_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.CarriersByCondition_dataGridView.RowTemplate.Height = 24;
             this.CarriersByCondition_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersByCondition_dataGridView.Size = new System.Drawing.Size(1149, 192);
             this.CarriersByCondition_dataGridView.TabIndex = 35;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Код";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 42;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Марка";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 82;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Модель";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 93;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Гос.рег.№";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 108;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Цвет";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 71;
-            // 
-            // dataGridViewComboBoxColumn1
-            // 
-            this.dataGridViewComboBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewComboBoxColumn1.HeaderText = "Трансмиссия";
-            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            this.dataGridViewComboBoxColumn1.ReadOnly = true;
-            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewComboBoxColumn1.Width = 129;
-            // 
-            // dataGridViewComboBoxColumn2
-            // 
-            this.dataGridViewComboBoxColumn2.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewComboBoxColumn2.HeaderText = "Категория";
-            this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
-            this.dataGridViewComboBoxColumn2.ReadOnly = true;
-            this.dataGridViewComboBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComboBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewComboBoxColumn2.Width = 109;
-            // 
-            // dataGridViewComboBoxColumn3
-            // 
-            this.dataGridViewComboBoxColumn3.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewComboBoxColumn3.HeaderText = "Статус";
-            this.dataGridViewComboBoxColumn3.Name = "dataGridViewComboBoxColumn3";
-            this.dataGridViewComboBoxColumn3.ReadOnly = true;
-            this.dataGridViewComboBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComboBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewComboBoxColumn3.Width = 85;
             // 
             // GetCarriersByCondition_button
             // 
@@ -352,10 +286,14 @@
             this.GetCarriersByCondition_button.TabIndex = 7;
             this.GetCarriersByCondition_button.Text = "Получить";
             this.GetCarriersByCondition_button.UseVisualStyleBackColor = true;
+            this.GetCarriersByCondition_button.Click += new System.EventHandler(this.GetCarriersByCondition_button_Click);
             // 
             // Condition_comboBox
             // 
             this.Condition_comboBox.FormattingEnabled = true;
+            this.Condition_comboBox.Items.AddRange(new object[] {
+            "Занято",
+            "Свободно"});
             this.Condition_comboBox.Location = new System.Drawing.Point(758, 25);
             this.Condition_comboBox.Name = "Condition_comboBox";
             this.Condition_comboBox.Size = new System.Drawing.Size(239, 26);
@@ -460,6 +398,72 @@
             this.splitContainer1.SplitterDistance = 264;
             this.splitContainer1.TabIndex = 57;
             // 
+            // ID2Column
+            // 
+            this.ID2Column.HeaderText = "Код";
+            this.ID2Column.Name = "ID2Column";
+            this.ID2Column.ReadOnly = true;
+            this.ID2Column.Visible = false;
+            this.ID2Column.Width = 42;
+            // 
+            // Brand2Column
+            // 
+            this.Brand2Column.HeaderText = "Марка";
+            this.Brand2Column.Name = "Brand2Column";
+            this.Brand2Column.ReadOnly = true;
+            this.Brand2Column.Width = 82;
+            // 
+            // Model2Column
+            // 
+            this.Model2Column.HeaderText = "Модель";
+            this.Model2Column.Name = "Model2Column";
+            this.Model2Column.ReadOnly = true;
+            this.Model2Column.Width = 93;
+            // 
+            // StateNumber2Column
+            // 
+            this.StateNumber2Column.HeaderText = "Гос.рег.№";
+            this.StateNumber2Column.Name = "StateNumber2Column";
+            this.StateNumber2Column.ReadOnly = true;
+            this.StateNumber2Column.Width = 108;
+            // 
+            // Color2Column
+            // 
+            this.Color2Column.HeaderText = "Цвет";
+            this.Color2Column.Name = "Color2Column";
+            this.Color2Column.ReadOnly = true;
+            this.Color2Column.Width = 71;
+            // 
+            // Transmission2Column
+            // 
+            this.Transmission2Column.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Transmission2Column.HeaderText = "Трансмиссия";
+            this.Transmission2Column.Name = "Transmission2Column";
+            this.Transmission2Column.ReadOnly = true;
+            this.Transmission2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Transmission2Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Transmission2Column.Width = 129;
+            // 
+            // Category2Column
+            // 
+            this.Category2Column.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Category2Column.HeaderText = "Категория";
+            this.Category2Column.Name = "Category2Column";
+            this.Category2Column.ReadOnly = true;
+            this.Category2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Category2Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Category2Column.Width = 109;
+            // 
+            // Status2Column
+            // 
+            this.Status2Column.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Status2Column.HeaderText = "Статус";
+            this.Status2Column.Name = "Status2Column";
+            this.Status2Column.ReadOnly = true;
+            this.Status2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Status2Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Status2Column.Width = 85;
+            // 
             // CurrentStatusesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -514,17 +518,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button GetCarriersByCondition_button;
         private System.Windows.Forms.DataGridView CarriersByCondition_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button GetCarriersNeedsInReplacement_button;
         private System.Windows.Forms.Button Close_button;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID2Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Brand2Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model2Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StateNumber2Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Color2Column;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Transmission2Column;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Category2Column;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Status2Column;
     }
 }

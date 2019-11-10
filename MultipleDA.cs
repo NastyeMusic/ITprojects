@@ -85,5 +85,21 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@ServiceMasterID", ServiceMasterID);
             dataAdapter.Fill(dataSet, "RepairsOfServiceMaster");
         }
+
+        public void ReadBusyCarriers(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, DateTime Date, TimeSpan Time, int LessonTime)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status " +
+                "FROM Carriers Cr " +
+                "INNER JOIN CarriersUses CU ON Cr.ID=CU.Carrier " +
+                "INNER JOIN Students St ON CU.ID=St.CarrierUse " +
+                "INNER JOIN PracticeLessons PL ON St.ID=PL.Student " +
+                "WHERE PL.AppointedDate = @Date AND PL.AppointedTime <= @Time AND DATEADD(MINUTE, @LessonTime, PL.AppointedTime) > @Time";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Date", Date);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Time", Time);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@LessonTime", LessonTime);
+            dataAdapter.Fill(dataSet, "Carriers");
+        }
     }
 }

@@ -92,6 +92,50 @@ namespace Автошкола
             SelectedCarrierStatus_comboBox_SelectedValueChanged(sender, e);
         }
 
+        private void GetCarriersByCondition_button_Click(object sender, EventArgs e)
+        {
+            if (Condition_comboBox.SelectedItem.ToString() == "Занято")
+            {
+                DateTime Date = Convert.ToDateTime(Date_dateTimePicker.Text).Date;
+                TimeSpan Time = Convert.ToDateTime(Time_dateTimePicker.Text).TimeOfDay;
+
+                dataSetForCarriersByCondition = BusinessLogic.ReadBusyCarriers(Date, Time, 45);
+                CarriersByCondition_dataGridView.DataSource = dataSetForCarriersByCondition;
+                CarriersByCondition_dataGridView.DataMember = "Carriers";
+
+                CarriersByCondition_dataGridView.Columns["ID"].Visible = false;
+                CarriersByCondition_dataGridView.Columns["Brand"].Visible = false;
+                CarriersByCondition_dataGridView.Columns["Model"].Visible = false;
+                CarriersByCondition_dataGridView.Columns["StateNumber"].Visible = false;
+                CarriersByCondition_dataGridView.Columns["Color"].Visible = false;
+                CarriersByCondition_dataGridView.Columns["Transmission"].Visible = false;
+                CarriersByCondition_dataGridView.Columns["Category"].Visible = false;
+                CarriersByCondition_dataGridView.Columns["Status"].Visible = false;
+                CarriersByCondition_dataGridView.Columns["FinalName"].Visible = false;
+
+                ID2Column.DataPropertyName = "ID";
+                Brand2Column.DataPropertyName = "Brand";
+                Model2Column.DataPropertyName = "Model";
+                StateNumber2Column.DataPropertyName = "StateNumber";
+                Color2Column.DataPropertyName = "Color";
+
+                Transmission2Column.DataSource = dataSetForCarriersByCondition.Transmissions;
+                Transmission2Column.DisplayMember = "Transmission";
+                Transmission2Column.ValueMember = "ID";
+                Transmission2Column.DataPropertyName = "Transmission";
+
+                Category2Column.DataSource = dataSetForCarriersByCondition.Categories;
+                Category2Column.DisplayMember = "Name";
+                Category2Column.ValueMember = "ID";
+                Category2Column.DataPropertyName = "Category";
+
+                Status2Column.DataSource = dataSetForCarriersByCondition.CarriersStatuses;
+                Status2Column.DisplayMember = "Name";
+                Status2Column.ValueMember = "ID";
+                Status2Column.DataPropertyName = "Status";
+            }
+        }
+
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
