@@ -96,11 +96,24 @@ namespace Автошкола
         {
             if (Condition_comboBox.SelectedItem.ToString() == "Занято")
             {
+                CarriersByCondition_dataGridView.Rows.Clear();
                 DateTime Date = Convert.ToDateTime(Date_dateTimePicker.Text).Date;
                 TimeSpan Time = Convert.ToDateTime(Time_dateTimePicker.Text).TimeOfDay;
 
-                dataSetForCarriersByCondition = BusinessLogic.ReadBusyCarriers(Date, Time, 45);
-                CarriersByCondition_dataGridView.DataSource = dataSetForCarriersByCondition;
+                AutoschoolDataSet TempDS = new AutoschoolDataSet();
+                TempDS = BusinessLogic.ReadBusyCarriers(Date, Time, 45);
+                for (int i = 0; i < TempDS.Carriers.Rows.Count; i++)
+                {
+                    CarriersByCondition_dataGridView.Rows.Add(TempDS.Carriers.Rows[i]["ID"], TempDS.Carriers.Rows[i]["Brand"],
+                        TempDS.Carriers.Rows[i]["Model"], TempDS.Carriers.Rows[i]["StateNumber"],
+                        TempDS.Carriers.Rows[i]["Color"],
+                        TempDS.Transmissions.Rows.Find(TempDS.Carriers.Rows[i]["Transmission"].ToString())["Transmission"],
+                        TempDS.Categories.Rows.Find(TempDS.Carriers.Rows[i]["Category"].ToString())["Name"],
+                        TempDS.CarriersStatuses.Rows.Find(TempDS.Carriers.Rows[i]["Status"].ToString())["Name"]);
+                }
+
+
+                /*CarriersByCondition_dataGridView.DataSource = dataSetForCarriersByCondition;
                 CarriersByCondition_dataGridView.DataMember = "Carriers";
 
                 CarriersByCondition_dataGridView.Columns["ID"].Visible = false;
@@ -132,7 +145,39 @@ namespace Автошкола
                 Status2Column.DataSource = dataSetForCarriersByCondition.CarriersStatuses;
                 Status2Column.DisplayMember = "Name";
                 Status2Column.ValueMember = "ID";
-                Status2Column.DataPropertyName = "Status";
+                Status2Column.DataPropertyName = "Status";*/
+            }
+            else if (Condition_comboBox.SelectedItem.ToString() == "Свободно")
+            {
+                CarriersByCondition_dataGridView.Rows.Clear();
+                DateTime Date = Convert.ToDateTime(Date_dateTimePicker.Text).Date;
+                TimeSpan Time = Convert.ToDateTime(Time_dateTimePicker.Text).TimeOfDay;
+
+                AutoschoolDataSet BusyCarriers = new AutoschoolDataSet();
+                BusyCarriers = BusinessLogic.ReadBusyCarriers(Date, Time, 45);
+                AutoschoolDataSet AllCarriers = BusinessLogic.ReadCarriers();
+                bool Find;
+                for (int i = 0; i < AllCarriers.Carriers.Rows.Count; i++)
+                {
+                    Find = false;
+                    for (int j = 0; j < BusyCarriers.Carriers.Rows.Count; j++)
+                    {
+                        if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == BusyCarriers.Carriers.Rows[j]["ID"].ToString())
+                        {
+                            Find = true;
+                            break;
+                        }
+                    }
+                    if (!Find)
+                    {
+                        CarriersByCondition_dataGridView.Rows.Add(AllCarriers.Carriers.Rows[i]["ID"], AllCarriers.Carriers.Rows[i]["Brand"],
+                                AllCarriers.Carriers.Rows[i]["Model"], AllCarriers.Carriers.Rows[i]["StateNumber"],
+                                AllCarriers.Carriers.Rows[i]["Color"],
+                                AllCarriers.Transmissions.Rows.Find(AllCarriers.Carriers.Rows[i]["Transmission"].ToString())["Transmission"],
+                                AllCarriers.Categories.Rows.Find(AllCarriers.Carriers.Rows[i]["Category"].ToString())["Name"],
+                                AllCarriers.CarriersStatuses.Rows.Find(AllCarriers.Carriers.Rows[i]["Status"].ToString())["Name"]);
+                    }
+                }
             }
         }
 

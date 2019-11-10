@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ReloadCarriers_button = new System.Windows.Forms.Button();
             this.ReloadCarriersStatuses_button = new System.Windows.Forms.Button();
@@ -62,9 +62,9 @@
             this.Model2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StateNumber2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Color2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Transmission2Column = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Category2Column = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Status2Column = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Transmission2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersByStatus_dataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -138,8 +138,8 @@
             this.CarriersByStatus_dataGridView.Name = "CarriersByStatus_dataGridView";
             this.CarriersByStatus_dataGridView.ReadOnly = true;
             this.CarriersByStatus_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersByStatus_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersByStatus_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.CarriersByStatus_dataGridView.RowTemplate.Height = 24;
             this.CarriersByStatus_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersByStatus_dataGridView.Size = new System.Drawing.Size(1149, 196);
@@ -271,8 +271,8 @@
             this.CarriersByCondition_dataGridView.Name = "CarriersByCondition_dataGridView";
             this.CarriersByCondition_dataGridView.ReadOnly = true;
             this.CarriersByCondition_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersByCondition_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersByCondition_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.CarriersByCondition_dataGridView.RowTemplate.Height = 24;
             this.CarriersByCondition_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersByCondition_dataGridView.Size = new System.Drawing.Size(1149, 192);
@@ -290,6 +290,7 @@
             // 
             // Condition_comboBox
             // 
+            this.Condition_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Condition_comboBox.FormattingEnabled = true;
             this.Condition_comboBox.Items.AddRange(new object[] {
             "Занято",
@@ -436,32 +437,26 @@
             // 
             // Transmission2Column
             // 
-            this.Transmission2Column.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.Transmission2Column.HeaderText = "Трансмиссия";
             this.Transmission2Column.Name = "Transmission2Column";
             this.Transmission2Column.ReadOnly = true;
             this.Transmission2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Transmission2Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Transmission2Column.Width = 129;
             // 
             // Category2Column
             // 
-            this.Category2Column.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.Category2Column.HeaderText = "Категория";
             this.Category2Column.Name = "Category2Column";
             this.Category2Column.ReadOnly = true;
             this.Category2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Category2Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Category2Column.Width = 109;
             // 
             // Status2Column
             // 
-            this.Status2Column.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.Status2Column.HeaderText = "Статус";
             this.Status2Column.Name = "Status2Column";
             this.Status2Column.ReadOnly = true;
             this.Status2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status2Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Status2Column.Width = 85;
             // 
             // CurrentStatusesForm
@@ -527,8 +522,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Model2Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn StateNumber2Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Color2Column;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Transmission2Column;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Category2Column;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Status2Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Transmission2Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category2Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status2Column;
     }
 }
