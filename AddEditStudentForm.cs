@@ -51,8 +51,10 @@ namespace Автошкола
             Group_comboBox.DisplayMember = "Name";
             Group_comboBox.ValueMember = "ID";
             if (NameOfGroup != null && NameOfGroup != "")
-                //Group_comboBox.DataBindings.Add("SelectedText", dataRow, NameOfGroup);
+            {
                 Group_comboBox.SelectedItem = NameOfGroup;
+                GroupSelected = true;
+            }
             else
                 Group_comboBox.SelectedIndex = -1;
             Group_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
@@ -63,7 +65,10 @@ namespace Автошкола
             Instructor_comboBox.ValueMember = "ID";
             Instructor_comboBox.AutoCompleteMode = AutoCompleteMode.Append;
             Instructor_comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-            Instructor_comboBox.Enabled = false;
+            if (GroupSelected)
+                Instructor_comboBox.Enabled = true; 
+            else
+                Instructor_comboBox.Enabled = false;
 
             FormLoad = true;
 
@@ -334,6 +339,7 @@ namespace Автошкола
                 {
                     MessageBox.Show("У выбранного инструктора отсутствуют прикрепленные ТС той категории, на которую обучается группа, выбранная курсанту. \nДо тех пор, пока инструктору не будет прикреплено хотя бы одно ТС соответствующей категории, работа с ним в этой группе будет невозможна.", "Ошибка");
                 }
+                ChangeSelectedCarrier();
             }
             else
             {
@@ -341,14 +347,14 @@ namespace Автошкола
                 ChoosenInstructor_label.Text = "";
                 SelectedInstructorID = -1;
             }
-            ChoosenCarrier_label.Text = "";
+            /*ChoosenCarrier_label.Text = "";
             SelectedCarrierID = -1;
             SelectedCarrierUseID = -1;
             if (CarriersUses_dataGridView.RowCount == 1)
             {
                 CarriersUses_dataGridView.Rows[0].Selected = true;
                 ChangeSelectedCarrier();
-            }
+            }*/
         }
 
         public byte[] imageToByteArray(System.Drawing.Image imageIn, string FileName)

@@ -89,8 +89,6 @@ namespace Автошкола
 
         private void ServiceMastersForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
             MainForm.Perem(MainForm.FormsNames[5], false);
         }
 

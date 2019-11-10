@@ -112,8 +112,6 @@ namespace Автошкола
 
         private void CarriersUsesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
             MainForm.Perem(MainForm.FormsNames[18], false);
         }
 

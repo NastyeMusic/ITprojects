@@ -114,8 +114,6 @@ namespace Автошкола
 
         private void StudentsScheduleForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
             MainForm.Perem(MainForm.FormsNames[13], false);
         }
 

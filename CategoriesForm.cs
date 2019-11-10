@@ -84,8 +84,6 @@ namespace Автошкола
 
         private void CategoriesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
             MainForm.Perem(MainForm.FormsNames[7], false);
         }
 

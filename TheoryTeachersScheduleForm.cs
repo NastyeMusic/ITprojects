@@ -51,8 +51,6 @@ namespace Автошкола
 
         private void TheoryTeachersScheduleForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
             MainForm.Perem(MainForm.FormsNames[16], false);
         }
 

@@ -223,8 +223,6 @@ namespace Автошкола
 
         private void WorkersForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
             MainForm.Perem(MainForm.FormsNames[3], false);
         }
 

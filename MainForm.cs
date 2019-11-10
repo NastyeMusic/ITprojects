@@ -46,58 +46,58 @@ namespace Автошкола
         int LastFoundRow = -1;
         int LastSelectionIndex;
 
-        GroupsForm GroupsForm = new GroupsForm();
+        GroupsForm GroupsForm;
         static bool GroupsFormOpened = false;
 
-        AuditoriumsForm AuditoriumsForm = new AuditoriumsForm();
+        AuditoriumsForm AuditoriumsForm;
         static bool AuditoriumsFormOpened = false;
 
-        WorkersForm WorkersForm = new WorkersForm();
+        WorkersForm WorkersForm;
         static bool WorkersFormOpened = false;
 
-        CarriersForm CarriersForm = new CarriersForm();
+        CarriersForm CarriersForm;
         static bool CarriersFormOpened = false;
 
-        CategoriesForm CategoriesForm = new CategoriesForm();
+        CategoriesForm CategoriesForm;
         static bool CategoriesFormOpened = false;
 
-        TransmissionsForm TransmissionsForm = new TransmissionsForm();
+        TransmissionsForm TransmissionsForm;
         static bool TransmissionsFormOpened = false;
 
-        CarriersStatusesForm CarriersStatusesForm = new CarriersStatusesForm();
+        CarriersStatusesForm CarriersStatusesForm;
         static bool CarriersStatusesFormOpened = false;
 
-        InstructorsCategoriesForm InstructorsCategoriesForm = new InstructorsCategoriesForm();
+        InstructorsCategoriesForm InstructorsCategoriesForm;
         static bool InstructorsCategoriesFormOpened = false;
 
-        CarriersUsesForm CarriersUsesForm = new CarriersUsesForm();
+        CarriersUsesForm CarriersUsesForm;
         static bool CarriersUsesFormOpened = false;
 
-        StudentsScheduleForm StudentsScheduleForm = new StudentsScheduleForm();
+        StudentsScheduleForm StudentsScheduleForm;
         static bool StudentsScheduleFormOpened = false;
 
-        InstructorsScheduleForm InstructorsScheduleForm = new InstructorsScheduleForm();
+        InstructorsScheduleForm InstructorsScheduleForm;
         static bool InstructorsScheduleFormOpened = false;
 
-        GroupsScheduleForm GroupsScheduleForm = new GroupsScheduleForm();
+        GroupsScheduleForm GroupsScheduleForm;
         static bool GroupsScheduleFormOpened = false;
 
-        TheoryTeachersScheduleForm TheoryTeachersScheduleForm = new TheoryTeachersScheduleForm();
+        TheoryTeachersScheduleForm TheoryTeachersScheduleForm;
         static bool TheoryTeachersScheduleFormOpened = false;
 
-        ReplacementsCarriersForm ReplacementsCarriersForm = new ReplacementsCarriersForm();
+        ReplacementsCarriersForm ReplacementsCarriersForm;
         static bool ReplacementsCarriersFormOpened = false;
 
-        CarriersRepairsForm CarriersRepairsForm = new CarriersRepairsForm();
+        CarriersRepairsForm CarriersRepairsForm;
         static bool CarriersRepairsFormOpened = false;
 
-        TheoryTeachersForm TheoryTeachersForm = new TheoryTeachersForm();
+        TheoryTeachersForm TheoryTeachersForm;
         static bool TheoryTeachersFormOpened = false;
 
-        ServiceMastersForm ServiceMastersForm = new ServiceMastersForm();
+        ServiceMastersForm ServiceMastersForm;
         static bool ServiceMastersFormOpened = false;
 
-        JournalUsesForm JournalUsesForm = new JournalUsesForm();
+        JournalUsesForm JournalUsesForm;
         static bool JournalUsesFormOpened = false;
 
         AboutProgramForm AboutProgramForm;
@@ -216,10 +216,15 @@ namespace Автошкола
             string temp = "";
             string tempParent = "";
             // забираем год и название той группы, которая выделена на текущий момент
-            if (Groups_treeView.SelectedNode != null)
+            if (Groups_treeView.SelectedNode != null && Groups_treeView.SelectedNode.Level == 1)
             {
                 temp = Groups_treeView.SelectedNode.Text;
                 tempParent = Groups_treeView.SelectedNode.Parent.Text;
+            }
+            else
+            {
+                temp = "";
+                tempParent = "";
             }
             // очищаем дерево
             Groups_treeView.Nodes.Clear();
@@ -418,6 +423,7 @@ namespace Автошкола
         {
             if (!GroupsFormOpened)
             {
+                GroupsForm = new GroupsForm();
                 GroupsForm.Show();
                 GroupsFormOpened = true;
             }
@@ -431,6 +437,7 @@ namespace Автошкола
         {
             if (!AuditoriumsFormOpened)
             {
+                AuditoriumsForm = new AuditoriumsForm();
                 AuditoriumsForm.Show();
                 AuditoriumsFormOpened = true;
             }
@@ -444,6 +451,7 @@ namespace Автошкола
         {
             if (!WorkersFormOpened)
             {
+                WorkersForm = new WorkersForm();
                 WorkersForm.Show();
                 WorkersFormOpened = true;
             }
@@ -457,6 +465,7 @@ namespace Автошкола
         {
             if (!CarriersFormOpened)
             {
+                CarriersForm = new CarriersForm();
                 CarriersForm.Show();
                 CarriersFormOpened = true;
             }
@@ -470,6 +479,7 @@ namespace Автошкола
         {
             if (!CategoriesFormOpened)
             {
+                CategoriesForm = new CategoriesForm();
                 CategoriesForm.Show();
                 CategoriesFormOpened = true;
             }
@@ -483,6 +493,7 @@ namespace Автошкола
         {
             if (!TransmissionsFormOpened)
             {
+                TransmissionsForm = new TransmissionsForm();
                 TransmissionsForm.Show();
                 TransmissionsFormOpened = true;
             }
@@ -496,6 +507,7 @@ namespace Автошкола
         {
             if (!CarriersStatusesFormOpened)
             {
+                CarriersStatusesForm = new CarriersStatusesForm();
                 CarriersStatusesForm.Show();
                 CarriersStatusesFormOpened = true;
             }
@@ -509,6 +521,7 @@ namespace Автошкола
         {
             if (!InstructorsCategoriesFormOpened)
             {
+                InstructorsCategoriesForm = new InstructorsCategoriesForm();
                 InstructorsCategoriesForm.Show();
                 InstructorsCategoriesFormOpened = true;
             }
@@ -522,6 +535,7 @@ namespace Автошкола
         {
             if (!CarriersUsesFormOpened)
             {
+                CarriersUsesForm = new CarriersUsesForm();
                 CarriersUsesForm.Show();
                 CarriersUsesFormOpened = true;
             }
@@ -535,6 +549,7 @@ namespace Автошкола
         {
             if (!StudentsScheduleFormOpened)
             {
+                StudentsScheduleForm = new StudentsScheduleForm();
                 StudentsScheduleForm.Show();
                 StudentsScheduleFormOpened = true;
             }
@@ -548,6 +563,7 @@ namespace Автошкола
         {
             if (!InstructorsScheduleFormOpened)
             {
+                InstructorsScheduleForm = new InstructorsScheduleForm();
                 InstructorsScheduleForm.Show();
                 InstructorsScheduleFormOpened = true;
             }
@@ -561,6 +577,7 @@ namespace Автошкола
         {
             if (!GroupsScheduleFormOpened)
             {
+                GroupsScheduleForm = new GroupsScheduleForm();
                 GroupsScheduleForm.Show();
                 GroupsScheduleFormOpened = true;
             }
@@ -574,6 +591,7 @@ namespace Автошкола
         {
             if (!TheoryTeachersScheduleFormOpened)
             {
+                TheoryTeachersScheduleForm = new TheoryTeachersScheduleForm();
                 TheoryTeachersScheduleForm.Show();
                 TheoryTeachersScheduleFormOpened = true;
             }
@@ -587,6 +605,7 @@ namespace Автошкола
         {
             if (!ReplacementsCarriersFormOpened)
             {
+                ReplacementsCarriersForm = new ReplacementsCarriersForm();
                 ReplacementsCarriersForm.Show();
                 ReplacementsCarriersFormOpened = true;
             }
@@ -605,6 +624,7 @@ namespace Автошкола
         {
             if (!CarriersRepairsFormOpened)
             {
+                CarriersRepairsForm = new CarriersRepairsForm();
                 CarriersRepairsForm.Show();
                 CarriersRepairsFormOpened = true;
             }
@@ -618,6 +638,7 @@ namespace Автошкола
         {
             if (!TheoryTeachersFormOpened)
             {
+                TheoryTeachersForm = new TheoryTeachersForm();
                 TheoryTeachersForm.Show();
                 TheoryTeachersFormOpened = true;
             }
@@ -631,6 +652,7 @@ namespace Автошкола
         {
             if (!ServiceMastersFormOpened)
             {
+                ServiceMastersForm = new ServiceMastersForm();
                 ServiceMastersForm.Show();
                 ServiceMastersFormOpened = true;
             }
@@ -644,6 +666,7 @@ namespace Автошкола
         {
             if (!JournalUsesFormOpened)
             {
+                JournalUsesForm = new JournalUsesForm();
                 JournalUsesForm.Show();
                 JournalUsesFormOpened = true;
             }

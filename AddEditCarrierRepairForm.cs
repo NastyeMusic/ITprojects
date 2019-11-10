@@ -331,8 +331,8 @@ namespace Автошкола
                     dataRow["Carrier"] = SelectedCarrierID;
                     dataRow["Master"] = SelectedServiceMasterID;
                     dataRow["Work"] = Work_textBox.Text;
-                    dataRow["DateBeginReplacement"] = Convert.ToDateTime(BeginRepair_dateTimePicker.Text).Date;
-                    dataRow["DateEndReplacement"] = Convert.ToDateTime(EndRepair_dateTimePicker.Text).Date;
+                    dataRow["BeginDate"] = Convert.ToDateTime(BeginRepair_dateTimePicker.Text).Date;
+                    dataRow["EndDate"] = Convert.ToDateTime(EndRepair_dateTimePicker.Text).Date;
                 }
                 else
                 {

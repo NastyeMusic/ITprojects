@@ -109,8 +109,6 @@ namespace Автошкола
 
         private void ReplacementsCarriersForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
             MainForm.Perem(MainForm.FormsNames[19], false);
         }
 

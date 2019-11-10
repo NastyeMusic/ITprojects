@@ -51,8 +51,6 @@ namespace Автошкола
 
         private void GroupsScheduleForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
             MainForm.Perem(MainForm.FormsNames[14], false);
         }
 
