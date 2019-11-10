@@ -39,7 +39,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(445, 350);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Программист:\r\nАнастасия Ларина\r\n\r\nТестировщик:\r\nЕвгений Размыслов";
+            this.label1.Text = "Программист:\r\nАнастасия Ларина\r\n\r\nТестировщик:\r\nЕвгений Размыслов\r\n\r\n©\r\n2019";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Close_button
