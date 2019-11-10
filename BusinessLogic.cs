@@ -2246,5 +2246,34 @@ namespace Автошкола
             }
             return ds;
         }
+
+        public AutoschoolDataSet ReadRepairingCarriers(DateTime Date)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                multipleDA.ReadRepairingCarriers(ds, abstrCon, abstrTr, Date);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
     }
 }

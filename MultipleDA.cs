@@ -101,5 +101,17 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@LessonTime", LessonTime);
             dataAdapter.Fill(dataSet, "Carriers");
         }
+
+        public void ReadRepairingCarriers(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, DateTime Date)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT DISTINCT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status " +
+                "FROM Carriers Cr " +
+                "INNER JOIN CarriersRepairs CarR ON Cr.ID=CarR.Carrier " +
+                "WHERE CarR.BeginDate <= @Date AND CarR.EndDate >= @Date";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Date", Date);
+            dataAdapter.Fill(dataSet, "Carriers");
+        }
     }
 }

@@ -111,41 +111,6 @@ namespace Автошкола
                         TempDS.Categories.Rows.Find(TempDS.Carriers.Rows[i]["Category"].ToString())["Name"],
                         TempDS.CarriersStatuses.Rows.Find(TempDS.Carriers.Rows[i]["Status"].ToString())["Name"]);
                 }
-
-
-                /*CarriersByCondition_dataGridView.DataSource = dataSetForCarriersByCondition;
-                CarriersByCondition_dataGridView.DataMember = "Carriers";
-
-                CarriersByCondition_dataGridView.Columns["ID"].Visible = false;
-                CarriersByCondition_dataGridView.Columns["Brand"].Visible = false;
-                CarriersByCondition_dataGridView.Columns["Model"].Visible = false;
-                CarriersByCondition_dataGridView.Columns["StateNumber"].Visible = false;
-                CarriersByCondition_dataGridView.Columns["Color"].Visible = false;
-                CarriersByCondition_dataGridView.Columns["Transmission"].Visible = false;
-                CarriersByCondition_dataGridView.Columns["Category"].Visible = false;
-                CarriersByCondition_dataGridView.Columns["Status"].Visible = false;
-                CarriersByCondition_dataGridView.Columns["FinalName"].Visible = false;
-
-                ID2Column.DataPropertyName = "ID";
-                Brand2Column.DataPropertyName = "Brand";
-                Model2Column.DataPropertyName = "Model";
-                StateNumber2Column.DataPropertyName = "StateNumber";
-                Color2Column.DataPropertyName = "Color";
-
-                Transmission2Column.DataSource = dataSetForCarriersByCondition.Transmissions;
-                Transmission2Column.DisplayMember = "Transmission";
-                Transmission2Column.ValueMember = "ID";
-                Transmission2Column.DataPropertyName = "Transmission";
-
-                Category2Column.DataSource = dataSetForCarriersByCondition.Categories;
-                Category2Column.DisplayMember = "Name";
-                Category2Column.ValueMember = "ID";
-                Category2Column.DataPropertyName = "Category";
-
-                Status2Column.DataSource = dataSetForCarriersByCondition.CarriersStatuses;
-                Status2Column.DisplayMember = "Name";
-                Status2Column.ValueMember = "ID";
-                Status2Column.DataPropertyName = "Status";*/
             }
             else if (Condition_comboBox.SelectedItem.ToString() == "Свободно")
             {
@@ -160,6 +125,96 @@ namespace Автошкола
                 for (int i = 0; i < AllCarriers.Carriers.Rows.Count; i++)
                 {
                     Find = false;
+                    for (int j = 0; j < BusyCarriers.Carriers.Rows.Count; j++)
+                    {
+                        if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == BusyCarriers.Carriers.Rows[j]["ID"].ToString())
+                        {
+                            Find = true;
+                            break;
+                        }
+                    }
+                    if (!Find)
+                    {
+                        CarriersByCondition_dataGridView.Rows.Add(AllCarriers.Carriers.Rows[i]["ID"], AllCarriers.Carriers.Rows[i]["Brand"],
+                                AllCarriers.Carriers.Rows[i]["Model"], AllCarriers.Carriers.Rows[i]["StateNumber"],
+                                AllCarriers.Carriers.Rows[i]["Color"],
+                                AllCarriers.Transmissions.Rows.Find(AllCarriers.Carriers.Rows[i]["Transmission"].ToString())["Transmission"],
+                                AllCarriers.Categories.Rows.Find(AllCarriers.Carriers.Rows[i]["Category"].ToString())["Name"],
+                                AllCarriers.CarriersStatuses.Rows.Find(AllCarriers.Carriers.Rows[i]["Status"].ToString())["Name"]);
+                    }
+                }
+            }
+            else if (Condition_comboBox.SelectedItem.ToString() == "В ремонте")
+            {
+                CarriersByCondition_dataGridView.Rows.Clear();
+                DateTime Date = Convert.ToDateTime(Date_dateTimePicker.Text).Date;
+
+                AutoschoolDataSet TempDS = new AutoschoolDataSet();
+                TempDS = BusinessLogic.ReadRepairingCarriers(Date);
+                for (int i = 0; i < TempDS.Carriers.Rows.Count; i++)
+                {
+                    CarriersByCondition_dataGridView.Rows.Add(TempDS.Carriers.Rows[i]["ID"], TempDS.Carriers.Rows[i]["Brand"],
+                        TempDS.Carriers.Rows[i]["Model"], TempDS.Carriers.Rows[i]["StateNumber"],
+                        TempDS.Carriers.Rows[i]["Color"],
+                        TempDS.Transmissions.Rows.Find(TempDS.Carriers.Rows[i]["Transmission"].ToString())["Transmission"],
+                        TempDS.Categories.Rows.Find(TempDS.Carriers.Rows[i]["Category"].ToString())["Name"],
+                        TempDS.CarriersStatuses.Rows.Find(TempDS.Carriers.Rows[i]["Status"].ToString())["Name"]);
+                }
+            }
+            else if (Condition_comboBox.SelectedItem.ToString() == "Не ремонтируется")
+            {
+                CarriersByCondition_dataGridView.Rows.Clear();
+                DateTime Date = Convert.ToDateTime(Date_dateTimePicker.Text).Date;
+
+                AutoschoolDataSet RepairingCarriers = new AutoschoolDataSet();
+                RepairingCarriers = BusinessLogic.ReadRepairingCarriers(Date);
+                AutoschoolDataSet AllCarriers = BusinessLogic.ReadCarriers();
+                bool Find;
+                for (int i = 0; i < AllCarriers.Carriers.Rows.Count; i++)
+                {
+                    Find = false;
+                    for (int j = 0; j < RepairingCarriers.Carriers.Rows.Count; j++)
+                    {
+                        if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == RepairingCarriers.Carriers.Rows[j]["ID"].ToString())
+                        {
+                            Find = true;
+                            break;
+                        }
+                    }
+                    if (!Find)
+                    {
+                        CarriersByCondition_dataGridView.Rows.Add(AllCarriers.Carriers.Rows[i]["ID"], AllCarriers.Carriers.Rows[i]["Brand"],
+                                AllCarriers.Carriers.Rows[i]["Model"], AllCarriers.Carriers.Rows[i]["StateNumber"],
+                                AllCarriers.Carriers.Rows[i]["Color"],
+                                AllCarriers.Transmissions.Rows.Find(AllCarriers.Carriers.Rows[i]["Transmission"].ToString())["Transmission"],
+                                AllCarriers.Categories.Rows.Find(AllCarriers.Carriers.Rows[i]["Category"].ToString())["Name"],
+                                AllCarriers.CarriersStatuses.Rows.Find(AllCarriers.Carriers.Rows[i]["Status"].ToString())["Name"]);
+                    }
+                }
+            }
+            else if (Condition_comboBox.SelectedItem.ToString() == "Свободно и не ремонтируется")
+            {
+                CarriersByCondition_dataGridView.Rows.Clear();
+                DateTime Date = Convert.ToDateTime(Date_dateTimePicker.Text).Date;
+                TimeSpan Time = Convert.ToDateTime(Time_dateTimePicker.Text).TimeOfDay;
+
+                AutoschoolDataSet BusyCarriers = new AutoschoolDataSet();
+                BusyCarriers = BusinessLogic.ReadBusyCarriers(Date, Time, 45);
+                AutoschoolDataSet RepairingCarriers = new AutoschoolDataSet();
+                RepairingCarriers = BusinessLogic.ReadRepairingCarriers(Date);
+                AutoschoolDataSet AllCarriers = BusinessLogic.ReadCarriers();
+                bool Find;
+                for (int i = 0; i < AllCarriers.Carriers.Rows.Count; i++)
+                {
+                    Find = false;
+                    for (int j = 0; j < RepairingCarriers.Carriers.Rows.Count; j++)
+                    {
+                        if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == RepairingCarriers.Carriers.Rows[j]["ID"].ToString())
+                        {
+                            Find = true;
+                            break;
+                        }
+                    }
                     for (int j = 0; j < BusyCarriers.Carriers.Rows.Count; j++)
                     {
                         if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == BusyCarriers.Carriers.Rows[j]["ID"].ToString())

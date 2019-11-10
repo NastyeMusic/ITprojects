@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ReloadCarriers_button = new System.Windows.Forms.Button();
             this.ReloadCarriersStatuses_button = new System.Windows.Forms.Button();
@@ -138,8 +138,8 @@
             this.CarriersByStatus_dataGridView.Name = "CarriersByStatus_dataGridView";
             this.CarriersByStatus_dataGridView.ReadOnly = true;
             this.CarriersByStatus_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersByStatus_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersByStatus_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.CarriersByStatus_dataGridView.RowTemplate.Height = 24;
             this.CarriersByStatus_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersByStatus_dataGridView.Size = new System.Drawing.Size(1149, 196);
@@ -271,8 +271,8 @@
             this.CarriersByCondition_dataGridView.Name = "CarriersByCondition_dataGridView";
             this.CarriersByCondition_dataGridView.ReadOnly = true;
             this.CarriersByCondition_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersByCondition_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersByCondition_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.CarriersByCondition_dataGridView.RowTemplate.Height = 24;
             this.CarriersByCondition_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersByCondition_dataGridView.Size = new System.Drawing.Size(1149, 192);
@@ -294,7 +294,10 @@
             this.Condition_comboBox.FormattingEnabled = true;
             this.Condition_comboBox.Items.AddRange(new object[] {
             "Занято",
-            "Свободно"});
+            "Свободно",
+            "В ремонте",
+            "Не ремонтируется",
+            "Свободно и не ремонтируется"});
             this.Condition_comboBox.Location = new System.Drawing.Point(758, 25);
             this.Condition_comboBox.Name = "Condition_comboBox";
             this.Condition_comboBox.Size = new System.Drawing.Size(239, 26);
