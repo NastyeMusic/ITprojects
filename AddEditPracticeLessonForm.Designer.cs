@@ -132,7 +132,7 @@
             this.SelectedStudent_comboBox.FormattingEnabled = true;
             this.SelectedStudent_comboBox.Location = new System.Drawing.Point(88, 9);
             this.SelectedStudent_comboBox.Name = "SelectedStudent_comboBox";
-            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(402, 26);
+            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(390, 26);
             this.SelectedStudent_comboBox.TabIndex = 55;
             this.SelectedStudent_comboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedStudent_comboBox_SelectedIndexChanged);
             // 

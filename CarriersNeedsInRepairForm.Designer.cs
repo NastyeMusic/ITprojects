@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CarriersToReplacement_dataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.DateBegin_dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -45,6 +45,7 @@
             this.InstructorIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstructorNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CarrierUseIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChangePractiseLessons_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersToReplacement_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,8 +73,8 @@
             this.CarriersToReplacement_dataGridView.Name = "CarriersToReplacement_dataGridView";
             this.CarriersToReplacement_dataGridView.ReadOnly = true;
             this.CarriersToReplacement_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersToReplacement_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersToReplacement_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.CarriersToReplacement_dataGridView.RowTemplate.Height = 24;
             this.CarriersToReplacement_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersToReplacement_dataGridView.Size = new System.Drawing.Size(1006, 551);
@@ -206,11 +207,23 @@
             this.CarrierUseIDColumn.Visible = false;
             this.CarrierUseIDColumn.Width = 118;
             // 
+            // ChangePractiseLessons_button
+            // 
+            this.ChangePractiseLessons_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangePractiseLessons_button.Location = new System.Drawing.Point(1024, 126);
+            this.ChangePractiseLessons_button.Name = "ChangePractiseLessons_button";
+            this.ChangePractiseLessons_button.Size = new System.Drawing.Size(151, 78);
+            this.ChangePractiseLessons_button.TabIndex = 42;
+            this.ChangePractiseLessons_button.Text = "Перенести назначенные на эти дни занятия";
+            this.ChangePractiseLessons_button.UseVisualStyleBackColor = true;
+            this.ChangePractiseLessons_button.Click += new System.EventHandler(this.ChangePractiseLessons_button_Click);
+            // 
             // CarriersNeedsInRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1187, 605);
+            this.Controls.Add(this.ChangePractiseLessons_button);
             this.Controls.Add(this.AddReplacement_button);
             this.Controls.Add(this.Get_button);
             this.Controls.Add(this.DateEnd_dateTimePicker);
@@ -247,5 +260,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorIDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarrierUseIDColumn;
+        private System.Windows.Forms.Button ChangePractiseLessons_button;
     }
 }

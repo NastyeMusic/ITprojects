@@ -61,5 +61,14 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@StudentID", StudentID);
             dataAdapter.Fill(dataSet, "PracticeLessons");
         }
+
+        public void ReadNeedsForReplacement(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, DateTime BeginDate, DateTime EndDate)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM PracticeLessons WHERE AppointedDate >= @BeginDate AND AppointedDate <= @EndDate AND FactDate='01.01.0001'", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@BeginDate", BeginDate);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@EndDate", EndDate);
+            dataAdapter.Fill(dataSet, "PracticeLessons");
+        }
     }
 }

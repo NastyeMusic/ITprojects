@@ -96,6 +96,8 @@ namespace Автошкола
 
         private void GetCarriersByCondition_button_Click(object sender, EventArgs e)
         {
+            if (Condition_comboBox.SelectedItem == null)
+                return;
             if (Condition_comboBox.SelectedItem.ToString() == "Занято")
             {
                 CarriersByCondition_dataGridView.Rows.Clear();

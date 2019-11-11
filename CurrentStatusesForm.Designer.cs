@@ -99,7 +99,7 @@
             this.CarriersByStatus_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CarriersByStatus_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.CarriersByStatus_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CarriersByStatus_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CarriersByStatus_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -128,35 +128,30 @@
             this.IDColumn.Name = "IDColumn";
             this.IDColumn.ReadOnly = true;
             this.IDColumn.Visible = false;
-            this.IDColumn.Width = 39;
             // 
             // BrandColumn
             // 
             this.BrandColumn.HeaderText = "Марка";
             this.BrandColumn.Name = "BrandColumn";
             this.BrandColumn.ReadOnly = true;
-            this.BrandColumn.Width = 82;
             // 
             // ModelColumn
             // 
             this.ModelColumn.HeaderText = "Модель";
             this.ModelColumn.Name = "ModelColumn";
             this.ModelColumn.ReadOnly = true;
-            this.ModelColumn.Width = 93;
             // 
             // StateNumberColumn
             // 
             this.StateNumberColumn.HeaderText = "Гос.рег.№";
             this.StateNumberColumn.Name = "StateNumberColumn";
             this.StateNumberColumn.ReadOnly = true;
-            this.StateNumberColumn.Width = 108;
             // 
             // ColorColumn
             // 
             this.ColorColumn.HeaderText = "Цвет";
             this.ColorColumn.Name = "ColorColumn";
             this.ColorColumn.ReadOnly = true;
-            this.ColorColumn.Width = 71;
             // 
             // TransmissionColumn
             // 
@@ -166,7 +161,6 @@
             this.TransmissionColumn.ReadOnly = true;
             this.TransmissionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TransmissionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TransmissionColumn.Width = 129;
             // 
             // CategoryColumn
             // 
@@ -176,7 +170,6 @@
             this.CategoryColumn.ReadOnly = true;
             this.CategoryColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CategoryColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CategoryColumn.Width = 109;
             // 
             // StatusColumn
             // 
@@ -186,7 +179,6 @@
             this.StatusColumn.ReadOnly = true;
             this.StatusColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.StatusColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.StatusColumn.Width = 85;
             // 
             // SelectedCarrierStatus_comboBox
             // 
@@ -232,7 +224,7 @@
             this.CarriersByCondition_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CarriersByCondition_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.CarriersByCondition_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CarriersByCondition_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CarriersByCondition_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID2Column,
@@ -261,35 +253,30 @@
             this.ID2Column.Name = "ID2Column";
             this.ID2Column.ReadOnly = true;
             this.ID2Column.Visible = false;
-            this.ID2Column.Width = 39;
             // 
             // Brand2Column
             // 
             this.Brand2Column.HeaderText = "Марка";
             this.Brand2Column.Name = "Brand2Column";
             this.Brand2Column.ReadOnly = true;
-            this.Brand2Column.Width = 82;
             // 
             // Model2Column
             // 
             this.Model2Column.HeaderText = "Модель";
             this.Model2Column.Name = "Model2Column";
             this.Model2Column.ReadOnly = true;
-            this.Model2Column.Width = 93;
             // 
             // StateNumber2Column
             // 
             this.StateNumber2Column.HeaderText = "Гос.рег.№";
             this.StateNumber2Column.Name = "StateNumber2Column";
             this.StateNumber2Column.ReadOnly = true;
-            this.StateNumber2Column.Width = 108;
             // 
             // Color2Column
             // 
             this.Color2Column.HeaderText = "Цвет";
             this.Color2Column.Name = "Color2Column";
             this.Color2Column.ReadOnly = true;
-            this.Color2Column.Width = 71;
             // 
             // Transmission2Column
             // 
@@ -297,7 +284,6 @@
             this.Transmission2Column.Name = "Transmission2Column";
             this.Transmission2Column.ReadOnly = true;
             this.Transmission2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Transmission2Column.Width = 129;
             // 
             // Category2Column
             // 
@@ -305,7 +291,6 @@
             this.Category2Column.Name = "Category2Column";
             this.Category2Column.ReadOnly = true;
             this.Category2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Category2Column.Width = 109;
             // 
             // Status2Column
             // 
@@ -313,7 +298,6 @@
             this.Status2Column.Name = "Status2Column";
             this.Status2Column.ReadOnly = true;
             this.Status2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status2Column.Width = 85;
             // 
             // GetCarriersByCondition_button
             // 

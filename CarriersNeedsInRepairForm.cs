@@ -19,10 +19,13 @@ namespace Автошкола
 
         BusinessLogic BusinessLogic = new BusinessLogic();
         bool DGVLoad = false;
+        NeedsForReplacementPracticeLessonsForm NeedsForReplacementPracticeLessonsForm;
+        static public bool NeedsForReplacementPracticeLessonsFormOpened = false;
 
         private void CarriersNeedsInRepairForm_Load(object sender, EventArgs e)
         {
-
+            AddReplacement_button.Enabled = false;
+            ChangePractiseLessons_button.Enabled = false;
         }
 
         private void Get_button_Click(object sender, EventArgs e)
@@ -88,8 +91,8 @@ namespace Автошкола
                             CarriersUsesWithRepairingCarriers.Rows[i]["Brand"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["Model"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["StateNumber"].ToString(),
-                            BeginsNewRepl[j],
-                            EndsNewRepl[j],
+                            BeginsNewRepl[j].Date,
+                            EndsNewRepl[j].Date,
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorID"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["CarrierUseID"].ToString()
@@ -100,8 +103,8 @@ namespace Автошкола
                             CarriersUsesWithRepairingCarriers.Rows[i]["Brand"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["Model"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["StateNumber"].ToString(),
-                            BeginsNewRepl[j],
-                            EndRepair,
+                            BeginsNewRepl[j].Date,
+                            EndRepair.Date,
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorID"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["CarrierUseID"].ToString()
@@ -109,6 +112,7 @@ namespace Автошкола
                 }
             }
             DGVLoad = true;
+            CarriersToReplacement_dataGridView_SelectionChanged(sender, e);
         }
 
         private void CarriersNeedsInRepairForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -123,10 +127,12 @@ namespace Автошкола
                 if (CarriersToReplacement_dataGridView.SelectedRows.Count == 1)
                 {
                     AddReplacement_button.Enabled = true;
+                    ChangePractiseLessons_button.Enabled = true;
                 }
                 else
                 {
                     AddReplacement_button.Enabled = false;
+                    ChangePractiseLessons_button.Enabled = false;
                 }
             }
         }
@@ -145,6 +151,20 @@ namespace Автошкола
                 Get_button_Click(sender, e);
             }
             this.Enabled = true;
+        }
+
+        private void ChangePractiseLessons_button_Click(object sender, EventArgs e)
+        {
+            DateTime Begin = Convert.ToDateTime(DateBegin_dateTimePicker.Text).Date;
+            DateTime End = Convert.ToDateTime(DateEnd_dateTimePicker.Text).Date;
+            if (!NeedsForReplacementPracticeLessonsFormOpened)
+            {
+                NeedsForReplacementPracticeLessonsForm = new NeedsForReplacementPracticeLessonsForm(Begin, End);
+                NeedsForReplacementPracticeLessonsForm.Show();
+                NeedsForReplacementPracticeLessonsFormOpened = true;
+            }
+            else
+                NeedsForReplacementPracticeLessonsForm.Activate();
         }
     }
 }
