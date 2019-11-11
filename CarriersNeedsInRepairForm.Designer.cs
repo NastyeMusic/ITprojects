@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CarriersToReplacement_dataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.DateBegin_dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -44,6 +44,7 @@
             this.DateEndRepair = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstructorIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstructorNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarrierUseIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersToReplacement_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,18 +65,20 @@
             this.DateBeginRepair,
             this.DateEndRepair,
             this.InstructorIDColumn,
-            this.InstructorNameColumn});
+            this.InstructorNameColumn,
+            this.CarrierUseIDColumn});
             this.CarriersToReplacement_dataGridView.Location = new System.Drawing.Point(12, 42);
             this.CarriersToReplacement_dataGridView.MultiSelect = false;
             this.CarriersToReplacement_dataGridView.Name = "CarriersToReplacement_dataGridView";
             this.CarriersToReplacement_dataGridView.ReadOnly = true;
             this.CarriersToReplacement_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersToReplacement_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersToReplacement_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.CarriersToReplacement_dataGridView.RowTemplate.Height = 24;
             this.CarriersToReplacement_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersToReplacement_dataGridView.Size = new System.Drawing.Size(1006, 551);
             this.CarriersToReplacement_dataGridView.TabIndex = 35;
+            this.CarriersToReplacement_dataGridView.SelectionChanged += new System.EventHandler(this.CarriersToReplacement_dataGridView_SelectionChanged);
             // 
             // label1
             // 
@@ -91,7 +94,7 @@
             // 
             this.DateBegin_dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DateBegin_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateBegin_dateTimePicker.Location = new System.Drawing.Point(134, 12);
+            this.DateBegin_dateTimePicker.Location = new System.Drawing.Point(150, 12);
             this.DateBegin_dateTimePicker.Name = "DateBegin_dateTimePicker";
             this.DateBegin_dateTimePicker.Size = new System.Drawing.Size(200, 24);
             this.DateBegin_dateTimePicker.TabIndex = 37;
@@ -120,7 +123,7 @@
             this.Get_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Get_button.Location = new System.Drawing.Point(788, 7);
             this.Get_button.Name = "Get_button";
-            this.Get_button.Size = new System.Drawing.Size(97, 33);
+            this.Get_button.Size = new System.Drawing.Size(107, 33);
             this.Get_button.TabIndex = 40;
             this.Get_button.Text = "Получить";
             this.Get_button.UseVisualStyleBackColor = true;
@@ -135,6 +138,7 @@
             this.AddReplacement_button.TabIndex = 41;
             this.AddReplacement_button.Text = "Временно заменить выбранное ТС";
             this.AddReplacement_button.UseVisualStyleBackColor = true;
+            this.AddReplacement_button.Click += new System.EventHandler(this.AddReplacement_button_Click);
             // 
             // CarrierIDColumn
             // 
@@ -194,6 +198,14 @@
             this.InstructorNameColumn.ReadOnly = true;
             this.InstructorNameColumn.Width = 114;
             // 
+            // CarrierUseIDColumn
+            // 
+            this.CarrierUseIDColumn.HeaderText = "CarrierUseID";
+            this.CarrierUseIDColumn.Name = "CarrierUseIDColumn";
+            this.CarrierUseIDColumn.ReadOnly = true;
+            this.CarrierUseIDColumn.Visible = false;
+            this.CarrierUseIDColumn.Width = 118;
+            // 
             // CarriersNeedsInRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -234,5 +246,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DateEndRepair;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorIDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CarrierUseIDColumn;
     }
 }

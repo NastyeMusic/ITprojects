@@ -352,7 +352,7 @@ namespace Автошкола
 
         private void ReloadReplacingCarriers_button_Click(object sender, EventArgs e)
         {
-            ChangeSelectedReplacingCarrier();
+            ReloadReplacingCarriers();
         }
 
         void ChangeSelectedReplacingCarrier()
@@ -447,7 +447,7 @@ namespace Автошкола
                         if (Convert.ToInt32(dataRow["CarrierReplacement"].ToString()) == Convert.ToInt32(ReplacingCarriers_dataGridView["ID2Column", i].Value))
                         {
                             ReplacingCarriers_dataGridView.Rows[i].Cells["Brand2Column"].Selected = true;
-                            ChangeSelectedReplaceableCarrier();
+                            ChangeSelectedReplacingCarrier();
                             break;
                         }
                     }

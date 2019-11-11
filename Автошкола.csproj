@@ -144,6 +144,12 @@
     <Compile Include="AddRepairFromFormCarriersForm.Designer.cs">
       <DependentUpon>AddRepairFromFormCarriersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddReplacementFromNeedsReplacementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddReplacementFromNeedsReplacementForm.Designer.cs">
+      <DependentUpon>AddReplacementFromNeedsReplacementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuditoriumsDA.cs" />
     <Compile Include="AuditoriumsForm.cs">
       <SubType>Form</SubType>
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddRepairFromFormCarriersForm.resx">
       <DependentUpon>AddRepairFromFormCarriersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddReplacementFromNeedsReplacementForm.resx">
+      <DependentUpon>AddReplacementFromNeedsReplacementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuditoriumsForm.resx">
       <DependentUpon>AuditoriumsForm.cs</DependentUpon>

@@ -18,6 +18,7 @@ namespace Автошкола
         }
 
         BusinessLogic BusinessLogic = new BusinessLogic();
+        bool DGVLoad = false;
 
         private void CarriersNeedsInRepairForm_Load(object sender, EventArgs e)
         {
@@ -26,6 +27,7 @@ namespace Автошкола
 
         private void Get_button_Click(object sender, EventArgs e)
         {
+            DGVLoad = false;
             CarriersToReplacement_dataGridView.Rows.Clear();
             DateTime BeginDate = Convert.ToDateTime(DateBegin_dateTimePicker.Text).Date;
             DateTime EndDate = Convert.ToDateTime(DateEnd_dateTimePicker.Text).Date;
@@ -89,7 +91,8 @@ namespace Автошкола
                             BeginsNewRepl[j],
                             EndsNewRepl[j],
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorID"].ToString(),
-                            CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString()
+                            CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString(),
+                            CarriersUsesWithRepairingCarriers.Rows[i]["CarrierUseID"].ToString()
                             );
                     else
                         CarriersToReplacement_dataGridView.Rows.Add(
@@ -100,15 +103,48 @@ namespace Автошкола
                             BeginsNewRepl[j],
                             EndRepair,
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorID"].ToString(),
-                            CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString()
+                            CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString(),
+                            CarriersUsesWithRepairingCarriers.Rows[i]["CarrierUseID"].ToString()
                             );
                 }
             }
+            DGVLoad = true;
         }
 
         private void CarriersNeedsInRepairForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             CurrentStatusesForm.CarriersNeedsInRepairFormOpened = false;
+        }
+
+        private void CarriersToReplacement_dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DGVLoad)
+            {
+                if (CarriersToReplacement_dataGridView.SelectedRows.Count == 1)
+                {
+                    AddReplacement_button.Enabled = true;
+                }
+                else
+                {
+                    AddReplacement_button.Enabled = false;
+                }
+            }
+        }
+
+        private void AddReplacement_button_Click(object sender, EventArgs e)
+        {
+            AutoschoolDataSet dataSet = BusinessLogic.ReadReplacementsCarriers();
+            AddReplacementFromNeedsReplacementForm AddReplacementCarrier = new AddReplacementFromNeedsReplacementForm(dataSet.ReplacementsCarriers,
+                dataSet.CarriersUses, dataSet.Carriers, dataSet.Instructors, CarriersToReplacement_dataGridView.SelectedRows[0]);
+            AddReplacementCarrier.Text = "Добавление замены ТС инструктора";
+            this.Enabled = false;
+            AddReplacementCarrier.ShowDialog();
+            if (AddReplacementCarrier.DialogResult == DialogResult.OK)
+            {
+                dataSet = BusinessLogic.WriteReplacementsCarriers(dataSet);
+                Get_button_Click(sender, e);
+            }
+            this.Enabled = true;
         }
     }
 }
