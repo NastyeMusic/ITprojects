@@ -65,7 +65,6 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@CategoryID", CategoryID);
             dataAdapter.Fill(dataSet, "Carriers");
         }
-
         public void ReadByStatusID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int StatusID)
         {
             dataAdapter = new SqlDataAdapter();

@@ -131,5 +131,30 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@EndDate", EndDate);
             dataAdapter.Fill(dataSet, "CarrierUsesWithRepairingCarriers");
         }
+
+        public void ReadCategoriesOfInstructor(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int InstructorID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT Cat.ID, Cat.Name " +
+                "FROM Categories Cat " +
+                "INNER JOIN InstructorsCategories InstrCat ON Cat.ID=InstrCat.Category " +
+                "WHERE InstrCat.Instructor = @InstructorID";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@InstructorID", InstructorID);
+            dataAdapter.Fill(dataSet, "Categories");
+        }
+
+        public void ReadByCategoryIDANDInstructorID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CategoryID, int InstructorID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status " +
+                "FROM Carriers Cr " +
+                "INNER JOIN CarriersUses CU ON Cr.ID=CU.Carrier " +
+                "WHERE Cr.Category = @CategoryID AND CU.Instructor = @InstructorID";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CategoryID", CategoryID);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@InstructorID", InstructorID);
+            dataAdapter.Fill(dataSet, "Carriers");
+        }
     }
 }

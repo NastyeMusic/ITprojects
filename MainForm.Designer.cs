@@ -80,6 +80,7 @@
             this.Direction_checkBox = new System.Windows.Forms.CheckBox();
             this.Search_button = new System.Windows.Forms.Button();
             this.UpdateGroups_Button = new System.Windows.Forms.Button();
+            this.инструктораToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Students_dGV)).BeginInit();
             this.SuspendLayout();
@@ -175,7 +176,8 @@
             this.персоналToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.работаССотрудникамиToolStripMenuItem,
             this.преподавателиТеорииToolStripMenuItem,
-            this.мастераСервисаToolStripMenuItem});
+            this.мастераСервисаToolStripMenuItem,
+            this.инструктораToolStripMenuItem1});
             this.персоналToolStripMenuItem.Name = "персоналToolStripMenuItem";
             this.персоналToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.персоналToolStripMenuItem.Text = "Персонал";
@@ -535,6 +537,13 @@
             this.UpdateGroups_Button.UseVisualStyleBackColor = true;
             this.UpdateGroups_Button.Click += new System.EventHandler(this.UpdateGroups_Button_Click);
             // 
+            // инструктораToolStripMenuItem1
+            // 
+            this.инструктораToolStripMenuItem1.Name = "инструктораToolStripMenuItem1";
+            this.инструктораToolStripMenuItem1.Size = new System.Drawing.Size(247, 26);
+            this.инструктораToolStripMenuItem1.Text = "Инструктора";
+            this.инструктораToolStripMenuItem1.Click += new System.EventHandler(this.инструктораToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -612,6 +621,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CarrierUseColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarrierColumn;
+        private System.Windows.Forms.ToolStripMenuItem инструктораToolStripMenuItem1;
     }
 }
 

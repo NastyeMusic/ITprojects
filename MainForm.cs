@@ -37,6 +37,7 @@ namespace Автошкола
             FormsNames[18] = "CarriersUsesForm";
             FormsNames[19] = "ReplacementCarriers";
             FormsNames[20] = "AboutProgramForm";
+            FormsNames[21] = "InstructorsForm";
         }
 
         public BusinessLogic BusinessLogic = new BusinessLogic(); 
@@ -106,8 +107,11 @@ namespace Автошкола
         CurrentStatusesForm CurrentStatusesForm;
         static bool CurrentStatusesFormOpened = false;
 
+        InstructorsForm InstructorsForm;
+        static bool InstructorsFormOpened = false;
+
         // здесь храним названия всех форм, открывающихся с главного окна
-        static public string[] FormsNames = new string[21];
+        static public string[] FormsNames = new string[22];
 
         public static void Perem(string s, bool b)
         {
@@ -175,6 +179,9 @@ namespace Автошкола
                     break;
                 case "AboutProgramForm":
                     AboutProgramFormOpened = b;
+                    break;
+                case "InstructorsForm":
+                    InstructorsFormOpened = b;
                     break;
             }
         }
@@ -701,6 +708,18 @@ namespace Автошкола
             }
             else
                 CurrentStatusesForm.Activate();
+        }
+
+        private void инструктораToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (!InstructorsFormOpened)
+            {
+                InstructorsForm = new InstructorsForm();
+                InstructorsForm.Show();
+                InstructorsFormOpened = true;
+            }
+            else
+                InstructorsForm.Activate();
         }
     }
 }
