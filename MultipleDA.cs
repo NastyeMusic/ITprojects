@@ -156,5 +156,66 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@InstructorID", InstructorID);
             dataAdapter.Fill(dataSet, "Carriers");
         }
+
+        public void ReadPracticeLessonsByCarrierID_AND_BeginEndDates(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CarrierID, DateTime BeginDate, DateTime EndDate)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = /*"SELECT pl.ID, pl.Student, pl.AppointedDate, pl.AppointedTime, pl.FactDate, pl.FactTime " +
+                "FROM PracticeLessons pl " +
+                "INNER JOIN Students St ON pl.Student=St.ID " +
+                "INNER JOIN CarriersUses CU ON St.CarrierUse=CU.ID " +
+                "WHERE CU.Carrier = @CarrierID AND " +
+                "@BeginDate <= IIF(pl.FactDate <> '01.01.0001', pl.FactDate, pl.AppointedDate) " +
+                "@EndDate >= IIF(pl.FactDate <> '01.01.0001', pl.FactDate, pl.AppointedDate)";*/
+                           /*"IF (pl.FactDate <> '01.01.0001') " + 
+                           "THEN pl.FactDate >= @BeginDate AND pl.FactDate <= @EndDate " + 
+                           "ELSE pl.AppointedDate >= @BeginDate AND pl.AppointedDate <= @EndDate";*/
+                @"SELECT pl.ID, pl.Student, pl.AppointedDate, pl.AppointedTime, pl.FactDate, pl.FactTime 
+FROM PracticeLessons pl 
+INNER JOIN Students St ON pl.Student=St.ID 
+INNER JOIN CarriersUses CU ON St.CarrierUse=CU.ID 
+WHERE CU.Carrier = @CarrierID AND 
+@BeginDate <= CASE 
+WHEN pl.FactDate <> '0001-01-01' 
+THEN pl.FactDate 
+ELSE pl.AppointedDate 
+END 
+AND 
+@EndDate >= CASE 
+WHEN pl.FactDate <> '0001-01-01' 
+THEN pl.FactDate 
+ELSE pl.AppointedDate 
+END";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierID", CarrierID);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@BeginDate", BeginDate.ToShortDateString());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@EndDate", EndDate.ToShortDateString());
+            dataAdapter.Fill(dataSet, "PracticeLessons");
+        }
+
+        public void ReadPracticeLessonsByCarrierUseID_AND_DatesBeginEnd(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CarrierUseID, DateTime BeginDate, DateTime EndDate)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT pl.ID, pl.Student, pl.AppointedDate, pl.AppointedTime, pl.FactDate, pl.FactTime " +
+                "FROM PracticeLessons pl " +
+                "INNER JOIN Students St ON pl.Student=St.ID " +
+                "WHERE St.CarrierUse = @CarrierUseID AND " +
+                @"@BeginDate <= CASE 
+WHEN pl.FactDate <> '0001-01-01' 
+THEN pl.FactDate 
+ELSE pl.AppointedDate 
+END 
+AND 
+@EndDate >= CASE 
+WHEN pl.FactDate <> '0001-01-01' 
+THEN pl.FactDate 
+ELSE pl.AppointedDate 
+END";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierUseID", CarrierUseID);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@BeginDate", BeginDate.ToShortDateString());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@EndDate", EndDate.ToShortDateString());
+            dataAdapter.Fill(dataSet, "PracticeLessons");
+        }
     }
 }

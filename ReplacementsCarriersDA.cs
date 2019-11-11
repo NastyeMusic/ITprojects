@@ -79,5 +79,26 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierUseID", CarrierUseID);
             dataAdapter.Fill(dataSet, "ReplacementsCarriers");
         }
+
+        public void ReadReplacementsCarriersByLessonDatesANDCarrierUseID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, DateTime LessonDate, int CarrierUseID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT * FROM ReplacementsCarriers " +
+                "WHERE CarrierUse=@CarrierUseID AND DateBeginReplacement <= @LessonDate AND DateEndReplacement >=@LessonDate";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@LessonDate", LessonDate);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierUseID", CarrierUseID);
+            dataAdapter.Fill(dataSet, "ReplacementsCarriers");
+        }
+
+        public void ReadByCarrierReplacementID_AND_BeginEndDates(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CarrierReplacementID, DateTime BeginDate, DateTime EndDate)
+        {
+            dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM ReplacementsCarriers WHERE CarrierReplacement = @CarrierReplacementID AND DateBeginReplacement >= @BeginDate AND DateBeginReplacement <= @EndDate", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierReplacementID", CarrierReplacementID);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@BeginDate", BeginDate);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@EndDate", EndDate);
+            dataAdapter.Fill(dataSet, "ReplacementsCarriers");
+        }
     }
 }

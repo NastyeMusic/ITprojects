@@ -67,8 +67,64 @@ namespace Автошкола
 
         void ReloadPracticeLessons(int CarrierID)
         {
-            dataSetForPracticeLessons = BusinessLogic.GetPracticeLessonsForCarrier(CarrierID);
-            PracticeLessons_dGV.DataSource = dataSetForPracticeLessons;
+            PracticeLessons_dGV.Rows.Clear();
+            DateTime BeginDate = Convert.ToDateTime(DateBegin_dateTimePicker.Text).Date;
+            DateTime EndDate = Convert.ToDateTime(DateEnd_dateTimePicker.Text).Date;
+            if (Carriers_dataGridView.SelectedRows[0].Cells["StatusColumn"].FormattedValue.ToString() == "Используется")
+            {
+                // берем все практические занятия за нужный период
+                dataSetForPracticeLessons = BusinessLogic.ReadPracticeLessonsByCarrierID_AND_BeginEndDates(CarrierID, BeginDate, EndDate);
+                // для каждого практического занятия ищем замены ТС по дате
+                // сначала смотрим фактическую дату, если она пустая - то назначенную
+                // если замены есть - эта машина не использовалась, т.е. запись не добавляем
+                for (int i = 0; i < dataSetForPracticeLessons.PracticeLessons.Rows.Count; i++)
+                {
+                    DateTime LessonTime = Convert.ToDateTime((dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00") ?
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() :
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"].ToString()).Date;
+                    AutoschoolDataSet TempDS = BusinessLogic.ReadReplacementsCarriersByBeginEndDatesANDCarrierUseID(LessonTime, CarrierID);
+                    if (TempDS.ReplacementsCarriers.Rows.Count == 0)
+                    {
+                        PracticeLessons_dGV.Rows.Add(
+                            dataSetForPracticeLessons.PracticeLessons.Rows[i]["ID"],
+                            dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"],
+                            dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedTime"],
+                            dataSetForPracticeLessons.Students.Rows.Find(dataSetForPracticeLessons.PracticeLessons.Rows[i]["Student"].ToString())["InstructorName"],
+                            dataSetForPracticeLessons.PracticeLessons.Rows[i]["StudentFIO"],
+                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"]: ""),
+                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactTime"] : "")
+                            );
+                    }
+                }
+            }
+            else if (Carriers_dataGridView.SelectedRows[0].Cells["StatusColumn"].FormattedValue.ToString() == "Резерв")
+            {
+                // берем замены ТС за нужный период, где заменяющей ТС было выбранное ТС
+                // для каждой замены ТС 
+                // по CarrierUseID получаем практические занятия в этот период
+                // выводим эти занятия
+                AutoschoolDataSet TempDS = BusinessLogic.ReadByCarrierReplacementID_AND_BeginEndDates(CarrierID, BeginDate, EndDate);
+                for (int i = 0; i < TempDS.ReplacementsCarriers.Rows.Count; i++)
+                {
+                    dataSetForPracticeLessons = BusinessLogic.ReadPracticeLessonsByCarrierUseID_AND_DatesBeginEnd(
+                        Convert.ToInt32(TempDS.ReplacementsCarriers.Rows[i]["CarrierUse"].ToString()), 
+                        Convert.ToDateTime(TempDS.ReplacementsCarriers.Rows[i]["DateBeginReplacement"].ToString()).Date,
+                        Convert.ToDateTime(TempDS.ReplacementsCarriers.Rows[i]["DateEndReplacement"].ToString()).Date);
+                    for (int j = 0; j < dataSetForPracticeLessons.PracticeLessons.Rows.Count; j++)
+                    {
+                        PracticeLessons_dGV.Rows.Add(
+                            dataSetForPracticeLessons.PracticeLessons.Rows[j]["ID"],
+                            dataSetForPracticeLessons.PracticeLessons.Rows[j]["AppointedDate"],
+                            dataSetForPracticeLessons.PracticeLessons.Rows[j]["AppointedTime"],
+                            dataSetForPracticeLessons.Students.Rows.Find(dataSetForPracticeLessons.PracticeLessons.Rows[0]["Student"].ToString())["InstructorName"],
+                            dataSetForPracticeLessons.PracticeLessons.Rows[j]["StudentFIO"],
+                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"] : ""),
+                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactTime"] : "")
+                            );
+                    }
+                }
+            }
+            /*PracticeLessons_dGV.DataSource = dataSetForPracticeLessons;
             PracticeLessons_dGV.DataMember = "PracticeLessons";
 
             PracticeLessons_dGV.Columns["ID"].Visible = false;
@@ -90,7 +146,7 @@ namespace Автошкола
             InstructorColumn.DataSource = dataSetForPracticeLessons.Students;
             InstructorColumn.DisplayMember = "InstructorName";
             InstructorColumn.ValueMember = "ID";
-            InstructorColumn.DataPropertyName = "Student";
+            InstructorColumn.DataPropertyName = "Student";*/
         }
 
         private void Carriers_dataGridView_SelectionChanged(object sender, EventArgs e)
@@ -167,6 +223,11 @@ namespace Автошкола
                 else
                     FirstLoad = false;
             }
+        }
+
+        private void DateBegin_dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateEnd_dateTimePicker.MinDate = DateBegin_dateTimePicker.Value;
         }
 
         private void CarriersUseJournalForm_Load(object sender, EventArgs e)
