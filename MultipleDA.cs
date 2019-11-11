@@ -112,6 +112,24 @@ namespace Автошкола
             dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
             dataAdapter.SelectCommand.Parameters.AddWithValue("@Date", Date);
             dataAdapter.Fill(dataSet, "Carriers");
+        }        
+
+        public void ReadCarriersUsesWithRepairingCarriers(DataSet dataSet, AbstractConnection conn, AbstractTransaction tr, DateTime BeginDate, DateTime EndDate)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT Cr.ID AS [CarrierID], Cr.Brand AS [Brand], Cr.Model AS [Model], Cr.StateNumber AS [StateNumber], " +
+                "CarR.BeginDate AS [BeginDate], CarR.EndDate AS [EndDate], " +
+                "CU.Instructor AS [InstructorID], (Instr.Surname + ' ' + Instr.FirstName + ' ' + Instr.PatronymicName) AS [InstructorName], " + 
+                "CU.ID AS [CarrierUseID]" +
+                "FROM CarriersUses CU " +
+                "INNER JOIN Carriers Cr ON CU.Carrier=Cr.ID " +
+                "INNER JOIN CarriersRepairs CarR ON Cr.ID=CarR.Carrier " +
+                "INNER JOIN Instructors Instr ON CU.Instructor=Instr.ID " +
+                "WHERE CarR.BeginDate >= @BeginDate AND CarR.EndDate <= @EndDate";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@BeginDate", BeginDate);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@EndDate", EndDate);
+            dataAdapter.Fill(dataSet, "CarrierUsesWithRepairingCarriers");
         }
     }
 }

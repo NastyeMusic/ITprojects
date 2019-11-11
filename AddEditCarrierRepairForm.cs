@@ -138,7 +138,7 @@ namespace Автошкола
 
         private void BeginRepair_dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            EndRepair_dateTimePicker.MinDate = Convert.ToDateTime(BeginRepair_dateTimePicker.Text).AddDays(1);
+            EndRepair_dateTimePicker.MinDate = Convert.ToDateTime(BeginRepair_dateTimePicker.Text);
         }
 
         private void Carriers_dataGridView_SelectionChanged(object sender, EventArgs e)
@@ -251,9 +251,9 @@ namespace Автошкола
                             DateTime EndRepairInBdRow = Convert.ToDateTime(TempDS.CarriersRepairs.Rows[i]["EndDate"].ToString()).Date;
                             DateTime Begin = Convert.ToDateTime(BeginRepair_dateTimePicker.Text).Date;
                             DateTime End = Convert.ToDateTime(EndRepair_dateTimePicker.Text).Date;
-                            if (BeginRepairInBdRow > Begin && End <= BeginRepairInBdRow)
+                            if (BeginRepairInBdRow > Begin && End < BeginRepairInBdRow)
                                 continue;
-                            if (EndRepairInBdRow <= Begin)
+                            if (EndRepairInBdRow < Begin)
                                 continue;
                             else
                             {
@@ -269,9 +269,9 @@ namespace Автошкола
                             DateTime EndRepairInBdRow = Convert.ToDateTime(TempDS.CarriersRepairs.Rows[i]["EndDate"].ToString()).Date;
                             DateTime Begin = Convert.ToDateTime(BeginRepair_dateTimePicker.Text).Date;
                             DateTime End = Convert.ToDateTime(EndRepair_dateTimePicker.Text).Date;
-                            if (BeginRepairInBdRow > Begin && End <= BeginRepairInBdRow)
+                            if (BeginRepairInBdRow > Begin && End < BeginRepairInBdRow)
                                 continue;
-                            if (EndRepairInBdRow <= Begin)
+                            if (EndRepairInBdRow < Begin)
                                 continue;
                             else
                             {
@@ -291,9 +291,9 @@ namespace Автошкола
                             DateTime EndRepairInBdRow = Convert.ToDateTime(TempDS.CarriersRepairs.Rows[i]["EndDate"].ToString()).Date;
                             DateTime Begin = Convert.ToDateTime(BeginRepair_dateTimePicker.Text).Date;
                             DateTime End = Convert.ToDateTime(EndRepair_dateTimePicker.Text).Date;
-                            if (BeginRepairInBdRow > Begin && End <= BeginRepairInBdRow)
+                            if (BeginRepairInBdRow > Begin && End < BeginRepairInBdRow)
                                 continue;
-                            if (EndRepairInBdRow <= Begin)
+                            if (EndRepairInBdRow < Begin)
                                 continue;
                             else
                             {
@@ -309,9 +309,9 @@ namespace Автошкола
                             DateTime EndRepairInBdRow = Convert.ToDateTime(TempDS.CarriersRepairs.Rows[i]["EndDate"].ToString()).Date;
                             DateTime Begin = Convert.ToDateTime(BeginRepair_dateTimePicker.Text).Date;
                             DateTime End = Convert.ToDateTime(EndRepair_dateTimePicker.Text).Date;
-                            if (BeginRepairInBdRow > Begin && End <= BeginRepairInBdRow)
+                            if (BeginRepairInBdRow > Begin && End < BeginRepairInBdRow)
                                 continue;
-                            if (EndRepairInBdRow <= Begin)
+                            if (EndRepairInBdRow < Begin)
                                 continue;
                             else
                             {

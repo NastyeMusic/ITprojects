@@ -18,9 +18,11 @@ namespace Автошкола
         }
 
         public BusinessLogic BusinessLogic = new BusinessLogic();
-        AutoschoolDataSet dataSetForCarriersByStatus, dataSetForCarriersByCondition, dataSetForCarriersStatuses;
+        AutoschoolDataSet dataSetForCarriersByStatus, dataSetForCarriersStatuses;
 
         bool FormLoad = false;
+        CarriersNeedsInRepairForm CarriersNeedsInRepairForm;
+        static public bool CarriersNeedsInRepairFormOpened = false;
 
         void ReloadCarriersByCarrierStatus(int StatusID)
         {
@@ -234,6 +236,18 @@ namespace Автошкола
                     }
                 }
             }
+        }
+
+        private void GetCarriersNeedsInReplacement_button_Click(object sender, EventArgs e)
+        {
+            if (!CarriersNeedsInRepairFormOpened)
+            {
+                CarriersNeedsInRepairForm = new CarriersNeedsInRepairForm();
+                CarriersNeedsInRepairForm.Show();
+                CarriersNeedsInRepairFormOpened = true;
+            }
+            else
+                CarriersNeedsInRepairForm.Activate();
         }
 
         private void Close_button_Click(object sender, EventArgs e)

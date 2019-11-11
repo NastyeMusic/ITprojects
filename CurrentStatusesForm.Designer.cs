@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ReloadCarriers_button = new System.Windows.Forms.Button();
-            this.ReloadCarriersStatuses_button = new System.Windows.Forms.Button();
             this.CarriersByStatus_dataGridView = new System.Windows.Forms.DataGridView();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +44,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CarriersByCondition_dataGridView = new System.Windows.Forms.DataGridView();
+            this.ID2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StateNumber2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Color2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Transmission2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GetCarriersByCondition_button = new System.Windows.Forms.Button();
             this.Condition_comboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,14 +63,8 @@
             this.GetCarriersNeedsInReplacement_button = new System.Windows.Forms.Button();
             this.Close_button = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ID2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StateNumber2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Color2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Transmission2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReloadCarriers_button = new System.Windows.Forms.Button();
+            this.ReloadCarriersStatuses_button = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersByStatus_dataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -92,29 +92,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ТС с выбранным статусом";
             // 
-            // ReloadCarriers_button
-            // 
-            this.ReloadCarriers_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ReloadCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadCarriers_button.Location = new System.Drawing.Point(1110, 23);
-            this.ReloadCarriers_button.Name = "ReloadCarriers_button";
-            this.ReloadCarriers_button.Size = new System.Drawing.Size(45, 35);
-            this.ReloadCarriers_button.TabIndex = 42;
-            this.ReloadCarriers_button.UseVisualStyleBackColor = true;
-            this.ReloadCarriers_button.Click += new System.EventHandler(this.ReloadCarriers_button_Click);
-            // 
-            // ReloadCarriersStatuses_button
-            // 
-            this.ReloadCarriersStatuses_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadCarriersStatuses_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadCarriersStatuses_button.Location = new System.Drawing.Point(416, 23);
-            this.ReloadCarriersStatuses_button.Name = "ReloadCarriersStatuses_button";
-            this.ReloadCarriersStatuses_button.Size = new System.Drawing.Size(45, 35);
-            this.ReloadCarriersStatuses_button.TabIndex = 41;
-            this.ReloadCarriersStatuses_button.UseVisualStyleBackColor = true;
-            this.ReloadCarriersStatuses_button.Click += new System.EventHandler(this.ReloadCarriersStatuses_button_Click);
-            // 
             // CarriersByStatus_dataGridView
             // 
             this.CarriersByStatus_dataGridView.AllowUserToAddRows = false;
@@ -138,8 +115,8 @@
             this.CarriersByStatus_dataGridView.Name = "CarriersByStatus_dataGridView";
             this.CarriersByStatus_dataGridView.ReadOnly = true;
             this.CarriersByStatus_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersByStatus_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersByStatus_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.CarriersByStatus_dataGridView.RowTemplate.Height = 24;
             this.CarriersByStatus_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersByStatus_dataGridView.Size = new System.Drawing.Size(1149, 196);
@@ -151,7 +128,7 @@
             this.IDColumn.Name = "IDColumn";
             this.IDColumn.ReadOnly = true;
             this.IDColumn.Visible = false;
-            this.IDColumn.Width = 42;
+            this.IDColumn.Width = 39;
             // 
             // BrandColumn
             // 
@@ -271,12 +248,72 @@
             this.CarriersByCondition_dataGridView.Name = "CarriersByCondition_dataGridView";
             this.CarriersByCondition_dataGridView.ReadOnly = true;
             this.CarriersByCondition_dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CarriersByCondition_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CarriersByCondition_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.CarriersByCondition_dataGridView.RowTemplate.Height = 24;
             this.CarriersByCondition_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CarriersByCondition_dataGridView.Size = new System.Drawing.Size(1149, 192);
             this.CarriersByCondition_dataGridView.TabIndex = 35;
+            // 
+            // ID2Column
+            // 
+            this.ID2Column.HeaderText = "Код";
+            this.ID2Column.Name = "ID2Column";
+            this.ID2Column.ReadOnly = true;
+            this.ID2Column.Visible = false;
+            this.ID2Column.Width = 39;
+            // 
+            // Brand2Column
+            // 
+            this.Brand2Column.HeaderText = "Марка";
+            this.Brand2Column.Name = "Brand2Column";
+            this.Brand2Column.ReadOnly = true;
+            this.Brand2Column.Width = 82;
+            // 
+            // Model2Column
+            // 
+            this.Model2Column.HeaderText = "Модель";
+            this.Model2Column.Name = "Model2Column";
+            this.Model2Column.ReadOnly = true;
+            this.Model2Column.Width = 93;
+            // 
+            // StateNumber2Column
+            // 
+            this.StateNumber2Column.HeaderText = "Гос.рег.№";
+            this.StateNumber2Column.Name = "StateNumber2Column";
+            this.StateNumber2Column.ReadOnly = true;
+            this.StateNumber2Column.Width = 108;
+            // 
+            // Color2Column
+            // 
+            this.Color2Column.HeaderText = "Цвет";
+            this.Color2Column.Name = "Color2Column";
+            this.Color2Column.ReadOnly = true;
+            this.Color2Column.Width = 71;
+            // 
+            // Transmission2Column
+            // 
+            this.Transmission2Column.HeaderText = "Трансмиссия";
+            this.Transmission2Column.Name = "Transmission2Column";
+            this.Transmission2Column.ReadOnly = true;
+            this.Transmission2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Transmission2Column.Width = 129;
+            // 
+            // Category2Column
+            // 
+            this.Category2Column.HeaderText = "Категория";
+            this.Category2Column.Name = "Category2Column";
+            this.Category2Column.ReadOnly = true;
+            this.Category2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Category2Column.Width = 109;
+            // 
+            // Status2Column
+            // 
+            this.Status2Column.HeaderText = "Статус";
+            this.Status2Column.Name = "Status2Column";
+            this.Status2Column.ReadOnly = true;
+            this.Status2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Status2Column.Width = 85;
             // 
             // GetCarriersByCondition_button
             // 
@@ -367,6 +404,7 @@
             this.GetCarriersNeedsInReplacement_button.TabIndex = 0;
             this.GetCarriersNeedsInReplacement_button.Text = "Получить список ТС";
             this.GetCarriersNeedsInReplacement_button.UseVisualStyleBackColor = true;
+            this.GetCarriersNeedsInReplacement_button.Click += new System.EventHandler(this.GetCarriersNeedsInReplacement_button_Click);
             // 
             // Close_button
             // 
@@ -402,65 +440,28 @@
             this.splitContainer1.SplitterDistance = 264;
             this.splitContainer1.TabIndex = 57;
             // 
-            // ID2Column
+            // ReloadCarriers_button
             // 
-            this.ID2Column.HeaderText = "Код";
-            this.ID2Column.Name = "ID2Column";
-            this.ID2Column.ReadOnly = true;
-            this.ID2Column.Visible = false;
-            this.ID2Column.Width = 42;
+            this.ReloadCarriers_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReloadCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadCarriers_button.Location = new System.Drawing.Point(1110, 23);
+            this.ReloadCarriers_button.Name = "ReloadCarriers_button";
+            this.ReloadCarriers_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadCarriers_button.TabIndex = 42;
+            this.ReloadCarriers_button.UseVisualStyleBackColor = true;
+            this.ReloadCarriers_button.Click += new System.EventHandler(this.ReloadCarriers_button_Click);
             // 
-            // Brand2Column
+            // ReloadCarriersStatuses_button
             // 
-            this.Brand2Column.HeaderText = "Марка";
-            this.Brand2Column.Name = "Brand2Column";
-            this.Brand2Column.ReadOnly = true;
-            this.Brand2Column.Width = 82;
-            // 
-            // Model2Column
-            // 
-            this.Model2Column.HeaderText = "Модель";
-            this.Model2Column.Name = "Model2Column";
-            this.Model2Column.ReadOnly = true;
-            this.Model2Column.Width = 93;
-            // 
-            // StateNumber2Column
-            // 
-            this.StateNumber2Column.HeaderText = "Гос.рег.№";
-            this.StateNumber2Column.Name = "StateNumber2Column";
-            this.StateNumber2Column.ReadOnly = true;
-            this.StateNumber2Column.Width = 108;
-            // 
-            // Color2Column
-            // 
-            this.Color2Column.HeaderText = "Цвет";
-            this.Color2Column.Name = "Color2Column";
-            this.Color2Column.ReadOnly = true;
-            this.Color2Column.Width = 71;
-            // 
-            // Transmission2Column
-            // 
-            this.Transmission2Column.HeaderText = "Трансмиссия";
-            this.Transmission2Column.Name = "Transmission2Column";
-            this.Transmission2Column.ReadOnly = true;
-            this.Transmission2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Transmission2Column.Width = 129;
-            // 
-            // Category2Column
-            // 
-            this.Category2Column.HeaderText = "Категория";
-            this.Category2Column.Name = "Category2Column";
-            this.Category2Column.ReadOnly = true;
-            this.Category2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Category2Column.Width = 109;
-            // 
-            // Status2Column
-            // 
-            this.Status2Column.HeaderText = "Статус";
-            this.Status2Column.Name = "Status2Column";
-            this.Status2Column.ReadOnly = true;
-            this.Status2Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status2Column.Width = 85;
+            this.ReloadCarriersStatuses_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadCarriersStatuses_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadCarriersStatuses_button.Location = new System.Drawing.Point(416, 23);
+            this.ReloadCarriersStatuses_button.Name = "ReloadCarriersStatuses_button";
+            this.ReloadCarriersStatuses_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadCarriersStatuses_button.TabIndex = 41;
+            this.ReloadCarriersStatuses_button.UseVisualStyleBackColor = true;
+            this.ReloadCarriersStatuses_button.Click += new System.EventHandler(this.ReloadCarriersStatuses_button_Click);
             // 
             // CurrentStatusesForm
             // 

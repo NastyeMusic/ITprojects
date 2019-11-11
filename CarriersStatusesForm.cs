@@ -53,7 +53,8 @@ namespace Автошкола
 
         private void CarriersStatuses_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (FormLoad && CarriersStatuses_dataGridView.SelectedRows.Count == 1 && CarriersStatuses_dataGridView.SelectedRows[0].Cells["NameColumn"].Value.ToString() != "Резерв")
+            if (FormLoad && CarriersStatuses_dataGridView.SelectedRows.Count == 1 && CarriersStatuses_dataGridView.SelectedRows[0].Cells["NameColumn"].Value.ToString() != "Резерв"
+                && CarriersStatuses_dataGridView.SelectedRows[0].Cells["NameColumn"].Value.ToString() != "Используется")
             {
                 Edit_button.Enabled = true;
                 Delete_button.Enabled = true;

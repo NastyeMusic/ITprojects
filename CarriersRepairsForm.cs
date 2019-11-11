@@ -132,6 +132,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = CarriersRepairs_dataGridView.SelectedRows[0].Index;
             ReloadCarriersRepairs();
             AddEditCarrierRepairForm EditCarrierRepair = new AddEditCarrierRepairForm(dataSet.CarriersRepairs,
                 dataSet.ServiceMasters, dataSet.Carriers,

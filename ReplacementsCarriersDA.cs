@@ -68,5 +68,16 @@ namespace Автошкола
             dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierReplacementID", CarrierReplacementID);
             dataAdapter.Fill(dataSet, "ReplacementsCarriers");
         }
+
+        public void ReadReplacementsCarriersByBeginDateANDCarrierUseID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, DateTime BeginDate, int CarrierUseID)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT * FROM ReplacementsCarriers " +
+                "WHERE CarrierUse=@CarrierUseID AND DateBeginReplacement = @BeginDate";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@BeginDate", BeginDate);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierUseID", CarrierUseID);
+            dataAdapter.Fill(dataSet, "ReplacementsCarriers");
+        }
     }
 }

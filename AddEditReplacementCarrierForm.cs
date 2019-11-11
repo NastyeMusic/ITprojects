@@ -101,7 +101,7 @@ namespace Автошкола
 
         private void BeginReplacement_dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            EndReplacement_dateTimePicker.MinDate = Convert.ToDateTime(BeginReplacement_dateTimePicker.Text).AddDays(1);
+            EndReplacement_dateTimePicker.MinDate = Convert.ToDateTime(BeginReplacement_dateTimePicker.Text).Date;
         }
 
         void ReloadReplacingCarriers()
@@ -204,9 +204,9 @@ namespace Автошкола
                             DateTime EndReplacementInBdRow = Convert.ToDateTime(TempDS.ReplacementsCarriers.Rows[i]["DateEndReplacement"].ToString()).Date;
                             DateTime Begin = Convert.ToDateTime(BeginReplacement_dateTimePicker.Text).Date;
                             DateTime End = Convert.ToDateTime(EndReplacement_dateTimePicker.Text).Date;
-                            if (BeginReplacementInBdRow > Begin && End <= BeginReplacementInBdRow)
+                            if (BeginReplacementInBdRow > Begin && End < BeginReplacementInBdRow)
                                 continue;
-                            if (EndReplacementInBdRow <= Begin)
+                            if (EndReplacementInBdRow < Begin)
                                 continue;
                             else
                             {
@@ -222,9 +222,9 @@ namespace Автошкола
                             DateTime EndReplacementInBdRow = Convert.ToDateTime(TempDS.ReplacementsCarriers.Rows[i]["DateEndReplacement"].ToString()).Date;
                             DateTime Begin = Convert.ToDateTime(BeginReplacement_dateTimePicker.Text).Date;
                             DateTime End = Convert.ToDateTime(EndReplacement_dateTimePicker.Text).Date;
-                            if (BeginReplacementInBdRow > Begin && End <= BeginReplacementInBdRow)
+                            if (BeginReplacementInBdRow > Begin && End < BeginReplacementInBdRow)
                                 continue;
-                            if (EndReplacementInBdRow <= Begin)
+                            if (EndReplacementInBdRow < Begin)
                                 continue;
                             else
                             {
@@ -244,9 +244,9 @@ namespace Автошкола
                             DateTime EndReplacementInBdRow = Convert.ToDateTime(TempDS.ReplacementsCarriers.Rows[i]["DateEndReplacement"].ToString()).Date;
                             DateTime Begin = Convert.ToDateTime(BeginReplacement_dateTimePicker.Text).Date;
                             DateTime End = Convert.ToDateTime(EndReplacement_dateTimePicker.Text).Date;
-                            if (BeginReplacementInBdRow > Begin && End <= BeginReplacementInBdRow)
+                            if (BeginReplacementInBdRow > Begin && End < BeginReplacementInBdRow)
                                 continue;
-                            if (EndReplacementInBdRow <= Begin)
+                            if (EndReplacementInBdRow < Begin)
                                 continue;
                             else
                             {
@@ -262,9 +262,9 @@ namespace Автошкола
                             DateTime EndReplacementInBdRow = Convert.ToDateTime(TempDS.ReplacementsCarriers.Rows[i]["DateEndReplacement"].ToString()).Date;
                             DateTime Begin = Convert.ToDateTime(BeginReplacement_dateTimePicker.Text).Date;
                             DateTime End = Convert.ToDateTime(EndReplacement_dateTimePicker.Text).Date;
-                            if (BeginReplacementInBdRow > Begin && End <= BeginReplacementInBdRow)
+                            if (BeginReplacementInBdRow > Begin && End < BeginReplacementInBdRow)
                                 continue;
-                            if (EndReplacementInBdRow <= Begin)
+                            if (EndReplacementInBdRow < Begin)
                                 continue;
                             else
                             {

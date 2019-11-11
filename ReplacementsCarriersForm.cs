@@ -136,6 +136,7 @@ namespace Автошкола
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            LastSelectionIndex = ReplacementsCarriers_dataGridView.SelectedRows[0].Index;
             ReloadReplacementsCarriers();
             //dataSet = BusinessLogic.ReadReplacementsCarriers();
             AddEditReplacementCarrierForm EditReplacementCarrier = new AddEditReplacementCarrierForm(dataSet.ReplacementsCarriers,

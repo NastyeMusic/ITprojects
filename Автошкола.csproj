@@ -167,6 +167,12 @@
     <Compile Include="CarriersForm.Designer.cs">
       <DependentUpon>CarriersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarriersNeedsInRepairForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarriersNeedsInRepairForm.Designer.cs">
+      <DependentUpon>CarriersNeedsInRepairForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarriersRepairsDA.cs" />
     <Compile Include="CarriersRepairsForm.cs">
       <SubType>Form</SubType>
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CarriersForm.resx">
       <DependentUpon>CarriersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarriersNeedsInRepairForm.resx">
+      <DependentUpon>CarriersNeedsInRepairForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarriersRepairsForm.resx">
       <DependentUpon>CarriersRepairsForm.cs</DependentUpon>
