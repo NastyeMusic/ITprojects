@@ -272,6 +272,16 @@ namespace Автошкола
                             }
                         }
                     }
+
+                    TempDS = BusinessLogic.ReadByCarrierID_AND_CrossInBeginEndDates(
+                            SelectedReplacingCarrierID,
+                            Convert.ToDateTime(BeginReplacement_dateTimePicker.Text).Date, 
+                            Convert.ToDateTime(EndReplacement_dateTimePicker.Text).Date);
+                    if (TempDS.CarriersRepairs.Rows.Count > 0)
+                    {
+                        throw new Exception("Выбранное заменяющее ТС само находится в ремонте в одни из указанных дней");
+                    }
+
                 }
                 catch (Exception exp)
                 {
