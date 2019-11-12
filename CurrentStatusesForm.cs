@@ -105,15 +105,42 @@ namespace Автошкола
                 TimeSpan Time = Convert.ToDateTime(Time_dateTimePicker.Text).TimeOfDay;
 
                 AutoschoolDataSet TempDS = new AutoschoolDataSet();
+                // отбираем занятые ТС в ориентире практических занятий
                 TempDS = BusinessLogic.ReadBusyCarriers(Date, Time, 45);
                 for (int i = 0; i < TempDS.Carriers.Rows.Count; i++)
                 {
-                    CarriersByCondition_dataGridView.Rows.Add(TempDS.Carriers.Rows[i]["ID"], TempDS.Carriers.Rows[i]["Brand"],
-                        TempDS.Carriers.Rows[i]["Model"], TempDS.Carriers.Rows[i]["StateNumber"],
-                        TempDS.Carriers.Rows[i]["Color"],
-                        TempDS.Transmissions.Rows.Find(TempDS.Carriers.Rows[i]["Transmission"].ToString())["Transmission"],
-                        TempDS.Categories.Rows.Find(TempDS.Carriers.Rows[i]["Category"].ToString())["Name"],
-                        TempDS.CarriersStatuses.Rows.Find(TempDS.Carriers.Rows[i]["Status"].ToString())["Name"]);
+                    // если отобранное занятое ТС было заменено, то вместо него выводим его замены
+                    AutoschoolDataSet TempDS2 = BusinessLogic.ReadReplacementsCarriersByCarrierID_AND_Date(
+                        Convert.ToInt32(TempDS.Carriers.Rows[i]["ID"]),
+                        Date);
+                    if (TempDS2.ReplacementsCarriers.Rows.Count > 0)
+                    {
+                        for (int j = 0; j < TempDS2.ReplacementsCarriers.Rows.Count; j++)
+                        {
+                            AutoschoolDataSet.CarriersRow CarrierRow = (AutoschoolDataSet.CarriersRow)
+                                TempDS2.Carriers.Rows.Find(TempDS2.ReplacementsCarriers.Rows[i]["CarrierReplacement"]);
+
+                            CarriersByCondition_dataGridView.Rows.Add(
+                                CarrierRow["ID"],
+                                CarrierRow["Brand"],
+                                CarrierRow["Model"],
+                                CarrierRow["StateNumber"],
+                                CarrierRow["Color"],
+                                TempDS.Transmissions.Rows.Find(CarrierRow["Transmission"].ToString())["Transmission"],
+                                TempDS.Categories.Rows.Find(CarrierRow["Category"].ToString())["Name"],
+                                TempDS.CarriersStatuses.Rows.Find(CarrierRow["Status"].ToString())["Name"]
+                                );
+                        }
+                    }
+                    else
+                    {
+                        CarriersByCondition_dataGridView.Rows.Add(TempDS.Carriers.Rows[i]["ID"], TempDS.Carriers.Rows[i]["Brand"],
+                            TempDS.Carriers.Rows[i]["Model"], TempDS.Carriers.Rows[i]["StateNumber"],
+                            TempDS.Carriers.Rows[i]["Color"],
+                            TempDS.Transmissions.Rows.Find(TempDS.Carriers.Rows[i]["Transmission"].ToString())["Transmission"],
+                            TempDS.Categories.Rows.Find(TempDS.Carriers.Rows[i]["Category"].ToString())["Name"],
+                            TempDS.CarriersStatuses.Rows.Find(TempDS.Carriers.Rows[i]["Status"].ToString())["Name"]);
+                    }
                 }
             }
             else if (Condition_comboBox.SelectedItem.ToString() == "Свободно")
@@ -124,14 +151,36 @@ namespace Автошкола
 
                 AutoschoolDataSet BusyCarriers = new AutoschoolDataSet();
                 BusyCarriers = BusinessLogic.ReadBusyCarriers(Date, Time, 45);
+                int[] ReallyBusyCarriersID = new int[0];
+                for (int i = 0; i < BusyCarriers.Carriers.Rows.Count; i++)
+                {
+                    // если отобранное занятое ТС было заменено, то вместо него выводим его замены
+                    AutoschoolDataSet TempDS2 = BusinessLogic.ReadReplacementsCarriersByCarrierID_AND_Date(
+                        Convert.ToInt32(BusyCarriers.Carriers.Rows[i]["ID"]),
+                        Date);
+                    if (TempDS2.ReplacementsCarriers.Rows.Count > 0)
+                    {
+                        for (int j = 0; j < TempDS2.ReplacementsCarriers.Rows.Count; j++)
+                        {
+                            Array.Resize(ref ReallyBusyCarriersID, ReallyBusyCarriersID.Length + 1);
+                            ReallyBusyCarriersID[ReallyBusyCarriersID.Length - 1] = Convert.ToInt32(TempDS2.ReplacementsCarriers.Rows[i]["CarrierReplacement"].ToString());
+                        }
+                    }
+                    else
+                    {
+                        Array.Resize(ref ReallyBusyCarriersID, ReallyBusyCarriersID.Length + 1);
+                        ReallyBusyCarriersID[ReallyBusyCarriersID.Length - 1] = Convert.ToInt32(BusyCarriers.Carriers.Rows[i]["ID"].ToString());
+                    }
+                }
+
                 AutoschoolDataSet AllCarriers = BusinessLogic.ReadCarriers();
                 bool Find;
                 for (int i = 0; i < AllCarriers.Carriers.Rows.Count; i++)
                 {
                     Find = false;
-                    for (int j = 0; j < BusyCarriers.Carriers.Rows.Count; j++)
+                    for (int j = 0; j < ReallyBusyCarriersID.Length; j++)
                     {
-                        if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == BusyCarriers.Carriers.Rows[j]["ID"].ToString())
+                        if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == ReallyBusyCarriersID[j].ToString())
                         {
                             Find = true;
                             break;
@@ -204,6 +253,27 @@ namespace Автошкола
 
                 AutoschoolDataSet BusyCarriers = new AutoschoolDataSet();
                 BusyCarriers = BusinessLogic.ReadBusyCarriers(Date, Time, 45);
+                int[] ReallyBusyCarriersID = new int[0];
+                for (int i = 0; i < BusyCarriers.Carriers.Rows.Count; i++)
+                {
+                    // если отобранное занятое ТС было заменено, то вместо него выводим его замены
+                    AutoschoolDataSet TempDS2 = BusinessLogic.ReadReplacementsCarriersByCarrierID_AND_Date(
+                        Convert.ToInt32(BusyCarriers.Carriers.Rows[i]["ID"]),
+                        Date);
+                    if (TempDS2.ReplacementsCarriers.Rows.Count > 0)
+                    {
+                        for (int j = 0; j < TempDS2.ReplacementsCarriers.Rows.Count; j++)
+                        {
+                            Array.Resize(ref ReallyBusyCarriersID, ReallyBusyCarriersID.Length + 1);
+                            ReallyBusyCarriersID[ReallyBusyCarriersID.Length - 1] = Convert.ToInt32(TempDS2.ReplacementsCarriers.Rows[i]["CarrierReplacement"].ToString());
+                        }
+                    }
+                    else
+                    {
+                        Array.Resize(ref ReallyBusyCarriersID, ReallyBusyCarriersID.Length + 1);
+                        ReallyBusyCarriersID[ReallyBusyCarriersID.Length - 1] = Convert.ToInt32(BusyCarriers.Carriers.Rows[i]["ID"].ToString());
+                    }
+                }
                 AutoschoolDataSet RepairingCarriers = new AutoschoolDataSet();
                 RepairingCarriers = BusinessLogic.ReadRepairingCarriers(Date);
                 AutoschoolDataSet AllCarriers = BusinessLogic.ReadCarriers();
@@ -219,9 +289,9 @@ namespace Автошкола
                             break;
                         }
                     }
-                    for (int j = 0; j < BusyCarriers.Carriers.Rows.Count; j++)
+                    for (int j = 0; j < ReallyBusyCarriersID.Length; j++)
                     {
-                        if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == BusyCarriers.Carriers.Rows[j]["ID"].ToString())
+                        if (AllCarriers.Carriers.Rows[i]["ID"].ToString() == ReallyBusyCarriersID[j].ToString())
                         {
                             Find = true;
                             break;

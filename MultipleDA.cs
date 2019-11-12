@@ -89,12 +89,35 @@ namespace Автошкола
         public void ReadBusyCarriers(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, DateTime Date, TimeSpan Time, int LessonTime)
         {
             dataAdapter = new SqlDataAdapter();
-            string query = "SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status " +
+            /*string query = "SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status " +
                 "FROM Carriers Cr " +
                 "INNER JOIN CarriersUses CU ON Cr.ID=CU.Carrier " +
                 "INNER JOIN Students St ON CU.ID=St.CarrierUse " +
                 "INNER JOIN PracticeLessons PL ON St.ID=PL.Student " +
-                "WHERE PL.AppointedDate = @Date AND PL.AppointedTime <= @Time AND DATEADD(MINUTE, @LessonTime, PL.AppointedTime) > @Time";
+                "WHERE PL.AppointedDate = @Date AND PL.AppointedTime <= @Time AND DATEADD(MINUTE, @LessonTime, PL.AppointedTime) > @Time";*/
+            string query = @"SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status
+FROM Carriers Cr
+INNER JOIN CarriersUses CU ON Cr.ID=CU.Carrier
+INNER JOIN Students St ON CU.ID=St.CarrierUse
+INNER JOIN PracticeLessons PL ON St.ID=PL.Student
+WHERE
+@Date = CASE
+WHEN PL.FactDate <> '0001-01-01'
+THEN PL.FactDate
+ELSE PL.AppointedDate
+END
+AND
+@Time >= CASE
+WHEN PL.FactDate <> '0001-01-01'
+THEN PL.FactTime
+ELSE PL.AppointedTime
+END
+AND
+@Time < CASE
+WHEN PL.FactDate <> '0001-01-01'
+THEN DATEADD(MINUTE, @LessonTime, PL.FactTime)
+ELSE DATEADD(MINUTE, @LessonTime, PL.AppointedTime)
+END";
             dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
             dataAdapter.SelectCommand.Parameters.AddWithValue("@Date", Date);
             dataAdapter.SelectCommand.Parameters.AddWithValue("@Time", Time);
@@ -144,7 +167,7 @@ namespace Автошкола
             dataAdapter.Fill(dataSet, "Categories");
         }
 
-        public void ReadByCategoryIDANDInstructorID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CategoryID, int InstructorID)
+        public void ReadCarriersByCategoryIDANDInstructorID(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CategoryID, int InstructorID)
         {
             dataAdapter = new SqlDataAdapter();
             string query = "SELECT Cr.ID, Cr.Brand, Cr.Model, Cr.StateNumber, Cr.Color, Cr.Transmission, Cr.Category, Cr.Status " +
@@ -218,6 +241,17 @@ END";
             dataAdapter.Fill(dataSet, "PracticeLessons");
         }
 
-
+        public void ReadReplacementsCarriersByCarrierID_AND_Date(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CarrierID, DateTime Date)
+        {
+            dataAdapter = new SqlDataAdapter();
+            string query = "SELECT RC.ID, RC.CarrierUse, RC.CarrierReplacement, RC.DateBeginReplacement, RC.DateEndReplacement " +
+                "FROM ReplacementsCarriers RC " +
+                "INNER JOIN CarriersUses CU ON RC.CarrierUse=CU.ID " +
+                "WHERE CU.Carrier = @CarrierID AND @Date >= RC.DateBeginReplacement AND @Date <= RC.DateEndReplacement";
+            dataAdapter.SelectCommand = new SqlCommand(query, conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierID", CarrierID);
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Date", Date);
+            dataAdapter.Fill(dataSet, "ReplacementsCarriers");
+        }
     }
 }
