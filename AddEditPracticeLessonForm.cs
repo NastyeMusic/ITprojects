@@ -213,18 +213,35 @@ namespace Автошкола
                         LessonDate = Convert.ToDateTime(FactDate_dateTimePicker.Text).Date;
                     else
                         LessonDate = Convert.ToDateTime(AppointedDate_dateTimePicker.Text).Date;
-                    // смотрим, находится ли ТС в это время в ремонте
-                    // если да, то проверяем, есть ли ему замена
+                    // смотрим, находится ли основное ТС в это время в ремонте                    
                     TempDS = BusinessLogic.ReadCarriersRepairsByCarrierID_AND_LessonDate(CarrierID, LessonDate);
+                    // если да
                     if (TempDS.CarriersRepairs.Rows.Count > 0)
                     {
+                        //проверяем, есть ли ему замена
                         AutoschoolDataSet TempDS2 = BusinessLogic.ReadReplacementsCarriersByLessonDateANDCarrierUseID(LessonDate, CarrierUseID);
+                        // если у ремонтируемого основного ТС нет замены
                         if (TempDS2.ReplacementsCarriers.Rows.Count == 0)
                         {
                             if (FactDate_dateTimePicker.Checked)
                                 throw new Exception("ТС инструктора выбранного курсанта в это время находилось в ремонте и ему не была назначена замена");
                             else
                                 throw new Exception("ТС инструктора выбранного курсанта в это время находится в ремонте и ему не назначена замена");
+                        }
+                        // у ремонтируемого основного ТС есть замена
+                        else
+                        {
+                            // проверяем не находится ли заменяющее ТС в это время в ремонте
+                            int ReplacingCarrierID = Convert.ToInt32(TempDS2.ReplacementsCarriers.Rows[0]["CarrierReplacement"].ToString());
+                            AutoschoolDataSet TempDS3 = BusinessLogic.ReadCarriersRepairsByCarrierID_AND_LessonDate(ReplacingCarrierID, LessonDate);
+                            // если да
+                            if (TempDS3.CarriersRepairs.Rows.Count > 0)
+                            {
+                                if (FactDate_dateTimePicker.Checked)
+                                    throw new Exception("ТС инструктора выбранного курсанта в это время находилось в ремонте и назначенное ему заменяющее ТС также находилось в ремонте");
+                                else
+                                    throw new Exception("ТС инструктора выбранного курсанта в это время находится в ремонте и назначенное ему заменяющее ТС также находится в ремонте");
+                            }
                         }
                     }                    
 
