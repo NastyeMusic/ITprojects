@@ -207,6 +207,27 @@ namespace Автошкола
                         }
                     }
 
+                    int CarrierUseID = Convert.ToInt32(studentsDataTable[SelectedStudent_comboBox.SelectedIndex].CarrierUse.ToString());
+                    DateTime LessonDate;
+                    if (FactDate_dateTimePicker.Checked)
+                        LessonDate = Convert.ToDateTime(FactDate_dateTimePicker.Text).Date;
+                    else
+                        LessonDate = Convert.ToDateTime(AppointedDate_dateTimePicker.Text).Date;
+                    // смотрим, находится ли ТС в это время в ремонте
+                    // если да, то проверяем, есть ли ему замена
+                    TempDS = BusinessLogic.ReadCarriersRepairsByCarrierID_AND_LessonDate(CarrierID, LessonDate);
+                    if (TempDS.CarriersRepairs.Rows.Count > 0)
+                    {
+                        AutoschoolDataSet TempDS2 = BusinessLogic.ReadReplacementsCarriersByLessonDateANDCarrierUseID(LessonDate, CarrierUseID);
+                        if (TempDS2.ReplacementsCarriers.Rows.Count == 0)
+                        {
+                            if (FactDate_dateTimePicker.Checked)
+                                throw new Exception("ТС инструктора выбранного курсанта в это время находилось в ремонте и ему не была назначена замена");
+                            else
+                                throw new Exception("ТС инструктора выбранного курсанта в это время находится в ремонте и ему не назначена замена");
+                        }
+                    }                    
+
                     TempDS = BusinessLogic.ReadStudentByID(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
                     int GroupID = Convert.ToInt32(TempDS.Students[0][6].ToString());
                     TempDS = BusinessLogic.ReadTheoryLessonsByGroupID(GroupID);

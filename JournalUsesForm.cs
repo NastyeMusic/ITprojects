@@ -82,17 +82,20 @@ namespace Автошкола
                     DateTime LessonTime = Convert.ToDateTime((dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00") ?
                         dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() :
                         dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"].ToString()).Date;
-                    AutoschoolDataSet TempDS = BusinessLogic.ReadReplacementsCarriersByBeginEndDatesANDCarrierUseID(LessonTime, CarrierID);
+                    int CarrierUseID = Convert.ToInt32(dataSetForPracticeLessons.Students.Rows.Find(dataSetForPracticeLessons.PracticeLessons.Rows[i]["Student"].ToString())["CarrierUse"].ToString());
+                    AutoschoolDataSet TempDS = BusinessLogic.ReadReplacementsCarriersByLessonDateANDCarrierUseID(LessonTime, CarrierUseID);
                     if (TempDS.ReplacementsCarriers.Rows.Count == 0)
                     {
                         PracticeLessons_dGV.Rows.Add(
                             dataSetForPracticeLessons.PracticeLessons.Rows[i]["ID"],
-                            dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"],
+                            Convert.ToDateTime(dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"]).ToShortDateString(),
                             dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedTime"],
                             dataSetForPracticeLessons.Students.Rows.Find(dataSetForPracticeLessons.PracticeLessons.Rows[i]["Student"].ToString())["InstructorName"],
                             dataSetForPracticeLessons.PracticeLessons.Rows[i]["StudentFIO"],
-                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"]: ""),
-                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactTime"] : "")
+                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00"
+                            ? Convert.ToDateTime(dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString()).ToShortDateString() : ""),
+                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" 
+                            ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactTime"] : "")
                             );
                     }
                 }
@@ -114,12 +117,14 @@ namespace Автошкола
                     {
                         PracticeLessons_dGV.Rows.Add(
                             dataSetForPracticeLessons.PracticeLessons.Rows[j]["ID"],
-                            dataSetForPracticeLessons.PracticeLessons.Rows[j]["AppointedDate"],
+                            Convert.ToDateTime(dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"]).ToShortDateString(),
                             dataSetForPracticeLessons.PracticeLessons.Rows[j]["AppointedTime"],
                             dataSetForPracticeLessons.Students.Rows.Find(dataSetForPracticeLessons.PracticeLessons.Rows[0]["Student"].ToString())["InstructorName"],
                             dataSetForPracticeLessons.PracticeLessons.Rows[j]["StudentFIO"],
-                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"] : ""),
-                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactTime"] : "")
+                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00"
+                            ? Convert.ToDateTime(dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString()).ToShortDateString() : ""),
+                            (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" 
+                            ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactTime"] : "")
                             );
                     }
                 }

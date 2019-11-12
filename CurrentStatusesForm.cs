@@ -21,7 +21,7 @@ namespace Автошкола
         AutoschoolDataSet dataSetForCarriersByStatus, dataSetForCarriersStatuses;
 
         bool FormLoad = false;
-        CarriersNeedsInRepairForm CarriersNeedsInRepairForm;
+        CarriersNeedsInReplacementForm CarriersNeedsInRepairForm;
         static public bool CarriersNeedsInRepairFormOpened = false;
 
         void ReloadCarriersByCarrierStatus(int StatusID)
@@ -244,7 +244,7 @@ namespace Автошкола
         {
             if (!CarriersNeedsInRepairFormOpened)
             {
-                CarriersNeedsInRepairForm = new CarriersNeedsInRepairForm();
+                CarriersNeedsInRepairForm = new CarriersNeedsInReplacementForm();
                 CarriersNeedsInRepairForm.Show();
                 CarriersNeedsInRepairFormOpened = true;
             }

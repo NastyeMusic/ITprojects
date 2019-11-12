@@ -48,18 +48,18 @@
             this.GroupColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TeacherColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PracticeLessonsOfStudent_dGV = new System.Windows.Forms.DataGridView();
-            this.IDPLColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointedDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointedTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InstructorColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.CarrierColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.FactDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FactTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SelectedStudent_comboBox = new System.Windows.Forms.ComboBox();
             this.Close_button = new System.Windows.Forms.Button();
             this.ReloadStudents_button = new System.Windows.Forms.Button();
+            this.IDPLColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointedDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointedTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstructorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarrierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FactDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FactTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.TheoryLessonsOfStudent_dGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PracticeLessonsOfStudent_dGV)).BeginInit();
             this.SuspendLayout();
@@ -283,62 +283,6 @@
             this.PracticeLessonsOfStudent_dGV.TabIndex = 51;
             this.PracticeLessonsOfStudent_dGV.SelectionChanged += new System.EventHandler(this.PracticeLessonsOfStudent_dGV_SelectionChanged);
             // 
-            // IDPLColumn
-            // 
-            this.IDPLColumn.HeaderText = "Код";
-            this.IDPLColumn.Name = "IDPLColumn";
-            this.IDPLColumn.ReadOnly = true;
-            this.IDPLColumn.Visible = false;
-            this.IDPLColumn.Width = 42;
-            // 
-            // AppointedDateColumn
-            // 
-            this.AppointedDateColumn.HeaderText = "Назначенная дата";
-            this.AppointedDateColumn.Name = "AppointedDateColumn";
-            this.AppointedDateColumn.ReadOnly = true;
-            this.AppointedDateColumn.Width = 150;
-            // 
-            // AppointedTimeColumn
-            // 
-            this.AppointedTimeColumn.HeaderText = "Назначенное время";
-            this.AppointedTimeColumn.Name = "AppointedTimeColumn";
-            this.AppointedTimeColumn.ReadOnly = true;
-            this.AppointedTimeColumn.Width = 161;
-            // 
-            // InstructorColumn
-            // 
-            this.InstructorColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.InstructorColumn.HeaderText = "Инструктор";
-            this.InstructorColumn.Name = "InstructorColumn";
-            this.InstructorColumn.ReadOnly = true;
-            this.InstructorColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.InstructorColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.InstructorColumn.Width = 118;
-            // 
-            // CarrierColumn
-            // 
-            this.CarrierColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.CarrierColumn.HeaderText = "ТС";
-            this.CarrierColumn.Name = "CarrierColumn";
-            this.CarrierColumn.ReadOnly = true;
-            this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarrierColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CarrierColumn.Width = 57;
-            // 
-            // FactDateColumn
-            // 
-            this.FactDateColumn.HeaderText = "Фактическая дата";
-            this.FactDateColumn.Name = "FactDateColumn";
-            this.FactDateColumn.ReadOnly = true;
-            this.FactDateColumn.Width = 151;
-            // 
-            // FactTimeColumn
-            // 
-            this.FactTimeColumn.HeaderText = "Фактическое время";
-            this.FactTimeColumn.Name = "FactTimeColumn";
-            this.FactTimeColumn.ReadOnly = true;
-            this.FactTimeColumn.Width = 162;
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -400,6 +344,58 @@
             this.ReloadStudents_button.UseVisualStyleBackColor = true;
             this.ReloadStudents_button.Click += new System.EventHandler(this.ReloadStudents_button_Click);
             // 
+            // IDPLColumn
+            // 
+            this.IDPLColumn.HeaderText = "Код";
+            this.IDPLColumn.Name = "IDPLColumn";
+            this.IDPLColumn.ReadOnly = true;
+            this.IDPLColumn.Visible = false;
+            this.IDPLColumn.Width = 42;
+            // 
+            // AppointedDateColumn
+            // 
+            this.AppointedDateColumn.HeaderText = "Назначенная дата";
+            this.AppointedDateColumn.Name = "AppointedDateColumn";
+            this.AppointedDateColumn.ReadOnly = true;
+            this.AppointedDateColumn.Width = 150;
+            // 
+            // AppointedTimeColumn
+            // 
+            this.AppointedTimeColumn.HeaderText = "Назначенное время";
+            this.AppointedTimeColumn.Name = "AppointedTimeColumn";
+            this.AppointedTimeColumn.ReadOnly = true;
+            this.AppointedTimeColumn.Width = 161;
+            // 
+            // InstructorColumn
+            // 
+            this.InstructorColumn.HeaderText = "Инструктор";
+            this.InstructorColumn.Name = "InstructorColumn";
+            this.InstructorColumn.ReadOnly = true;
+            this.InstructorColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.InstructorColumn.Width = 118;
+            // 
+            // CarrierColumn
+            // 
+            this.CarrierColumn.HeaderText = "ТС";
+            this.CarrierColumn.Name = "CarrierColumn";
+            this.CarrierColumn.ReadOnly = true;
+            this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarrierColumn.Width = 57;
+            // 
+            // FactDateColumn
+            // 
+            this.FactDateColumn.HeaderText = "Фактическая дата";
+            this.FactDateColumn.Name = "FactDateColumn";
+            this.FactDateColumn.ReadOnly = true;
+            this.FactDateColumn.Width = 151;
+            // 
+            // FactTimeColumn
+            // 
+            this.FactTimeColumn.HeaderText = "Фактическое время";
+            this.FactTimeColumn.Name = "FactTimeColumn";
+            this.FactTimeColumn.ReadOnly = true;
+            this.FactTimeColumn.Width = 162;
+            // 
             // StudentsScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -451,14 +447,14 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn AuditoriumColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn GroupColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn TeacherColumn;
+        private System.Windows.Forms.Button Close_button;
+        private System.Windows.Forms.Button ReloadStudents_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDPLColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppointedDateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppointedTimeColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn InstructorColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn CarrierColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InstructorColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CarrierColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FactDateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FactTimeColumn;
-        private System.Windows.Forms.Button Close_button;
-        private System.Windows.Forms.Button ReloadStudents_button;
     }
 }

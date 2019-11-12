@@ -493,6 +493,37 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadCarriersRepairsByCarrierID_AND_LessonDate(int CarrierID, DateTime LessonDate)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                serviceMastersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                carriersRepairsDA.ReadByCarrierID_AND_LessonDate(ds, abstrCon, abstrTr, CarrierID, LessonDate);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу ServiceMasters
         public AutoschoolDataSet ReadServiceMasters()
@@ -2539,7 +2570,7 @@ namespace Автошкола
             return ds;
         }
 
-        public AutoschoolDataSet ReadReplacementsCarriersByBeginEndDatesANDCarrierUseID(DateTime LessonDate, int CarrierUseID)
+        public AutoschoolDataSet ReadReplacementsCarriersByLessonDateANDCarrierUseID(DateTime LessonDate, int CarrierUseID)
         {
             AutoschoolDataSet ds = new AutoschoolDataSet();
             AbstractConnection abstrCon = ConnectionFactory.getConnection();
@@ -2556,7 +2587,7 @@ namespace Автошкола
                 workStatusesDA.Read(ds, abstrCon, abstrTr);
                 instructorsDA.Read(ds, abstrCon, abstrTr);
                 carriersUsesDA.Read(ds, abstrCon, abstrTr);
-                replacementsCarriersDA.ReadReplacementsCarriersByLessonDatesANDCarrierUseID(ds, abstrCon, abstrTr, LessonDate, CarrierUseID);
+                replacementsCarriersDA.ReadReplacementsCarriersByLessonDateANDCarrierUseID(ds, abstrCon, abstrTr, LessonDate, CarrierUseID);
                 abstrTr.Commit();
             }
             catch (Exception e)

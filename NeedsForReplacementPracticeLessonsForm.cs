@@ -67,7 +67,7 @@ namespace Автошкола
 
         private void NeedsForReplacementPracticeLessonsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CarriersNeedsInRepairForm.NeedsForReplacementPracticeLessonsFormOpened = false;
+            CarriersNeedsInReplacementForm.NeedsForReplacementPracticeLessonsFormOpened = false;
         }
 
         private void PracticeLessonsOfStudent_dGV_SelectionChanged(object sender, EventArgs e)

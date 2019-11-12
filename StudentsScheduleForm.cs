@@ -18,7 +18,7 @@ namespace Автошкола
         }
 
         public BusinessLogic BusinessLogic = new BusinessLogic();
-        AutoschoolDataSet dataSet, dataSetForStudents;
+        AutoschoolDataSet dataSet, dataSetForStudents, dataSetForPracticeLessons;
 
         int LastSelectionIndexInPracticeLessons;
 
@@ -60,7 +60,51 @@ namespace Автошкола
 
         void ReloadPracticeLessons(int StudentID)
         {
-            dataSet = BusinessLogic.ReadPracticeLessonsByStudentID(StudentID);
+            PracticeLessonsOfStudent_dGV.Rows.Clear();
+            // берем все занятия, связанные со студентом
+            dataSetForPracticeLessons = BusinessLogic.ReadPracticeLessonsByStudentID(StudentID);
+            // для каждого практического занятия ищем замены ТС по дате
+            // сначала смотрим фактическую дату, если она пустая - то назначенную
+            // если замены есть - берем машину из замены, иначе - из CarrierUse
+            for (int i = 0; i < dataSetForPracticeLessons.PracticeLessons.Rows.Count; i++)
+            {
+                DateTime LessonTime = Convert.ToDateTime((dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00") ?
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() :
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"].ToString()).Date;
+                int CarrierUseID = Convert.ToInt32(dataSetForPracticeLessons.Students.Rows.Find(dataSetForPracticeLessons.PracticeLessons.Rows[i]["Student"].ToString())["CarrierUse"].ToString());
+                AutoschoolDataSet TempDS = BusinessLogic.ReadReplacementsCarriersByLessonDateANDCarrierUseID(LessonTime, CarrierUseID);
+                if (TempDS.ReplacementsCarriers.Rows.Count == 0)
+                {
+                    PracticeLessonsOfStudent_dGV.Rows.Add(
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["ID"],
+                        Convert.ToDateTime(dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"]).ToShortDateString(),
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedTime"],
+                        dataSetForPracticeLessons.Students.Rows.Find(dataSetForPracticeLessons.PracticeLessons.Rows[i]["Student"].ToString())["InstructorName"],
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["CarrierName"],
+                        (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" 
+                        ? Convert.ToDateTime(dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString()).ToShortDateString() : ""),
+                        (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" 
+                        ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactTime"] : "")
+                        );
+                }
+                else
+                {
+                    PracticeLessonsOfStudent_dGV.Rows.Add(
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["ID"],
+                        Convert.ToDateTime(dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedDate"]).ToShortDateString(),
+                        dataSetForPracticeLessons.PracticeLessons.Rows[i]["AppointedTime"],
+                        dataSetForPracticeLessons.Students.Rows.Find(dataSetForPracticeLessons.PracticeLessons.Rows[i]["Student"].ToString())["InstructorName"],
+                        dataSetForPracticeLessons.Carriers.Rows.Find(TempDS.ReplacementsCarriers.Rows[0]["CarrierReplacement"])["FinalName"].ToString(),
+                        (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" 
+                        ? Convert.ToDateTime(dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString()).ToShortDateString() : ""),
+                        (dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactDate"].ToString() != "01.01.0001 0:00:00" 
+                        ? dataSetForPracticeLessons.PracticeLessons.Rows[i]["FactTime"] : "")
+                        );
+                }
+            }
+
+
+                /*dataSet = BusinessLogic.ReadPracticeLessonsByStudentID(StudentID);
             PracticeLessonsOfStudent_dGV.DataSource = dataSet;
             PracticeLessonsOfStudent_dGV.DataMember = "PracticeLessons";
 
@@ -87,7 +131,7 @@ namespace Автошкола
             CarrierColumn.DataSource = dataSet.Students;
             CarrierColumn.DisplayMember = "CarrierName";
             CarrierColumn.ValueMember = "ID";
-            CarrierColumn.DataPropertyName = "Student";
+            CarrierColumn.DataPropertyName = "Student";*/
 
             if (LastSelectionIndexInPracticeLessons != -1)
                 PracticeLessonsOfStudent_dGV.CurrentCell = PracticeLessonsOfStudent_dGV[1, LastSelectionIndexInPracticeLessons];
