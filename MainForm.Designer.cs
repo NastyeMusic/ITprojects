@@ -46,6 +46,7 @@
             this.работаССотрудникамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.преподавателиТеорииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.мастераСервисаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.инструктораToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.техникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.учебныеТСToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.категорииТСToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,7 +81,6 @@
             this.Direction_checkBox = new System.Windows.Forms.CheckBox();
             this.Search_button = new System.Windows.Forms.Button();
             this.UpdateGroups_Button = new System.Windows.Forms.Button();
-            this.инструктораToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Students_dGV)).BeginInit();
             this.SuspendLayout();
@@ -114,13 +114,14 @@
             // путьКБДToolStripMenuItem
             // 
             this.путьКБДToolStripMenuItem.Name = "путьКБДToolStripMenuItem";
-            this.путьКБДToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.путьКБДToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.путьКБДToolStripMenuItem.Text = "Путь к БД";
+            this.путьКБДToolStripMenuItem.Click += new System.EventHandler(this.путьКБДToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -202,6 +203,13 @@
             this.мастераСервисаToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
             this.мастераСервисаToolStripMenuItem.Text = "Мастера сервиса";
             this.мастераСервисаToolStripMenuItem.Click += new System.EventHandler(this.мастераСервисаToolStripMenuItem_Click);
+            // 
+            // инструктораToolStripMenuItem1
+            // 
+            this.инструктораToolStripMenuItem1.Name = "инструктораToolStripMenuItem1";
+            this.инструктораToolStripMenuItem1.Size = new System.Drawing.Size(247, 26);
+            this.инструктораToolStripMenuItem1.Text = "Инструктора";
+            this.инструктораToolStripMenuItem1.Click += new System.EventHandler(this.инструктораToolStripMenuItem1_Click);
             // 
             // техникаToolStripMenuItem
             // 
@@ -536,13 +544,6 @@
             this.UpdateGroups_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.UpdateGroups_Button.UseVisualStyleBackColor = true;
             this.UpdateGroups_Button.Click += new System.EventHandler(this.UpdateGroups_Button_Click);
-            // 
-            // инструктораToolStripMenuItem1
-            // 
-            this.инструктораToolStripMenuItem1.Name = "инструктораToolStripMenuItem1";
-            this.инструктораToolStripMenuItem1.Size = new System.Drawing.Size(247, 26);
-            this.инструктораToolStripMenuItem1.Text = "Инструктора";
-            this.инструктораToolStripMenuItem1.Click += new System.EventHandler(this.инструктораToolStripMenuItem1_Click);
             // 
             // MainForm
             // 

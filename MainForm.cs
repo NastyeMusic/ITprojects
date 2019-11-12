@@ -721,5 +721,11 @@ namespace Автошкола
             else
                 InstructorsForm.Activate();
         }
+
+        private void путьКБДToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PathToBDForm PathToBDForm = new PathToBDForm();
+            PathToBDForm.ShowDialog();
+        }
     }
 }
