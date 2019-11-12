@@ -26,6 +26,7 @@ namespace Автошкола
         {
             AddReplacement_button.Enabled = false;
             ChangePractiseLessons_button.Enabled = false;
+            EditReplacement_button.Enabled = false;
         }
 
         private void Get_button_Click(object sender, EventArgs e)

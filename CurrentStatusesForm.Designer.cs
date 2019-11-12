@@ -31,6 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ReloadCarriers_button = new System.Windows.Forms.Button();
+            this.ReloadCarriersStatuses_button = new System.Windows.Forms.Button();
             this.CarriersByStatus_dataGridView = new System.Windows.Forms.DataGridView();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,8 +65,6 @@
             this.GetCarriersNeedsInReplacement_button = new System.Windows.Forms.Button();
             this.Close_button = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ReloadCarriers_button = new System.Windows.Forms.Button();
-            this.ReloadCarriersStatuses_button = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersByStatus_dataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -91,6 +91,29 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ТС с выбранным статусом";
+            // 
+            // ReloadCarriers_button
+            // 
+            this.ReloadCarriers_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReloadCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadCarriers_button.Location = new System.Drawing.Point(1110, 23);
+            this.ReloadCarriers_button.Name = "ReloadCarriers_button";
+            this.ReloadCarriers_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadCarriers_button.TabIndex = 42;
+            this.ReloadCarriers_button.UseVisualStyleBackColor = true;
+            this.ReloadCarriers_button.Click += new System.EventHandler(this.ReloadCarriers_button_Click);
+            // 
+            // ReloadCarriersStatuses_button
+            // 
+            this.ReloadCarriersStatuses_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadCarriersStatuses_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadCarriersStatuses_button.Location = new System.Drawing.Point(416, 23);
+            this.ReloadCarriersStatuses_button.Name = "ReloadCarriersStatuses_button";
+            this.ReloadCarriersStatuses_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadCarriersStatuses_button.TabIndex = 41;
+            this.ReloadCarriersStatuses_button.UseVisualStyleBackColor = true;
+            this.ReloadCarriersStatuses_button.Click += new System.EventHandler(this.ReloadCarriersStatuses_button_Click);
             // 
             // CarriersByStatus_dataGridView
             // 
@@ -338,6 +361,7 @@
             this.Time_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.Time_dateTimePicker.Location = new System.Drawing.Point(452, 25);
             this.Time_dateTimePicker.Name = "Time_dateTimePicker";
+            this.Time_dateTimePicker.ShowUpDown = true;
             this.Time_dateTimePicker.Size = new System.Drawing.Size(151, 24);
             this.Time_dateTimePicker.TabIndex = 4;
             // 
@@ -423,29 +447,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(1163, 528);
             this.splitContainer1.SplitterDistance = 264;
             this.splitContainer1.TabIndex = 57;
-            // 
-            // ReloadCarriers_button
-            // 
-            this.ReloadCarriers_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ReloadCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadCarriers_button.Location = new System.Drawing.Point(1110, 23);
-            this.ReloadCarriers_button.Name = "ReloadCarriers_button";
-            this.ReloadCarriers_button.Size = new System.Drawing.Size(45, 35);
-            this.ReloadCarriers_button.TabIndex = 42;
-            this.ReloadCarriers_button.UseVisualStyleBackColor = true;
-            this.ReloadCarriers_button.Click += new System.EventHandler(this.ReloadCarriers_button_Click);
-            // 
-            // ReloadCarriersStatuses_button
-            // 
-            this.ReloadCarriersStatuses_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadCarriersStatuses_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadCarriersStatuses_button.Location = new System.Drawing.Point(416, 23);
-            this.ReloadCarriersStatuses_button.Name = "ReloadCarriersStatuses_button";
-            this.ReloadCarriersStatuses_button.Size = new System.Drawing.Size(45, 35);
-            this.ReloadCarriersStatuses_button.TabIndex = 41;
-            this.ReloadCarriersStatuses_button.UseVisualStyleBackColor = true;
-            this.ReloadCarriersStatuses_button.Click += new System.EventHandler(this.ReloadCarriersStatuses_button_Click);
             // 
             // CurrentStatusesForm
             // 

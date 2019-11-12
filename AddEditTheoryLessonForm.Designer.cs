@@ -49,6 +49,7 @@
             this.Time_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.Time_dateTimePicker.Location = new System.Drawing.Point(145, 88);
             this.Time_dateTimePicker.Name = "Time_dateTimePicker";
+            this.Time_dateTimePicker.ShowUpDown = true;
             this.Time_dateTimePicker.Size = new System.Drawing.Size(300, 24);
             this.Time_dateTimePicker.TabIndex = 80;
             // 
@@ -108,7 +109,7 @@
             this.SelectedGroup_comboBox.FormattingEnabled = true;
             this.SelectedGroup_comboBox.Location = new System.Drawing.Point(88, 8);
             this.SelectedGroup_comboBox.Name = "SelectedGroup_comboBox";
-            this.SelectedGroup_comboBox.Size = new System.Drawing.Size(414, 26);
+            this.SelectedGroup_comboBox.Size = new System.Drawing.Size(402, 26);
             this.SelectedGroup_comboBox.TabIndex = 72;
             // 
             // label4
@@ -173,7 +174,7 @@
             this.Auditorium_comboBox.FormattingEnabled = true;
             this.Auditorium_comboBox.Location = new System.Drawing.Point(571, 55);
             this.Auditorium_comboBox.Name = "Auditorium_comboBox";
-            this.Auditorium_comboBox.Size = new System.Drawing.Size(423, 26);
+            this.Auditorium_comboBox.Size = new System.Drawing.Size(411, 26);
             this.Auditorium_comboBox.TabIndex = 81;
             // 
             // AddEditTheoryLessonForm

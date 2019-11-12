@@ -132,7 +132,7 @@
             this.SelectedStudent_comboBox.FormattingEnabled = true;
             this.SelectedStudent_comboBox.Location = new System.Drawing.Point(88, 9);
             this.SelectedStudent_comboBox.Name = "SelectedStudent_comboBox";
-            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(390, 26);
+            this.SelectedStudent_comboBox.Size = new System.Drawing.Size(378, 26);
             this.SelectedStudent_comboBox.TabIndex = 55;
             this.SelectedStudent_comboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedStudent_comboBox_SelectedIndexChanged);
             // 
@@ -212,6 +212,7 @@
             this.AppointedTime_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.AppointedTime_dateTimePicker.Location = new System.Drawing.Point(240, 90);
             this.AppointedTime_dateTimePicker.Name = "AppointedTime_dateTimePicker";
+            this.AppointedTime_dateTimePicker.ShowUpDown = true;
             this.AppointedTime_dateTimePicker.Size = new System.Drawing.Size(256, 24);
             this.AppointedTime_dateTimePicker.TabIndex = 63;
             // 
@@ -223,6 +224,7 @@
             this.FactTime_dateTimePicker.Location = new System.Drawing.Point(738, 90);
             this.FactTime_dateTimePicker.Name = "FactTime_dateTimePicker";
             this.FactTime_dateTimePicker.ShowCheckBox = true;
+            this.FactTime_dateTimePicker.ShowUpDown = true;
             this.FactTime_dateTimePicker.Size = new System.Drawing.Size(256, 24);
             this.FactTime_dateTimePicker.TabIndex = 64;
             // 
