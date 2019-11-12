@@ -425,7 +425,7 @@ namespace Автошкола
                 Instructor_comboBox.SelectedValue = InstructorID;
                 ReloadReplaceableCarriers(InstructorID);
                 // получаем ТС из CarrierUses
-                int CarrierID = Convert.ToInt32(carriersUsesDataTable.Rows.Find(dataRow["ID"].ToString())[2].ToString());
+                int CarrierID = Convert.ToInt32(carriersUsesDataTable.Rows.Find(dataRow["CarrierUse"].ToString())[2].ToString());
                 // находим ТС среди заменяемых
                 if (ReplaceableCarriers_dataGridView.Rows.Count > 0)
                 {

@@ -524,6 +524,37 @@ namespace Автошкола
             }
             return ds;
         }
+        public AutoschoolDataSet ReadByCarrierID_AND_CrossInBeginEndDates(int CarrierID, DateTime BeginDate, DateTime EndDate)
+        {
+            AutoschoolDataSet ds = new AutoschoolDataSet();
+            AbstractConnection abstrCon = ConnectionFactory.getConnection();
+            abstrCon.Open();
+            AbstractTransaction abstrTr = null;
+            try
+            {
+                abstrTr = abstrCon.BeginTransaction();
+                ds.EnforceConstraints = false;
+                workStatusesDA.Read(ds, abstrCon, abstrTr);
+                serviceMastersDA.Read(ds, abstrCon, abstrTr);
+                categoriesDA.Read(ds, abstrCon, abstrTr);
+                carriersStatusesDA.Read(ds, abstrCon, abstrTr);
+                transmissionsDA.Read(ds, abstrCon, abstrTr);
+                carriersDA.Read(ds, abstrCon, abstrTr);
+                carriersRepairsDA.ReadByCarrierID_AND_CrossInBeginEndDates(ds, abstrCon, abstrTr, CarrierID, BeginDate, EndDate);
+                abstrTr.Commit();
+            }
+            catch (Exception e)
+            {
+                abstrTr.Rollback();
+                MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
+                //throw e;
+            }
+            finally
+            {
+                abstrCon.Close();
+            }
+            return ds;
+        }
 
         // методы к классу ServiceMasters
         public AutoschoolDataSet ReadServiceMasters()

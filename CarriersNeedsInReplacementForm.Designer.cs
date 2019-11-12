@@ -36,6 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Get_button = new System.Windows.Forms.Button();
             this.AddReplacement_button = new System.Windows.Forms.Button();
+            this.ChangePractiseLessons_button = new System.Windows.Forms.Button();
+            this.EditReplacement_button = new System.Windows.Forms.Button();
             this.CarrierIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModelColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +47,8 @@
             this.InstructorIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstructorNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CarrierUseIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChangePractiseLessons_button = new System.Windows.Forms.Button();
+            this.ReasonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReplacementIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersToReplacement_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +70,9 @@
             this.DateEndRepair,
             this.InstructorIDColumn,
             this.InstructorNameColumn,
-            this.CarrierUseIDColumn});
+            this.CarrierUseIDColumn,
+            this.ReasonColumn,
+            this.ReplacementIDColumn});
             this.CarriersToReplacement_dataGridView.Location = new System.Drawing.Point(12, 42);
             this.CarriersToReplacement_dataGridView.MultiSelect = false;
             this.CarriersToReplacement_dataGridView.Name = "CarriersToReplacement_dataGridView";
@@ -141,6 +146,28 @@
             this.AddReplacement_button.UseVisualStyleBackColor = true;
             this.AddReplacement_button.Click += new System.EventHandler(this.AddReplacement_button_Click);
             // 
+            // ChangePractiseLessons_button
+            // 
+            this.ChangePractiseLessons_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangePractiseLessons_button.Location = new System.Drawing.Point(1024, 210);
+            this.ChangePractiseLessons_button.Name = "ChangePractiseLessons_button";
+            this.ChangePractiseLessons_button.Size = new System.Drawing.Size(151, 78);
+            this.ChangePractiseLessons_button.TabIndex = 42;
+            this.ChangePractiseLessons_button.Text = "Перенести назначенные на эти дни занятия";
+            this.ChangePractiseLessons_button.UseVisualStyleBackColor = true;
+            this.ChangePractiseLessons_button.Click += new System.EventHandler(this.ChangePractiseLessons_button_Click);
+            // 
+            // EditReplacement_button
+            // 
+            this.EditReplacement_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditReplacement_button.Location = new System.Drawing.Point(1024, 126);
+            this.EditReplacement_button.Name = "EditReplacement_button";
+            this.EditReplacement_button.Size = new System.Drawing.Size(151, 78);
+            this.EditReplacement_button.TabIndex = 43;
+            this.EditReplacement_button.Text = "Редактировать замену выбранного ТС";
+            this.EditReplacement_button.UseVisualStyleBackColor = true;
+            this.EditReplacement_button.Click += new System.EventHandler(this.EditReplacement_button_Click);
+            // 
             // CarrierIDColumn
             // 
             this.CarrierIDColumn.HeaderText = "Код ТС";
@@ -172,17 +199,17 @@
             // 
             // DateBeginRepair
             // 
-            this.DateBeginRepair.HeaderText = "Дата начала ремонта";
+            this.DateBeginRepair.HeaderText = "Дата начала нужды в замене";
             this.DateBeginRepair.Name = "DateBeginRepair";
             this.DateBeginRepair.ReadOnly = true;
-            this.DateBeginRepair.Width = 167;
+            this.DateBeginRepair.Width = 168;
             // 
             // DateEndRepair
             // 
-            this.DateEndRepair.HeaderText = "Дата окончания ремонта";
+            this.DateEndRepair.HeaderText = "Дата окончания нужды в замене";
             this.DateEndRepair.Name = "DateEndRepair";
             this.DateEndRepair.ReadOnly = true;
-            this.DateEndRepair.Width = 188;
+            this.DateEndRepair.Width = 189;
             // 
             // InstructorIDColumn
             // 
@@ -207,22 +234,27 @@
             this.CarrierUseIDColumn.Visible = false;
             this.CarrierUseIDColumn.Width = 118;
             // 
-            // ChangePractiseLessons_button
+            // ReasonColumn
             // 
-            this.ChangePractiseLessons_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ChangePractiseLessons_button.Location = new System.Drawing.Point(1024, 126);
-            this.ChangePractiseLessons_button.Name = "ChangePractiseLessons_button";
-            this.ChangePractiseLessons_button.Size = new System.Drawing.Size(151, 78);
-            this.ChangePractiseLessons_button.TabIndex = 42;
-            this.ChangePractiseLessons_button.Text = "Перенести назначенные на эти дни занятия";
-            this.ChangePractiseLessons_button.UseVisualStyleBackColor = true;
-            this.ChangePractiseLessons_button.Click += new System.EventHandler(this.ChangePractiseLessons_button_Click);
+            this.ReasonColumn.HeaderText = "Причина проблемы";
+            this.ReasonColumn.Name = "ReasonColumn";
+            this.ReasonColumn.ReadOnly = true;
+            this.ReasonColumn.Width = 152;
             // 
-            // CarriersNeedsInRepairForm
+            // ReplacementIDColumn
+            // 
+            this.ReplacementIDColumn.HeaderText = "ReplacementID";
+            this.ReplacementIDColumn.Name = "ReplacementIDColumn";
+            this.ReplacementIDColumn.ReadOnly = true;
+            this.ReplacementIDColumn.Visible = false;
+            this.ReplacementIDColumn.Width = 133;
+            // 
+            // CarriersNeedsInReplacementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1187, 605);
+            this.Controls.Add(this.EditReplacement_button);
             this.Controls.Add(this.ChangePractiseLessons_button);
             this.Controls.Add(this.AddReplacement_button);
             this.Controls.Add(this.Get_button);
@@ -231,8 +263,8 @@
             this.Controls.Add(this.DateBegin_dateTimePicker);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CarriersToReplacement_dataGridView);
-            this.MinimumSize = new System.Drawing.Size(1024, 0);
-            this.Name = "CarriersNeedsInRepairForm";
+            this.MinimumSize = new System.Drawing.Size(1024, 47);
+            this.Name = "CarriersNeedsInReplacementForm";
             this.Text = "ТС, требующие замены из-за ремонта";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CarriersNeedsInRepairForm_FormClosing);
             this.Load += new System.EventHandler(this.CarriersNeedsInRepairForm_Load);
@@ -251,6 +283,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Get_button;
         private System.Windows.Forms.Button AddReplacement_button;
+        private System.Windows.Forms.Button ChangePractiseLessons_button;
+        private System.Windows.Forms.Button EditReplacement_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarrierIDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrandColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModelColumn;
@@ -260,6 +294,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorIDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarrierUseIDColumn;
-        private System.Windows.Forms.Button ChangePractiseLessons_button;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReasonColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReplacementIDColumn;
     }
 }
