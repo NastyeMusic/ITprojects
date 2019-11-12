@@ -235,6 +235,11 @@ namespace Автошкола
             DateEnd_dateTimePicker.MinDate = DateBegin_dateTimePicker.Value;
         }
 
+        private void NewDates_button_Click(object sender, EventArgs e)
+        {
+            Carriers_dataGridView_SelectionChanged(sender, e);
+        }
+
         private void CarriersUseJournalForm_Load(object sender, EventArgs e)
         {
             ReloadCarriers();

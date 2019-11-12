@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Carriers_dataGridView = new System.Windows.Forms.DataGridView();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +49,13 @@
             this.SearchCarrier_button = new System.Windows.Forms.Button();
             this.Close_button = new System.Windows.Forms.Button();
             this.PracticeLessons_dGV = new System.Windows.Forms.DataGridView();
+            this.IDPLColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointedDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointedTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstructorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FactDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FactTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SearchInUsage_textBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DirectionInUsage_checkBox = new System.Windows.Forms.CheckBox();
@@ -62,13 +69,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.DateBegin_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.IDPLColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointedDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointedTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InstructorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FactDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FactTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NewDates_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Carriers_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PracticeLessons_dGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -85,14 +86,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Carriers_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Carriers_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Carriers_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.Carriers_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Carriers_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -103,26 +104,26 @@
             this.TransmissionColumn,
             this.CategoryColumn,
             this.StatusColumn});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Carriers_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Carriers_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.Carriers_dataGridView.Location = new System.Drawing.Point(0, 38);
             this.Carriers_dataGridView.MultiSelect = false;
             this.Carriers_dataGridView.Name = "Carriers_dataGridView";
             this.Carriers_dataGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Carriers_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Carriers_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.Carriers_dataGridView.RowHeadersVisible = false;
             this.Carriers_dataGridView.RowTemplate.Height = 24;
             this.Carriers_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -255,14 +256,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PracticeLessons_dGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PracticeLessons_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PracticeLessons_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.PracticeLessons_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PracticeLessons_dGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDPLColumn,
@@ -272,26 +273,70 @@
             this.StudentColumn,
             this.FactDateColumn,
             this.FactTimeColumn});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PracticeLessons_dGV.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PracticeLessons_dGV.DefaultCellStyle = dataGridViewCellStyle11;
             this.PracticeLessons_dGV.Location = new System.Drawing.Point(0, 40);
             this.PracticeLessons_dGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PracticeLessons_dGV.MultiSelect = false;
             this.PracticeLessons_dGV.Name = "PracticeLessons_dGV";
             this.PracticeLessons_dGV.ReadOnly = true;
             this.PracticeLessons_dGV.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PracticeLessons_dGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PracticeLessons_dGV.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.PracticeLessons_dGV.RowTemplate.Height = 24;
             this.PracticeLessons_dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PracticeLessons_dGV.Size = new System.Drawing.Size(1161, 267);
             this.PracticeLessons_dGV.TabIndex = 56;
+            // 
+            // IDPLColumn
+            // 
+            this.IDPLColumn.HeaderText = "Код";
+            this.IDPLColumn.Name = "IDPLColumn";
+            this.IDPLColumn.ReadOnly = true;
+            this.IDPLColumn.Visible = false;
+            // 
+            // AppointedDateColumn
+            // 
+            this.AppointedDateColumn.HeaderText = "Назначенная дата";
+            this.AppointedDateColumn.Name = "AppointedDateColumn";
+            this.AppointedDateColumn.ReadOnly = true;
+            // 
+            // AppointedTimeColumn
+            // 
+            this.AppointedTimeColumn.HeaderText = "Назначенное время";
+            this.AppointedTimeColumn.Name = "AppointedTimeColumn";
+            this.AppointedTimeColumn.ReadOnly = true;
+            // 
+            // InstructorColumn
+            // 
+            this.InstructorColumn.HeaderText = "Инструктор";
+            this.InstructorColumn.Name = "InstructorColumn";
+            this.InstructorColumn.ReadOnly = true;
+            this.InstructorColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // StudentColumn
+            // 
+            this.StudentColumn.HeaderText = "Курсант";
+            this.StudentColumn.Name = "StudentColumn";
+            this.StudentColumn.ReadOnly = true;
+            // 
+            // FactDateColumn
+            // 
+            this.FactDateColumn.HeaderText = "Фактическая дата";
+            this.FactDateColumn.Name = "FactDateColumn";
+            this.FactDateColumn.ReadOnly = true;
+            // 
+            // FactTimeColumn
+            // 
+            this.FactTimeColumn.HeaderText = "Фактическое время";
+            this.FactTimeColumn.Name = "FactTimeColumn";
+            this.FactTimeColumn.ReadOnly = true;
             // 
             // SearchInUsage_textBox
             // 
@@ -455,55 +500,23 @@
             this.label6.TabIndex = 68;
             this.label6.Text = "Начальная дата";
             // 
-            // IDPLColumn
+            // NewDates_button
             // 
-            this.IDPLColumn.HeaderText = "Код";
-            this.IDPLColumn.Name = "IDPLColumn";
-            this.IDPLColumn.ReadOnly = true;
-            this.IDPLColumn.Visible = false;
-            // 
-            // AppointedDateColumn
-            // 
-            this.AppointedDateColumn.HeaderText = "Назначенная дата";
-            this.AppointedDateColumn.Name = "AppointedDateColumn";
-            this.AppointedDateColumn.ReadOnly = true;
-            // 
-            // AppointedTimeColumn
-            // 
-            this.AppointedTimeColumn.HeaderText = "Назначенное время";
-            this.AppointedTimeColumn.Name = "AppointedTimeColumn";
-            this.AppointedTimeColumn.ReadOnly = true;
-            // 
-            // InstructorColumn
-            // 
-            this.InstructorColumn.HeaderText = "Инструктор";
-            this.InstructorColumn.Name = "InstructorColumn";
-            this.InstructorColumn.ReadOnly = true;
-            this.InstructorColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // StudentColumn
-            // 
-            this.StudentColumn.HeaderText = "Курсант";
-            this.StudentColumn.Name = "StudentColumn";
-            this.StudentColumn.ReadOnly = true;
-            // 
-            // FactDateColumn
-            // 
-            this.FactDateColumn.HeaderText = "Фактическая дата";
-            this.FactDateColumn.Name = "FactDateColumn";
-            this.FactDateColumn.ReadOnly = true;
-            // 
-            // FactTimeColumn
-            // 
-            this.FactTimeColumn.HeaderText = "Фактическое время";
-            this.FactTimeColumn.Name = "FactTimeColumn";
-            this.FactTimeColumn.ReadOnly = true;
+            this.NewDates_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NewDates_button.Location = new System.Drawing.Point(760, 12);
+            this.NewDates_button.Name = "NewDates_button";
+            this.NewDates_button.Size = new System.Drawing.Size(213, 48);
+            this.NewDates_button.TabIndex = 72;
+            this.NewDates_button.Text = "Обновить в соответствии с новыми датами";
+            this.NewDates_button.UseVisualStyleBackColor = true;
+            this.NewDates_button.Click += new System.EventHandler(this.NewDates_button_Click);
             // 
             // JournalUsesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1187, 632);
+            this.Controls.Add(this.NewDates_button);
             this.Controls.Add(this.DateEnd_dateTimePicker);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.DateBegin_dateTimePicker);
@@ -567,5 +580,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FactDateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FactTimeColumn;
+        private System.Windows.Forms.Button NewDates_button;
     }
 }
