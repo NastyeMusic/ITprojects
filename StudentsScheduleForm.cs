@@ -229,10 +229,10 @@ namespace Автошкола
             if (SelectedStudent_comboBox.SelectedIndex != -1)
                 EditPracticeLesson = new AddEditPracticeLessonForm(dataSet.PracticeLessons, dataSet.Students,
                     dataSet.Students.Rows.Find(SelectedStudent_comboBox.SelectedValue),
-                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["ID"].Value));
+                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["IDPLColumn"].Value));
             else
                 EditPracticeLesson = new AddEditPracticeLessonForm(dataSet.PracticeLessons, dataSet.Students, null,
-                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["ID"].Value));
+                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["IDPLColumn"].Value));
             EditPracticeLesson.Text = "Редактирование практического занятия";
             this.Enabled = false;
             EditPracticeLesson.ShowDialog();
@@ -248,6 +248,7 @@ namespace Автошкола
         private void Delete_button_Click(object sender, EventArgs e)
         {
             LastSelectionIndexInPracticeLessons = -1;
+            dataSet = BusinessLogic.ReadPracticeLessons();
             if (PracticeLessonsOfStudent_dGV.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Не выбрана строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -258,7 +259,7 @@ namespace Автошкола
             {
                 try
                 {
-                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["ID"].Value).Delete();
+                    dataSet.PracticeLessons.Rows.Find(PracticeLessonsOfStudent_dGV.SelectedRows[0].Cells["IDPLColumn"].Value).Delete();
                     dataSet = BusinessLogic.WritePracticeLessons(dataSet);
                     if (SelectedStudent_comboBox.SelectedIndex != -1)
                         ReloadPracticeLessons(Convert.ToInt32(SelectedStudent_comboBox.SelectedValue));
