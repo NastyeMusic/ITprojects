@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarriersNeedsInReplacementForm));
             this.CarriersToReplacement_dataGridView = new System.Windows.Forms.DataGridView();
             this.CarrierIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -266,6 +267,7 @@
             this.Controls.Add(this.DateBegin_dateTimePicker);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CarriersToReplacement_dataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 47);
             this.Name = "CarriersNeedsInReplacementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

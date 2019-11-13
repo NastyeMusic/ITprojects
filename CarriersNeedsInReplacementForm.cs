@@ -53,7 +53,7 @@ namespace Автошкола
                 string[] Reason = new string[0];
                 int[] ReplacementID = new int[0];
                 bool NowIsNFRDate = false;
-                while (TempBeginDate <= EndRepair)
+                while (TempBeginDate <= (EndRepair <= EndDate? EndRepair : EndDate))
                 {
                     // в дату TempBeginDate у CarriersUses отбираем замены
                     AutoschoolDataSet.ReplacementsCarriersDataTable ReplacementsCarriersDT = BusinessLogic.ReadReplacementsCarriersByBeginDateANDCarrierUseID(TempBeginDate, CarrierUseID).ReplacementsCarriers;
@@ -102,7 +102,7 @@ namespace Автошкола
                             EndsNewRepl[EndsNewRepl.Length - 1] = TempBeginDate.AddDays(-1);
                             NowIsNFRDate = false;
                         }
-                        if (EndDateInRow >= EndRepair)
+                        if (EndDateInRow >= (EndRepair <= EndDate ? EndRepair : EndDate))
                         {
                             // замена уже есть
                             NeedForReplacement = false;
@@ -161,7 +161,7 @@ namespace Автошкола
                             CarriersUsesWithRepairingCarriers.Rows[i]["Model"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["StateNumber"].ToString(),
                             BeginsNewRepl[j].Date.ToShortDateString(),
-                            EndRepair.Date.ToShortDateString(),
+                            (EndRepair <= EndDate ? EndRepair : EndDate).Date.ToShortDateString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorID"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["CarrierUseID"].ToString(),

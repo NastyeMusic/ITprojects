@@ -33,13 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceMastersRepairsForm));
             this.Close_button = new System.Windows.Forms.Button();
             this.Carriers_dataGridView = new System.Windows.Forms.DataGridView();
-            this.ReloadCarriers_button = new System.Windows.Forms.Button();
-            this.SearchCarrier_textBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
-            this.Search_button = new System.Windows.Forms.Button();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModelColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +47,11 @@
             this.WorkColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BeginDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReloadCarriers_button = new System.Windows.Forms.Button();
+            this.SearchCarrier_textBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Direction_checkBox = new System.Windows.Forms.CheckBox();
+            this.Search_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Carriers_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,64 +121,6 @@
             this.Carriers_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Carriers_dataGridView.Size = new System.Drawing.Size(1022, 581);
             this.Carriers_dataGridView.TabIndex = 44;
-            // 
-            // ReloadCarriers_button
-            // 
-            this.ReloadCarriers_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ReloadCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
-            this.ReloadCarriers_button.Location = new System.Drawing.Point(1040, 60);
-            this.ReloadCarriers_button.Name = "ReloadCarriers_button";
-            this.ReloadCarriers_button.Size = new System.Drawing.Size(45, 35);
-            this.ReloadCarriers_button.TabIndex = 47;
-            this.ReloadCarriers_button.UseVisualStyleBackColor = true;
-            this.ReloadCarriers_button.Click += new System.EventHandler(this.ReloadCarriers_button_Click);
-            // 
-            // SearchCarrier_textBox
-            // 
-            this.SearchCarrier_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchCarrier_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchCarrier_textBox.Location = new System.Drawing.Point(94, 9);
-            this.SearchCarrier_textBox.Name = "SearchCarrier_textBox";
-            this.SearchCarrier_textBox.Size = new System.Drawing.Size(836, 24);
-            this.SearchCarrier_textBox.TabIndex = 43;
-            this.SearchCarrier_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchCarrier_textBox_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 18);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Поиск ТС";
-            // 
-            // Direction_checkBox
-            // 
-            this.Direction_checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Direction_checkBox.AutoSize = true;
-            this.Direction_checkBox.Checked = true;
-            this.Direction_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Direction_checkBox.Location = new System.Drawing.Point(1040, 13);
-            this.Direction_checkBox.Name = "Direction_checkBox";
-            this.Direction_checkBox.Size = new System.Drawing.Size(102, 21);
-            this.Direction_checkBox.TabIndex = 46;
-            this.Direction_checkBox.Text = "поиск вниз";
-            this.Direction_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // Search_button
-            // 
-            this.Search_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Search_button.Location = new System.Drawing.Point(936, 6);
-            this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(98, 30);
-            this.Search_button.TabIndex = 45;
-            this.Search_button.Text = "Найти";
-            this.Search_button.UseVisualStyleBackColor = true;
-            this.Search_button.Click += new System.EventHandler(this.Search_button_Click);
             // 
             // IDColumn
             // 
@@ -266,6 +209,64 @@
             this.EndDateColumn.ReadOnly = true;
             this.EndDateColumn.Width = 102;
             // 
+            // ReloadCarriers_button
+            // 
+            this.ReloadCarriers_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReloadCarriers_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadCarriers_button.Image = global::Автошкола.Properties.Resources._288px_Crystal_128_reload_Little2;
+            this.ReloadCarriers_button.Location = new System.Drawing.Point(1040, 60);
+            this.ReloadCarriers_button.Name = "ReloadCarriers_button";
+            this.ReloadCarriers_button.Size = new System.Drawing.Size(45, 35);
+            this.ReloadCarriers_button.TabIndex = 47;
+            this.ReloadCarriers_button.UseVisualStyleBackColor = true;
+            this.ReloadCarriers_button.Click += new System.EventHandler(this.ReloadCarriers_button_Click);
+            // 
+            // SearchCarrier_textBox
+            // 
+            this.SearchCarrier_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchCarrier_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchCarrier_textBox.Location = new System.Drawing.Point(94, 9);
+            this.SearchCarrier_textBox.Name = "SearchCarrier_textBox";
+            this.SearchCarrier_textBox.Size = new System.Drawing.Size(836, 24);
+            this.SearchCarrier_textBox.TabIndex = 43;
+            this.SearchCarrier_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchCarrier_textBox_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 18);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Поиск ТС";
+            // 
+            // Direction_checkBox
+            // 
+            this.Direction_checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Direction_checkBox.AutoSize = true;
+            this.Direction_checkBox.Checked = true;
+            this.Direction_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Direction_checkBox.Location = new System.Drawing.Point(1040, 13);
+            this.Direction_checkBox.Name = "Direction_checkBox";
+            this.Direction_checkBox.Size = new System.Drawing.Size(102, 21);
+            this.Direction_checkBox.TabIndex = 46;
+            this.Direction_checkBox.Text = "поиск вниз";
+            this.Direction_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // Search_button
+            // 
+            this.Search_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Search_button.Location = new System.Drawing.Point(936, 6);
+            this.Search_button.Name = "Search_button";
+            this.Search_button.Size = new System.Drawing.Size(98, 30);
+            this.Search_button.TabIndex = 45;
+            this.Search_button.Text = "Найти";
+            this.Search_button.UseVisualStyleBackColor = true;
+            this.Search_button.Click += new System.EventHandler(this.Search_button_Click);
+            // 
             // ServiceMastersRepairsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -278,6 +279,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Direction_checkBox);
             this.Controls.Add(this.Search_button);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 679);
             this.Name = "ServiceMastersRepairsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

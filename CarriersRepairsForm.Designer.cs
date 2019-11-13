@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarriersRepairsForm));
             this.Edit_button = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
             this.Add_button = new System.Windows.Forms.Button();
@@ -268,6 +269,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Direction_checkBox);
             this.Controls.Add(this.Search_button);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1205, 679);
             this.Name = "CarriersRepairsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

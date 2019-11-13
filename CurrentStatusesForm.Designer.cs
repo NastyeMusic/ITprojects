@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CurrentStatusesForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ReloadCarriers_button = new System.Windows.Forms.Button();
             this.ReloadCarriersStatuses_button = new System.Windows.Forms.Button();
@@ -456,6 +457,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.Close_button);
             this.Controls.Add(this.groupBox3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 679);
             this.Name = "CurrentStatusesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

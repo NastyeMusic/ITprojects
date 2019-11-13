@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Группы");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Группы");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.путьКБДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,14 +115,14 @@
             // путьКБДToolStripMenuItem
             // 
             this.путьКБДToolStripMenuItem.Name = "путьКБДToolStripMenuItem";
-            this.путьКБДToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.путьКБДToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.путьКБДToolStripMenuItem.Text = "Путь к БД";
             this.путьКБДToolStripMenuItem.Click += new System.EventHandler(this.путьКБДToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -387,10 +388,10 @@
             this.Groups_treeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Groups_treeView.Location = new System.Drawing.Point(12, 73);
             this.Groups_treeView.Name = "Groups_treeView";
-            treeNode1.Name = "Groups";
-            treeNode1.Text = "Группы";
+            treeNode2.Name = "Groups";
+            treeNode2.Text = "Группы";
             this.Groups_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.Groups_treeView.Size = new System.Drawing.Size(231, 547);
             this.Groups_treeView.TabIndex = 3;
             this.Groups_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Groups_treeView_AfterSelect);
@@ -402,15 +403,14 @@
             this.Students_dGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Students_dGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Students_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Students_dGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Students_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Students_dGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
@@ -421,21 +421,21 @@
             this.CarrierUseColumn,
             this.InstructorColumn,
             this.CarrierColumn});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Students_dGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Students_dGV.DefaultCellStyle = dataGridViewCellStyle5;
             this.Students_dGV.Location = new System.Drawing.Point(249, 73);
             this.Students_dGV.MultiSelect = false;
             this.Students_dGV.Name = "Students_dGV";
             this.Students_dGV.ReadOnly = true;
             this.Students_dGV.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Students_dGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.Students_dGV.RowTemplate.Height = 24;
             this.Students_dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Students_dGV.Size = new System.Drawing.Size(926, 547);
@@ -455,14 +455,14 @@
             this.FIOColumn.HeaderText = "ФИО";
             this.FIOColumn.Name = "FIOColumn";
             this.FIOColumn.ReadOnly = true;
-            this.FIOColumn.Width = 73;
+            this.FIOColumn.Width = 154;
             // 
             // PhoneNumberColumn
             // 
             this.PhoneNumberColumn.HeaderText = "Номер телефона";
             this.PhoneNumberColumn.Name = "PhoneNumberColumn";
             this.PhoneNumberColumn.ReadOnly = true;
-            this.PhoneNumberColumn.Width = 145;
+            this.PhoneNumberColumn.Width = 154;
             // 
             // RetrainingColumn
             // 
@@ -480,7 +480,7 @@
             this.GroupColumn.ReadOnly = true;
             this.GroupColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.GroupColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.GroupColumn.Width = 85;
+            this.GroupColumn.Width = 154;
             // 
             // CarrierUseColumn
             // 
@@ -496,7 +496,7 @@
             this.InstructorColumn.Name = "InstructorColumn";
             this.InstructorColumn.ReadOnly = true;
             this.InstructorColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.InstructorColumn.Width = 118;
+            this.InstructorColumn.Width = 154;
             // 
             // CarrierColumn
             // 
@@ -504,7 +504,7 @@
             this.CarrierColumn.Name = "CarrierColumn";
             this.CarrierColumn.ReadOnly = true;
             this.CarrierColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarrierColumn.Width = 57;
+            this.CarrierColumn.Width = 154;
             // 
             // Direction_checkBox
             // 
@@ -558,6 +558,7 @@
             this.Controls.Add(this.SearchStudent_textBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1024, 679);
             this.Name = "MainForm";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutProgramForm));
             this.label1 = new System.Windows.Forms.Label();
             this.Close_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -39,7 +40,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(445, 350);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Программист:\r\nАнастасия Ларина\r\n\r\nТестировщик:\r\nЕвгений Размыслов\r\n\r\n©\r\n2019";
+            this.label1.Text = "Работа по дисциплине \"Управление IT-проектами\"\r\nгр. 8ИВТ-81 АлтГТУ\r\n\r\nПрограммист" +
+    ":\r\nАнастасия Ларина\r\n\r\nТестировщик:\r\nЕвгений Размыслов\r\n\r\n©\r\n2019";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Close_button
@@ -63,6 +65,7 @@
             this.Controls.Add(this.Close_button);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(487, 469);
             this.MinimizeBox = false;

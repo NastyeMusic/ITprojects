@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TheoryTeachersScheduleForm));
             this.SelectedTheoryTeacher_comboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TheoryTeachersSchedule_dGV = new System.Windows.Forms.DataGridView();
@@ -188,6 +189,7 @@
             this.Controls.Add(this.TheoryTeachersSchedule_dGV);
             this.Controls.Add(this.SelectedTheoryTeacher_comboBox);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 685);
             this.Name = "TheoryTeachersScheduleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

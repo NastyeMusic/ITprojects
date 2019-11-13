@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarriersStatusesForm));
             this.Edit_button = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
             this.Add_button = new System.Windows.Forms.Button();
@@ -174,6 +175,7 @@
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Add_button);
             this.Controls.Add(this.CarriersStatuses_dataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 679);
             this.Name = "CarriersStatusesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

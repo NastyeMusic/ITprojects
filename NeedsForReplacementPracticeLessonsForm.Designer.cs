@@ -31,9 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NeedsForReplacementPracticeLessonsForm));
             this.Close_button = new System.Windows.Forms.Button();
             this.PracticeLessonsOfStudent_dGV = new System.Windows.Forms.DataGridView();
-            this.Edit_button = new System.Windows.Forms.Button();
             this.IDPLColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppointedDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppointedTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +42,7 @@
             this.CarrierColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.FactDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FactTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PracticeLessonsOfStudent_dGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,19 +107,6 @@
             this.PracticeLessonsOfStudent_dGV.TabIndex = 59;
             this.PracticeLessonsOfStudent_dGV.SelectionChanged += new System.EventHandler(this.PracticeLessonsOfStudent_dGV_SelectionChanged);
             // 
-            // Edit_button
-            // 
-            this.Edit_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Edit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Edit_button.Location = new System.Drawing.Point(1031, 92);
-            this.Edit_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Edit_button.Name = "Edit_button";
-            this.Edit_button.Size = new System.Drawing.Size(144, 47);
-            this.Edit_button.TabIndex = 58;
-            this.Edit_button.Text = "Редактировать выбранное";
-            this.Edit_button.UseVisualStyleBackColor = true;
-            this.Edit_button.Click += new System.EventHandler(this.Edit_button_Click);
-            // 
             // IDPLColumn
             // 
             this.IDPLColumn.HeaderText = "Код";
@@ -182,6 +170,19 @@
             this.FactTimeColumn.ReadOnly = true;
             this.FactTimeColumn.Width = 162;
             // 
+            // Edit_button
+            // 
+            this.Edit_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Edit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Edit_button.Location = new System.Drawing.Point(1031, 92);
+            this.Edit_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Edit_button.Name = "Edit_button";
+            this.Edit_button.Size = new System.Drawing.Size(144, 47);
+            this.Edit_button.TabIndex = 58;
+            this.Edit_button.Text = "Редактировать выбранное";
+            this.Edit_button.UseVisualStyleBackColor = true;
+            this.Edit_button.Click += new System.EventHandler(this.Edit_button_Click);
+            // 
             // NeedsForReplacementPracticeLessonsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -190,6 +191,7 @@
             this.Controls.Add(this.Close_button);
             this.Controls.Add(this.PracticeLessonsOfStudent_dGV);
             this.Controls.Add(this.Edit_button);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1205, 459);
             this.Name = "NeedsForReplacementPracticeLessonsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

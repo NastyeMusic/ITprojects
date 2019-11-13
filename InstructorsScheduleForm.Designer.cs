@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructorsScheduleForm));
             this.SelectedInstructor_comboBox = new System.Windows.Forms.ComboBox();
             this.InstructorsSchedule_dGV = new System.Windows.Forms.DataGridView();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -200,6 +201,7 @@
             this.Controls.Add(this.SelectedInstructor_comboBox);
             this.Controls.Add(this.InstructorsSchedule_dGV);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 685);
             this.Name = "InstructorsScheduleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
