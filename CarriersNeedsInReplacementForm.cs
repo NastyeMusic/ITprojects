@@ -55,8 +55,14 @@ namespace Автошкола
                 bool NowIsNFRDate = false;
                 while (TempBeginDate <= (EndRepair <= EndDate? EndRepair : EndDate))
                 {
+                    // проверяем, есть ли во время ремонта занятия
+                    AutoschoolDataSet.PracticeLessonsDataTable PracticeLessonsDT = BusinessLogic.ReadPracticeLessonsByCarrierUseID_AND_DatesBeginEnd(CarrierUseID, TempBeginDate, (EndRepair <= EndDate ? EndRepair : EndDate)).PracticeLessons;
+                    // если нет занятий, но не рассматриваем этот период
+                    if (PracticeLessonsDT.Rows.Count == 0)
+                        break;
+
                     // в дату TempBeginDate у CarriersUses отбираем замены
-                    AutoschoolDataSet.ReplacementsCarriersDataTable ReplacementsCarriersDT = BusinessLogic.ReadReplacementsCarriersByBeginDateANDCarrierUseID(TempBeginDate, CarrierUseID).ReplacementsCarriers;
+                        AutoschoolDataSet.ReplacementsCarriersDataTable ReplacementsCarriersDT = BusinessLogic.ReadReplacementsCarriersByBeginDateANDCarrierUseID(TempBeginDate, CarrierUseID).ReplacementsCarriers;
                     for (int j = 0; j < ReplacementsCarriersDT.Rows.Count; j++)
                     {
                         DateTime EndDateInRow = Convert.ToDateTime(ReplacementsCarriersDT.Rows[j]["DateEndReplacement"].ToString()).Date;
