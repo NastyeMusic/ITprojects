@@ -381,6 +381,12 @@ namespace Автошкола
             }
         }
 
+        private void Work_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Work_textBox.TextLength - Work_textBox.SelectionLength) >= 255 && (char)e.KeyChar != (Char)Keys.Back)
+                e.Handled = true;
+        }
+
         void ChangeSelectedMaster()
         {
             if (Masters_dataGridView.RowCount > 0 && Masters_dataGridView.SelectedRows.Count > 0)
