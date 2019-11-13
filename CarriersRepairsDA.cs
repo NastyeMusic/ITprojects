@@ -90,7 +90,7 @@ namespace Автошкола
         public void ReadByCarrierID_AND_CrossInBeginEndDates(AutoschoolDataSet dataSet, AbstractConnection conn, AbstractTransaction tr, int CarrierID, DateTime BeginDate, DateTime EndDate)
         {
             dataAdapter = new SqlDataAdapter();
-            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM CarriersRepairs WHERE Carrier = @CarrierID AND (BeginDate >= @BeginDate OR EndDate <= @EndDate)", conn.getConnection(), tr.getTransaction());
+            dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM CarriersRepairs WHERE Carrier = @CarrierID AND ((BeginDate <= @BeginDate AND @BeginDate <= EndDate) OR (EndDate >= @EndDate AND @EndDate >= BeginDate))", conn.getConnection(), tr.getTransaction());
             dataAdapter.SelectCommand.Parameters.AddWithValue("@CarrierID", CarrierID);
             dataAdapter.SelectCommand.Parameters.AddWithValue("@BeginDate", BeginDate);
             dataAdapter.SelectCommand.Parameters.AddWithValue("@EndDate", EndDate);

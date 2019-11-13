@@ -146,8 +146,8 @@ namespace Автошкола
                             CarriersUsesWithRepairingCarriers.Rows[i]["Brand"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["Model"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["StateNumber"].ToString(),
-                            BeginsNewRepl[j].Date,
-                            EndsNewRepl[j].Date,
+                            BeginsNewRepl[j].Date.ToShortDateString(),
+                            EndsNewRepl[j].Date.ToShortDateString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorID"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["CarrierUseID"].ToString(),
@@ -160,8 +160,8 @@ namespace Автошкола
                             CarriersUsesWithRepairingCarriers.Rows[i]["Brand"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["Model"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["StateNumber"].ToString(),
-                            BeginsNewRepl[j].Date,
-                            EndRepair.Date,
+                            BeginsNewRepl[j].Date.ToShortDateString(),
+                            EndRepair.Date.ToShortDateString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorID"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["InstructorName"].ToString(),
                             CarriersUsesWithRepairingCarriers.Rows[i]["CarrierUseID"].ToString(),
@@ -188,18 +188,20 @@ namespace Автошкола
                     if (CarriersToReplacement_dataGridView.SelectedRows[0].Cells["ReasonColumn"].Value.ToString() == "Нет замены у основного ТС")
                     {
                         AddReplacement_button.Enabled = true;
-                        ChangePractiseLessons_button.Enabled = false;
+                        EditReplacement_button.Enabled = false;
                     }
                     else
                     {
                         AddReplacement_button.Enabled = false;
-                        ChangePractiseLessons_button.Enabled = true;
+                        EditReplacement_button.Enabled = true;
                     }
+                    ChangePractiseLessons_button.Enabled = true;
                 }
                 else
                 {
                     AddReplacement_button.Enabled = false;
                     ChangePractiseLessons_button.Enabled = false;
+                    EditReplacement_button.Enabled = false;
                 }
             }
         }
@@ -222,8 +224,8 @@ namespace Автошкола
 
         private void ChangePractiseLessons_button_Click(object sender, EventArgs e)
         {
-            DateTime Begin = Convert.ToDateTime(DateBegin_dateTimePicker.Text).Date;
-            DateTime End = Convert.ToDateTime(DateEnd_dateTimePicker.Text).Date;
+            DateTime Begin = Convert.ToDateTime(CarriersToReplacement_dataGridView.SelectedRows[0].Cells["DateBeginRepair"].Value).Date;
+            DateTime End = Convert.ToDateTime(CarriersToReplacement_dataGridView.SelectedRows[0].Cells["DateEndRepair"].Value).Date;
             if (!NeedsForReplacementPracticeLessonsFormOpened)
             {
                 NeedsForReplacementPracticeLessonsForm = new NeedsForReplacementPracticeLessonsForm(Begin, End);

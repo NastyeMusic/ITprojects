@@ -227,7 +227,7 @@
             this.MinimumSize = new System.Drawing.Size(1024, 679);
             this.Name = "TheoryTeachersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TheoryTeachersForm";
+            this.Text = "Преподаватели теории";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TheoryTeachersForm_FormClosing);
             this.Load += new System.EventHandler(this.TheoryTeachersForm_Load);
             this.VisibleChanged += new System.EventHandler(this.TheoryTeachersForm_VisibleChanged);

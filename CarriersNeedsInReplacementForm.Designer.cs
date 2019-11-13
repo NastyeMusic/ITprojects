@@ -30,14 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CarriersToReplacement_dataGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DateBegin_dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.DateEnd_dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Get_button = new System.Windows.Forms.Button();
-            this.AddReplacement_button = new System.Windows.Forms.Button();
-            this.ChangePractiseLessons_button = new System.Windows.Forms.Button();
-            this.EditReplacement_button = new System.Windows.Forms.Button();
             this.CarrierIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModelColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +41,14 @@
             this.CarrierUseIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReasonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReplacementIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DateBegin_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DateEnd_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Get_button = new System.Windows.Forms.Button();
+            this.AddReplacement_button = new System.Windows.Forms.Button();
+            this.ChangePractiseLessons_button = new System.Windows.Forms.Button();
+            this.EditReplacement_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CarriersToReplacement_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,88 +85,6 @@
             this.CarriersToReplacement_dataGridView.Size = new System.Drawing.Size(1006, 551);
             this.CarriersToReplacement_dataGridView.TabIndex = 35;
             this.CarriersToReplacement_dataGridView.SelectionChanged += new System.EventHandler(this.CarriersToReplacement_dataGridView_SelectionChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 18);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Начальная дата";
-            // 
-            // DateBegin_dateTimePicker
-            // 
-            this.DateBegin_dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DateBegin_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateBegin_dateTimePicker.Location = new System.Drawing.Point(150, 12);
-            this.DateBegin_dateTimePicker.Name = "DateBegin_dateTimePicker";
-            this.DateBegin_dateTimePicker.Size = new System.Drawing.Size(200, 24);
-            this.DateBegin_dateTimePicker.TabIndex = 37;
-            // 
-            // DateEnd_dateTimePicker
-            // 
-            this.DateEnd_dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DateEnd_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateEnd_dateTimePicker.Location = new System.Drawing.Point(523, 12);
-            this.DateEnd_dateTimePicker.Name = "DateEnd_dateTimePicker";
-            this.DateEnd_dateTimePicker.Size = new System.Drawing.Size(200, 24);
-            this.DateEnd_dateTimePicker.TabIndex = 39;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(401, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 18);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Конечная дата";
-            // 
-            // Get_button
-            // 
-            this.Get_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Get_button.Location = new System.Drawing.Point(788, 7);
-            this.Get_button.Name = "Get_button";
-            this.Get_button.Size = new System.Drawing.Size(107, 33);
-            this.Get_button.TabIndex = 40;
-            this.Get_button.Text = "Получить";
-            this.Get_button.UseVisualStyleBackColor = true;
-            this.Get_button.Click += new System.EventHandler(this.Get_button_Click);
-            // 
-            // AddReplacement_button
-            // 
-            this.AddReplacement_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddReplacement_button.Location = new System.Drawing.Point(1024, 42);
-            this.AddReplacement_button.Name = "AddReplacement_button";
-            this.AddReplacement_button.Size = new System.Drawing.Size(151, 78);
-            this.AddReplacement_button.TabIndex = 41;
-            this.AddReplacement_button.Text = "Временно заменить выбранное ТС";
-            this.AddReplacement_button.UseVisualStyleBackColor = true;
-            this.AddReplacement_button.Click += new System.EventHandler(this.AddReplacement_button_Click);
-            // 
-            // ChangePractiseLessons_button
-            // 
-            this.ChangePractiseLessons_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ChangePractiseLessons_button.Location = new System.Drawing.Point(1024, 210);
-            this.ChangePractiseLessons_button.Name = "ChangePractiseLessons_button";
-            this.ChangePractiseLessons_button.Size = new System.Drawing.Size(151, 78);
-            this.ChangePractiseLessons_button.TabIndex = 42;
-            this.ChangePractiseLessons_button.Text = "Перенести назначенные на эти дни занятия";
-            this.ChangePractiseLessons_button.UseVisualStyleBackColor = true;
-            this.ChangePractiseLessons_button.Click += new System.EventHandler(this.ChangePractiseLessons_button_Click);
-            // 
-            // EditReplacement_button
-            // 
-            this.EditReplacement_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditReplacement_button.Location = new System.Drawing.Point(1024, 126);
-            this.EditReplacement_button.Name = "EditReplacement_button";
-            this.EditReplacement_button.Size = new System.Drawing.Size(151, 78);
-            this.EditReplacement_button.TabIndex = 43;
-            this.EditReplacement_button.Text = "Редактировать замену выбранного ТС";
-            this.EditReplacement_button.UseVisualStyleBackColor = true;
-            this.EditReplacement_button.Click += new System.EventHandler(this.EditReplacement_button_Click);
             // 
             // CarrierIDColumn
             // 
@@ -249,10 +167,95 @@
             this.ReplacementIDColumn.Visible = false;
             this.ReplacementIDColumn.Width = 133;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 18);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Начальная дата";
+            // 
+            // DateBegin_dateTimePicker
+            // 
+            this.DateBegin_dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DateBegin_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateBegin_dateTimePicker.Location = new System.Drawing.Point(150, 12);
+            this.DateBegin_dateTimePicker.Name = "DateBegin_dateTimePicker";
+            this.DateBegin_dateTimePicker.Size = new System.Drawing.Size(200, 24);
+            this.DateBegin_dateTimePicker.TabIndex = 37;
+            // 
+            // DateEnd_dateTimePicker
+            // 
+            this.DateEnd_dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DateEnd_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateEnd_dateTimePicker.Location = new System.Drawing.Point(523, 12);
+            this.DateEnd_dateTimePicker.Name = "DateEnd_dateTimePicker";
+            this.DateEnd_dateTimePicker.Size = new System.Drawing.Size(200, 24);
+            this.DateEnd_dateTimePicker.TabIndex = 39;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(401, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 18);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Конечная дата";
+            // 
+            // Get_button
+            // 
+            this.Get_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Get_button.Location = new System.Drawing.Point(788, 7);
+            this.Get_button.Name = "Get_button";
+            this.Get_button.Size = new System.Drawing.Size(107, 33);
+            this.Get_button.TabIndex = 40;
+            this.Get_button.Text = "Получить";
+            this.Get_button.UseVisualStyleBackColor = true;
+            this.Get_button.Click += new System.EventHandler(this.Get_button_Click);
+            // 
+            // AddReplacement_button
+            // 
+            this.AddReplacement_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddReplacement_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddReplacement_button.Location = new System.Drawing.Point(1024, 42);
+            this.AddReplacement_button.Name = "AddReplacement_button";
+            this.AddReplacement_button.Size = new System.Drawing.Size(151, 78);
+            this.AddReplacement_button.TabIndex = 41;
+            this.AddReplacement_button.Text = "Временно заменить выбранное ТС";
+            this.AddReplacement_button.UseVisualStyleBackColor = true;
+            this.AddReplacement_button.Click += new System.EventHandler(this.AddReplacement_button_Click);
+            // 
+            // ChangePractiseLessons_button
+            // 
+            this.ChangePractiseLessons_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangePractiseLessons_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangePractiseLessons_button.Location = new System.Drawing.Point(1024, 210);
+            this.ChangePractiseLessons_button.Name = "ChangePractiseLessons_button";
+            this.ChangePractiseLessons_button.Size = new System.Drawing.Size(151, 78);
+            this.ChangePractiseLessons_button.TabIndex = 42;
+            this.ChangePractiseLessons_button.Text = "Перенести назначенные на эти дни занятия";
+            this.ChangePractiseLessons_button.UseVisualStyleBackColor = true;
+            this.ChangePractiseLessons_button.Click += new System.EventHandler(this.ChangePractiseLessons_button_Click);
+            // 
+            // EditReplacement_button
+            // 
+            this.EditReplacement_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.EditReplacement_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditReplacement_button.Location = new System.Drawing.Point(1024, 126);
+            this.EditReplacement_button.Name = "EditReplacement_button";
+            this.EditReplacement_button.Size = new System.Drawing.Size(151, 78);
+            this.EditReplacement_button.TabIndex = 43;
+            this.EditReplacement_button.Text = "Редактировать замену выбранного ТС";
+            this.EditReplacement_button.UseVisualStyleBackColor = true;
+            this.EditReplacement_button.Click += new System.EventHandler(this.EditReplacement_button_Click);
+            // 
             // CarriersNeedsInReplacementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1187, 605);
             this.Controls.Add(this.EditReplacement_button);
             this.Controls.Add(this.ChangePractiseLessons_button);
@@ -265,6 +268,7 @@
             this.Controls.Add(this.CarriersToReplacement_dataGridView);
             this.MinimumSize = new System.Drawing.Size(1024, 47);
             this.Name = "CarriersNeedsInReplacementForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ТС, требующие замены из-за ремонта";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CarriersNeedsInRepairForm_FormClosing);
             this.Load += new System.EventHandler(this.CarriersNeedsInRepairForm_Load);

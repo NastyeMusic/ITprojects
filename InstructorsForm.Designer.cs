@@ -31,35 +31,35 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Close_button = new System.Windows.Forms.Button();
             this.Photo_pictureBox = new System.Windows.Forms.PictureBox();
             this.Reload_button = new System.Windows.Forms.Button();
             this.Instructors_dataGridView = new System.Windows.Forms.DataGridView();
-            this.SearchInstructor_textBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DirectionInstructor_checkBox = new System.Windows.Forms.CheckBox();
-            this.SearchInstructor_button = new System.Windows.Forms.Button();
-            this.SearchCarrier_textBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.DirectionCarrier_checkBox = new System.Windows.Forms.CheckBox();
-            this.SearchCarrier_button = new System.Windows.Forms.Button();
-            this.Carriers_dataGridView = new System.Windows.Forms.DataGridView();
             this.InstructorIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SurnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatronymicNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WorkStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categories_dataGridView = new System.Windows.Forms.DataGridView();
+            this.SearchInstructor_textBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DirectionInstructor_checkBox = new System.Windows.Forms.CheckBox();
+            this.SearchInstructor_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.Categories_dataGridView = new System.Windows.Forms.DataGridView();
             this.CategoryIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SearchCarrier_textBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DirectionCarrier_checkBox = new System.Windows.Forms.CheckBox();
+            this.SearchCarrier_button = new System.Windows.Forms.Button();
+            this.Carriers_dataGridView = new System.Windows.Forms.DataGridView();
             this.CarrierIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModelColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,8 +74,8 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Photo_pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Instructors_dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Carriers_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Categories_dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Carriers_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -198,6 +198,37 @@
             this.Instructors_dataGridView.TabIndex = 41;
             this.Instructors_dataGridView.SelectionChanged += new System.EventHandler(this.Instructors_dataGridView_SelectionChanged);
             // 
+            // InstructorIDColumn
+            // 
+            this.InstructorIDColumn.HeaderText = "Код";
+            this.InstructorIDColumn.Name = "InstructorIDColumn";
+            this.InstructorIDColumn.ReadOnly = true;
+            this.InstructorIDColumn.Visible = false;
+            // 
+            // SurnameColumn
+            // 
+            this.SurnameColumn.HeaderText = "Фамилия";
+            this.SurnameColumn.Name = "SurnameColumn";
+            this.SurnameColumn.ReadOnly = true;
+            // 
+            // FirstNameColumn
+            // 
+            this.FirstNameColumn.HeaderText = "Имя";
+            this.FirstNameColumn.Name = "FirstNameColumn";
+            this.FirstNameColumn.ReadOnly = true;
+            // 
+            // PatronymicNameColumn
+            // 
+            this.PatronymicNameColumn.HeaderText = "Отчество";
+            this.PatronymicNameColumn.Name = "PatronymicNameColumn";
+            this.PatronymicNameColumn.ReadOnly = true;
+            // 
+            // WorkStatusColumn
+            // 
+            this.WorkStatusColumn.HeaderText = "Рабочий статус";
+            this.WorkStatusColumn.Name = "WorkStatusColumn";
+            this.WorkStatusColumn.ReadOnly = true;
+            // 
             // SearchInstructor_textBox
             // 
             this.SearchInstructor_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -243,6 +274,78 @@
             this.SearchInstructor_button.Text = "Найти";
             this.SearchInstructor_button.UseVisualStyleBackColor = true;
             this.SearchInstructor_button.Click += new System.EventHandler(this.SearchInstructor_button_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(11, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 18);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Категории:";
+            // 
+            // Categories_dataGridView
+            // 
+            this.Categories_dataGridView.AllowUserToAddRows = false;
+            this.Categories_dataGridView.AllowUserToDeleteRows = false;
+            this.Categories_dataGridView.AllowUserToOrderColumns = true;
+            this.Categories_dataGridView.AllowUserToResizeColumns = false;
+            this.Categories_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Categories_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Categories_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.Categories_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Categories_dataGridView.ColumnHeadersVisible = false;
+            this.Categories_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CategoryIDColumn,
+            this.NameColumn});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Categories_dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Categories_dataGridView.Location = new System.Drawing.Point(3, 36);
+            this.Categories_dataGridView.MultiSelect = false;
+            this.Categories_dataGridView.Name = "Categories_dataGridView";
+            this.Categories_dataGridView.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Categories_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.Categories_dataGridView.RowHeadersVisible = false;
+            this.Categories_dataGridView.RowTemplate.Height = 24;
+            this.Categories_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Categories_dataGridView.Size = new System.Drawing.Size(170, 248);
+            this.Categories_dataGridView.TabIndex = 43;
+            this.Categories_dataGridView.SelectionChanged += new System.EventHandler(this.Categories_dataGridView_SelectionChanged);
+            // 
+            // CategoryIDColumn
+            // 
+            this.CategoryIDColumn.HeaderText = "Код";
+            this.CategoryIDColumn.Name = "CategoryIDColumn";
+            this.CategoryIDColumn.ReadOnly = true;
+            this.CategoryIDColumn.Visible = false;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Наименование";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
             // 
             // SearchCarrier_textBox
             // 
@@ -342,109 +445,6 @@
             this.Carriers_dataGridView.Size = new System.Drawing.Size(1003, 248);
             this.Carriers_dataGridView.TabIndex = 34;
             // 
-            // InstructorIDColumn
-            // 
-            this.InstructorIDColumn.HeaderText = "Код";
-            this.InstructorIDColumn.Name = "InstructorIDColumn";
-            this.InstructorIDColumn.ReadOnly = true;
-            this.InstructorIDColumn.Visible = false;
-            // 
-            // SurnameColumn
-            // 
-            this.SurnameColumn.HeaderText = "Фамилия";
-            this.SurnameColumn.Name = "SurnameColumn";
-            this.SurnameColumn.ReadOnly = true;
-            // 
-            // FirstNameColumn
-            // 
-            this.FirstNameColumn.HeaderText = "Имя";
-            this.FirstNameColumn.Name = "FirstNameColumn";
-            this.FirstNameColumn.ReadOnly = true;
-            // 
-            // PatronymicNameColumn
-            // 
-            this.PatronymicNameColumn.HeaderText = "Отчество";
-            this.PatronymicNameColumn.Name = "PatronymicNameColumn";
-            this.PatronymicNameColumn.ReadOnly = true;
-            // 
-            // WorkStatusColumn
-            // 
-            this.WorkStatusColumn.HeaderText = "Рабочий статус";
-            this.WorkStatusColumn.Name = "WorkStatusColumn";
-            this.WorkStatusColumn.ReadOnly = true;
-            // 
-            // Categories_dataGridView
-            // 
-            this.Categories_dataGridView.AllowUserToAddRows = false;
-            this.Categories_dataGridView.AllowUserToDeleteRows = false;
-            this.Categories_dataGridView.AllowUserToOrderColumns = true;
-            this.Categories_dataGridView.AllowUserToResizeColumns = false;
-            this.Categories_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Categories_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Categories_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.Categories_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Categories_dataGridView.ColumnHeadersVisible = false;
-            this.Categories_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CategoryIDColumn,
-            this.NameColumn});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Categories_dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Categories_dataGridView.Location = new System.Drawing.Point(3, 36);
-            this.Categories_dataGridView.MultiSelect = false;
-            this.Categories_dataGridView.Name = "Categories_dataGridView";
-            this.Categories_dataGridView.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Categories_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.Categories_dataGridView.RowHeadersVisible = false;
-            this.Categories_dataGridView.RowTemplate.Height = 24;
-            this.Categories_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Categories_dataGridView.Size = new System.Drawing.Size(170, 248);
-            this.Categories_dataGridView.TabIndex = 43;
-            this.Categories_dataGridView.SelectionChanged += new System.EventHandler(this.Categories_dataGridView_SelectionChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(11, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 18);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Категории:";
-            // 
-            // CategoryIDColumn
-            // 
-            this.CategoryIDColumn.HeaderText = "Код";
-            this.CategoryIDColumn.Name = "CategoryIDColumn";
-            this.CategoryIDColumn.ReadOnly = true;
-            this.CategoryIDColumn.Visible = false;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Наименование";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            // 
             // CarrierIDColumn
             // 
             this.CarrierIDColumn.HeaderText = "Код";
@@ -505,7 +505,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "InstructorsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InstructorsForm";
+            this.Text = "Инструктора";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InstructorsForm_FormClosing);
             this.Load += new System.EventHandler(this.InstructorsForm_Load);
             this.VisibleChanged += new System.EventHandler(this.InstructorsForm_VisibleChanged);
@@ -517,8 +517,8 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Photo_pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Instructors_dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Carriers_dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Categories_dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Carriers_dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
