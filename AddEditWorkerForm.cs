@@ -135,11 +135,11 @@ namespace Автошкола
                         FirstName_textBox.Focus();
                         throw new Exception("Не указано имя сотрудника");
                     }
-                    if (PatronymicName_textBox.Text.Trim() == "")
+                    /*if (PatronymicName_textBox.Text.Trim() == "")
                     {
                         PatronymicName_textBox.Focus();
                         throw new Exception("Не указано отчество сотрудника");
-                    }
+                    }*/
                     if (Post_comboBox.SelectedIndex == -1)
                     {
                         Post_comboBox.Focus();

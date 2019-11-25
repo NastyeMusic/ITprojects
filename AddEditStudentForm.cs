@@ -147,11 +147,11 @@ namespace Автошкола
                         FirstName_textBox.Focus();
                         throw new Exception("Не указано имя студента");
                     }
-                    if (PatronymicName_textBox.Text.Trim() == "")
+                    /*if (PatronymicName_textBox.Text.Trim() == "")
                     {
                         PatronymicName_textBox.Focus();
                         throw new Exception("Не указано отчество студента");
-                    }
+                    }*/
                     if (PhoneNumber_maskedTextBox.Text.Trim() == "+7 (   )    -")
                     {
                         PhoneNumber_maskedTextBox.Focus();
