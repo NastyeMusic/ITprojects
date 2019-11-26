@@ -202,7 +202,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -232,7 +233,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
@@ -264,7 +266,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -296,7 +299,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -328,7 +332,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -361,7 +366,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -390,7 +396,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
@@ -421,7 +428,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -452,7 +460,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -483,7 +492,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -514,7 +524,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -545,7 +556,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -573,7 +585,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -597,7 +610,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данного мастера сервиса невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления мастера сервиса");
                 else
@@ -626,7 +640,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -654,7 +669,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -678,7 +694,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данного инструктора невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления инструктора");
                 else
@@ -707,7 +724,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -734,7 +752,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -757,7 +776,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данную трансмиссию невозможно удалить, поскольку на неее имеются ссылки в других таблицах", "Ошибка удаления трансмиссии");
                 else
@@ -790,7 +810,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -816,7 +837,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данное ТС невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления ТС");
                 else
@@ -847,7 +869,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -875,7 +898,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -902,7 +926,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -925,7 +950,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данный статус ТС невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления статуса ТС");
                 else
@@ -953,7 +979,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -986,7 +1013,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1015,7 +1043,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данную связку инструктора и ТС невозможно удалить, поскольку на нее имеются ссылки в других таблицах", "Ошибка удаления связки инструктора и ТС");
                 else
@@ -1049,7 +1078,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1080,7 +1110,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1111,7 +1142,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1141,7 +1173,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1167,7 +1200,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данную связку инструктора и категории невозможно удалить, поскольку на нее имеются ссылки в других таблицах", "Ошибка удаления связки инструктора и категории");
                 else
@@ -1198,7 +1232,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1226,7 +1261,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1254,7 +1290,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1281,7 +1318,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1304,7 +1342,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данную категорию невозможно удалить, поскольку на нее имеются ссылки в других таблицах", "Ошибка удаления категории");
                 else
@@ -1343,7 +1382,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1375,7 +1415,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данного курсанта невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления курсанта");
                 else
@@ -1425,7 +1466,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1459,7 +1501,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1489,7 +1532,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1515,7 +1559,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данную группу невозможно удалить, поскольку на нее имеются ссылки в других таблицах", "Ошибка удаления группы");
                 else
@@ -1546,7 +1591,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1574,7 +1620,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1601,7 +1648,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1624,7 +1672,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message == "Конфликт инструкции DELETE с ограничением REFERENCE \"TheoryLessons_Auditoriums\". Конфликт произошел в базе данных \"AutoschoolDataBase\", таблица \"dbo.TheoryLessons\", column 'Auditorium'.\r\nВыполнение данной инструкции было прервано.")
                     MessageBox.Show("Данную аудиторию невозможно удалить, поскольку в ней проходят занятия", "Ошибка удаления аудитории");
                 else
@@ -1654,7 +1703,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1677,7 +1727,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данный рабочий статус невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления рабочего статуса");
                 else
@@ -1717,7 +1768,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1750,7 +1802,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
@@ -1785,7 +1838,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1820,7 +1874,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1848,7 +1903,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1872,7 +1928,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Данного преподавателя теории невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления преподавателя теории");
                 else
@@ -1901,7 +1958,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1933,7 +1991,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -1961,7 +2020,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка записи в базу данных");
                 //throw e;
             }
@@ -1991,7 +2051,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2021,7 +2082,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2051,7 +2113,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2162,7 +2225,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2200,7 +2264,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2233,7 +2298,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2265,7 +2331,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2297,7 +2364,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2324,7 +2392,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 if (e.Message.StartsWith("Конфликт инструкции DELETE с ограничением REFERENCE"))
                     MessageBox.Show("Сотрудника невозможно удалить, поскольку на него имеются ссылки в других таблицах", "Ошибка удаления сотрудника");
                 else
@@ -2367,7 +2436,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2396,7 +2466,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2425,7 +2496,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2458,7 +2530,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2496,7 +2569,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2522,7 +2596,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2551,7 +2626,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2590,7 +2666,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2623,7 +2700,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2662,7 +2740,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }
@@ -2695,7 +2774,8 @@ namespace Автошкола
             }
             catch (Exception e)
             {
-                abstrTr.Rollback();
+                if (e.Message != "Недопустимая операция. Подключение закрыто.")
+                    abstrTr.Rollback();
                 MessageBox.Show(e.Message, "Ошибка чтения из базы данных");
                 //throw e;
             }

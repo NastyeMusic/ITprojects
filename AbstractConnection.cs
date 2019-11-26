@@ -27,13 +27,14 @@ namespace Автошкола
             catch
             {
                 //MessageBox.Show("Ошибка при открытии соединения с БД", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DialogResult result = MessageBox.Show("Произошла ошибка при открытии соединения с БД. Хотите изменить параметры подключения к БД?", "Ошибка подключения БД", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Произошла ошибка при открытии соединения с БД. Хотите изменить параметры подключения к БД?", "Ошибка подключения к БД", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     PathToBDForm PathToBDForm = new PathToBDForm();
                     PathToBDForm.ShowDialog();
                     if (PathToBDForm.DialogResult == DialogResult.OK)
                     {
+                        conn = new SqlConnection(ConnectionFactory.getConnection().conn.ConnectionString);
                         goto CONNTOBD;
                     }
                 }

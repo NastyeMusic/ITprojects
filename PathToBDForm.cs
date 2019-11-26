@@ -29,6 +29,8 @@ namespace Автошкола
         {
             Properties.Settings.Default.ConnectionString = builder.ConnectionString;
             Properties.Settings.Default.Save();
+            //Properties.Settings.Default.Upgrade();
+            Properties.Settings.Default.Reload();
         }
 
         private void PathToBDForm_Load(object sender, EventArgs e)
